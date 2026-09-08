@@ -1,0 +1,256 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { lineAccent, site } from '../../config';
+
+const lineas = (await getCollection('lineas')).sort((a, b) => a.data.order - b.data.order);
+const brands = (await getCollection('brands')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+const products = (await getCollection('products')).sort((a, b) =>
+  a.data.name.localeCompare(b.data.name, 'es')
+);
+
+const brandName = new Map(brands.map((b) => [b.id, b.data.name]));
+
+
+// Subcategorías reales, agrupadas por línea para poder ocultarlas al filtrar.
+const subs = lineas.flatMap((l) =>
+  l.data.subcategories.map((s) => ({ ...s, linea: l.id }))
+);
+---
+
+<Base
+  title="Catálogo de productos"
+  description={`Los ${products.length} productos que distribuye Districo S.A.: alimento para mascotas, arenas sanitarias, cuidado animal y snacks.`}
+>
+  <section class="head">
+    <div class="container">
+      <span class="kicker kicker--accent">Catálogo</span>
+      <h1 class="title-xl">Productos</h1>
+      <p class="lead">
+        {products.length} productos de {brands.length} marcas. Filtrá por línea, marca o
+        subcategoría; el catálogo se actualiza sin recargar la página.
+      </p>
+    </div>
+  </section>
+
+  <section class="filters" aria-label="Filtros del catálogo">
+    <div class="container filters__inner">
+      <div class="filters__lines" role="group" aria-label="Línea de negocio">
+        <button class="chip is-on" data-filter-linea="" type="button">Todas</button>
+        {lineas.map((l) => (
+          <button
+            class="chip"
+            type="button"
+            data-filter-linea={l.id}
+            style={`--chip:${lineAccent(l.id).color};--chip-fg:${lineAccent(l.id).text}`}
+          >
+            {l.data.name}
+          </button>
+        ))}
+      </div>
+
+      <div class="filters__selects">
+        <label class="field">
+          <span>Marca</span>
+          <select id="f-marca">
+            <option value="">Todas las marcas</option>
+            {brands.map((b) => <option value={b.id}>{b.data.name}</option>)}
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Subcategoría</span>
+          <select id="f-sub">
+            <option value="">Todas</option>
+            {subs.map((s) => (
+              <option value={s.name} data-linea={s.linea}>{s.name}</option>
+            ))}
+          </select>
+        </label>
+
+        <label class="field field--search">
+          <span>Buscar</span>
+          <input id="f-q" type="search" placeholder="Nombre o marca…" autocomplete="off" />
+        </label>
+
+        <button class="chip chip--reset" id="f-reset" type="button">Limpiar</button>
+      </div>
+
+      <p class="filters__count" aria-live="polite">
+        <strong id="f-count">{products.length}</strong> productos
+      </p>
+    </div>
+  </section>
+
+  <section class="grid-wrap">
+    <div class="container">
+      <ul class="grid" id="grid">
+        {products.map((p) => (
+          <li>
+            <ProductCard
+              product={p}
+              brandName={p.data.brand ? brandName.get(p.data.brand.id) : undefined}
+            />
+          </li>
+        ))}
+      </ul>
+      <p class="empty" id="empty" hidden>
+        No hay productos con esos filtros. <button class="linkish" id="f-reset2" type="button">Ver todo el catálogo</button>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Filtrado en el cliente sin framework: los 156 productos ya están en el HTML
+  // y solo se alternan con el atributo hidden. Cero hidratación, cero dependencias.
+  const items = [...document.querySelectorAll('#grid > li')] as HTMLLIElement[];
+  const cards = items.map((li) => li.querySelector('[data-product]') as HTMLElement);
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('[data-filter-linea]')];
+  const selMarca = document.getElementById('f-marca') as HTMLSelectElement;
+  const selSub = document.getElementById('f-sub') as HTMLSelectElement;
+  const inputQ = document.getElementById('f-q') as HTMLInputElement;
+  const count = document.getElementById('f-count') as HTMLElement;
+  const empty = document.getElementById('empty') as HTMLElement;
+
+  const state = { linea: '', marca: '', sub: '', q: '' };
+
+  function apply(push = true) {
+    let shown = 0;
+    for (let i = 0; i < cards.length; i++) {
+      const d = cards[i].dataset;
+      const ok =
+        (!state.linea || d.linea === state.linea) &&
+        (!state.marca || d.marca === state.marca) &&
+        (!state.sub || d.sub === state.sub) &&
+        (!state.q || (d.nombre ?? '').includes(state.q));
+      items[i].hidden = !ok;
+      if (ok) shown++;
+    }
+    count.textContent = String(shown);
+    empty.hidden = shown !== 0;
+
+    // Las subcategorías pertenecen a una línea: se ocultan las que no aplican.
+    for (const opt of selSub.options) {
+      const l = opt.dataset.linea;
+      opt.hidden = Boolean(state.linea && l && l !== state.linea);
+    }
+    if (selSub.selectedOptions[0]?.hidden) { selSub.value = ''; state.sub = ''; }
+
+    for (const chip of chips) chip.classList.toggle('is-on', chip.dataset.filterLinea === state.linea);
+
+    if (push) {
+      const p = new URLSearchParams();
+      if (state.linea) p.set('linea', state.linea);
+      if (state.marca) p.set('marca', state.marca);
+      if (state.sub) p.set('sub', state.sub);
+      if (state.q) p.set('q', state.q);
+      const qs = p.toString();
+      history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
+    }
+  }
+
+  for (const chip of chips) {
+    chip.addEventListener('click', () => { state.linea = chip.dataset.filterLinea ?? ''; apply(); });
+  }
+  selMarca.addEventListener('change', () => { state.marca = selMarca.value; apply(); });
+  selSub.addEventListener('change', () => { state.sub = selSub.value; apply(); });
+  inputQ.addEventListener('input', () => { state.q = inputQ.value.trim().toLowerCase(); apply(); });
+
+  function reset() {
+    state.linea = state.marca = state.sub = state.q = '';
+    selMarca.value = ''; selSub.value = ''; inputQ.value = '';
+    apply();
+  }
+  document.getElementById('f-reset')?.addEventListener('click', reset);
+  document.getElementById('f-reset2')?.addEventListener('click', reset);
+
+  // Estado inicial desde la URL: los bloques del Home enlazan con ?linea= y ?marca=.
+  const url = new URLSearchParams(location.search);
+  state.linea = url.get('linea') ?? '';
+  state.marca = url.get('marca') ?? '';
+  state.sub = url.get('sub') ?? '';
+  state.q = url.get('q') ?? '';
+  selMarca.value = state.marca;
+  selSub.value = state.sub;
+  inputQ.value = state.q;
+  apply(false);
+</script>
+
+<style>
+  .head { padding-block: clamp(2.5rem, 5vw, 4rem) 1.5rem; background: var(--bg-soft); }
+  .head .kicker { display: block; margin-bottom: 0.5rem; }
+  .head h1 { margin-bottom: 0.75rem; }
+
+  .filters {
+    position: sticky;
+    /* Debajo del header, que también es sticky. */
+    top: var(--hdr-h);
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg-soft) 92%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding-block: 1rem;
+  }
+  .filters__inner { display: grid; gap: 0.85rem; }
+  .filters__lines, .filters__selects { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: end; }
+
+  .chip {
+    --chip: var(--teal-800);
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    color: var(--fg-muted);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  }
+  .chip:hover { border-color: var(--chip); color: color-mix(in srgb, var(--chip) 75%, var(--teal-950)); }
+  .chip.is-on { background: var(--chip); border-color: var(--chip); color: var(--chip-fg, #fff); }
+  .chip--reset { align-self: end; }
+
+  .field { display: grid; gap: 0.25rem; font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--fg-muted); }
+  .field select, .field input {
+    font: inherit;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--fg);
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 999px;
+    padding: 0.5rem 0.9rem;
+    min-width: 12rem;
+  }
+  .field select:focus-visible, .field input:focus-visible { outline: 2px solid var(--teal-600); outline-offset: 1px; }
+  .field--search input { min-width: 14rem; }
+
+  .filters__count { font-size: var(--text-sm); color: var(--fg-muted); }
+  .filters__count strong { color: var(--fg); font-size: var(--text-base); }
+
+  .grid-wrap { padding-block: clamp(2rem, 4vw, 3.5rem) var(--section-y); }
+  .grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+    gap: clamp(0.85rem, 1.6vw, 1.4rem);
+  }
+  .grid > li { display: grid; }
+  .grid > li[hidden] { display: none; }
+
+  .empty { text-align: center; padding: 3rem 1rem; color: var(--fg-muted); }
+  .linkish {
+    border: 0;
+    background: none;
+    color: var(--teal-600);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+</style>

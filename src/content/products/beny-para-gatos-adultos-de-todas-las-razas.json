@@ -1,0 +1,42 @@
+{
+  "slug": "beny-para-gatos-adultos-de-todas-las-razas",
+  "name": "BENY para gatos – Adultos de todas las razas",
+  "brand": "beny",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "Beny es un alimento balanceado de calidad para perros y gatos. Su presentación es pensada para todo tipo de raza.",
+  "description": [
+    "Beny es un alimento balanceado de calidad para perros y gatos. Su presentación es pensada para todo tipo de raza.",
+    "Cuenta con dos presentaciones 1Kg o 25Kg de acuerdo a tus necesidades.",
+    "Disponible en sabor carne y pollo."
+  ],
+  "presentations": [
+    "1Kg",
+    "25Kg"
+  ],
+  "benefits": [
+    "Excelente relación calidad/precio",
+    "Piel sana",
+    "Pelaje suave"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Si su gato consume otro alimento, recuerde hacer una transición paulatina durante 7 días hacia BENY GATOS.</p><p>Ofrezca siempre el alimento en un recipiente limpio, y seco y recuerde mantener agua cerca de su mascota para que pueda hidratarse durante la alimentación.</p><p><em>Para saber la cantidad de alimento que debe ofrecerle diariamente, consulte el envoltorio de BENY donde encontrará las cantidades diarias según el peso de su mascota.&nbsp;</em></p>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<p>Ver tabla nutricional en envoltorio.</p>"
+    }
+  ],
+  "image": "../../assets/products/beny-para-gatos-adultos-de-todas-las-razas-aee9fb85.png",
+  "gallery": [
+    "../../assets/products/beny-para-gatos-adultos-de-todas-las-razas-c363bb04.png",
+    "../../assets/products/beny-para-gatos-adultos-de-todas-las-razas-869b4acc.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/beny-para-gatos-adultos-de-todas-las-razas/"
+}

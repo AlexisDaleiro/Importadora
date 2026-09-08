@@ -1,0 +1,42 @@
+{
+  "slug": "three-dogs-adulto-super-premium-razas-medianas-y-grandes-carne-y-arroz",
+  "name": "THREE DOGS Adulto – Razas Medianas y grandes",
+  "brand": "three-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Three Dogs Adulto Super Premium de Razas Medianas y Grandes es un alimento rico en ingredientes de alta calidad que suministran todos los nutrientes necesarios para mantener la calidad de vida y longevidad de los perros. Desarrollado especialmente para las razas Medianas y Grandes, Three Dogs Súper Premium posee en su formulación carne fresca bovina, es fácil de digerir y muy sabroso.",
+  "description": [
+    "Three Dogs Adulto Super Premium de Razas Medianas y Grandes es un alimento rico en ingredientes de alta calidad que suministran todos los nutrientes necesarios para mantener la calidad de vida y longevidad de los perros. Desarrollado especialmente para las razas Medianas y Grandes, Three Dogs Súper Premium posee en su formulación carne fresca bovina, es fácil de digerir y muy sabroso.",
+    "Sabores Carne y arroz o Pollo y zanahoria"
+  ],
+  "presentations": [
+    "3Kg",
+    "15Kg"
+  ],
+  "benefits": [
+    "Heces firmes y de bajo olor",
+    "Cero colorantes y aromas artificiales",
+    "Bajo contenido de sodio",
+    "Más disposición y vitalidad",
+    "Salud oral favorecida"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Las cantidades de Three Dogs Adulto presentadas son orientativas y pueden variar según muchos factores. Ofrezca el alimento en un recipiente limpio y seco, divididos en 2 o más comidas diarias y mantenga siempre agua limpia y fresca a disposición de su perro. Este alimento puede ser servido seco o mezclado con alimentos húmedos tales como el paté y el sachet Three Dogs, siempre teniendo en cuenta su aporte calórico. Caso su perro aún no esté comiendo Three Dogs se recomienda que la sustitución sea hecha de forma gradual durante 7 días.</p><p>Una taza de té (200ml) es equivalente a 100g de Three Dogs Super Premium Adultos Razas Medianas y Grandes.</p>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Humedad (máx.)</td><td>100g/kg</td></tr><tr><td>Cruda (mín.)</td><td>260g/kg</td></tr></thead><tbody><tr><td>Grasa Cruda (mín.)</td><td>145g/kg</td></tr><tr><td>Fibra Cruda (máx.)</td><td>30g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>80g/kg</td></tr><tr><td>Calcio (máx.)</td><td>18g/kg</td></tr><tr><td>Calcio (mín.)</td><td>8.000mg/kg</td></tr><tr><td>Fósforo (máx.)</td><td>12mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>8.000mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>1.700mg/kg</td></tr><tr><td>Lisina (mín.)</td><td>9.000mg/kg</td></tr><tr><td>Omega 3 (mín.)</td><td>3.000mg/kg</td></tr><tr><td>Omega 6 (mín.)</td><td>24g/kg</td></tr><tr><td>Hexametafosfato de sódio (mín.)</td><td>3.000g/kg</td></tr><tr><td>Zinc Quelatado (mín.)</td><td>50mg/kg</td></tr><tr><td>Condroitina (mín.)</td><td>50mg/kg</td></tr><tr><td>Glicosamina (mín.)</td><td>400mg/kg</td></tr><tr><td>Bacillus subtilis (mín.)</td><td>8 x10 UFC/kg</td></tr><tr><td>Energía Metabolizable</td><td>3.770kcal/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/three-dogs-adulto-super-premium-razas-medianas-y-grandes-car-ef7ea3f8.png",
+  "gallery": [
+    "../../assets/products/three-dogs-adulto-super-premium-razas-medianas-y-grandes-car-9c2601eb.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/three-dogs-adulto-super-premium-razas-medianas-y-grandes-carne-y-arroz/"
+}

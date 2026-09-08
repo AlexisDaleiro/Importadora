@@ -8,7 +8,7 @@ import { nav, site, sucursales } from '../config';
     <div class="ftr__brand">
       <Logo onDark />
       <p class="ftr__tagline">{site.tagline}.</p>
-      <p class="ftr__iso">ISO 9001 · Más de 25 años distribuyendo en todo Uruguay</p>
+      <p class="ftr__iso">ISO 9001 · Distribuyendo en todo Uruguay desde 1960</p>
     </div>
 
     <nav class="ftr__nav" aria-label="Pie de página">
@@ -21,8 +21,9 @@ import { nav, site, sucursales } from '../config';
       <div class="ftr__col">
         <h2>{s.nombre}</h2>
         <p>{s.direccion}</p>
-        <p><a href={`tel:${s.telefono.replace(/\s/g, '')}`}>{s.telefono}</a></p>
-        <p>{s.horario}</p>
+        {s.telefonos.map((t) => (
+          <p><a href={`tel:${t.replace(/[^0-9+]/g, '')}`}>{t}</a></p>
+        ))}
       </div>
     ))}
   </div>

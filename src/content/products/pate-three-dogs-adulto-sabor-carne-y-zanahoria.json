@@ -1,0 +1,41 @@
+{
+  "slug": "pate-three-dogs-adulto-sabor-carne-y-zanahoria",
+  "name": "Paté THREE DOGS – Adultos",
+  "brand": "three-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "El paté Three Dogs Super Premium Adultos – Sabor Carne y Zanahoria es un alimento 100% completo y equilibrado, con glucosamina y condroitina en su fórmula, lo que favorece el mantenimiento de articulaciones sanas. ¡Todo para que su mascota disfrute de una comida segura, completa y saludable!",
+  "description": [
+    "El paté Three Dogs Super Premium Adultos – Sabor Carne y Zanahoria es un alimento 100% completo y equilibrado, con glucosamina y condroitina en su fórmula, lo que favorece el mantenimiento de articulaciones sanas. ¡Todo para que su mascota disfrute de una comida segura, completa y saludable!"
+  ],
+  "presentations": [
+    "150g"
+  ],
+  "benefits": [
+    "Carne fresca de cerdo",
+    "Cero colorantes y aromas artificiales",
+    "Articulaciones protegidas",
+    "Alta palatabilidad"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<table><thead><tr><td>Peso del Perro (kg)</td><td>Pates/día</td></tr><tr><td>2-5</td><td>1– 2</td></tr></thead><tbody><tr><td>6-10</td><td>2 ½ – 3 ½</td></tr><tr><td>11-20</td><td>4 – 6</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Cruda (mín.)</td><td>82g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>60g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>18g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>28g/kg</td></tr><tr><td>Calcio (mín.)</td><td>1.500mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>4.000mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>1.400mg/kg</td></tr><tr><td>Glucosamina (mín.)</td><td>100mg/kg</td></tr><tr><td>Condroitina (mín.)</td><td>10mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>400mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>820g/kg</td></tr><tr><td>Energía Metabolizable (mín.)</td><td>1.000kcal/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/pate-three-dogs-adulto-sabor-carne-y-zanahoria-268b8f0c.png",
+  "gallery": [
+    "../../assets/products/pate-three-dogs-adulto-sabor-carne-y-zanahoria-9b01fcb7.png",
+    "../../assets/products/pate-three-dogs-adulto-sabor-carne-y-zanahoria-53a66433.png",
+    "../../assets/products/pate-three-dogs-adulto-sabor-carne-y-zanahoria-268b8f0c.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/pate-three-dogs-adulto-sabor-carne-y-zanahoria/"
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "alimento-para-mascotas",
+  "name": "Alimento para mascotas",
+  "order": 1,
+  "accent": "alimento",
+  "description": "Desde hace mas de 20 años somos representantes en Uruguay de Hercosul Brasil, empresa líder de la categoría en el sur de Brasil e integrante del grupo BRF Foods. La calidad y excelencia de sus productos, sumado a una estrategia comercial sostenible nos ha permitido un destacado posicionamiento de las marcas en plaza.",
+  "subcategories": [
+    {
+      "name": "Gatos",
+      "slug": "gatos",
+      "count": 43
+    },
+    {
+      "name": "Perros",
+      "slug": "perros",
+      "count": 64
+    }
+  ],
+  "productCount": 107,
+  "cover": "../../assets/categories/alimento-para-mascotas.jpg",
+  "sourceSlug": "alimento-para-mascotas",
+  "coverBackground": "#94CADE"
+}

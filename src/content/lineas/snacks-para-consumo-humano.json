@@ -1,0 +1,33 @@
+{
+  "slug": "snacks-para-consumo-humano",
+  "name": "Snacks para consumo humano",
+  "order": 4,
+  "accent": "snacks",
+  "description": "Nuestra marca STACK cuenta con varios años en el mercado, lo que sumado a la amplitud de la línea, nos permitió lograr un buen posicionamiento.",
+  "subcategories": [
+    {
+      "name": "Maníes",
+      "slug": "manies",
+      "count": 1
+    },
+    {
+      "name": "Packs",
+      "slug": "packs",
+      "count": 2
+    },
+    {
+      "name": "Palitos",
+      "slug": "palitos",
+      "count": 3
+    },
+    {
+      "name": "Papas",
+      "slug": "papas",
+      "count": 8
+    }
+  ],
+  "productCount": 14,
+  "cover": "../../assets/categories/snacks-para-consumo-humano.jpg",
+  "sourceSlug": "snacks-para-consumo-humano",
+  "coverBackground": "#FAC541"
+}

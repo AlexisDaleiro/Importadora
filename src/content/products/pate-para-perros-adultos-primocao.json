@@ -1,0 +1,42 @@
+{
+  "slug": "pate-para-perros-adultos-primocao",
+  "name": "Paté PRIMOCÃO – Adultos",
+  "brand": "primocao",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Los alimentos húmedos Primocão cuentan con una alta concentración de nutrientes esenciales para los perros, lo que produce un mejor equilibrio entre proteínas, grasas y carbohidratos. Este factor es importante para mejorar la salud y la longevidad de nuestras mascotas.",
+  "description": [
+    "Los alimentos húmedos Primocão cuentan con una alta concentración de nutrientes esenciales para los perros, lo que produce un mejor equilibrio entre proteínas, grasas y carbohidratos. Este factor es importante para mejorar la salud y la longevidad de nuestras mascotas.",
+    "Dos sabores para alternar la dieta de tu perro adulto."
+  ],
+  "presentations": [
+    "300g"
+  ],
+  "benefits": [
+    "Energía y disposición",
+    "Sabor que aman las mascotas",
+    "Sin aromas artificiales o colorantes"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<table><thead><tr><td>Perro (kg)</td><td>Patés/dia</td></tr><tr><td>Mini 2-5</td><td>1 – 1 ½</td></tr></thead><tbody><tr><td>Pequeno 6-10</td><td>1 ½ – 2</td></tr><tr><td>Mediano 11-20</td><td>2 – 4</td></tr><tr><td>Grande 21-40</td><td>4- 6</td></tr><tr><td>Gigante 40 o +</td><td>6 o más</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Cruda (mín.)</td><td>80g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>40g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>20g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>30g/kg</td></tr><tr><td>Cálcio (mín.)</td><td>1.500mg/kg</td></tr><tr><td>Cálcio (máx.)</td><td>5.000mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>1.500mg/kg</td></tr><tr><td>Sódio (mín.)</td><td>500mg/kg</td></tr><tr><td>Zinc (mín.)</td><td>50mg/kg</td></tr><tr><td>Omega 6 (mín.)</td><td>4.000mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>820g/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/pate-para-perros-adultos-primocao-e33e23f6.png",
+  "gallery": [
+    "../../assets/products/pate-para-perros-adultos-primocao-e33e23f6.png",
+    "../../assets/products/pate-para-perros-adultos-primocao-a60328ab.png",
+    "../../assets/products/pate-para-perros-adultos-primocao-8a62c638.png",
+    "../../assets/products/pate-para-perros-adultos-primocao-2d6aac9f.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/pate-para-perros-adultos-primocao/"
+}

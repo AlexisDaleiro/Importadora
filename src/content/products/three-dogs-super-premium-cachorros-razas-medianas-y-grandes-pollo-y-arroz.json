@@ -1,0 +1,38 @@
+{
+  "slug": "three-dogs-super-premium-cachorros-razas-medianas-y-grandes-pollo-y-arroz",
+  "name": "THREE DOGS Cachorros – Razas Medianas y grandes",
+  "brand": "three-dogs",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Three Dogs Súper Premium Cachorros, Razas Medianas y Grandes – Es un alimento rico en ingredientes de alta calidad, tales como carne fresca de pollo y arroz, que suministran proteínas, energía, vitaminas y minerales balanceados. Su formulación, con condroitina y glucosamina, fue especialmente elaborada para proporcionar un crecimiento sano y equilibrado para cachorros de crecimiento rápido desde el destete hasta la edad adulta. Three Dogs Súper Premium Cachorros también se indica para hembras a partir de la sexta semana de gestación hasta el destete de las crías.",
+  "description": [
+    "Three Dogs Súper Premium Cachorros, Razas Medianas y Grandes – Es un alimento rico en ingredientes de alta calidad, tales como carne fresca de pollo y arroz, que suministran proteínas, energía, vitaminas y minerales balanceados. Su formulación, con condroitina y glucosamina, fue especialmente elaborada para proporcionar un crecimiento sano y equilibrado para cachorros de crecimiento rápido desde el destete hasta la edad adulta. Three Dogs Súper Premium Cachorros también se indica para hembras a partir de la sexta semana de gestación hasta el destete de las crías."
+  ],
+  "presentations": [
+    "3Kg",
+    "15Kg"
+  ],
+  "benefits": [
+    "Crecimiento saludable y equilibrado",
+    "Cero colorantes y aromas artificiales",
+    "Bajo contenido de sodio",
+    "Heces firmes y de bajo olor"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Recuerde leer las instrucciones en el embalaje de THREE DOGS SUPER PREMIUM para darle a su mascota la cantidad justa de acuerdo a su tamaño y peso.</p><table><thead><tr><td>Recomendación diaria (g/dia)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Edad en meses</td><td></td><td></td><td></td><td></td></tr></thead><tbody><tr><td>Peso del perro (kg)</td><td>2-3</td><td>3-6</td><td>6-9</td><td>10-12</td><td>12-18</td></tr><tr><td>11kg</td><td>165</td><td>190</td><td>190</td><td>180</td><td>Three Dogs Adultos</td></tr><tr><td>15kg</td><td>210</td><td>240</td><td>235</td><td>225</td><td>Three Dogs Adultos</td></tr><tr><td>20kg</td><td>260</td><td>300</td><td>295</td><td>280</td><td>Three Dogs Adultos</td></tr><tr><td>25kg</td><td>310</td><td>350</td><td>345</td><td>330</td><td>Three Dogs Adultos</td></tr><tr><td>30kg</td><td>295</td><td>400</td><td>405</td><td>395</td><td>380</td></tr><tr><td>35kg</td><td>330</td><td>450</td><td>450</td><td>440</td><td>425</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><tbody><tr><td>Humedad</td><td></td><td></td><td>Máx. 100 g/kg</td></tr><tr><td>Proteína Cruda</td><td></td><td></td><td>Mín. 280 g/kg</td></tr><tr><td>Grasa Cruda</td><td></td><td></td><td>Mín. 150 g/kg</td></tr><tr><td>Fibra Cruda</td><td></td><td></td><td>Máx. 30 g/kg</td></tr><tr><td>Cenizas</td><td></td><td></td><td>Máx. 80 g/kg</td></tr><tr><td>Calcio</td><td></td><td></td><td>Mín. 9.000 mg/kg</td></tr><tr><td>Calcio</td><td></td><td></td><td>Máx. 16 g/kg</td></tr><tr><td>Fosforo</td><td></td><td></td><td>Mín. 6.000 mg/kg</td></tr><tr><td>Fosforo</td><td></td><td></td><td>Máx. 16 g/kg</td></tr></tbody></table><p>&nbsp;</p>"
+    }
+  ],
+  "image": "../../assets/products/three-dogs-super-premium-cachorros-razas-medianas-y-grandes--3deba575.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/three-dogs-super-premium-cachorros-razas-medianas-y-grandes-pollo-y-arroz/"
+}

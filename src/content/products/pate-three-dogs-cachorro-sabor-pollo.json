@@ -1,0 +1,41 @@
+{
+  "slug": "pate-three-dogs-cachorro-sabor-pollo",
+  "name": "Paté THREE DOGS – Cachorro",
+  "brand": "three-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "El paté Three Dogs Super Premium Cachorros Sabor Pollo es un alimento 100% completo y equilibrado con cantidades ideales de vitaminas y minerales para promover un crecimiento saludable y equilibrado, además de ser rico en DHA, ayudando en el desarrollo cognitivo de su mascota. ¡Todo con textura y sabor que los cachorros amarán!.",
+  "description": [
+    "El paté Three Dogs Super Premium Cachorros Sabor Pollo es un alimento 100% completo y equilibrado con cantidades ideales de vitaminas y minerales para promover un crecimiento saludable y equilibrado, además de ser rico en DHA, ayudando en el desarrollo cognitivo de su mascota. ¡Todo con textura y sabor que los cachorros amarán!."
+  ],
+  "presentations": [
+    "150g"
+  ],
+  "benefits": [
+    "Con carne fresca",
+    "Bajo contenido de sodio",
+    "Crecimiento saludable",
+    "Cero colorantes y aromas afrtificiales",
+    "Sin transgénicos"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<table><thead><tr><td>Edad Meses</td><td>Peso cuando adulto/kg (patés/día)</td><td></td><td></td></tr><tr><td></td><td>1-5 (kg)</td><td>6 – 10 (kg)</td><td>11 – 25 (kg)</td></tr></thead><tbody><tr><td>1 – 4</td><td>1 – 2</td><td>2 – 4</td><td>3 ½ – 7 ½</td></tr><tr><td>5 – 9</td><td>2 – 3 ½</td><td>4 – 5 ½</td><td>5 ½ – 11</td></tr><tr><td>10 – 12</td><td>Adulto</td><td>Adulto</td><td>11</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Proteína Cruda (mín.)</td><td>94g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>70g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>15g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>25g/kg</td></tr><tr><td>Calcio (mín.)</td><td>2.800mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>3.500mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>2.800mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>600mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>810g/kg</td></tr><tr><td>Energía metabolizable (mín.)</td><td>1.110kcal/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/pate-three-dogs-cachorro-sabor-pollo-5c408cdc.png",
+  "gallery": [
+    "../../assets/products/pate-three-dogs-cachorro-sabor-pollo-5c408cdc.png",
+    "../../assets/products/pate-three-dogs-cachorro-sabor-pollo-a5d6c4df.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/pate-three-dogs-cachorro-sabor-pollo/"
+}

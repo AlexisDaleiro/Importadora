@@ -1,0 +1,40 @@
+{
+  "slug": "cachorros-todas-las-razas-carne-y-leche",
+  "name": "PRIMOCAO para perros – Cachorros",
+  "brand": "primocao",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Primocão Premium Cachorros es un alimento 100% completo y balanceado que promueve el crecimiento saludable y equilibrado de los cachorros. Las partículas son especiales y facilitan la masticación. Además, ¡tiene Nuggets rellenos que los perritos aman! Primocão Premium Cachorros también se indica para hembras adultas a partir de la sexta semana de gestación y durante el período de lactancia.",
+  "description": [
+    "Primocão Premium Cachorros es un alimento 100% completo y balanceado que promueve el crecimiento saludable y equilibrado de los cachorros. Las partículas son especiales y facilitan la masticación. Además, ¡tiene Nuggets rellenos que los perritos aman! Primocão Premium Cachorros también se indica para hembras adultas a partir de la sexta semana de gestación y durante el período de lactancia."
+  ],
+  "presentations": [
+    "1Kg",
+    "3Kg",
+    "10Kg",
+    "20Kg"
+  ],
+  "benefits": [
+    "Crecimiento saludable y equilibrado",
+    "Pelaje suave y brilloso",
+    "Heces firmes y de bajo olor",
+    "Musculatura reforzada"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Las cantidades presentadas son orientativas y pueden variar según la raza, sexo y estilo de vida, entre otros factores. Este alimento puede ser servido puro o mezclado con alimentos húmedos como el paté y el sachet, siempre teniendo en cuenta su aporte calórico. Ofrezca siempre en pote limpio, dos o más veces al día y mantenga siempre agua limpia y fresca cerca de su cachorro. Caso su cachor0ro aún no esté comiendo Primocão recomendamos que la sustitución sea hecha de forma gradual durante 7 días, como se indica en el grafico siguiente.</p><p>Una taza de té (200 ml) es equivalente a 90g de Primocão Premium&nbsp; Filhotes</p><p>&nbsp;</p><table><thead><tr><td>Cuando adulto</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Edad en meses</td><td></td><td></td><td></td><td></td></tr></thead><tbody><tr><td></td><td>2 a 3</td><td>3 a 6</td><td>6 a 9</td><td>12 a 18</td><td>9 a 12</td></tr><tr><td>MINI – 1 a 5kg</td><td>40 a 120</td><td>40 a 140</td><td>40 a 130</td><td>Primocão Adulto</td><td>Primocão Adulto</td></tr><tr><td>PEQUEÑO – 6 a 10kg</td><td>130 a 190</td><td>150 a 220</td><td>150 a 215</td><td>140 a 210</td><td>Primocão Adulto</td></tr><tr><td>MEDIANO – 11 a 25kg</td><td>170 a 312</td><td>195 a 360</td><td>190 a 350</td><td>185 a 340</td><td>Primocão Adulto</td></tr><tr><td>GRANDE – 26 a 40kg</td><td>325 a 445</td><td>370 a 510</td><td>370 a 510</td><td>360 a 500</td><td>355 a 480</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Humedad (máx.)</td><td>100g/kg</td></tr><tr><td>Cruda (mín.)</td><td>270g/kg</td></tr></thead><tbody><tr><td>Grasa Cruda (mín.)</td><td>110g/kg</td></tr><tr><td>Fibra Cruda (máx.)</td><td>35g/kg</td></tr><tr><td>Ash (máx.)</td><td>90g/kg</td></tr><tr><td>Calcio (máx.)</td><td>20g/kg</td></tr><tr><td>Calcio (mín.)</td><td>10g/kg</td></tr><tr><td>Fósforo (mín.)</td><td>9.000mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>2.000mg/kg</td></tr><tr><td>Omega 6 (mín.)</td><td>24g/kg</td></tr><tr><td>Zinc (mín.)</td><td>163mg/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/cachorros-todas-las-razas-carne-y-leche-ef21b40f.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/cachorros-todas-las-razas-carne-y-leche/"
+}

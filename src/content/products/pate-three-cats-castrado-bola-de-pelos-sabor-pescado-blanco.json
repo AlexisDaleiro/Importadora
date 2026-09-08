@@ -1,0 +1,43 @@
+{
+  "slug": "pate-three-cats-castrado-bola-de-pelos-sabor-pescado-blanco",
+  "name": "Paté THREE CATS – Castrado + Bola de Pelos",
+  "brand": "three-cats-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "El paté Three Cats Super Premium Castrados – Bolas de Pelos es un alimento 100% completo y equilibrado con cantidades adecuadas de minerales para favorecer la salud del tracto urinario felino. El sabor pescado blanco, tiene bajas calorías y L-carnitina, lo que ayuda a controlar el peso de los animales castrados. Además, tiene fibras especiales que ayudan a eliminar los pelos ingeridos durante la limpieza diaria, evitando la formación de molestas bolas de pelo. ¡Todo para que su gato disfrute de una comida segura, completa y saludable!",
+  "description": [
+    "El paté Three Cats Super Premium Castrados – Bolas de Pelos es un alimento 100% completo y equilibrado con cantidades adecuadas de minerales para favorecer la salud del tracto urinario felino. El sabor pescado blanco, tiene bajas calorías y L-carnitina, lo que ayuda a controlar el peso de los animales castrados. Además, tiene fibras especiales que ayudan a eliminar los pelos ingeridos durante la limpieza diaria, evitando la formación de molestas bolas de pelo. ¡Todo para que su gato disfrute de una comida segura, completa y saludable!"
+  ],
+  "presentations": [
+    "90g"
+  ],
+  "benefits": [
+    "Cero colorantes ni aromas artificiales",
+    "Carne fresca de pescado",
+    "Control de peso",
+    "Tracto urinario saludable",
+    "Control de las bolas de pelos",
+    "Sin transgénicos"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<table><thead><tr><td>Peso (kg)</td><td>Peso normal (g/día)</td><td>Sobrepeso (g/día)</td></tr><tr><td>Adultos</td><td></td><td></td></tr></thead><tbody><tr><td>3 – 4</td><td>40 – 50g</td><td>–</td></tr><tr><td>5 – 6</td><td>65 – 80g</td><td>65 – 70g</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Cruda (mín.)</td><td>85g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>20g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>20g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>25g/kg</td></tr><tr><td>Calcio (mín.)</td><td>1.400mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>5.000mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>1.400mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>800mg/kg</td></tr><tr><td>Taurina (mín.)</td><td>1.000mg/kg</td></tr><tr><td>L-Carnitina (mín.)</td><td>40mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>850g/kg</td></tr><tr><td>Energía Metabolizable (mín.)</td><td>700kcal/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/pate-three-cats-castrado-bola-de-pelos-sabor-pescado-blanco-0df00b6b.png",
+  "gallery": [
+    "../../assets/products/pate-three-cats-castrado-bola-de-pelos-sabor-pescado-blanco-0df00b6b.png",
+    "../../assets/products/pate-three-cats-castrado-bola-de-pelos-sabor-pescado-blanco-55940473.png",
+    "../../assets/products/pate-three-cats-castrado-bola-de-pelos-sabor-pescado-blanco-f5b201c5.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/pate-three-cats-castrado-bola-de-pelos-sabor-pescado-blanco/"
+}

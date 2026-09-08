@@ -1,0 +1,41 @@
+{
+  "slug": "gran-plus-para-perros-adultos-razas-medianas",
+  "name": "GRAN PLUS para perros – Adultos Razas Medianas",
+  "brand": "granplus",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "GRAN PLUS ofrece una línea completa de alimentos de alta calidad. Comer es un momento de placer. Ofrecer lo mejor a quienes amamos es sinónimo de amor y cariño por eso ofrece exclusividad de sabores. Un alimento delicioso que les encanta a las mascotas. Además, se prepara con ingredientes seleccionados y balanceados para satisfacer y complacer hasta a los paladares más exigentes.",
+  "description": [
+    "GRAN PLUS ofrece una línea completa de alimentos de alta calidad. Comer es un momento de placer. Ofrecer lo mejor a quienes amamos es sinónimo de amor y cariño por eso ofrece exclusividad de sabores. Un alimento delicioso que les encanta a las mascotas. Además, se prepara con ingredientes seleccionados y balanceados para satisfacer y complacer hasta a los paladares más exigentes.",
+    "Sabor Pollo y Arroz."
+  ],
+  "presentations": [
+    "10Kg",
+    "15Kg",
+    "20Kg"
+  ],
+  "benefits": [
+    "Contribuye al desarrollo de la masa muscular",
+    "Contribuye al crecimiento saludable",
+    "Favorece la salud intestinal",
+    "Reduce el olor en las heces",
+    "Fortalecimiento articular"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Siga las instrucciones del envoltorio para saber cual es la proporción adecuada para su mascota.</p><p>Recuerde realiza una transición paulatina desde el viejo alimento hacia GRAN PLUS.</p>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><tbody><tr><td>Proteína bruta (mín.)</td><td>Sodio (mín.)</td></tr><tr><td>230g/kg</td><td>2000 mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>Sulfato de glucosamina (mín.)</td></tr><tr><td>7.000 mg/kg</td><td>100 mg/kg</td></tr><tr><td>Extracto Etéreo (min.)</td><td>Potasio (mín.)</td></tr><tr><td>120g/kg</td><td>5000 mg/kg</td></tr><tr><td>Materia Mineral (máx.)</td><td>Mananooligosacáridos (mín.)</td></tr><tr><td>75g/kg</td><td>100 mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>Energía Metabolizable (NRC 2006, min.)</td></tr><tr><td>100g/kg</td><td>3.800kcal/kg</td></tr><tr><td>Materia fibrosa (máx.)</td><td>EPA + DHA (mín.)</td></tr><tr><td>30g/kg</td><td>420 mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>Omega 6 (mín.)</td></tr><tr><td>17g/kg</td><td>20g/kg</td></tr><tr><td>Calcio (mín.)</td><td>Omega 3 (mín.)</td></tr><tr><td>8.000 mg/kg</td><td>2400 mg/kg</td></tr><tr><td>Materia fibrosa (máx.)</td><td>Sulfato de condroitina (mín.)</td></tr><tr><td>30g/kg</td><td>50 mg/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/gran-plus-para-perros-adultos-razas-medianas-f638ecc6.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/gran-plus-para-perros-adultos-razas-medianas/"
+}

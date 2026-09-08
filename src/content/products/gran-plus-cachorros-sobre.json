@@ -1,0 +1,37 @@
+{
+  "slug": "gran-plus-cachorros-sobre",
+  "name": "GRAN PLUS para perros – Cachorros Sachet",
+  "brand": "granplus",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "GRAN PLUS ofrece una línea completa de alimentos de alta calidad. Comer es un momento de placer. Ofrecer lo mejor a quienes amamos es sinónimo de amor y cariño por eso ofrece exclusividad de sabores. Un alimento delicioso que les encanta a las mascotas. Además, se prepara con ingredientes seleccionados y balanceados para satisfacer y complacer hasta a los paladares más exigentes.",
+  "description": [
+    "GRAN PLUS ofrece una línea completa de alimentos de alta calidad. Comer es un momento de placer. Ofrecer lo mejor a quienes amamos es sinónimo de amor y cariño por eso ofrece exclusividad de sabores. Un alimento delicioso que les encanta a las mascotas. Además, se prepara con ingredientes seleccionados y balanceados para satisfacer y complacer hasta a los paladares más exigentes.",
+    "Este alimento cuenta con calcio y minerales que ayudan a tener huesos y dientes firmes, es una excelente opción para variar la dieta de tu mascota sin descuidar su salud."
+  ],
+  "presentations": [
+    "100g"
+  ],
+  "benefits": [
+    "Salud intestinal prolongada",
+    "Sin conservantes, aromas y colorantes artificiales",
+    "Ayuda a mantener un crecimiento saludable"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Siga las instrucciones del envoltorio para saber cual es la proporción adecuada para su mascota.</p><p>Recuerde realiza una transición paulatina desde el viejo alimento hacia GRAN PLUS.</p>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><tbody><tr><td>Proteína bruta (mín.)</td><td>Sodio (mín.)</td></tr><tr><td><strong>85g/kg</strong></td><td><strong>500 mg/kg</strong></td></tr><tr><td>Fósforo (mín.)</td><td>Potasio (mín.)</td></tr><tr><td><strong>1300 mg/kg</strong></td><td><strong>900 mg/kg</strong></td></tr><tr><td>Extracto Etéreo (min.)</td><td>Mananooligosacáridos (mín.)</td></tr><tr><td><strong>50g/kg</strong></td><td><strong>40 mg/kg</strong></td></tr><tr><td>Materia Mineral (máx.)</td><td>EPA + DHA (mín.)</td></tr><tr><td><strong>25g/kg</strong></td><td><strong>105 mg/kg</strong></td></tr><tr><td>Humedad (máx.)</td><td>Omega 6 (mín.)</td></tr><tr><td><strong>840g/kg</strong></td><td><strong>3000 mg/kg</strong></td></tr><tr><td>Materia fibrosa (máx.)</td><td>Omega 3 (mín.)</td></tr><tr><td><strong>12g/kg</strong></td><td><strong>160 mg/kg</strong></td></tr><tr><td>Calcio (máx.)</td><td>Materia fibrosa (máx.)</td></tr><tr><td><strong>3500 mg/kg</strong></td><td><strong>12g/kg</strong></td></tr><tr><td>Calcio (mín.)</td><td></td></tr><tr><td><strong>1500 mg/kg</strong></td><td></td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/gran-plus-cachorros-sobre-385c5efa.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/gran-plus-cachorros-sobre/"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "pate-three-cats-gatitos-sabor-pollo",
+  "name": "Paté THREE CATS – Cachorros",
+  "brand": "three-cats-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "El paté Three Cats Super Premium Gatitos Sabor Pollo es un alimento 100% completo y equilibrado con cantidades ideales de vitaminas y minerales para promover un crecimiento saludable y equilibrado. El sabor pollo, es muy sabroso. ¡La opción perfecta para su gatito!",
+  "description": [
+    "El paté Three Cats Super Premium Gatitos Sabor Pollo es un alimento 100% completo y equilibrado con cantidades ideales de vitaminas y minerales para promover un crecimiento saludable y equilibrado. El sabor pollo, es muy sabroso. ¡La opción perfecta para su gatito!"
+  ],
+  "presentations": [
+    "90g"
+  ],
+  "benefits": [
+    "Crecimiento saludable y equilibrado",
+    "Cero colorantes y aromas artificiales",
+    "Carne fresca de pollo",
+    "Sin transgénicos"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<table><thead><tr><td>Peso do Perro (kg)</td><td>Pates/día</td></tr><tr><td>Hasta 2</td><td>1 – 1 ½</td></tr></thead><tbody><tr><td>2 – 4</td><td>1 ½ – 3 ½</td></tr><tr><td>4 – 12</td><td>3 – 4</td></tr><tr><td>Gestante</td><td>Hasta 5</td></tr></tbody></table><h3></h3>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Cruda (mín.)</td><td>85g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>20g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>20g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>25g/kg</td></tr><tr><td>Calcio (mín.)</td><td>1.400mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>5.000mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>1.400mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>800mg/kg</td></tr><tr><td>Taurina (mín.)</td><td>1.000mg/kg</td></tr><tr><td>L-Carnitina (mín.)</td><td>40mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>850g/kg</td></tr><tr><td>Energía Metabolizable (mín.)</td><td>700kcal/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/pate-three-cats-gatitos-sabor-pollo-a1251620.png",
+  "gallery": [
+    "../../assets/products/pate-three-dogs-cachorro-sabor-pollo-a5d6c4df.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/pate-three-cats-gatitos-sabor-pollo/"
+}

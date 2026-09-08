@@ -1,0 +1,39 @@
+{
+  "slug": "sachet-para-gatos-adultos-primogato",
+  "name": "Sachet PRIMOGATO – Adultos",
+  "brand": "primogato",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "Los alimentos húmedos PRIMOGATO cuentan con una alta concentración de nutrientes esenciales para los perros, lo que produce un mejor equilibrio entre proteínas: grasas: carbohidratos. Este factor es importante para mejorar la salud y la longevidad de nuestras mascotas. Además de tener una textura que les encanta a las mascotas, no contiene saborizantes artificiales y conservantes.",
+  "description": [
+    "Los alimentos húmedos PRIMOGATO cuentan con una alta concentración de nutrientes esenciales para los perros, lo que produce un mejor equilibrio entre proteínas: grasas: carbohidratos. Este factor es importante para mejorar la salud y la longevidad de nuestras mascotas. Además de tener una textura que les encanta a las mascotas, no contiene saborizantes artificiales y conservantes."
+  ],
+  "presentations": [
+    "85g"
+  ],
+  "benefits": [
+    "Visión y corazón protegidos",
+    "Tracto urinario saludable",
+    "Pelo brilloso y piel sana",
+    "Cero colorantes y aromas artificiales"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Servir a temperatura ambiente.</p><p>&nbsp;</p><table><thead><tr><td>Peso del gato/kg</td><td>Hasta 1</td><td>2 – 3</td><td>4 – 5</td><td>6 – 7</td><td>8 – 10</td></tr><tr><td>Sachets/día</td><td>Hasta 1</td><td>1 – 1 ¼</td><td>1 ½ – 2</td><td>2 – 2 ¼</td><td>2 ½ – 3</td></tr></thead></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Proteína Cruda (mín.)</td><td>82g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>30g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>20g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>30g/kg</td></tr><tr><td>Cálcio (mín.)</td><td>1.500mg/kg</td></tr><tr><td>Cálcio (máx.)</td><td>5.000mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>1.400mg/kg</td></tr><tr><td>Sódio (mín.)</td><td>500mg/kg</td></tr><tr><td>Taurina (mín.)</td><td>800mg/kg</td></tr><tr><td>Zinc (mín.)</td><td>40mg/kg</td></tr><tr><td>Omega 6 (mín.)</td><td>4.000mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>830g/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/sachet-para-gatos-adultos-primogato-8af6acfc.png",
+  "gallery": [
+    "../../assets/products/sachet-para-gatos-adultos-primogato-b3a3a486.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/sachet-para-gatos-adultos-primogato/"
+}

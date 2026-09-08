@@ -1,0 +1,196 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import StatsBar from '../components/StatsBar.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import fachada from '../assets/institutional/casa-matriz-fachada.jpg';
+import deposito from '../assets/institutional/deposito-estanterias.jpg';
+import carga from '../assets/institutional/operacion-carga-camion.jpg';
+import electrico from '../assets/institutional/vehiculo-electrico-carga.jpg';
+import { centrosRegionales, site, sucursales } from '../config';
+
+const hitos = (await getCollection('milestones')).sort((a, b) =>
+  a.data.year.localeCompare(b.data.year)
+);
+
+const infra = [
+  { titulo: 'Casa Matriz', dato: '6.000 m²', texto: 'Depósito y oficinas en Montevideo, certificados ISO 9001 desde 2019.' },
+  { titulo: 'Sucursal Maldonado', dato: '400 m²', texto: 'Abastece al este del país junto a los centros regionales.' },
+  { titulo: 'Energía solar', dato: '120 Kw/h', texto: '3 plantas fotovoltaicas propias alimentan la operación.' },
+  { titulo: 'Flota eléctrica', dato: '2021', texto: 'Vehículos 100% eléctricos y estaciones de carga propias.' },
+];
+---
+
+<Base
+  title="Nosotros"
+  description="Districo S.A.: distribución de alimento y cuidado para mascotas en Uruguay desde 1960."
+>
+  <section class="head">
+    <div class="container head__inner">
+      <div data-reveal>
+        <span class="kicker kicker--accent">Nosotros</span>
+        <h1 class="title-xl">Una empresa uruguaya con más de 60 años de ruta</h1>
+        <p class="lead">
+          Districo S.A. nace de Agropecuaria Colón, fundada en 1960 por el Ing. Montiel Graviz.
+          De la venta de productos agroveterinarios a la distribución nacional de alimento para
+          mascotas, arenas sanitarias, cuidado animal y snacks.
+        </p>
+      </div>
+      <div class="head__media" data-reveal style="--reveal-delay:120ms">
+        <span class="blob head__blob" aria-hidden="true"></span>
+        <Image
+          src={fachada}
+          alt="Fachada de la Casa Matriz de Districo S.A."
+          widths={[480, 760, 1040]}
+          sizes="(min-width: 940px) 46vw, 92vw"
+          loading="eager"
+          class="head__img"
+        />
+      </div>
+    </div>
+  </section>
+
+  <StatsBar />
+
+  <section class="hitos section">
+    <div class="container">
+      <header data-reveal>
+        <span class="kicker kicker--accent">Historia</span>
+        <h2 class="title-lg">Los hitos de la empresa</h2>
+      </header>
+      <ol class="hitos__list">
+        {hitos.map((h, i) => (
+          <li data-reveal style={`--reveal-delay:${Math.min(i, 6) * 60}ms`}>
+            <span class="hitos__year">{h.data.year}</span>
+            <div>
+              <h3>{h.data.title}</h3>
+              <p>{h.data.description}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="infra">
+    <div class="container">
+      <header data-reveal>
+        <span class="kicker kicker--onDark">Infraestructura</span>
+        <h2 class="title-lg">La operación</h2>
+      </header>
+      <ul class="infra__grid">
+        {infra.map((item, i) => (
+          <li data-reveal style={`--reveal-delay:${i * 70}ms`}>
+            <strong>{item.dato}</strong>
+            <h3>{item.titulo}</h3>
+            <p>{item.texto}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="infra__foot" data-reveal>
+        Centros regionales en {centrosRegionales.join(', ')}, más las {sucursales.length} sedes propias.
+      </p>
+    </div>
+  </section>
+
+  <section class="galeria section">
+    <div class="container">
+      <ul class="galeria__grid">
+        {[
+          { src: deposito, alt: 'Estanterías del depósito de Districo' },
+          { src: carga, alt: 'Carga de mercadería en camión' },
+          { src: electrico, alt: 'Vehículo eléctrico de reparto cargando' },
+        ].map((foto, i) => (
+          <li data-reveal style={`--reveal-delay:${i * 80}ms`}>
+            <Image src={foto.src} alt={foto.alt} widths={[420, 700]} sizes="(min-width: 760px) 33vw, 92vw" loading="lazy" />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBlock />
+</Base>
+
+<style>
+  .head { padding-block: clamp(2.5rem, 5vw, 4.5rem); background: var(--bg-soft); overflow: hidden; }
+  .head__inner { display: grid; gap: clamp(2rem, 4vw, 3.5rem); align-items: center; }
+  .head .kicker { display: block; margin-bottom: 0.5rem; }
+  .head h1 { margin-bottom: 0.85rem; }
+  .head__media { position: relative; display: grid; place-items: center; }
+  .head__blob { width: min(80%, 420px); aspect-ratio: 1; background: var(--lime-500); top: -8%; right: -5%; }
+  .head__img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .hitos header { margin-bottom: 2rem; }
+  .hitos header .kicker { display: block; margin-bottom: 0.5rem; }
+  .hitos__list { list-style: none; padding: 0; display: grid; gap: 0; }
+  .hitos__list li {
+    display: grid;
+    gap: 0.35rem 1.5rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .hitos__year {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--teal-600);
+    line-height: 1;
+  }
+  .hitos__list h3 { font-size: var(--text-base); margin-bottom: 0.25rem; }
+  .hitos__list p { color: var(--fg-muted); max-width: 62ch; }
+
+  .infra { background: var(--teal-900); color: var(--white); padding-block: clamp(3rem, 6vw, 5rem); }
+  .infra header { margin-bottom: 2rem; }
+  .infra header .kicker { display: block; margin-bottom: 0.5rem; }
+  .infra__grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+  .infra__grid li {
+    border: 1px solid rgb(255 255 255 / 0.16);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.25rem;
+  }
+  .infra__grid strong {
+    display: block;
+    font-size: var(--text-2xl);
+    color: var(--lime-500);
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 0.6rem;
+  }
+  .infra__grid h3 { font-size: var(--text-base); margin-bottom: 0.35rem; }
+  .infra__grid p { color: rgb(255 255 255 / 0.68); font-size: var(--text-sm); }
+  .infra__foot { margin-top: 1.5rem; color: rgb(255 255 255 / 0.68); font-size: var(--text-sm); }
+
+  .galeria__grid { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  .galeria__grid img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+  }
+
+  @media (min-width: 760px) {
+    .galeria__grid { grid-template-columns: repeat(3, 1fr); }
+    .hitos__list li { grid-template-columns: 7rem 1fr; align-items: baseline; }
+  }
+  @media (min-width: 940px) {
+    .head__inner { grid-template-columns: 1.05fr 0.95fr; }
+  }
+</style>

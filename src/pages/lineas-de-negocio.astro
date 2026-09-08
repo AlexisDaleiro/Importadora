@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import { lineAccent, site } from '../config';
+
+const products = await getCollection('products');
+// Se cuenta sobre el catálogo real, no sobre el productCount del relevamiento.
+const countOf = (id: string) => products.filter((p) => p.data.category.id === id).length;
+const lineas = (await getCollection('lineas')).sort((a, b) => a.data.order - b.data.order);
+const total = products.length;
+---
+
+<Base
+  title="Líneas de negocio"
+  description="Alimento para mascotas, arenas sanitarias, cuidado de la mascota y snacks para consumo humano."
+>
+  <section class="head">
+    <div class="container">
+      <span class="kicker kicker--accent">Qué distribuimos</span>
+      <h1 class="title-xl">Cuatro líneas, {total} productos</h1>
+      <p class="lead">
+        Cada línea tiene su propio equipo comercial y su logística de reparto. Todas se abastecen
+        desde la Casa Matriz de 6.000 m² en Montevideo.
+      </p>
+    </div>
+  </section>
+
+  {lineas.map((linea, i) => {
+    const accent = lineAccent(linea.id);
+    return (
+      <section class="linea" style={`--bg:${accent.color};--fg:${accent.text}`}>
+        <div class="container linea__inner" data-flip={i % 2 === 1}>
+          <div class="linea__text" data-reveal>
+            <span class="kicker linea__kicker">Línea 0{linea.data.order}</span>
+            <h2 class="title-lg">{linea.data.name}</h2>
+            <p class="linea__desc">{linea.data.description}</p>
+
+            {linea.data.subcategories.length > 0 && (
+              <ul class="linea__subs">
+                {linea.data.subcategories.map((s) => (
+                  <li>
+                    <a href={`/productos?linea=${linea.id}&sub=${encodeURIComponent(s.name)}`}>
+                      {s.name} <span>{s.count}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <div class="actions">
+              <Button href={`/productos?linea=${linea.id}`} variant="white" size="lg">
+                Ver los {countOf(linea.id)} productos
+              </Button>
+            </div>
+          </div>
+
+          <div class="linea__media" data-reveal style="--reveal-delay:110ms">
+            <Image
+              src={linea.data.cover}
+              alt={linea.data.name}
+              widths={[480, 760, 1040]}
+              sizes="(min-width: 940px) 46vw, 92vw"
+              loading={i === 0 ? 'eager' : 'lazy'}
+              class="linea__img"
+            />
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
+  <CtaBlock />
+</Base>
+
+<style>
+  .head { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--bg-soft); }
+  .head .kicker { display: block; margin-bottom: 0.5rem; }
+  .head h1 { margin-bottom: 0.75rem; }
+
+  .linea { background: var(--bg); color: var(--fg); padding-block: clamp(3rem, 6vw, 5rem); overflow: hidden; }
+  .linea__inner { display: grid; gap: clamp(2rem, 4vw, 3.5rem); align-items: center; }
+  .linea__kicker { color: color-mix(in srgb, currentColor 72%, transparent); }
+  .linea__text > * + * { margin-top: 1.25rem; }
+  .linea__desc { font-size: var(--text-lg); max-width: 54ch; opacity: 0.92; }
+
+  .linea__subs { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; }
+  .linea__subs a {
+    display: inline-flex;
+    gap: 0.4rem;
+    border: 1.5px solid color-mix(in srgb, currentColor 32%, transparent);
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-decoration: none;
+    color: inherit;
+  }
+  .linea__subs a:hover { background: color-mix(in srgb, currentColor 12%, transparent); }
+  .linea__subs span { opacity: 0.6; }
+
+  .linea__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  @media (min-width: 940px) {
+    .linea__inner { grid-template-columns: 1fr 1fr; }
+    .linea__inner[data-flip='true'] .linea__text { order: 2; }
+  }
+</style>

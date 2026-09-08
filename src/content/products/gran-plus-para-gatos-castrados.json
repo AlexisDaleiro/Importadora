@@ -1,0 +1,42 @@
+{
+  "slug": "gran-plus-para-gatos-castrados",
+  "name": "GRAN PLUS para gatos – Castrados",
+  "brand": "granplus",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "GRAN PLUS ofrece una línea completa de alimentos de alta calidad. Comer es un momento de placer. Ofrecer lo mejor a quienes amamos es sinónimo de amor y cariño, por eso GRAN PLUS ofrece el sabor que a tu gato más le gusta.",
+  "description": [
+    "GRAN PLUS ofrece una línea completa de alimentos de alta calidad. Comer es un momento de placer. Ofrecer lo mejor a quienes amamos es sinónimo de amor y cariño, por eso GRAN PLUS ofrece el sabor que a tu gato más le gusta.",
+    "Este alimento se prepara con ingredientes seleccionados y balanceados para satisfacer y complacer las necesidades de tu gato castrado, manteniendo su peso ideal."
+  ],
+  "presentations": [
+    "1Kg",
+    "3Kg",
+    "10.1Kg"
+  ],
+  "benefits": [
+    "Mantenimiento del peso ideal",
+    "Contribuye a la salud del tracto urinario",
+    "Articulaciones sanas",
+    "Óptimo funcionamiento del organismo"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Siga las instrucciones del envoltorio para saber cual es la proporción adecuada para su mascota.</p><p>Recuerde realiza una transición paulatina desde el viejo alimento hacia GRAN PLUS.</p>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<p>TABLA NUTRICIONAL SABOR ATÚN Y ARROZ</p><table><tbody><tr><td>Proteína Bruta (mín.)</td><td>Calcio (mín.)</td></tr><tr><td>360g/kg</td><td>8.000mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>Sodio (mín.)</td></tr><tr><td>7.000mg/kg</td><td>3.000mg/kg</td></tr><tr><td>Extracto Etéreo (mín.)</td><td>Taurina (mín.)</td></tr><tr><td>90g/kg</td><td>1.200mg/kg</td></tr><tr><td>Materia Mineral (máx.)</td><td>Metionina (mín.)</td></tr><tr><td>82g/kg</td><td>7.000mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>Potasio (mín.)</td></tr><tr><td>100g/kg</td><td>5.300mg/kg</td></tr><tr><td>Materia fibrosa (máx.)</td><td>Mananoligossacarídeos (mín.)</td></tr><tr><td>40g/kg</td><td>100 mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>Lisina (mín.)</td></tr><tr><td>16,5g/kg</td><td>15g/kg</td></tr><tr><td>Ômega 6 (mín.)</td><td>Energía Metabolizable (NRC 2006, mín.)</td></tr><tr><td>15g/kg</td><td>3.600kcal/kg</td></tr><tr><td>Ômega 3 (mín.)</td><td>EPA + DHA (mín.)</td></tr><tr><td>1.600mg/kg</td><td>120 mg/kg</td></tr><tr><td>Materia fibrosa (máx.)</td><td>Carnitina (mín.)</td></tr><tr><td>40g/kg</td><td>100 mg/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/gran-plus-para-gatos-castrados-c01b6ab3.png",
+  "gallery": [
+    "../../assets/products/gran-plus-para-gatos-castrados-3f530deb.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/gran-plus-para-gatos-castrados/"
+}

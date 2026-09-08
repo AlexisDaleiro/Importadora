@@ -1,0 +1,41 @@
+{
+  "slug": "sachet-three-dogs-cachorros",
+  "name": "Sachet THREE DOGS – Cachorros",
+  "brand": "three-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "El sachet Three Dogs Premium Especial Cachorros es un alimento 100% completo y equilibrado bajo en sodio con cantidades ideales de vitaminas y minerales para promover un crecimiento saludable y equilibrado. ¡Con textura y sabor que los cachorros amarán!",
+  "description": [
+    "El sachet Three Dogs Premium Especial Cachorros es un alimento 100% completo y equilibrado bajo en sodio con cantidades ideales de vitaminas y minerales para promover un crecimiento saludable y equilibrado. ¡Con textura y sabor que los cachorros amarán!"
+  ],
+  "presentations": [
+    "100g"
+  ],
+  "benefits": [
+    "Crecimiento saludable y equilibrado",
+    "Cero colorantes y aromas artificiales",
+    "Bajo contenido de sodio",
+    "Con carne fresca",
+    "Sin conservantes"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Sirva puro o mezclado con Three Dogs Cachorros seco.</p><p>&nbsp;</p><table><thead><tr><td>Edad/Meses</td><td>Peso adulto (kg)</td><td></td><td></td></tr><tr><td></td><td>Hasta 5</td><td>5 – 10</td><td>10 – 25</td></tr></thead><tbody><tr><td>2 – 6</td><td>2 – 5</td><td>4 – 8</td><td>7 – 17</td></tr><tr><td>6 – 9</td><td>Adulto</td><td></td><td>7 – 17</td></tr><tr><td>9 – 12</td><td>Adulto</td><td>Adulto</td><td>7 – 17</td></tr><tr><td>12 – 15</td><td>Adulto</td><td>Adulto</td><td>7 o más</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Proteína Cruda (mín.)</td><td>92g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>45g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>15g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>28g/kg</td></tr><tr><td>Calcio (mín.)</td><td>3.000mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>5.000mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>2.700mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>400mg/kg</td></tr><tr><td>Potasio (mín.)</td><td>1.000mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>830g/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/sachet-three-dogs-cachorros-d6636cc6.png",
+  "gallery": [
+    "../../assets/products/sachet-three-dogs-cachorros-d6636cc6.png",
+    "../../assets/products/sachet-three-dogs-cachorros-ffe83e3c.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/sachet-three-dogs-cachorros/"
+}

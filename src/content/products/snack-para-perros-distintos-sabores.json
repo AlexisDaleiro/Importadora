@@ -1,0 +1,38 @@
+{
+  "slug": "snack-para-perros-distintos-sabores",
+  "name": "Snack PRIMOCÃO – Distintos sabores",
+  "brand": "primocao",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Primocão BOCADITOS cuenta con tres sabores: PANCETA, POLLO Y CARNE. Es una golosina suave de sabor irresistible, indicada para perros de todas las edades. Su receta contiene más del 80% de carne, una proteína altamente nutritiva y riquísima. ¡Primocão BIFINHOS es un premio especial para tu amigo!",
+  "description": [
+    "Primocão BOCADITOS cuenta con tres sabores: PANCETA, POLLO Y CARNE. Es una golosina suave de sabor irresistible, indicada para perros de todas las edades. Su receta contiene más del 80% de carne, una proteína altamente nutritiva y riquísima. ¡Primocão BIFINHOS es un premio especial para tu amigo!"
+  ],
+  "presentations": [
+    "60g"
+  ],
+  "benefits": [
+    "Bocadito para entrenamiento",
+    "Snack saludable"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Ofrezca uno o más bocados al día.</p><p>&nbsp;</p>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Humedad (máx.)</td><td>250g/kg</td></tr><tr><td>Proteína Cruda (mín.)</td><td>350g/kg</td></tr></thead><tbody><tr><td>Grasa Cruda (min.)</td><td>80g/kg</td></tr><tr><td>Fibra Cruda (máx.)</td><td>30g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>120g/kg</td></tr><tr><td>Cálcio (mín.)</td><td>10g/kg</td></tr><tr><td>Cálcio (máx.)</td><td>25g/kg</td></tr><tr><td>Fósforo (mín.)</td><td>7.000mg/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/snack-para-perros-distintos-sabores-a6f6f418.png",
+  "gallery": [
+    "../../assets/products/snack-para-perros-distintos-sabores-603a88be.png",
+    "../../assets/products/snack-para-perros-distintos-sabores-e23067e3.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/snack-para-perros-distintos-sabores/"
+}

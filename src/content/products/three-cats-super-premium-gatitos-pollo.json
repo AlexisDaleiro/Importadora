@@ -1,0 +1,41 @@
+{
+  "slug": "three-cats-super-premium-gatitos-pollo",
+  "name": "THREE CATS Original – Cachorro",
+  "brand": "three-cats-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "THREE CATS Super Premium Gatitos, es un alimento rico en ingredientes nobles, de alta calidad, tales como carne fresca e hígado de aves, que suministran todos los nutrientes necesarios de forma equilibrada para que su gatito tenga un desarrollo sano.",
+  "description": [
+    "THREE CATS Super Premium Gatitos, es un alimento rico en ingredientes nobles, de alta calidad, tales como carne fresca e hígado de aves, que suministran todos los nutrientes necesarios de forma equilibrada para que su gatito tenga un desarrollo sano."
+  ],
+  "presentations": [
+    "500g",
+    "3Kg",
+    "10.1Kg"
+  ],
+  "benefits": [
+    "Crecimiento saludable y equilibrado",
+    "Heces firmes y de olor reducido",
+    "Bajo contenido de sodio",
+    "Cero colorantes y aromas afrtificiales",
+    "Salud oral favorecida",
+    "Tracto urinario saludable"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Las cantidades presentadas de Three cats super premium gatitos son orientativas. Ofrezca el alimento dividido em varias comidas al día y mantenga siempre agua fresca y al alcance. Puede ser servido seco o mezclado con alimentos húmedos tales como los patés y sachets Three Cats. Caso su gato aún no esté comiendo Three Cats se recomienda una sustitución gradual durante 7 días como se indica en el grafico siguiente.</p><p>Una taza de té (200 ml) es equivalente a 85 g de Three Cats Super Premium Gatitos.</p><p>&nbsp;</p><table><thead><tr><td>Recomendación diaria</td><td></td><td></td></tr><tr><td>Edad (meses)</td><td>Peso normal</td><td>Sobrepeso</td></tr></thead><tbody><tr><td></td><td>Mediano (3-4 kg)</td><td>Grande (5-6 kg)</td></tr><tr><td>2 – 3</td><td>35 – 50</td><td>40 – 65</td></tr><tr><td>4 – 6</td><td>45 – 55</td><td>65 – 70</td></tr><tr><td>7 – 12</td><td>50 – 60</td><td>70 – 80</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<p><strong>TABLA NUTRICIONAL SABOR POLLO</strong></p><table><tbody><tr><td>Humedad</td><td></td><td></td><td>Máx. 100 g/kg</td></tr><tr><td>Proteína Cruda</td><td></td><td></td><td>Mín. 350 g/kg</td></tr><tr><td>Grasa Cruda</td><td></td><td></td><td>Mín. 140 g/kg</td></tr><tr><td>Fibra Cruda</td><td></td><td></td><td>Máx. 25 g/kg</td></tr><tr><td>Cenizas</td><td></td><td></td><td>Máx. 85 g/kg</td></tr><tr><td>Calcio</td><td></td><td></td><td>Mín. 9.000 mg/kg</td></tr><tr><td>Calcio</td><td></td><td></td><td>Máx. 17 g/kg</td></tr><tr><td>Fosforo</td><td></td><td></td><td>Mín. 8.000 mg/kg</td></tr></tbody></table><p>&nbsp;</p>"
+    }
+  ],
+  "image": "../../assets/products/three-cats-super-premium-gatitos-pollo-c87cced4.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/three-cats-super-premium-gatitos-pollo/"
+}

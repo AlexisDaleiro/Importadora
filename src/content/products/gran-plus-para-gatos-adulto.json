@@ -1,0 +1,41 @@
+{
+  "slug": "gran-plus-para-gatos-adulto",
+  "name": "GRAN PLUS para gatos – Adulto",
+  "brand": "granplus",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "GRAN PLUS para gato adulto ofrece una línea completa de alimentos de alta calidad. Comer es un momento de placer. Ofrecer lo mejor a quienes amamos es sinónimo de amor y cariño, por eso GRAN PLUS ofrece el sabor que a tu gato mas le gusta.",
+  "description": [
+    "GRAN PLUS para gato adulto ofrece una línea completa de alimentos de alta calidad. Comer es un momento de placer. Ofrecer lo mejor a quienes amamos es sinónimo de amor y cariño, por eso GRAN PLUS ofrece el sabor que a tu gato mas le gusta.",
+    "Este alimento se prepara con ingredientes seleccionados y balanceados para satisfacer y complacer las necesidades de tu gato adulto.",
+    "Sabor Pollo y Arroz o Salmón y Arroz."
+  ],
+  "presentations": [
+    "1Kg",
+    "3Kg",
+    "10.1Kg"
+  ],
+  "benefits": [
+    "Nutrición equilibrada",
+    "Mejor rendimiento por kilo",
+    "Vitalidad para gatos adultos",
+    "Contribuye a la salud del tracto urinario"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Siga las instrucciones del envoltorio para saber cual es la proporción adecuada para su mascota.</p><p>Recuerde realiza una transición paulatina desde el viejo alimento hacia GRAN PLUS.</p>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<p>TABLA NUTRICIONAL SABOR SALMÓN Y ARROZ</p><table><tbody><tr><td>Proteína bruta (mín.)</td><td>Metionina (mín.)</td></tr><tr><td>320g/kg</td><td>7.000 mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>Potasio (mín.)</td></tr><tr><td>6.000 mg/kg</td><td>5.300 mg/kg</td></tr><tr><td>Extracto Etéreo (min.)</td><td>Mananooligosacáridos (mín.)</td></tr><tr><td>120g/kg</td><td>100 mg/kg</td></tr><tr><td>Materia Mineral (máx.)</td><td>Lisina (mín.)</td></tr><tr><td>80g/kg</td><td>12g/kg</td></tr><tr><td>Humedad (máx.)</td><td>Energía Metabolizable (NRC 2006, min.)</td></tr><tr><td>100g/kg</td><td>3.950kcal/kg</td></tr><tr><td>Materia fibrosa (máx.)</td><td>EPA + DHA (mín.)</td></tr><tr><td>30g/kg</td><td>120 mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>Omega 6 (mín.)</td></tr><tr><td>16,5 g/kg</td><td>18g/kg</td></tr><tr><td>Calcio (mín.)</td><td>Omega 3 (mín.)</td></tr><tr><td>7.000 mg/kg</td><td>2000 mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>Materia fibrosa (máx.)</td></tr><tr><td>3000 mg/kg</td><td>30g/kg</td></tr><tr><td>Taurina (mín.)</td><td>&nbsp;</td></tr><tr><td>1200 mg/kg</td><td>&nbsp;</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/gran-plus-para-gatos-adulto-06dcb361.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/gran-plus-para-gatos-adulto/"
+}

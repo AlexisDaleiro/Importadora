@@ -1,0 +1,169 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import Button from './Button.astro';
+import { lineAccent } from '../config';
+
+// Recortes con transparencia generados por scripts/cutout-lineas.mjs.
+import cutAlimento from '../assets/lineas/alimento-para-mascotas.png';
+import cutArenas from '../assets/lineas/arenas-sanitarias.png';
+import cutCuidado from '../assets/lineas/cuidado-de-la-mascota.png';
+import cutSnacks from '../assets/lineas/snacks-para-consumo-humano.png';
+
+const CUTOUTS: Record<string, ImageMetadata> = {
+  'alimento-para-mascotas': cutAlimento,
+  'arenas-sanitarias': cutArenas,
+  'cuidado-de-la-mascota': cutCuidado,
+  'snacks-para-consumo-humano': cutSnacks,
+};
+const HEROES: Record<string, string> = {
+  'alimento-para-mascotas': 'adultos-todas-las-razas-carne-y-cereales',
+  'arenas-sanitarias': 'pipicat-classic',
+  'cuidado-de-la-mascota': 'acondicionador-aloe-vera',
+  'snacks-para-consumo-humano': 'mega-pack',
+};
+
+const lineas = (await getCollection('lineas')).sort((a, b) => a.data.order - b.data.order);
+const products = await getCollection('products');
+
+// El productCount del relevamiento difiere del catálogo real: se cuenta acá.
+const blocks = lineas.map((linea) => {
+  const ofLine = products.filter((p) => p.data.category.id === linea.id);
+  // La foto es el recorte sin fondo; el link va al producto que la origina.
+  const hero = ofLine.find((p) => p.id === HEROES[linea.id]) ?? ofLine.find((p) => p.data.image);
+  return {
+    linea,
+    hero,
+    cutout: CUTOUTS[linea.id],
+    count: ofLine.length,
+    accent: lineAccent(linea.id),
+  };
+});
+---
+
+<div class="lines">
+  {blocks.map(({ linea, hero, cutout, count, accent }, i) => (
+    <section class="line" style={`--line-bg:${accent.color};--line-fg:${accent.text}`}>
+      <div class="container line__inner" data-flip={i % 2 === 1}>
+        <div class="line__text" data-reveal>
+          <span class="kicker line__kicker">Línea 0{linea.data.order}</span>
+          <h2 class="title-lg">{linea.data.name}</h2>
+          <p class="line__desc">{linea.data.description}</p>
+
+          {linea.data.subcategories.length > 0 && (
+            <ul class="line__cats">
+              {linea.data.subcategories.map((sub) => (
+                <li>{sub.name} <span>{sub.count}</span></li>
+              ))}
+            </ul>
+          )}
+
+          <div class="actions">
+            <Button href={`/productos?linea=${linea.id}`} variant="white" size="lg">
+              Ver los {count} productos
+            </Button>
+          </div>
+        </div>
+
+        {hero && cutout && (
+          <div class="line__media" data-reveal style="--reveal-delay:120ms">
+            <div class="line__stage">
+              <span class="line__ring" aria-hidden="true"></span>
+              <Image
+                src={cutout}
+                alt={hero.data.name}
+                widths={[360, 560, 800]}
+                sizes="(min-width: 940px) 38vw, 72vw"
+                loading="lazy"
+                class="line__img"
+              />
+            </div>
+            <a class="line__tag" href={`/productos/${hero.id}`}>{hero.data.name}</a>
+          </div>
+        )}
+      </div>
+    </section>
+  ))}
+</div>
+
+<style>
+  .line {
+    background: var(--line-bg);
+    color: var(--line-fg);
+    padding-block: clamp(3.5rem, 7vw, 6rem);
+    overflow: hidden;
+  }
+  .line__inner {
+    display: grid;
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: center;
+  }
+  .line__kicker { color: color-mix(in srgb, currentColor 72%, transparent); }
+  .line__text > * + * { margin-top: 1.25rem; }
+  .line__text h2 { max-width: 16ch; }
+  .line__desc { font-size: var(--text-lg); max-width: 52ch; opacity: 0.92; }
+
+  .line__cats { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; }
+  .line__cats li {
+    border: 1.5px solid color-mix(in srgb, currentColor 32%, transparent);
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+    font-size: var(--text-kicker);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: inline-flex;
+    gap: 0.4rem;
+  }
+  .line__cats span { opacity: 0.6; }
+
+  .line__media { position: relative; display: grid; place-items: center; padding-block: 1rem; }
+  /* Escenario cuadrado: el círculo y el producto comparten centro, sin importar
+     si el recorte es vertical (envases) u horizontal (packs). */
+  .line__stage {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: min(100%, 440px);
+    aspect-ratio: 1;
+  }
+  .line__ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--line-fg) 13%, transparent);
+  }
+  /* Caja cuadrada dentro del escenario: object-fit la centra sin estirarlo.
+     Con max-width/max-height el recorte más angosto (188x526) crecía a su alto
+     natural y deformaba el círculo en un óvalo. */
+  .line__img {
+    position: absolute;
+    z-index: 1;
+    top: 8%;
+    left: 8%;
+    width: 84%;
+    height: 84%;
+    object-fit: contain;
+    filter: drop-shadow(0 26px 40px rgb(0 0 0 / 0.32));
+  }
+  .line__tag {
+    position: relative;
+    z-index: 2;
+    margin-top: 0.75rem;
+    max-width: 26ch;
+    text-align: center;
+    background: var(--line-fg);
+    color: var(--line-bg);
+    border-radius: 999px;
+    padding: 0.5rem 1.1rem;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .line__tag:hover { opacity: 0.88; }
+
+  @media (min-width: 940px) {
+    .line__inner { grid-template-columns: 1fr 1fr; }
+    .line__inner[data-flip='true'] .line__text { order: 2; }
+  }
+</style>

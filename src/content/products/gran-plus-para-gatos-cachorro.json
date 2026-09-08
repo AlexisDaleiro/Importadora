@@ -1,0 +1,37 @@
+{
+  "slug": "gran-plus-para-gatos-cachorro",
+  "name": "GRAN PLUS para gatos – Cachorro Sachet",
+  "brand": "granplus",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "GRAN PLUS ofrece una línea completa de alimentos de alta calidad. Comer es un momento de placer. Ofrecer lo mejor a quienes amamos es sinónimo de amor y cariño por eso ofrece exclusividad de sabores. Un alimento delicioso que les encanta a las mascotas. Además, se prepara con ingredientes seleccionados y balanceados para satisfacer y complacer hasta a los paladares más exigentes.",
+  "description": [
+    "GRAN PLUS ofrece una línea completa de alimentos de alta calidad. Comer es un momento de placer. Ofrecer lo mejor a quienes amamos es sinónimo de amor y cariño por eso ofrece exclusividad de sabores. Un alimento delicioso que les encanta a las mascotas. Además, se prepara con ingredientes seleccionados y balanceados para satisfacer y complacer hasta a los paladares más exigentes.",
+    "Este alimento cuenta con calcio y minerales que ayudan a tener huesos y dientes firmes, es una excelente opción para variar la dieta de tu mascota sin descuidar su salud y crecimiento equilibrado."
+  ],
+  "presentations": [
+    "85g"
+  ],
+  "benefits": [
+    "Sin transgénicos, sal, colorantes y aromas artificiales",
+    "Crecimiento equilibrado y saludabe",
+    "Tozos jugosos que ellos aman"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Siga las instrucciones del envoltorio para saber cual es la proporción adecuada para su mascota.</p>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><tbody><tr><td>Proteína bruta (mín.)</td><td>3200 mg/kg</td></tr><tr><td>90g/kg</td><td>Calcio (mín.)</td></tr><tr><td>Fósforo (mín.)</td><td>1500 mg/kg</td></tr><tr><td>1400 mg/kg</td><td>Sodio (mín.)</td></tr><tr><td>Extracto Etéreo (min.)</td><td>500 mg/kg</td></tr><tr><td>45g/kg</td><td>Taurina (mín.)</td></tr><tr><td>Materia Mineral (máx.)</td><td>500 mg/kg</td></tr><tr><td>20g/k</td><td>Metionina (mín.)</td></tr><tr><td>Humedad (máx.)</td><td>1000 mg/kg</td></tr><tr><td>840g/kg</td><td>Potasio (mín.)</td></tr><tr><td>Materia fibrosa (máx.)</td><td>1200 mg/kg</td></tr><tr><td>15g/kg</td><td>Mananooligosacáridos (mín.)</td></tr><tr><td>Calcio (máx.)</td><td>40 mg/kg</td></tr><tr><td>EPA + DHA (mín.)</td><td>Omega 6 (mín.)</td></tr><tr><td>25 mg/kg</td><td>1300 mg/kg</td></tr><tr><td>Materia fibrosa (máx.)</td><td>Omega 3 (mín.)</td></tr><tr><td>15g/kg</td><td>40 mg/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/gran-plus-para-gatos-cachorro-75e6b288.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/gran-plus-para-gatos-cachorro/"
+}

@@ -1,0 +1,199 @@
+---
+import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
+import { contactLink, hasWhatsApp, site, sucursales } from '../config';
+---
+
+<Base
+  title="Contacto"
+  description="Contactá a Districo S.A.: Casa Matriz en Montevideo, sucursal Maldonado, 0800 1004."
+>
+  <section class="head">
+    <div class="container">
+      <span class="kicker kicker--accent">Contacto</span>
+      <h1 class="title-xl">Hablemos de tu comercio</h1>
+      <p class="lead">
+        Atendemos veterinarias, pet shops, agropecuarias y grandes superficies de todo el país.
+        Escribinos y un vendedor de tu zona se pone en contacto.
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap container">
+    <form class="form" id="form" data-reveal novalidate>
+      <div class="row">
+        <label class="field">
+          <span>Nombre y apellido *</span>
+          <input name="nombre" type="text" required autocomplete="name" />
+        </label>
+        <label class="field">
+          <span>Comercio</span>
+          <input name="comercio" type="text" autocomplete="organization" />
+        </label>
+      </div>
+
+      <div class="row">
+        <label class="field">
+          <span>Email *</span>
+          <input name="email" type="email" required autocomplete="email" />
+        </label>
+        <label class="field">
+          <span>Teléfono</span>
+          <input name="telefono" type="tel" autocomplete="tel" />
+        </label>
+      </div>
+
+      <label class="field">
+        <span>Localidad</span>
+        <input name="localidad" type="text" autocomplete="address-level2" />
+      </label>
+
+      <label class="field">
+        <span>Consulta *</span>
+        <textarea name="mensaje" rows="5" required></textarea>
+      </label>
+
+      <div class="form__foot">
+        <Button type="submit" variant="primary" size="lg">Enviar consulta</Button>
+        <p class="form__note">
+          Se abre tu cliente de correo con la consulta ya escrita hacia {site.email}.
+        </p>
+      </div>
+      <p class="form__error" id="form-error" hidden>Completá nombre, email y consulta.</p>
+    </form>
+
+    <aside class="side" data-reveal style="--reveal-delay:110ms">
+      <div class="side__box">
+        <h2>Directo</h2>
+        <p><a class="side__big" href="tel:08001004">{site.tollFree}</a></p>
+        <p><a href={`tel:${site.phone.replace(/[^0-9+]/g, '')}`}>{site.phone}</a></p>
+        <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+        <div class="actions">
+          <Button href={contactLink('Hola Districo, quiero hacer una consulta comercial.')} variant="lime">
+            {hasWhatsApp() ? 'WhatsApp' : `Llamar al ${site.tollFree}`}
+          </Button>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="sedes section">
+    <div class="container">
+      <h2 class="title-lg" data-reveal>Nuestras sedes</h2>
+      <ul class="sedes__grid">
+        {sucursales.map((s, i) => (
+          <li data-reveal style={`--reveal-delay:${i * 80}ms`}>
+            <div class="sede__info">
+              <h3>{s.nombre}</h3>
+              <p class="sede__sup">{s.superficie}</p>
+              <p>{s.direccion}</p>
+              {s.telefonos.map((t) => (
+                <p><a href={`tel:${t.replace(/[^0-9+]/g, '')}`}>{t}</a></p>
+              ))}
+            </div>
+            <iframe
+              class="sede__mapa"
+              src={s.mapa}
+              title={`Mapa de ${s.nombre}`}
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<script is:inline define:vars={{ email: site.email }}>
+  // Sitio 100% estático: sin backend, el formulario compone un mailto.
+  // Al contratar un endpoint (Formspree, Netlify Forms, etc.) se cambia por un POST.
+  const form = document.getElementById('form');
+  const error = document.getElementById('form-error');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = new FormData(form);
+    const req = ['nombre', 'email', 'mensaje'].every((k) => String(f.get(k) ?? '').trim());
+    if (!req) { error.hidden = false; return; }
+    error.hidden = true;
+    const cuerpo = [
+      `Nombre: ${f.get('nombre')}`,
+      `Comercio: ${f.get('comercio') || '-'}`,
+      `Email: ${f.get('email')}`,
+      `Teléfono: ${f.get('telefono') || '-'}`,
+      `Localidad: ${f.get('localidad') || '-'}`,
+      '',
+      String(f.get('mensaje')),
+    ].join('\n');
+    location.href = `mailto:${email}?subject=${encodeURIComponent('Consulta desde el sitio web')}&body=${encodeURIComponent(cuerpo)}`;
+  });
+</script>
+
+<style>
+  .head { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--bg-soft); }
+  .head .kicker { display: block; margin-bottom: 0.5rem; }
+  .head h1 { margin-bottom: 0.75rem; }
+
+  .wrap { display: grid; gap: clamp(2rem, 4vw, 3rem); padding-block: clamp(2.5rem, 5vw, 4rem); align-items: start; }
+
+  .form { display: grid; gap: 1rem; }
+  .row { display: grid; gap: 1rem; }
+  .field { display: grid; gap: 0.35rem; font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--fg-muted); }
+  .field input, .field textarea {
+    font: inherit;
+    font-size: var(--text-base);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--fg);
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.7rem 0.9rem;
+  }
+  .field textarea { resize: vertical; }
+  .field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--teal-600); outline-offset: 1px; }
+
+  .form__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; padding-top: 0.5rem; }
+  .form__note { font-size: var(--text-sm); color: var(--fg-muted); max-width: 34ch; }
+  .form__error { color: #B3261E; font-size: var(--text-sm); font-weight: 600; }
+
+  .side__box {
+    background: var(--teal-900);
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.5rem, 3vw, 2rem);
+    display: grid;
+    gap: 0.5rem;
+  }
+  .side__box h2 { font-size: var(--text-kicker); text-transform: uppercase; letter-spacing: 0.12em; color: rgb(255 255 255 / 0.6); margin-bottom: 0.5rem; }
+  .side__box a { color: var(--white); text-decoration: none; }
+  .side__box a:hover { text-decoration: underline; }
+  .side__big { font-size: var(--text-2xl); font-weight: 800; letter-spacing: -0.03em; color: var(--lime-500) !important; }
+  .side__box .actions { margin-top: 1rem; }
+
+  .sedes { background: var(--bg-soft); }
+  .sedes h2 { margin-bottom: 1.5rem; }
+  .sedes__grid { list-style: none; padding: 0; display: grid; gap: 1.5rem; }
+  .sedes__grid li {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: grid;
+  }
+  .sede__info { padding: 1.5rem; display: grid; gap: 0.3rem; align-content: start; }
+  .sede__info h3 { font-size: var(--text-xl); letter-spacing: -0.02em; }
+  .sede__sup { font-size: var(--text-kicker); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--teal-600); }
+  .sede__info p { color: var(--fg-muted); }
+  .sede__info a { color: var(--teal-700); font-weight: 600; text-decoration: none; }
+  .sede__mapa { width: 100%; min-height: 240px; border: 0; display: block; }
+
+  @media (min-width: 760px) {
+    .row { grid-template-columns: 1fr 1fr; }
+    .sedes__grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 940px) {
+    .wrap { grid-template-columns: 1.4fr 0.6fr; }
+  }
+</style>

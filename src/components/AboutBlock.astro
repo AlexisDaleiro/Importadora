@@ -1,0 +1,97 @@
+---
+import { Image } from 'astro:assets';
+import Button from './Button.astro';
+import foto from '../assets/institutional/deposito-estanterias.jpg';
+import { centrosRegionales } from '../config';
+
+// Solo datos verificados contra districo.com.uy/nosotros.
+const puntos = [
+  { titulo: 'Casa Matriz de 6.000 m²', texto: 'Depósito propio en Montevideo, más una sucursal de 400 m² en Maldonado.' },
+  { titulo: 'Centros regionales', texto: `Operación en ${centrosRegionales.join(', ')}.` },
+  { titulo: 'Energía y flota propias', texto: '3 plantas fotovoltaicas de 120 Kw/h y vehículos 100% eléctricos con estaciones de carga.' },
+];
+---
+
+<section class="about section">
+  <div class="container about__inner">
+    <div class="about__media" data-reveal>
+      <span class="blob about__circle" aria-hidden="true"></span>
+      <Image
+        src={foto}
+        alt="Depósito de Districo S.A. con estanterías de mercadería"
+        widths={[480, 720, 1000]}
+        sizes="(min-width: 940px) 44vw, 92vw"
+        loading="lazy"
+        class="about__img"
+      />
+    </div>
+
+    <div class="about__text" data-reveal style="--reveal-delay:120ms">
+      <span class="kicker kicker--accent">Quiénes somos</span>
+      <h2 class="title-lg">Distribuyendo en Uruguay desde 1960</h2>
+      <p class="lead">
+        Districo S.A. nace de Agropecuaria Colón, fundada en 1960 por el Ing. Montiel Graviz.
+        Hoy distribuye alimento para mascotas, arenas sanitarias, productos de cuidado animal y
+        snacks en todo el país, con Casa Matriz certificada ISO 9001 desde 2019.
+      </p>
+
+      <ul class="about__list">
+        {puntos.map((p) => (
+          <li>
+            <strong>{p.titulo}</strong>
+            <span>{p.texto}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div class="actions">
+        <Button href="/nosotros" variant="outline" size="lg">Conocé la empresa</Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about { background: var(--bg-soft); overflow: hidden; }
+  .about__inner {
+    display: grid;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .about__media { position: relative; display: grid; place-items: center; }
+  .about__circle {
+    width: min(92%, 520px);
+    aspect-ratio: 1;
+    background: var(--lime-500);
+    top: -6%;
+    left: -4%;
+  }
+  .about__img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .about__text > * + * { margin-top: 1.5rem; }
+  .about__text .kicker { display: block; margin-bottom: 0.5rem; }
+
+  .about__list { list-style: none; padding: 0; display: grid; gap: 1rem; }
+  .about__list li {
+    display: grid;
+    gap: 0.25rem;
+    padding-left: 1.25rem;
+    border-left: 3px solid var(--lime-500);
+  }
+  .about__list strong { font-size: var(--text-base); }
+  .about__list span { color: var(--fg-muted); font-size: var(--text-sm); }
+
+  @media (min-width: 940px) {
+    .about__inner { grid-template-columns: 0.9fr 1.1fr; }
+  }
+</style>

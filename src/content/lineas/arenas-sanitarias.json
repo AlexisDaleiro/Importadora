@@ -1,0 +1,12 @@
+{
+  "slug": "arenas-sanitarias",
+  "name": "Arenas sanitarias",
+  "order": 2,
+  "accent": "arenas",
+  "description": "Comercializamos distintas marcas de arenas sanitarias de excelente calidad que se adaptan a las necesidades de cada mascota.",
+  "subcategories": [],
+  "productCount": 9,
+  "cover": "../../assets/categories/arenas-sanitarias.jpg",
+  "sourceSlug": "arenas-sanitarias",
+  "coverBackground": "#FEC400"
+}

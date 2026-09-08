@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import Button from './Button.astro';
-import { nav } from '../config';
+import { nav, site } from '../config';
 const path = Astro.url.pathname;
 const isActive = (href: string) => path === href || path.startsWith(href + '/');
 ---
@@ -19,7 +19,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     </nav>
 
     <div class="hdr__cta">
-      <Button href="/contacto" variant="primary">Contacto</Button>
+      <Button href="tel:08001004" variant="primary">{site.tollFree}</Button>
     </div>
 
     <details class="hdr__mobile">

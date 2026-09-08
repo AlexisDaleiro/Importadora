@@ -1,28 +1,23 @@
 /* ── Tokens ─────────────────────────────────────────────────────────── */
 :root {
-  /* Identidad Districo */
-  --teal-950: #04191D;
-  --teal-900: #06262C;
-  --teal-800: #0A353D;
-  --teal-700: #0E4650;
-  --teal-600: #14606E;
-  --lime-500: #B4D335;
-  --lime-400: #C7E15C;
+  /* Identidad Districo — muestreados del logo oficial:
+     petróleo #003647 y verde lima #AAD400. */
+  --teal-950: #001A22;
+  --teal-900: #002733;
+  --teal-800: #003647;
+  --teal-700: #0A4A5C;
+  --teal-600: #16687E;
+  --lime-500: #AAD400;
+  --lime-400: #C2E63B;
 
   /* Neutros */
   --white: #FFFFFF;
-  --gray-50: #F6F7F5;
-  --gray-100: #EDEFEA;
-  --gray-200: #DDE0D9;
-  --gray-400: #9AA29B;
-  --gray-600: #5C6660;
-  --gray-800: #2A322E;
-
-  /* Acentos por línea de negocio */
-  --line-mascotas: #0E4650;
-  --line-cuidado: #2F6FB2;
-  --line-snacks: #E2582B;
-  --line-granja: #B4D335;
+  --gray-50: #F5F7F6;
+  --gray-100: #EBEEEC;
+  --gray-200: #DBE0DD;
+  --gray-400: #97A0A0;
+  --gray-600: #596466;
+  --gray-800: #283134;
 
   /* Semánticos */
   --bg: var(--white);
@@ -45,6 +40,7 @@
   --text-hero: clamp(2.5rem, 1.15rem + 4.3vw, 5.5rem);
 
   /* Layout */
+  --hdr-h: 77px; /* alto del header sticky: lo usan las barras sticky de abajo */
   --container: 1240px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --section-y: clamp(4rem, 8vw, 7.5rem);

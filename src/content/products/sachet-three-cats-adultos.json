@@ -1,0 +1,41 @@
+{
+  "slug": "sachet-three-cats-adultos",
+  "name": "Sachet THREE CATS – Adultos",
+  "brand": "three-cats-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "El sachet Three Cats Premium Especial Adultos es un alimento 100% completo y equilibrado, bajo en sodio y con cantidades adecuadas de minerales para favorecer la salud del tracto urinario felino. El sabor Carne en Salsa, se cuece al vapor y tiene pedacitos que son fáciles de agarrar y masticar, además de ser muy sabroso. ¡Todo para que su gatito disfrute de una comida segura, completa y saludable!",
+  "description": [
+    "El sachet Three Cats Premium Especial Adultos es un alimento 100% completo y equilibrado, bajo en sodio y con cantidades adecuadas de minerales para favorecer la salud del tracto urinario felino. El sabor Carne en Salsa, se cuece al vapor y tiene pedacitos que son fáciles de agarrar y masticar, además de ser muy sabroso. ¡Todo para que su gatito disfrute de una comida segura, completa y saludable!"
+  ],
+  "presentations": [
+    "85g"
+  ],
+  "benefits": [
+    "Cero colorantes ni aromas artificiales",
+    "Bajo contenido de sodio",
+    "Tracto urinario saludable",
+    "Con carne fresca",
+    "Sin conservantes"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Sirva 2- 4 sachets al día. Sirva puro o mezclado con Three Cats seco.</p><p>&nbsp;</p>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Proteína Cruda (mín.)</td><td>82g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>30g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>13g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>30g/kg</td></tr><tr><td>Calcio (mín.)</td><td>1.500mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>4.500mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>1.400mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>400mg/kg</td></tr><tr><td>Taurina (mín.)</td><td>850mg/kg</td></tr><tr><td>Potasio (mín.)</td><td>1.100mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>840g/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/sachet-three-cats-adultos-23c43f6e.png",
+  "gallery": [
+    "../../assets/products/sachet-three-cats-adultos-23c43f6e.png",
+    "../../assets/products/sachet-three-cats-adultos-e2330b9f.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/sachet-three-cats-adultos/"
+}

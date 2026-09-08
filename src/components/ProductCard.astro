@@ -1,0 +1,105 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { lineAccent, lineShort } from '../config';
+
+interface Props {
+  product: CollectionEntry<'products'>;
+  brandName?: string;
+  lineName?: string;
+}
+const { product, brandName, lineName } = Astro.props;
+const { name, image, presentations, subcategory, category } = product.data;
+const accent = lineAccent(category.id);
+---
+
+<article
+  class="card"
+  style={`--card-accent:${accent.color}`}
+  data-product
+  data-linea={category.id}
+  data-marca={product.data.brand?.id ?? ''}
+  data-sub={subcategory ?? ''}
+  data-nombre={`${name} ${brandName ?? ''}`.toLowerCase()}
+>
+  <a class="card__link" href={`/productos/${product.id}`}>
+    <div class="card__media">
+      {image ? (
+        <Image
+          src={image}
+          alt={name}
+          widths={[220, 440]}
+          sizes="(min-width: 940px) 260px, 45vw"
+          loading="lazy"
+          class="card__img"
+        />
+      ) : (
+        <span class="card__noimg" aria-hidden="true"></span>
+      )}
+    </div>
+
+    <div class="card__body">
+      <span class="card__line">{lineName ?? lineShort[category.id] ?? ''}</span>
+      <h3 class="card__name">{name}</h3>
+      {brandName && <span class="card__brand">{brandName}</span>}
+      {presentations.length > 0 && (
+        <ul class="card__pres">
+          {presentations.slice(0, 4).map((p) => <li>{p}</li>)}
+        </ul>
+      )}
+    </div>
+  </a>
+</article>
+
+<style>
+  .card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover {
+    border-color: var(--card-accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  .card[hidden] { display: none; }
+
+  .card__link { display: grid; gap: 0; text-decoration: none; color: inherit; height: 100%; }
+  .card__media {
+    display: grid;
+    place-items: center;
+    padding: 1.25rem;
+    background: var(--gray-50);
+    aspect-ratio: 1;
+  }
+  .card__img { width: 100%; height: 100%; object-fit: contain; }
+  .card__noimg { width: 60%; aspect-ratio: 1; border-radius: 50%; background: var(--gray-100); }
+
+  .card__body { display: grid; gap: 0.4rem; padding: 1rem 1.1rem 1.25rem; align-content: start; }
+  .card__line {
+    font-size: var(--text-kicker);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    /* El amarillo de snacks no contrasta sobre blanco: se oscurece el acento. */
+    color: color-mix(in srgb, var(--card-accent) 72%, var(--teal-950));
+  }
+  .card__name {
+    font-size: var(--text-base);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+  .card__brand { font-size: var(--text-sm); color: var(--fg-muted); }
+  .card__pres { display: flex; flex-wrap: wrap; gap: 0.3rem; list-style: none; padding: 0; margin-top: 0.25rem; }
+  .card__pres li {
+    font-size: 0.72rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.15rem 0.5rem;
+    color: var(--fg-muted);
+  }
+</style>

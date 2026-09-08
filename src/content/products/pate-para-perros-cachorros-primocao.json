@@ -1,0 +1,38 @@
+{
+  "slug": "pate-para-perros-cachorros-primocao",
+  "name": "Paté PRIMOCÃO – Cachorros",
+  "brand": "primocao",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Los alimentos húmedos Primocão cuentan con una alta concentración de nutrientes esenciales para los perros, lo que produce un mejor equilibrio entre proteínas grasas carbohidratos. Este factor es importante para mejorar la salud y la longevidad de nuestras mascotas.",
+  "description": [
+    "Los alimentos húmedos Primocão cuentan con una alta concentración de nutrientes esenciales para los perros, lo que produce un mejor equilibrio entre proteínas grasas carbohidratos. Este factor es importante para mejorar la salud y la longevidad de nuestras mascotas."
+  ],
+  "presentations": [
+    "300g"
+  ],
+  "benefits": [
+    "Pelo brillante y piel sana",
+    "Sin aromas o sabores artificiales",
+    "Energía y vitalidad"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<table><thead><tr><td>Edad (meses)</td><td>Patés/día</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>1-5 (kg)</td><td>6–10 (kg)</td><td>11–25 (kg)</td><td>25-40 (kg)</td><td>41(kg) o más</td></tr></thead><tbody><tr><td>2-4</td><td>Até 1</td><td>1 – 1 ½</td><td>2 – 3 ½</td><td>3 ½ – 5 ½</td><td>5 ½ o más</td></tr><tr><td>4-6</td><td>1 – 1 ½</td><td>1 ½ – 2 ½</td><td>3 ½ – 5 ½</td><td>5 ½ – 7 ½</td><td>7 ½ o más</td></tr><tr><td>6-9</td><td>Adulto</td><td>2 ½ – 3</td><td>3 ½ – 5 ½</td><td>5 ½ – 8 ½</td><td>8 ½ o más</td></tr><tr><td>9-12</td><td>Adulto</td><td>Adulto</td><td>Adulto</td><td>5 ½ – 7 ½</td><td>7 ½ o más</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Cruda (mín.)</td><td>90 g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>55g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>20g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>25g/kg</td></tr><tr><td>Cálcio (mín.)</td><td>3000mg/kg</td></tr><tr><td>Cálcio (máx.)</td><td>4700 mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>2500mg/kg</td></tr><tr><td>Sódio (mín.)</td><td>900mg/kg</td></tr><tr><td>Zinco (mín.)</td><td>50mg/kg</td></tr><tr><td>Omega 6 (min.)</td><td>4000mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>820g/k</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/pate-para-perros-cachorros-primocao-1be098ae.png",
+  "gallery": [
+    "../../assets/products/pate-para-perros-cachorros-primocao-64036954.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/pate-para-perros-cachorros-primocao/"
+}

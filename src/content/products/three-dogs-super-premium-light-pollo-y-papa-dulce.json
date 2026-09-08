@@ -1,0 +1,39 @@
+{
+  "slug": "three-dogs-super-premium-light-pollo-y-papa-dulce",
+  "name": "THREE DOGS Light – Todas las razas",
+  "brand": "three-dogs",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Three Dogs Super Premium LIGHT Todas las razas – Pollo y Papa dulce – Es un alimento rico en ingredientes de alta calidad que suministran todos los nutrientes necesarios para el mantenimiento de perros adultos y cuidado de su peso ideal. Especialmente desarrollado para que necesita cuidar el sobrepeso, Three Dogs Super Premium es fácil de digerir, muy sabroso, con calorías reducidas, L-carnitina para la correcta metabolización de las grasas, cereales integrales con gran aporte de fibra y protectores articulares que mejoran la actividad física, todo para favorecer la pérdida natural de peso.",
+  "description": [
+    "Three Dogs Super Premium LIGHT Todas las razas – Pollo y Papa dulce – Es un alimento rico en ingredientes de alta calidad que suministran todos los nutrientes necesarios para el mantenimiento de perros adultos y cuidado de su peso ideal. Especialmente desarrollado para que necesita cuidar el sobrepeso, Three Dogs Super Premium es fácil de digerir, muy sabroso, con calorías reducidas, L-carnitina para la correcta metabolización de las grasas, cereales integrales con gran aporte de fibra y protectores articulares que mejoran la actividad física, todo para favorecer la pérdida natural de peso."
+  ],
+  "presentations": [
+    "3Kg",
+    "10Kg",
+    "15Kg"
+  ],
+  "benefits": [
+    "Bajo contenido en grasas",
+    "Aporte elevado de fibra vegetal",
+    "Alimentacion completa y equilibrada",
+    "Más disposición y vitalidad"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Recuerde leer las instrucciones en el embalaje de THREE DOGS SUPER PREMIUM para darle a su mascota la cantidad justa de acuerdo a su tamaño y peso.</p>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><tbody><tr><td>Humedad</td><td></td><td>X</td><td>Máx. 100 g/kg</td></tr><tr><td>Proteína Cruda</td><td></td><td>X</td><td>Mín. 270 g/kg</td></tr><tr><td>Grasa Cruda</td><td></td><td>X</td><td>Mín. 80 g/kg</td></tr><tr><td>Fibra Cruda</td><td></td><td>X</td><td>Máx. 85 g/kg</td></tr><tr><td>Cenizas</td><td></td><td>X</td><td>Máx. 85 g/kg</td></tr><tr><td>Calcio</td><td></td><td>X</td><td>Mín. 8.000 mg/kg</td></tr><tr><td>Calcio</td><td></td><td>X</td><td>Máx. 18 g/kg</td></tr><tr><td>Fosforo</td><td></td><td>X</td><td>Mín. 7.000 mg/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/three-dogs-super-premium-light-pollo-y-papa-dulce-602b248c.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/three-dogs-super-premium-light-pollo-y-papa-dulce/"
+}

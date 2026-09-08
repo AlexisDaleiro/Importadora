@@ -1,0 +1,38 @@
+{
+  "slug": "pate-para-gatos-cachorros-primogato",
+  "name": "Paté PRIMOGATO – Cachorros",
+  "brand": "primogato",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "Los alimentos húmedos PRIMOGATO cuentan con una alta concentración de nutrientes esenciales para los perros, lo que produce un mejor equilibrio entre proteínas, grasas y carbohidratos. Este factor es importante para mejorar la salud y la longevidad de nuestras mascotas. Además de tener una textura que les encanta a las mascotas, no contiene saborizantes artificiales y conservantes.",
+  "description": [
+    "Los alimentos húmedos PRIMOGATO cuentan con una alta concentración de nutrientes esenciales para los perros, lo que produce un mejor equilibrio entre proteínas, grasas y carbohidratos. Este factor es importante para mejorar la salud y la longevidad de nuestras mascotas. Además de tener una textura que les encanta a las mascotas, no contiene saborizantes artificiales y conservantes."
+  ],
+  "presentations": [
+    "150g"
+  ],
+  "benefits": [
+    "Pelo brillante y piel sana",
+    "Tracto urinario saludable",
+    "Sin aromas artificiales o colorantes"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Ofrecer hasta 2 patés al día&nbsp; para gatitos hasta 12 meses de edad.</p>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Proteína Cruda (mín.)</td><td>90g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>45 g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>20g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>25g/kg</td></tr><tr><td>Calcio (mín.)</td><td>2100mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>4500mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>2000mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>550mg/kg</td></tr><tr><td>Taurina (mín)</td><td>600mg/kg</td></tr><tr><td>Zinc (mín.)</td><td>40mg/kg</td></tr><tr><td>Omega 6 (mín.)</td><td>4000mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>820g/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/pate-para-gatos-cachorros-primogato-7c55efa0.png",
+  "gallery": [
+    "../../assets/products/pate-para-gatos-cachorros-primogato-47f56016.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/pate-para-gatos-cachorros-primogato/"
+}

@@ -1,0 +1,40 @@
+{
+  "slug": "three-cats-super-premium-adultos-salmon-pollo-y-carne",
+  "name": "THREE CATS Super Premium – Adultos",
+  "brand": "three-cats-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "THREE CATS Super Premium Adultos – Salmón, Pollo y Carne Es un alimento rico en ingredientes nobles y de alta calidad, tales como carnes frescas de pollo, pescado y cerdo, que suministran todos los nutrientes necesarios de forma equilibrada, de la forma que su gato lo necesita para tener una excelente calidad de vida.",
+  "description": [
+    "THREE CATS Super Premium Adultos – Salmón, Pollo y Carne Es un alimento rico en ingredientes nobles y de alta calidad, tales como carnes frescas de pollo, pescado y cerdo, que suministran todos los nutrientes necesarios de forma equilibrada, de la forma que su gato lo necesita para tener una excelente calidad de vida."
+  ],
+  "presentations": [
+    "500g",
+    "3Kg",
+    "15Kg"
+  ],
+  "benefits": [
+    "Heces firmes y de olor reducido",
+    "Bajo contenido de sodio",
+    "Cero colorantes y aromas afrtificiales",
+    "Pelaje suave y brillante",
+    "Tracto urinario protegido"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Las cantidades presentadas son orientativas. Ofrezca el alimento dividido en varias comidas al día y mantenga siempre agua fresca y al alcance. Puede ser servido seco o mezclado con alimentos húmedos tales como los patés y sachets Three Cats. Caso su gato aún no esté comiendo Three Cats se recomienda una sustitución gradual durante 7 días.</p><p>Una taza de té (200ml) es equivalente a 70g de Three Cats Super Premium Adulto.</p><p>&nbsp;</p><table><thead><tr><td>Peso (kg)</td><td>Peso normal</td><td>Sobrepeso</td></tr><tr><td></td><td>g/día</td><td>g/día</td></tr></thead><tbody><tr><td>2</td><td>40g</td><td>–</td></tr><tr><td>3</td><td>50g</td><td>–</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><tbody><tr><td>Humedad (máx.)</td><td>100 g / kg</td></tr><tr><td>Proteína cruda (min.)</td><td>330 g / kg</td></tr><tr><td>Extracto etéreo (min.)</td><td>140 g / kg</td></tr><tr><td>Materia fibrosa (máx.)</td><td>30 g / kg</td></tr><tr><td>Materia mineral (máx.)</td><td>75 g / kg</td></tr><tr><td>Calcio (máx.)</td><td>14 g / kg</td></tr><tr><td>Calcio (min.)</td><td>7.000 mg / kg</td></tr><tr><td>Fósforo (min.)</td><td>6.000 mg / kg</td></tr><tr><td>Taurina (min.)</td><td>1.300 mg / kg</td></tr><tr><td>DL-metionina (min.)</td><td>7.000 mg / kg</td></tr><tr><td>L-lisina (min.)</td><td>12 g / kg</td></tr><tr><td>Sodio (min.)</td><td>1800 mg / kg</td></tr><tr><td>Omega 3 (min.)</td><td>3.600 mg / kg</td></tr><tr><td>Omega 6 (min.)</td><td>31 g / kg</td></tr><tr><td>Zinc quelado (min.)</td><td>90 mg / kg</td></tr><tr><td>Hexametafosfato de sodio (min.)</td><td>3.000 mg / kg</td></tr><tr><td>Bacillus subtilis (min.)</td><td>8 x 108 UFC / kg</td></tr><tr><td>PH urinario</td><td>6.2 – 6.8</td></tr><tr><td>Energía metabolizable</td><td>3.950 kcal / kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/three-cats-super-premium-adultos-salmon-pollo-y-carne-47851361.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/three-cats-super-premium-adultos-salmon-pollo-y-carne/"
+}

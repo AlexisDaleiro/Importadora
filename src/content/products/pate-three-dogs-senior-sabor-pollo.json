@@ -1,0 +1,39 @@
+{
+  "slug": "pate-three-dogs-senior-sabor-pollo",
+  "name": "Paté THREE DOGS  – Senior",
+  "brand": "three-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "El paté Three Dogs Super Premium Senior 7+ Sabor Pollo es un alimento 100% completo y equilibrado con una fórmula rica en antioxidantes para promover la longevidad activa. Además, cuenta con glucosamina y condroitina en su composición, lo que favorece el mantenimiento de articulaciones sanas. Todo para que su mascota disfrute de una comida segura, completa y saludable.",
+  "description": [
+    "El paté Three Dogs Super Premium Senior 7+ Sabor Pollo es un alimento 100% completo y equilibrado con una fórmula rica en antioxidantes para promover la longevidad activa. Además, cuenta con glucosamina y condroitina en su composición, lo que favorece el mantenimiento de articulaciones sanas. Todo para que su mascota disfrute de una comida segura, completa y saludable."
+  ],
+  "presentations": [
+    "150g"
+  ],
+  "benefits": [
+    "Cero colorantes ni aromas artificiales",
+    "Carne fresca de pollo",
+    "Longitud activa"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<table><thead><tr><td>Perro (kg)</td><td>Patés/día</td></tr><tr><td>2-5</td><td>1 ¼ – 2 ½</td></tr></thead><tbody><tr><td>6-10</td><td>3 – 4 ¼</td></tr><tr><td>11-20</td><td>4 ½ – 7</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Proteína Cruda (mín.)</td><td>70g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>30g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>15g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>29g/kg</td></tr><tr><td>Calcio (mín.)</td><td>1.500mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>2.500mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>1.200mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>400mg/kg</td></tr><tr><td>Glicosamina (mín.)</td><td>100mg/kg</td></tr><tr><td>Condroitina (mín.)</td><td>10mg/kg</td></tr><tr><td>Vitamina E (mín.)</td><td>50mg/kg</td></tr><tr><td>Selenio (mín.)</td><td>0,12mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>840g/kg</td></tr><tr><td>Energía metabolizable (mín.)</td><td>820kcal</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/pate-three-dogs-senior-sabor-pollo-39c16f71.png",
+  "gallery": [
+    "../../assets/products/pate-three-dogs-senior-sabor-pollo-60428541.png",
+    "../../assets/products/pate-three-dogs-cachorro-sabor-pollo-a5d6c4df.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/pate-three-dogs-senior-sabor-pollo/"
+}

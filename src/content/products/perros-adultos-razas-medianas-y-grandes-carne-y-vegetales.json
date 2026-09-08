@@ -1,0 +1,39 @@
+{
+  "slug": "perros-adultos-razas-medianas-y-grandes-carne-y-vegetales",
+  "name": "PRIMOCAO para perros – Adultos Razas medianas y grandes",
+  "brand": "primocao",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Primocão Premium Adultos Razas Medianas y Grandes es un alimento 100% completo y balanceado. El sabor es irresistible ya que está elaborado con proteínas de alta calidad y zanahorias. Además, ¡tiene Nuggets rellenos que los perros aman!",
+  "description": [
+    "Primocão Premium Adultos Razas Medianas y Grandes es un alimento 100% completo y balanceado. El sabor es irresistible ya que está elaborado con proteínas de alta calidad y zanahorias. Además, ¡tiene Nuggets rellenos que los perros aman!"
+  ],
+  "presentations": [
+    "1Kg",
+    "10Kg",
+    "20Kg"
+  ],
+  "benefits": [
+    "Heces firmes y de bajo olor",
+    "Pelaje suave y brilloso",
+    "Musculatura reforzada",
+    "Más disposición y vitalidad"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Las cantidades presentadas son orientativas y pueden variar según la raza, sexo y estilo de vida, entre otros factores. Este alimento puede ser servido puro o mezclado con alimentos húmedos como el paté y el sachet, siempre teniendo en cuenta su aporte calórico. Ofrezca siempre en pote limpio, dos o más veces al día y mantenga siempre agua limpia y fresca cerca de su perro. Caso su perro aún no esté comiendo Primocão recomendamos que la sustitución sea hecha de forma gradual, durante 7 días, como se indica em el grafico siguiente.</p><p>Una taza de té (200 ml) és equivalente a 85g de Primocão Premium Carne y Vegetales.</p><p>&nbsp;</p><table><thead><tr><td>Peso do Perro (kg)</td><td>Recomendación (g/día)</td></tr><tr><td>PEQUEÑO – até 10kg</td><td>Primocão Premium Adultos Razas Pequeñas</td></tr></thead><tbody><tr><td>MEDIANO – 11 a 20kg</td><td>160 a 255</td></tr><tr><td>GRANDE – 21 a 40kg</td><td>265 a 430</td></tr><tr><td>GIGANTE – 41 a 50kg</td><td>435 a 510</td></tr><tr><td>&gt; 51kg</td><td>Más de 515</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Humedad (máx.)</td><td>100g/kg</td></tr><tr><td>Cruda (mín.)</td><td>210g/kg</td></tr></thead><tbody><tr><td>Grasa Cruda (mín.)</td><td>100g/kg</td></tr><tr><td>Fibra Cruda (máx.)</td><td>45g/kg</td></tr><tr><td>Ash (máx.)</td><td>95g/kg</td></tr><tr><td>Calcio (máx.)</td><td>22g/kg</td></tr><tr><td>Calcio (mín.)</td><td>10g/kg</td></tr><tr><td>Fósforo (mín.)</td><td>9.000mg/kg</td></tr><tr><td>Fósforo (máx.)</td><td>16g/kg</td></tr><tr><td>Sodio (mín.)</td><td>2.000mg/kg</td></tr><tr><td>Omega 6 (mín.)</td><td>23g/kg</td></tr><tr><td>Zinc (mín.)</td><td>122mg/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/perros-adultos-razas-medianas-y-grandes-carne-y-vegetales-c29c84f9.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/perros-adultos-razas-medianas-y-grandes-carne-y-vegetales/"
+}

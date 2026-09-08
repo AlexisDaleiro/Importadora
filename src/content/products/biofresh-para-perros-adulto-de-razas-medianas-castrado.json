@@ -1,0 +1,45 @@
+{
+  "slug": "biofresh-para-perros-adulto-de-razas-medianas-castrado",
+  "name": "BIOFRESH para perros – Castrados Razas medianas",
+  "brand": "biofresh",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Biofresh Super Premium es innovador y diferente porque tiene una alta inclusión de ingredientes realmente frescos, directamente de la naturaleza. El resultado es un alimento completo y equilibrado que destaca por elevar al máximo nivel la nutrición de perros castrados de razas medianas. Biofresh Super Premium Castrado, ayuda a controlar el hambre entre horas y mantener un peso corporal ideal, características muy importantes para conservar la salud después de la castración. La tecnología Biofresh garantiza la conservación de este alimento de forma segura y 100% natural, sin la adición de conservantes artificiales.",
+  "description": [
+    "Biofresh Super Premium es innovador y diferente porque tiene una alta inclusión de ingredientes realmente frescos, directamente de la naturaleza. El resultado es un alimento completo y equilibrado que destaca por elevar al máximo nivel la nutrición de perros castrados de razas medianas. Biofresh Super Premium Castrado, ayuda a controlar el hambre entre horas y mantener un peso corporal ideal, características muy importantes para conservar la salud después de la castración. La tecnología Biofresh garantiza la conservación de este alimento de forma segura y 100% natural, sin la adición de conservantes artificiales."
+  ],
+  "presentations": [
+    "3Kg",
+    "10Kg"
+  ],
+  "benefits": [
+    "Articulaciones sanas",
+    "Pelaje brillante y piel sana",
+    "Salud intestinal equilibrada",
+    "Ayuda a mantener el peso ideal",
+    "Favorece el control del apetito",
+    "Sin conservantes, ni colorantes artificiales",
+    "Sin transgénicos"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Las cantidades aquí presentadas son indicativas y pueden variar según la edad, raza, sexo y estilo de vida, entre otros factores.&nbsp;Sirve la comida seca, en un recipiente limpio, repartida en 2 o más comidas al día y mantén siempre agua limpia y fresca al alcance de tu perro.&nbsp;Si su perro todavía no come Biofresh, se recomienda que el reemplazo se haga gradualmente durante 4 a 5 días.&nbsp;Lleva a tu perro al veterinario con regularidad.</p><p>Si el tuyo tiene sobrepeso, te recomendamos Biofresh Super Premium Light, hasta que alcance el peso ideal.</p> Cada taza de té (200ml) equivale a 85g de Biofresh. <p>&nbsp;</p><table><thead><tr><td>Peso del perro (kg)</td><td>Baja actividad (interior) g/día</td><td>Actividad moderada (&lt;1h/d) g/día</td><td>Alta actividad (&gt;1h/d) g/día</td></tr><tr><td>11-13</td><td>140-160</td><td>167-190</td><td>194-220</td></tr></thead><tbody><tr><td>14-16</td><td>170-187</td><td>200-220</td><td>230-257</td></tr><tr><td>17-18</td><td>195-205</td><td>232-240</td><td>270-280</td></tr><tr><td>19-22</td><td>210-237</td><td>252-280</td><td>292-325</td></tr><tr><td>23-25</td><td>245-260</td><td>290-310</td><td>337-360</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Humedad (máx.)</td><td>100g/kg</td></tr><tr><td>Proteína bruta (min)</td><td>320g/kg</td></tr></thead><tbody><tr><td>Extracto etéreo (min)</td><td>105g/kg</td></tr><tr><td>Materia fibrosa (máx.)</td><td>50g/kg</td></tr><tr><td>Materia mineral (máx.)</td><td>74g/kg</td></tr><tr><td>Calcio (máx.)</td><td>13g/kg</td></tr><tr><td>Calcio (mín.)</td><td>8.000 mg/kg</td></tr><tr><td>Fósforo (min)</td><td>7.000 mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>1400 mg/kg</td></tr><tr><td>Metionina (min)</td><td>6.000 mg/kg</td></tr><tr><td>lisina (min)</td><td>10g/kg</td></tr><tr><td>Condroitina (min)</td><td>100 mg/kg</td></tr><tr><td>Glucosamina (min)</td><td>250 mg/kg</td></tr><tr><td>Vitamina E (mín.)</td><td>600 mg/kg</td></tr><tr><td>Vitamina C (mín.)</td><td>100 mg/kg</td></tr><tr><td>L-Carnitina (min)</td><td>250 mg/kg</td></tr><tr><td>Omega 3 (mín.)</td><td>3100 mg/kg</td></tr><tr><td>Omega 6 (mín.)</td><td>20g/kg</td></tr><tr><td>Zinc orgánico (mín.)</td><td>180 mg/kg</td></tr><tr><td>Energía metabolizable (min)</td><td>3.430kcal/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/biofresh-para-perros-adulto-de-razas-medianas-castrado-c94c3aa8.png",
+  "gallery": [
+    "../../assets/products/biofresh-para-perros-adulto-de-razas-medianas-castrado-c94c3aa8.png",
+    "../../assets/products/biofresh-para-perros-adulto-de-razas-medianas-castrado-e8624fb7.png",
+    "../../assets/products/biofresh-para-perros-adulto-de-razas-medianas-castrado-057237bb.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/biofresh-para-perros-adulto-de-razas-medianas-castrado/"
+}

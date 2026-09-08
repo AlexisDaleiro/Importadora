@@ -1,0 +1,117 @@
+---
+import { getCollection } from 'astro:content';
+import { lineAccent, lineShort } from '../config';
+import Button from './Button.astro';
+
+// El sitio oficial no publica logotipos de marca en formato reutilizable, así que
+// las tarjetas son tipográficas hasta que Districo entregue los archivos.
+const products = await getCollection('products');
+
+const brands = (await getCollection('brands'))
+  .map((b) => ({
+    ...b,
+    count: products.filter((p) => p.data.brand?.id === b.id).length,
+    lineas: b.data.categories.map((c) => c.id),
+  }))
+  .sort((a, b) => b.count - a.count || a.data.name.localeCompare(b.data.name));
+---
+
+<section class="brands section">
+  <div class="container">
+    <header class="brands__head" data-reveal>
+      <div>
+        <span class="kicker kicker--accent">Representaciones</span>
+        <h2 class="title-lg">Las {brands.length} marcas que distribuimos</h2>
+      </div>
+      <p class="lead">
+        Alimento balanceado, arenas sanitarias, cuidado animal y snacks de fábricas de la región,
+        con stock permanente en la Casa Matriz.
+      </p>
+    </header>
+
+    <ul class="brands__grid">
+      {brands.map((brand, i) => (
+        <li class="brands__item" data-reveal style={`--reveal-delay:${Math.min(i, 8) * 45}ms`}>
+          <a href={`/productos?marca=${brand.id}`} class="brands__card">
+            <span class="brands__name">{brand.data.name}</span>
+            <span class="brands__meta">
+              <span
+                class="brands__line"
+                style={`--brand:${lineAccent(brand.lineas[0] ?? '').color}`}
+              >{lineShort[brand.lineas[0] ?? ''] ?? 'Distribución'}</span>
+              {brand.count > 0 && <em>{brand.count}</em>}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="actions brands__cta" data-reveal>
+      <Button href="/productos" variant="primary" size="lg">Ver el catálogo completo</Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .brands { background: var(--white); }
+  .brands__head { display: grid; gap: 1rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+  .brands__head .kicker { display: block; margin-bottom: 0.5rem; }
+
+  .brands__grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+  }
+  .brands__card {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 0.6rem;
+    height: 100%;
+    min-height: 130px;
+    padding: 1.25rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-soft);
+    text-decoration: none;
+    text-align: center;
+    transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+  }
+  .brands__card:hover {
+    border-color: var(--teal-700);
+    background: var(--white);
+    transform: translateY(-3px);
+  }
+  .brands__name {
+    font-size: clamp(1.1rem, 0.95rem + 0.5vw, 1.45rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    color: var(--teal-800);
+    line-height: 1.05;
+  }
+  .brands__meta {
+    font-size: var(--text-kicker);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--fg-muted);
+    display: inline-flex;
+    gap: 0.45rem;
+    align-items: center;
+  }
+  .brands__line { color: var(--brand); }
+  .brands__meta em {
+    font-style: normal;
+    background: var(--lime-500);
+    color: var(--teal-950);
+    border-radius: 999px;
+    padding: 0.05rem 0.45rem;
+  }
+  .brands__cta { margin-top: clamp(2rem, 4vw, 3rem); }
+
+  @media (min-width: 940px) {
+    .brands__head { grid-template-columns: 1fr 1fr; align-items: end; gap: 3rem; }
+  }
+</style>

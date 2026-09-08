@@ -1,0 +1,25 @@
+{
+  "slug": "super-pack",
+  "name": "Super Pack",
+  "brand": "stack",
+  "category": "snacks-para-consumo-humano",
+  "subcategory": "Packs",
+  "species": [],
+  "shortDescription": "Pack con los productos que a todos les gustan. Disfrútalo con familia y amigos.",
+  "description": [
+    "Pack con los productos que a todos les gustan. Disfrútalo con familia y amigos."
+  ],
+  "presentations": [],
+  "benefits": [
+    "345 g"
+  ],
+  "technicalSheet": [],
+  "image": "../../assets/products/super-pack-cecb255b.png",
+  "gallery": [
+    "../../assets/products/super-pack-1a69593d.png",
+    "../../assets/products/super-pack-49eb71a3.jpg",
+    "../../assets/products/super-pack-478b81df.jpg"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/snacks-para-consumo-humano/packs/super-pack/"
+}

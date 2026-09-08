@@ -2,10 +2,18 @@
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import StatsBar from '../components/StatsBar.astro';
+import LineBlocks from '../components/LineBlocks.astro';
+import BrandGrid from '../components/BrandGrid.astro';
+import AboutBlock from '../components/AboutBlock.astro';
+import CtaBlock from '../components/CtaBlock.astro';
 import { site } from '../config';
 ---
 
 <Base title={site.name} description={site.tagline}>
   <Hero />
   <StatsBar />
+  <LineBlocks />
+  <BrandGrid />
+  <AboutBlock />
+  <CtaBlock />
 </Base>

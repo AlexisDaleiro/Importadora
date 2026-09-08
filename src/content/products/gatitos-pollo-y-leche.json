@@ -1,0 +1,48 @@
+{
+  "slug": "gatitos-pollo-y-leche",
+  "name": "PIRMOGATO para gatos – Cachorros",
+  "brand": "primogato",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "Primogato Premium Gatitos es un alimento 100% completo y balanceado que promueve el crecimiento saludable y equilibrado de los gatitos. Las partículas son delicadas y crujientes, especiales para facilitar la masticación. Además, ¡tiene nuggets rellenos muy sabrosos que los gatitos aman!",
+  "description": [
+    "Primogato Premium Gatitos es un alimento 100% completo y balanceado que promueve el crecimiento saludable y equilibrado de los gatitos. Las partículas son delicadas y crujientes, especiales para facilitar la masticación. Además, ¡tiene nuggets rellenos muy sabrosos que los gatitos aman!"
+  ],
+  "presentations": [
+    "500g",
+    "1Kg",
+    "10.1Kg",
+    "15Kg"
+  ],
+  "benefits": [
+    "Heces firmes y de bajo olor",
+    "Visión y corazón protegidos",
+    "Tracto urinario saludable",
+    "Crecimiento saludable y equilibrado",
+    "Pelaje macia y brillante",
+    "Particulas delicadas y crocantes",
+    "Más vitalidad y belleza"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Las cantidades presentadas son orientativas y pueden variar según la raza, sexo y estilo de vida, entre otros factores.. Ofrezca el alimento en un recipiente limpio y seco, dividido en varias comidas al día y mantenga siempre agua fresca y limpia al alcance de su gatito. Caso su gatito aún no esté comiendo o Primogato&nbsp;se recomienda que la sustitución sea hecha de forma gradual durante 7 días, como se indica em el grafico siguiente. Mantenga siempre la arena para gatos limpia y disponible.</p><p>Una taza de té (200mL) és equivalente a aproximadamente 95g de Primogato Premium Gatitos.</p><table><tbody><tr><td>Edad (en meses)</td><td>g/día</td></tr><tr><td>2-3</td><td>40 – 55</td></tr><tr><td>4-6</td><td>60 – 68</td></tr><tr><td>7-12</td><td>70 – 75</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><tbody><tr><td>Humedad (máx.)</td><td>100g/kg</td></tr><tr><td>Cruda (mín.)</td><td>320g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>110g/kg</td></tr><tr><td>Fibra Cruda (máx.)</td><td>30g/kg</td></tr><tr><td>Ash (máx.)</td><td>85g/kg</td></tr><tr><td>Cálcio (máx.)</td><td>10g/kg</td></tr><tr><td>Cálcio (mín.)</td><td>18g/kg</td></tr><tr><td>Fósforo (mín.)</td><td>8.000mg/kg</td></tr><tr><td>Sódio (mín.)</td><td>2.000mg/kg</td></tr><tr><td>Omega 6 (mín.)</td><td>18g/kg</td></tr><tr><td>Taurine (mín.)</td><td>1.000mg/kg</td></tr><tr><td>Methionine (mín.)</td><td>5.500mg/kg</td></tr><tr><td>Zinc (mín.)</td><td>110mg/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/gatitos-pollo-y-leche-36bdccd7.jpg",
+  "gallery": [
+    "../../assets/products/gatitos-pollo-y-leche-0fc533a0.jpg",
+    "../../assets/products/gatitos-pollo-y-leche-8c37167f.jpg",
+    "../../assets/products/gatitos-pollo-y-leche-dcbfd396.jpg",
+    "../../assets/products/gatitos-pollo-y-leche-36bdccd7.jpg"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/gatitos-pollo-y-leche/"
+}

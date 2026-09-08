@@ -1,0 +1,41 @@
+{
+  "slug": "pate-three-dogs-light-sabor-pollo",
+  "name": "Paté THREE DOGS Adultos – Light",
+  "brand": "three-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "El paté Three Dogs Super Premium Light Sabor Pollo es un alimento 100% completo y equilibrado, con una fórmula que favorece el mantenimiento del peso ideal de las mascotas, ya que cuenta con L-carnitina y bajo nivel de calorías. ¡Todo para que su mascota disfrute de una comida segura, completa y saludable!.",
+  "description": [
+    "El paté Three Dogs Super Premium Light Sabor Pollo es un alimento 100% completo y equilibrado, con una fórmula que favorece el mantenimiento del peso ideal de las mascotas, ya que cuenta con L-carnitina y bajo nivel de calorías. ¡Todo para que su mascota disfrute de una comida segura, completa y saludable!."
+  ],
+  "presentations": [
+    "150g"
+  ],
+  "benefits": [
+    "Cero colorantes ni aromas artificiales",
+    "Control de peso",
+    "Con carne fresca",
+    "Sin transgénicos"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<table><thead><tr><td>Perro (kg)</td><td>Patés/día</td></tr><tr><td>2-5</td><td>1 ¼ – 2 ½</td></tr></thead><tbody><tr><td>6-10</td><td>3 – 4 1/4</td></tr><tr><td>11-15</td><td>4 1/2 – 5 ¾</td></tr><tr><td>16-20</td><td>6–7</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Proteína Cruda (mín.)</td><td>85g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>15g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>24g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>26g/kg</td></tr><tr><td>Calcio (mín.)</td><td>1.500mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>4.000mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>1.500mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>600mg/kg</td></tr><tr><td>L-carnitina (mín.)</td><td>40mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>840g/kg</td></tr><tr><td>Energía metabolizable (mín.)</td><td>700kcal</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/pate-three-dogs-light-sabor-pollo-c5322880.png",
+  "gallery": [
+    "../../assets/products/pate-three-dogs-light-sabor-pollo-9c586583.png",
+    "../../assets/products/pate-three-dogs-light-sabor-pollo-c5322880.png",
+    "../../assets/products/pate-three-dogs-cachorro-sabor-pollo-a5d6c4df.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/pate-three-dogs-light-sabor-pollo/"
+}

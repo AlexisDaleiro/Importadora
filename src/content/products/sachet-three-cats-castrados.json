@@ -1,0 +1,42 @@
+{
+  "slug": "sachet-three-cats-castrados",
+  "name": "Sachet THREE CATS – Castrados",
+  "brand": "three-cats-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "El sachet Three Cats Premium Especial Adultos Castrados es un alimento 100% completo y equilibrado, bajo en sodio y con cantidades adecuadas de minerales para favorecer la salud del tracto urinario de los felinos. El sabor Trocitos de Pollo en Salsa se cuece al vapor y tiene bajas calorías, lo que ayuda a controlar el peso de los animales castrados. ¡Todo para que su gato disfrute de una comida segura, completa y saludable!",
+  "description": [
+    "El sachet Three Cats Premium Especial Adultos Castrados es un alimento 100% completo y equilibrado, bajo en sodio y con cantidades adecuadas de minerales para favorecer la salud del tracto urinario de los felinos. El sabor Trocitos de Pollo en Salsa se cuece al vapor y tiene bajas calorías, lo que ayuda a controlar el peso de los animales castrados. ¡Todo para que su gato disfrute de una comida segura, completa y saludable!"
+  ],
+  "presentations": [
+    "85g"
+  ],
+  "benefits": [
+    "Cero colorantes ni aromas artificiales",
+    "Bajo contenido de sodio",
+    "Tracto urinario saludable",
+    "Mantenimiento de peso",
+    "Con carne fresca",
+    "Sin conservantes artificiales"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Sirva puro o mezclado con Three Cats seco.</p><p>&nbsp;</p><table><thead><tr><td>Peso del gato</td><td>Baja actividad (sachets/día)</td><td>Gatos con peso ideal (sachets/día)</td></tr><tr><td>2 – 3 kg</td><td>2</td><td>2</td></tr></thead><tbody><tr><td>4 kg</td><td>2</td><td>3</td></tr><tr><td>5 kg</td><td>2 ½</td><td>3</td></tr><tr><td>6 kg</td><td>3</td><td>4</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Proteína Cruda (mín.)</td><td>83g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>20g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>20g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>28g/kg</td></tr><tr><td>Calcio (mín.)</td><td>1.000mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>4.400mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>1.000mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>200mg/kg</td></tr><tr><td>Taurina (mín.)</td><td>850mg/kg</td></tr><tr><td>Potasio (mín.)</td><td>1.200mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>840g/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/sachet-three-cats-castrados-5d6cd56e.png",
+  "gallery": [
+    "../../assets/products/sachet-three-cats-castrados-5d6cd56e.png",
+    "../../assets/products/sachet-three-cats-castrados-9538cd0e.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/sachet-three-cats-castrados/"
+}

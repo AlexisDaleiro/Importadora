@@ -1,0 +1,40 @@
+{
+  "slug": "sachet-three-dogs-adulto-razas-medianas-y-grandes",
+  "name": "Sachet THREE DOGS Adulto – Razas medianas y grandes",
+  "brand": "three-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "El sachet Three Dogs Premium Especial Adultos Razas Medianas y Grandes es un alimento 100% completo, equilibrado y bajo en sodio que promueve la salud de las mascotas. El sabor Carne en Salsa, además de ser delicioso, se cuece al vapor. ¡Todo para que su mascota disfrute de una comida segura, completa y saludable!",
+  "description": [
+    "El sachet Three Dogs Premium Especial Adultos Razas Medianas y Grandes es un alimento 100% completo, equilibrado y bajo en sodio que promueve la salud de las mascotas. El sabor Carne en Salsa, además de ser delicioso, se cuece al vapor. ¡Todo para que su mascota disfrute de una comida segura, completa y saludable!"
+  ],
+  "presentations": [
+    "100g"
+  ],
+  "benefits": [
+    "Cero colorantes ni aromas artificiales",
+    "Bajo contenido de sodio",
+    "Con carne fresca",
+    "Sin conservantes"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Sirva puro o mezclado com Three Dogs seco.</p><p>&nbsp;</p><table><thead><tr><td>Peso do Perro (kg)</td><td>Sachets/día</td></tr><tr><td>Mini (1 – 5 kg)</td><td>1 – 4</td></tr></thead><tbody><tr><td>Small (5 – 10 kg)</td><td>4 – 6</td></tr><tr><td>Mediana (10 – 20 kg)</td><td>6 – 10</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Proteína Cruda (mín.)</td><td>80g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>30g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>15g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>30g/kg</td></tr><tr><td>Calcio (mín.)</td><td>1.500mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>5.000mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>1.000mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>400mg/kg</td></tr><tr><td>Potasio (mín.)</td><td>1.000mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>840g/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/sachet-three-dogs-adulto-razas-medianas-y-grandes-33c53858.png",
+  "gallery": [
+    "../../assets/products/sachet-three-dogs-adulto-razas-medianas-y-grandes-33c53858.png",
+    "../../assets/products/sachet-three-dogs-adulto-razas-medianas-y-grandes-1cd7463d.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/sachet-three-dogs-adulto-razas-medianas-y-grandes/"
+}

@@ -1,0 +1,40 @@
+{
+  "slug": "sachet-para-gatos-cachorro",
+  "name": "Sachet PRIMOGATO – Cachorro",
+  "brand": "primogato",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "Los alimentos húmedos PRIMOGATO cuentan con una alta concentración de nutrientes esenciales para los perros, lo que produce un mejor equilibrio entre proteínas, grasas y carbohidratos. Este factor es importante para mejorar la salud y la longevidad de nuestras mascotas. Además tienen una textura que los animales domésticos aman, no contiene sabores artificiales y conservantes. Los saché Primogato con ingredientes que ayudarán a su gato a presentar más vitalidad y belleza. Pelo sano y brillante; saludable del tracto urinario y la visión y el corazón protegidos.",
+  "description": [
+    "Los alimentos húmedos PRIMOGATO cuentan con una alta concentración de nutrientes esenciales para los perros, lo que produce un mejor equilibrio entre proteínas, grasas y carbohidratos. Este factor es importante para mejorar la salud y la longevidad de nuestras mascotas. Además tienen una textura que los animales domésticos aman, no contiene sabores artificiales y conservantes. Los saché Primogato con ingredientes que ayudarán a su gato a presentar más vitalidad y belleza. Pelo sano y brillante; saludable del tracto urinario y la visión y el corazón protegidos."
+  ],
+  "presentations": [
+    "85g"
+  ],
+  "benefits": [
+    "Crecimiento sano y equilibrado",
+    "Pelaje brilloso",
+    "Salud oral prolongada",
+    "Piel sana",
+    "Sin colorantes ni aromas artificiales"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Servir a temperatura ambiente.</p><p>&nbsp;</p><table><thead><tr><td>Gatitos (idade)</td><td>Peso (kg)</td><td>Sachets/día</td></tr><tr><td>1 – 3 meses</td><td>Hasta½</td><td>1 -2</td></tr></thead><tbody><tr><td>3 – 5 meses</td><td>1 – 2</td><td>2 – 3 ½</td></tr><tr><td>5 – 12 meses</td><td>½- 1</td><td>2 – 3</td></tr><tr><td></td><td>2 – 3</td><td>3 ½ – 4</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Proteína Cruda (mín.)</td><td>95g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>40g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>20g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>25g/kg</td></tr><tr><td>Cálcio (mín.)</td><td>2.100mg/kg</td></tr><tr><td>Cálcio (máx.)</td><td>4.500mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>2.000mg/kg</td></tr><tr><td>Sódio (mín.)</td><td>500mg/kg</td></tr><tr><td>Taurina (mín.)</td><td>800mg/kg</td></tr><tr><td>Zinc (mín.)</td><td>50mg/kg</td></tr><tr><td>Omega 6 (mín.)</td><td>3.000mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>820g/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/sachet-para-gatos-cachorro-04db1b55.png",
+  "gallery": [
+    "../../assets/products/sachet-para-gatos-cachorro-c6829c3d.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/sachet-para-gatos-cachorro/"
+}

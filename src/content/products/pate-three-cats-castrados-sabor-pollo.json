@@ -1,0 +1,40 @@
+{
+  "slug": "pate-three-cats-castrados-sabor-pollo",
+  "name": "Paté THREE CATS – Castrados",
+  "brand": "three-cats",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "El paté Three Cats Super Premium Castrados es un alimento 100% completo y equilibrado, con cantidades adecuadas de minerales para favorecer la salud del tracto urinario felino. El sabor pollo, tiene bajas calorías y L-carnitina, lo que ayuda a controlar el peso de los animales castrados. ¡Todo para que su gato disfrute de una comida segura, completa y saludable.",
+  "description": [
+    "El paté Three Cats Super Premium Castrados es un alimento 100% completo y equilibrado, con cantidades adecuadas de minerales para favorecer la salud del tracto urinario felino. El sabor pollo, tiene bajas calorías y L-carnitina, lo que ayuda a controlar el peso de los animales castrados. ¡Todo para que su gato disfrute de una comida segura, completa y saludable."
+  ],
+  "presentations": [
+    "90g"
+  ],
+  "benefits": [
+    "Cero colorantes ni aromas artificiales",
+    "Tracto urinario saludable",
+    "Mantenimiento del peso",
+    "Con carne fresca",
+    "Sin transgénicos"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<table><thead><tr><td>Peso (kg)</td><td>Peso normal (g/día)</td><td>Sobrepeso (g/día)</td></tr><tr><td>Adultos</td><td></td><td></td></tr></thead><tbody><tr><td>3 – 4</td><td>40 – 50g</td><td>–</td></tr><tr><td>5 – 6</td><td>65 – 80g</td><td>65 – 70g</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Cruda (mín.)</td><td>85g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>20g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>20g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>25g/kg</td></tr><tr><td>Calcio (mín.)</td><td>1.400mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>5.000mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>1.400mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>800mg/kg</td></tr><tr><td>Taurina (mín.)</td><td>1.000mg/kg</td></tr><tr><td>L-Carnitina (mín.)</td><td>40mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>850g/kg</td></tr><tr><td>Energía Metabolizable (mín.)</td><td>700kcal/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/pate-three-cats-castrados-sabor-pollo-a7858ca1.png",
+  "gallery": [
+    "../../assets/products/pate-three-dogs-cachorro-sabor-pollo-a5d6c4df.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/pate-three-cats-castrados-sabor-pollo/"
+}

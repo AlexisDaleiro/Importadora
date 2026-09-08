@@ -1,0 +1,42 @@
+{
+  "slug": "beny-para-perros-cachorro-de-todas-las-razas",
+  "name": "BENY para perros – Cachorro de todas las razas",
+  "brand": "beny",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Beny es un alimento balanceado de calidad para perros y gatos. Su presentación es pensada para todo tipo de raza.",
+  "description": [
+    "Beny es un alimento balanceado de calidad para perros y gatos. Su presentación es pensada para todo tipo de raza.",
+    "Cuenta con dos presentaciones 3Kg o 25Kg de acuerdo a tus necesidades.",
+    "Disponible en sabor carne y y leche."
+  ],
+  "presentations": [
+    "3Kg",
+    "25Kg"
+  ],
+  "benefits": [
+    "Excelente relación calidad/precio",
+    "Pelaje brilloso",
+    "Energía y vitalidad"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Si su gato consume otro alimento, recuerde hacer una transición paulatina durante 7 días hacia BENY CACHORROS.</p><p>Ofrezca siempre el alimento en un recipiente limpio, y seco y recuerde mantener agua cerca de su mascota para que pueda hidratarse durante la alimentación.</p><p>Inicie con 4 comidas diarias hasta los 6 meses del cachorro y luego disminuya hasta 2 comidas diarias.</p><p><em>Para saber la cantidad de alimento que debe ofrecerle diariamente, consulte el envoltorio de BENY donde encontrará las cantidades diarias según el peso de su mascota.&nbsp;</em></p><p>&nbsp;</p>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<p>Ver tabla nutricional en envoltorio.</p>"
+    }
+  ],
+  "image": "../../assets/products/beny-para-perros-cachorro-de-todas-las-razas-a48adfbd.png",
+  "gallery": [
+    "../../assets/products/beny-para-perros-cachorro-de-todas-las-razas-5f05f9ef.png",
+    "../../assets/products/beny-para-perros-cachorro-de-todas-las-razas-e9049048.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/beny-para-perros-cachorro-de-todas-las-razas/"
+}

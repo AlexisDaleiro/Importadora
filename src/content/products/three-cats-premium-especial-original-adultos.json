@@ -1,0 +1,35 @@
+{
+  "slug": "three-cats-premium-especial-original-adultos",
+  "name": "THREE CATS Original – Adultos",
+  "brand": "three-cats-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "Three Cats Premium Especial Original Adultos es un alimento moderno y seguro, libre de colorantes y aromas artificiales. Su receta es rica en ingredientes de alta calidad que suministran todos los nutrientes necesarios de forma equilibrada, de la manera que su gato necesita para tener una vida feliz y sana.",
+  "description": [
+    "Three Cats Premium Especial Original Adultos es un alimento moderno y seguro, libre de colorantes y aromas artificiales. Su receta es rica en ingredientes de alta calidad que suministran todos los nutrientes necesarios de forma equilibrada, de la manera que su gato necesita para tener una vida feliz y sana."
+  ],
+  "presentations": [
+    "1Kg",
+    "10.1Kg"
+  ],
+  "benefits": [
+    "Heces firmes y de bajo olor",
+    "Cero colorantes y aromas artificiales",
+    "Bajo contenido de sodio",
+    "Tracto urinario saludable",
+    "Pelaje suave y brillante"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Las cantidades presentadas son orientativas. Ofrezca el alimento dividido en varias comidas al día y mantenga siempre agua fresca y al alcance. Puede ser servido seco o mezclado con alimentos húmedos tales como los patés y sachets Three Cats. Caso su gato aún no esté comiendo Three Cats se recomienda una sustitución gradual durante 7 días.</p><p>Una taza de té (200ml) es equivalente a 70g de Three Cats Super Premium Adulto.</p>"
+    }
+  ],
+  "image": "../../assets/products/three-cats-premium-especial-original-adultos-fb90967d.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/three-cats-premium-especial-original-adultos/"
+}

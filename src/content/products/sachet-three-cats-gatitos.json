@@ -1,0 +1,41 @@
+{
+  "slug": "sachet-three-cats-gatitos",
+  "name": "Sachet THREE CATS – Cachorros",
+  "brand": "three-cats-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "El sachet Three Cats Premium Especial Gatitos es un alimento 100% completo y equilibrado bajo en sodio con cantidades ideales de vitaminas y minerales para promover un crecimiento saludable y equilibrado. El sabor Carne en Salsa, se cuece al vapor y es muy sabroso. ¡La opción perfecta para su gatito!",
+  "description": [
+    "El sachet Three Cats Premium Especial Gatitos es un alimento 100% completo y equilibrado bajo en sodio con cantidades ideales de vitaminas y minerales para promover un crecimiento saludable y equilibrado. El sabor Carne en Salsa, se cuece al vapor y es muy sabroso. ¡La opción perfecta para su gatito!"
+  ],
+  "presentations": [
+    "85g"
+  ],
+  "benefits": [
+    "Crecimiento saludable y equilibrado",
+    "Bajo contenido de sodio",
+    "Cero colorantes y aromas artificiales",
+    "Con carne fresca",
+    "Sin conservantes"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<table><thead><tr><td>Edad</td><td>Sachets por día</td></tr><tr><td>2 – 4 meses</td><td>2 – 3</td></tr></thead><tbody><tr><td>4 – 12 meses</td><td>3</td></tr><tr><td>&gt; 12 meses</td><td>Three Cats Sachet Adultos</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Proteína Cruda (mín.)</td><td>90g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>45g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>14g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>27g/kg</td></tr><tr><td>Calcio (mín.)</td><td>2.000mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>5.000mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>1.400mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>400mg/kg</td></tr><tr><td>Taurina (mín.)</td><td>850mg/kg</td></tr><tr><td>Potasio (mín.)</td><td>1.100mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>830g/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/sachet-three-cats-gatitos-0b474382.png",
+  "gallery": [
+    "../../assets/products/sachet-three-cats-gatitos-0b474382.png",
+    "../../assets/products/sachet-three-cats-gatitos-af7b487e.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/sachet-three-cats-gatitos/"
+}

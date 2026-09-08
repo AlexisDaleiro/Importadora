@@ -1,0 +1,39 @@
+{
+  "slug": "sachet-three-dogs-adulto-razas-pequenas",
+  "name": "Sachet THREE DOGS Adulto – Razas pequeñas",
+  "brand": "three-orig",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "El sachet Three Dogs Premium Especial Adultos Razas Pequeñas es un alimento 100% completo, equilibrado y bajo en sodio que promueve la salud de las mascotas. El sabor Carne en Salsa, además de ser delicioso, se cuece al vapor y tiene pedazos delicados que son fáciles de agarrar y masticar. ¡Todo para que su mascota disfrute de una comida segura, completa y saludable.",
+  "description": [
+    "El sachet Three Dogs Premium Especial Adultos Razas Pequeñas es un alimento 100% completo, equilibrado y bajo en sodio que promueve la salud de las mascotas. El sabor Carne en Salsa, además de ser delicioso, se cuece al vapor y tiene pedazos delicados que son fáciles de agarrar y masticar. ¡Todo para que su mascota disfrute de una comida segura, completa y saludable."
+  ],
+  "presentations": [
+    "100g"
+  ],
+  "benefits": [
+    "Cero colorantes ni aromas artificiales",
+    "Bajo contenido de sodio",
+    "Con carne fresca"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Sirva puro o mezclado con Three Dogs seco.</p><p>&nbsp;</p><table><thead><tr><td>Peso do Perro (kg)</td><td>Sachets/día</td></tr><tr><td>Mini (1 – 5 kg)</td><td>1 – 4</td></tr></thead><tbody><tr><td>Small (5 – 10 kg)</td><td>4 – 6</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Proteína Cruda (mín.)</td><td>81g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>35g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>15g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>30g/kg</td></tr><tr><td>Calcio (mín.)</td><td>1.500mg/kg</td></tr><tr><td>Calcio (máx.)</td><td>5.000mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>1.000mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>400mg/kg</td></tr><tr><td>Potasio (mín.)</td><td>1.000mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>840g/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/sachet-three-dogs-adulto-razas-pequenas-95b14eea.png",
+  "gallery": [
+    "../../assets/products/sachet-three-dogs-adulto-razas-pequenas-95b14eea.png",
+    "../../assets/products/sachet-three-dogs-adulto-razas-pequenas-6be581a9.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/sachet-three-dogs-adulto-razas-pequenas/"
+}

@@ -1,0 +1,46 @@
+{
+  "slug": "biofresh-para-gatos-adultos",
+  "name": "BIOFRESH para gatos – Adultos",
+  "brand": "biofresh",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "Biofresh Super Premium Gatos Adultos es innovador y diferente, porque tiene alta inclusión de carnes frescas con un toque de vegetales y frutas nobles. El resultado es un alimento GRAIN FREE, completo y balanceado, que se destaca por elevar la nutrición de los carnívoros a su más alto nivel. La tecnología Biofresh garantiza la conservación de este alimento de forma 100% natural y segura, sin conservantes artificiales añadidos.",
+  "description": [
+    "Biofresh Super Premium Gatos Adultos es innovador y diferente, porque tiene alta inclusión de carnes frescas con un toque de vegetales y frutas nobles. El resultado es un alimento GRAIN FREE, completo y balanceado, que se destaca por elevar la nutrición de los carnívoros a su más alto nivel. La tecnología Biofresh garantiza la conservación de este alimento de forma 100% natural y segura, sin conservantes artificiales añadidos."
+  ],
+  "presentations": [
+    "400g",
+    "1.5Kg",
+    "7.5Kg"
+  ],
+  "benefits": [
+    "Heces firmes y de olor reducido",
+    "Trato urinario saludable",
+    "Paladar estimulado con carne fresca",
+    "0% conservantes",
+    "Salud oral prolongada",
+    "Articulaciones sanas",
+    "0% colorantes y aromas artificiales"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Las cantidades presentadas son orientativas y pueden variar según muchos factores. Ofrezca el alimento en pote seco y limpio, varias veces al día y mantenga siempre agua limpia y fresca cerca de su gato. Caso su gato aún no esté comiendo Biofresh&nbsp;recomendamos que la sustitución sea hecha de forma gradual, durante 7 días. En caso de duda, consulte a un veterinario.</p><p>&nbsp;</p><table><thead><tr><td>Peso del gato (kg)</td><td>Cantidad diaria (g/día)</td><td></td></tr><tr><td></td><td>Peso ideal</td><td>Sobrepeso</td></tr></thead><tbody><tr><td>2 – 2,5</td><td>30 – 33</td><td></td></tr><tr><td>3 – 3,5</td><td>38 – 42</td><td></td></tr><tr><td>4 – 4,5</td><td>46 – 49</td><td>41 – 44</td></tr><tr><td>5 – 5,5</td><td>53 -57</td><td>49 -52</td></tr><tr><td>6 – 6,5</td><td>60 – 63</td><td>55 – 58</td></tr><tr><td>7 – 7,5</td><td>66 – 70</td><td>61 – 65</td></tr><tr><td>8 +</td><td>73</td><td>68 (+5g a cada kg )</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Humedad (máx.)</td><td>90g/kg</td></tr><tr><td>Proteína Cruda (mín.)</td><td>440g/kg</td></tr></thead><tbody><tr><td>Grasa Cruda (mín.)</td><td>200g/kg</td></tr><tr><td>Fibra Cruda (máx.)</td><td>25g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>75g/kg</td></tr><tr><td>Calcio (máx.)</td><td>15g/kg</td></tr><tr><td>Calcio (mín.)</td><td>9000mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>8000mg/kg</td></tr><tr><td>Sodio (mín.)</td><td>3000mg/kg</td></tr><tr><td>Metionina (mín.)</td><td>4100mg/kg</td></tr><tr><td>Taurina (mín.)</td><td>2500mg/kg</td></tr><tr><td>Vitamina E (mín.)</td><td>600mg/kg</td></tr><tr><td>Vitamina C (mín.)</td><td>100mg/kg</td></tr><tr><td>Omega 6 (mín.)</td><td>26g/kg</td></tr><tr><td>Omega 3 (mín.)</td><td>4000mg/kg</td></tr><tr><td>Mananoligossacarídeos (mín.)</td><td>500mg/kg</td></tr><tr><td>Hexametafosfato de sodio (mín.)</td><td>3000mg/kg</td></tr><tr><td>Energía metabolizable (mín.)</td><td>4180kcal/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/biofresh-para-gatos-adultos-36e0a4d6.png",
+  "gallery": [
+    "../../assets/products/biofresh-para-gatos-adultos-eb07dd07.png",
+    "../../assets/products/biofresh-para-gatos-adultos-ea4bc6b4.png",
+    "../../assets/products/biofresh-para-gatos-adultos-e5ef28b9.png"
+  ],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/gatos/biofresh-para-gatos-adultos/"
+}

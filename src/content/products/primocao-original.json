@@ -1,0 +1,26 @@
+{
+  "slug": "primocao-original",
+  "name": "PRIMOCAO Original",
+  "brand": "primocao",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Primocao Original es un alimento estándar que cumple con los requerimientos básicos de su perro adulto, sin importar el tamaño o raza. Cuenta con varias presentaciones, todas en sabor carne y huesitos.",
+  "description": [
+    "Primocao Original es un alimento estándar que cumple con los requerimientos básicos de su perro adulto, sin importar el tamaño o raza. Cuenta con varias presentaciones, todas en sabor carne y huesitos.",
+    "Otorga un optimo resultado costo/beneficio, reduce los olores en las heces de tu mascota, favorece el cuidado del pelaje y promueve una vida sana y activa."
+  ],
+  "presentations": [
+    "7Kg",
+    "20Kg",
+    "25Kg"
+  ],
+  "benefits": [],
+  "technicalSheet": [],
+  "image": "../../assets/products/primocao-original-119e0026.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/primocao-original/"
+}

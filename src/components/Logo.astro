@@ -1,31 +1,24 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/districo-logo.png';
+
 interface Props { onDark?: boolean; class?: string; }
 const { onDark = false, class: className = '' } = Astro.props;
 ---
 
-<span class={`logo ${onDark ? 'logo--onDark' : ''} ${className}`} aria-label="Districo S.A.">
-  <span class="logo__mark" aria-hidden="true"></span>
-  <span class="logo__word">districo<span class="logo__dot">.</span></span>
-</span>
+<Image
+  src={logo}
+  alt="Districo S.A."
+  widths={[160, 320]}
+  sizes="150px"
+  loading="eager"
+  class={`logo ${onDark ? 'logo--onDark' : ''} ${className}`}
+/>
 
 <style>
-  /* Placeholder tipográfico del logo hasta tener el SVG oficial de Districo. */
-  .logo { display: inline-flex; align-items: center; gap: 0.55rem; }
-  .logo__mark {
-    width: 1.15rem;
-    height: 1.15rem;
-    border-radius: 4px;
-    background: var(--lime-500);
-    box-shadow: inset 0 0 0 4px var(--teal-900);
-  }
-  .logo__word {
-    font-size: 1.4rem;
-    font-weight: 800;
-    letter-spacing: -0.055em;
-    color: var(--teal-900);
-    line-height: 1;
-  }
-  .logo__dot { color: var(--lime-500); }
-  .logo--onDark .logo__word { color: var(--white); }
-  .logo--onDark .logo__mark { box-shadow: inset 0 0 0 4px var(--teal-950); }
+  /* Logo oficial de Districo (PNG con fondo transparente, petróleo #003647). */
+  .logo { width: 150px; height: auto; display: block; }
+  /* Sobre fondo oscuro el petróleo del logo desaparece: se aclara con un filtro
+     en vez de mantener una segunda versión del archivo. */
+  .logo--onDark { filter: brightness(0) invert(1); opacity: 0.95; }
 </style>

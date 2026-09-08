@@ -1,0 +1,36 @@
+{
+  "slug": "sachet-para-perros-cachorros-primocao",
+  "name": "Sachet PRIMOCÃO – Cachorros",
+  "brand": "primocao",
+  "category": "alimento-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Los alimentos húmedos Primocão cuentan con una alta concentración de nutrientes esenciales para los perros, lo que produce un mejor equilibrio entre proteínas, grasas y carbohidratos. Este factor es importante para mejorar la salud y la longevidad de nuestras mascotas. Además de tener una textura que les encanta a las mascotas, no contiene saborizantes artificiales y conservantes.",
+  "description": [
+    "Los alimentos húmedos Primocão cuentan con una alta concentración de nutrientes esenciales para los perros, lo que produce un mejor equilibrio entre proteínas, grasas y carbohidratos. Este factor es importante para mejorar la salud y la longevidad de nuestras mascotas. Además de tener una textura que les encanta a las mascotas, no contiene saborizantes artificiales y conservantes."
+  ],
+  "presentations": [
+    "100g"
+  ],
+  "benefits": [
+    "Pelo brillante y piel sana",
+    "Energía y vitalidad",
+    "Sabores que a tu mascota le encantan"
+  ],
+  "technicalSheet": [
+    {
+      "label": "Recomendaciones de uso",
+      "content": "<p>Servir a temperatura ambiente.</p><p>&nbsp;</p><table><thead><tr><td>Edad/meses</td><td>Peso adulto/kg</td><td></td><td></td></tr><tr><td></td><td>Hasta 5</td><td>6-10</td><td>11-15</td></tr></thead><tbody><tr><td>1-4</td><td>2-8</td><td>7-12</td><td>15-19</td></tr><tr><td>5-9</td><td>6-9</td><td>6-12</td><td>12-16</td></tr><tr><td>9-12</td><td>Adulto</td><td>Adulto</td><td>7 o más</td></tr></tbody></table>"
+    },
+    {
+      "label": "Tabla nutricional",
+      "content": "<table><thead><tr><td>Proteína Cruda (mín.)</td><td>92g/kg</td></tr><tr><td>Grasa Cruda (mín.)</td><td>60g/kg</td></tr></thead><tbody><tr><td>Fibra Cruda (máx.)</td><td>20g/kg</td></tr><tr><td>Cenizas (máx.)</td><td>25g/kg</td></tr><tr><td>Cálcio (mín.)</td><td>3.400mg/kg</td></tr><tr><td>Cálcio (máx.)</td><td>4.700mg/kg</td></tr><tr><td>Fósforo (mín.)</td><td>2.700mg/kg</td></tr><tr><td>Sódio (mín.)</td><td>600mg/kg</td></tr><tr><td>Zinc (mín.)</td><td>40mg/kg</td></tr><tr><td>Omega 6 (mín.)</td><td>4.000mg/kg</td></tr><tr><td>Humedad (máx.)</td><td>820g/kg</td></tr></tbody></table>"
+    }
+  ],
+  "image": "../../assets/products/sachet-para-perros-cachorros-primocao-19607ce3.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://www.districo.com.uy/alimento-para-mascotas/perros/sachet-para-perros-cachorros-primocao/"
+}
