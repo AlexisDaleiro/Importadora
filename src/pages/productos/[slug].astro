@@ -92,7 +92,7 @@ const consulta = `Hola Districo, quiero consultar por el producto "${d.name}".`;
       <h1 class="title-lg">{d.name}</h1>
       {brand && (
         <p class="sheet__brand">
-          Marca <a href={`/productos?marca=${brand.id}`}>{brand.data.name}</a>
+          Marca <a href={`/marcas/${brand.id}`}>{brand.data.name}</a>
         </p>
       )}
 

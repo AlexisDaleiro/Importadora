@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // Sitio 100% estático: sin adapter, sin SSR.
 export default defineConfig({
@@ -7,4 +8,5 @@ export default defineConfig({
   output: 'static',
   build: { inlineStylesheets: 'auto' },
   image: { responsiveStyles: true },
+  integrations: [sitemap()],
 });

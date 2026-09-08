@@ -11,6 +11,7 @@
     "gen:placeholders": "node scripts/gen-placeholders.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/figtree": "^5.1.0",
     "astro": "^5.6.1"
   },

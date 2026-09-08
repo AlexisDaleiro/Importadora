@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../../components/ProductCard.astro';
-import { lineAccent, site } from '../../config';
+import { lineAccent } from '../../config';
 
 const lineas = (await getCollection('lineas')).sort((a, b) => a.data.order - b.data.order);
 const brands = (await getCollection('brands')).sort((a, b) => a.data.name.localeCompare(b.data.name));

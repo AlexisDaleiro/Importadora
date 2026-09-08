@@ -1,0 +1,180 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Button from '../../components/Button.astro';
+import BrandCard from '../../components/BrandCard.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { contactLink, hasWhatsApp, lineAccent, site } from '../../config';
+
+export async function getStaticPaths() {
+  const brands = await getCollection('brands');
+  const lineas = await getCollection('lineas');
+  const products = await getCollection('products');
+
+  return brands.map((brand) => {
+    const own = products
+      .filter((p) => p.data.brand?.id === brand.id)
+      .sort((a, b) => a.data.name.localeCompare(b.data.name, 'es'));
+    const lineaId = brand.data.categories[0]?.id ?? own[0]?.data.category.id ?? '';
+    const linea = lineas.find((l) => l.id === lineaId) ?? null;
+    // Vecinas: las demás marcas de la misma línea, con su conteo para la tarjeta.
+    const siblings = brands
+      .filter((b) => b.id !== brand.id && b.data.categories[0]?.id === lineaId)
+      .map((b) => ({
+        id: b.id,
+        name: b.data.name,
+        linea: lineaId,
+        count: products.filter((p) => p.data.brand?.id === b.id).length,
+      }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 6);
+    return { params: { slug: brand.id }, props: { brand, linea, products: own, siblings } };
+  });
+}
+
+const { brand, linea, products, siblings } = Astro.props;
+const accent = lineAccent(linea?.id ?? '');
+// Subcategorías presentes en el catálogo de esta marca, no las de la línea entera.
+const subs = [...new Set(products.map((p) => p.data.subcategory).filter(Boolean))] as string[];
+const consulta = `Hola Districo, quiero consultar por los productos ${brand.data.name}.`;
+---
+
+<Base
+  title={`Marca ${brand.data.name}`}
+  description={
+    brand.data.description ??
+    `${brand.data.name}: ${products.length} productos distribuidos por Districo S.A. en todo Uruguay.`
+  }
+>
+  <nav class="crumbs container" aria-label="Miga de pan">
+    <a href="/marcas">Marcas</a>
+    <span aria-hidden="true">/</span>
+    <span>{brand.data.name}</span>
+  </nav>
+
+  <section class="head" style={`--accent:${accent.color};--accent-fg:${accent.text}`}>
+    <div class="container head__inner">
+      <div data-reveal>
+        {linea && (
+          <a class="kicker head__linea" href={`/productos?linea=${linea.id}`}>{linea.data.name}</a>
+        )}
+        <h1 class="title-xl">{brand.data.name}</h1>
+        <p class="lead">
+          {brand.data.description ??
+            `Districo S.A. distribuye ${products.length} productos ${brand.data.name} en todo Uruguay, con stock permanente en la Casa Matriz.`}
+        </p>
+
+        {subs.length > 0 && (
+          <ul class="head__subs">
+            {subs.map((s) => (
+              <li>
+                <a href={`/productos?marca=${brand.id}&sub=${encodeURIComponent(s)}`}>{s}</a>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <div class="actions head__actions">
+          <Button href={contactLink(consulta)} variant="primary" size="lg">
+            {hasWhatsApp() ? 'Consultar por WhatsApp' : `Consultar al ${site.tollFree}`}
+          </Button>
+          <Button href={`/productos?marca=${brand.id}`} variant="outline" size="lg">
+            Ver en el catálogo
+          </Button>
+        </div>
+      </div>
+
+      <p class="head__count" data-reveal style="--reveal-delay:100ms">
+        <strong>{products.length}</strong>
+        <span>{products.length === 1 ? 'producto' : 'productos'}</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="listado section">
+    <div class="container">
+      <h2 class="title-lg" data-reveal>Productos {brand.data.name}</h2>
+      <ul class="listado__grid">
+        {products.map((p) => (
+          <li><ProductCard product={p} brandName={brand.data.name} /></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {siblings.length > 0 && (
+    <section class="vecinas section">
+      <div class="container">
+        <h2 class="title-lg" data-reveal>Otras marcas de la línea</h2>
+        <ul class="vecinas__grid">
+          {siblings.map((s) => (
+            <li><BrandCard id={s.id} name={s.name} linea={s.linea} count={s.count} /></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+</Base>
+
+<style>
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 1.5rem;
+    font-size: var(--text-sm);
+    color: var(--fg-muted);
+  }
+  .crumbs a:hover { color: var(--teal-600); text-decoration: underline; }
+
+  .head { padding-block: clamp(2rem, 4vw, 3.5rem); background: var(--bg-soft); }
+  .head__inner { display: grid; gap: clamp(1.5rem, 3vw, 3rem); align-items: center; }
+  .head h1 { margin-bottom: 0.75rem; }
+  .head__linea {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    /* El amarillo de snacks no contrasta sobre el gris claro: se oscurece. */
+    color: color-mix(in srgb, var(--accent) 72%, var(--teal-950));
+  }
+  .head__subs { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; margin-top: 1.25rem; }
+  .head__subs a {
+    display: inline-block;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--fg-muted);
+  }
+  .head__subs a:hover { border-color: var(--teal-700); color: var(--teal-800); }
+  .head__actions { margin-top: 1.5rem; }
+
+  .head__count {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 0.15rem;
+    aspect-ratio: 1;
+    width: min(100%, 190px);
+    border-radius: 50%;
+    background: var(--accent);
+    /* El amarillo de snacks no admite texto blanco: el par lo define lineAccents. */
+    color: var(--accent-fg, var(--white));
+    text-align: center;
+  }
+  .head__count strong { font-size: var(--text-3xl); line-height: 1; letter-spacing: -0.05em; }
+  .head__count span { font-size: var(--text-kicker); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; opacity: 0.82; }
+
+  .listado h2, .vecinas h2 { margin-bottom: 1.5rem; }
+  .listado__grid, .vecinas__grid { list-style: none; padding: 0; display: grid; gap: 1rem; }
+  .listado__grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); }
+  .listado__grid > li { display: grid; }
+  .vecinas { background: var(--bg-soft); }
+  .vecinas__grid { grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); }
+  .vecinas__grid > li { display: grid; }
+
+  @media (min-width: 940px) {
+    .head__inner { grid-template-columns: 1fr auto; }
+  }
+</style>

@@ -1,0 +1,74 @@
+---
+import { lineAccent, lineShort } from '../config';
+
+interface Props {
+  id: string;
+  name: string;
+  linea: string;
+  count: number;
+}
+const { id, name, linea, count } = Astro.props;
+---
+
+<a
+  class="bcard"
+  href={`/marcas/${id}`}
+  data-brand
+  data-linea={linea}
+  style={`--brand:${lineAccent(linea).color}`}
+>
+  <span class="bcard__name">{name}</span>
+  <span class="bcard__meta">
+    <span class="bcard__line">{lineShort[linea] ?? 'Distribución'}</span>
+    {count > 0 && <em>{count}</em>}
+  </span>
+</a>
+
+<style>
+  .bcard {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 0.6rem;
+    height: 100%;
+    min-height: 130px;
+    padding: 1.25rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-soft);
+    text-decoration: none;
+    text-align: center;
+    transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+  }
+  .bcard:hover {
+    border-color: var(--teal-700);
+    background: var(--white);
+    transform: translateY(-3px);
+  }
+  .bcard__name {
+    font-size: clamp(1.1rem, 0.95rem + 0.5vw, 1.45rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    color: var(--teal-800);
+    line-height: 1.05;
+  }
+  .bcard__meta {
+    font-size: var(--text-kicker);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--fg-muted);
+    display: inline-flex;
+    gap: 0.45rem;
+    align-items: center;
+  }
+  /* El amarillo de snacks no contrasta sobre blanco: se oscurece el acento. */
+  .bcard__line { color: color-mix(in srgb, var(--brand) 72%, var(--teal-950)); }
+  .bcard__meta em {
+    font-style: normal;
+    background: var(--lime-500);
+    color: var(--teal-950);
+    border-radius: 999px;
+    padding: 0.05rem 0.45rem;
+  }
+</style>

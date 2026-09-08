@@ -19,6 +19,7 @@ export const site = {
 
 export const nav = [
   { href: '/productos', label: 'Productos' },
+  { href: '/marcas', label: 'Marcas' },
   { href: '/lineas-de-negocio', label: 'Líneas de negocio' },
   { href: '/nosotros', label: 'Nosotros' },
   { href: '/contacto', label: 'Contacto' },

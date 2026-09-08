@@ -8,7 +8,7 @@ import fachada from '../assets/institutional/casa-matriz-fachada.jpg';
 import deposito from '../assets/institutional/deposito-estanterias.jpg';
 import carga from '../assets/institutional/operacion-carga-camion.jpg';
 import electrico from '../assets/institutional/vehiculo-electrico-carga.jpg';
-import { centrosRegionales, site, sucursales } from '../config';
+import { centrosRegionales, sucursales } from '../config';
 
 const hitos = (await getCollection('milestones')).sort((a, b) =>
   a.data.year.localeCompare(b.data.year)
