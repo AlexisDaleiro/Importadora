@@ -8,7 +8,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
 
 <header class="hdr">
   <div class="container hdr__inner">
-    <a href="/" class="hdr__logo"><Logo /></a>
+    <a href="/" class="hdr__logo"><Logo onDark /></a>
 
     <nav class="hdr__nav" aria-label="Principal">
       {nav.map((item) => (
@@ -36,9 +36,15 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgb(255 255 255 / 0.88);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+    /* Teal institucional exacto del sitio del cliente. Opaco a propósito: con
+       transparencia el hero claro lo aclaraba y dejaba de ser #204F5F. */
+    background: var(--brand-teal);
+    color: var(--white);
+    /* Reemplaza al borde gris: el header contrasta 1.41–1.75:1 contra la
+       StatsBar y los bloques de línea oscuros, así que sin separación se
+       fundiría con ellos al scrollear. La sombra se lee sobre fondo claro
+       y oscuro por igual. */
+    box-shadow: 0 12px 28px -20px rgb(0 0 0 / 0.75);
   }
   .hdr__inner {
     display: flex;
@@ -47,17 +53,25 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     min-height: 76px;
   }
   .hdr__logo { margin-right: auto; }
+  /* El PNG del logo está en negativo: la placa es opaca y las letras son huecos.
+     Con onDark la placa se vuelve blanca y las letras toman el teal del header
+     (8.96:1). El 0.95 de opacidad que usa el footer acá la ensuciaba de gris. */
+  .hdr__logo :global(.logo--onDark) { opacity: 1; }
   .hdr__nav { display: none; gap: 1.75rem; }
   .hdr__link {
     font-size: var(--text-sm);
     font-weight: 600;
-    color: var(--gray-800);
+    color: var(--white);
     padding-block: 0.25rem;
     border-bottom: 2px solid transparent;
   }
-  .hdr__link:hover { color: var(--teal-600); }
-  .hdr__link.is-active { color: var(--teal-900); border-color: var(--lime-500); }
+  .hdr__link:hover { color: var(--brand-lime); }
+  .hdr__link.is-active { color: var(--white); border-color: var(--brand-lime); }
   .hdr__cta { display: none; }
+  /* El botón se pinta acá y no con una variante nueva de Button.astro, para no
+     tocar el lima del resto del sitio (--lime-500) desde el header. */
+  .hdr__cta :global(.btn) { background: var(--brand-lime); color: #001A22; }
+  .hdr__cta :global(.btn:hover) { background: color-mix(in srgb, var(--brand-lime) 82%, var(--white)); }
 
   /* Menú móvil con <details>: cero JS. */
   .hdr__mobile summary {
@@ -75,7 +89,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
   .hdr__mobile summary span {
     display: block;
     height: 2px;
-    background: var(--teal-900);
+    background: var(--white);
     border-radius: 2px;
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
@@ -87,8 +101,9 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     left: 0;
     right: 0;
     top: 100%;
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
+    background: var(--brand-teal);
+    color: var(--white);
+    border-bottom: 1px solid rgb(255 255 255 / 0.14);
     padding: 1rem var(--gutter) 1.75rem;
     display: grid;
     gap: 0.25rem;
@@ -99,7 +114,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     font-size: var(--text-xl);
     font-weight: 700;
     letter-spacing: -0.03em;
-    border-bottom: 1px solid var(--gray-100);
+    border-bottom: 1px solid rgb(255 255 255 / 0.14);
   }
 
   @media (min-width: 900px) {

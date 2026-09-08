@@ -10,6 +10,12 @@
   --lime-500: #AAD400;
   --lime-400: #C2E63B;
 
+  /* Colores institucionales exactos del sitio actual del cliente
+     (districo.com.uy). Hoy los usa el header; no reemplazan a la paleta
+     teal/lime que usa el resto del sitio. */
+  --brand-teal: #204F5F;
+  --brand-lime: #B1CA00;
+
   /* Neutros */
   --white: #FFFFFF;
   --gray-50: #F5F7F6;
