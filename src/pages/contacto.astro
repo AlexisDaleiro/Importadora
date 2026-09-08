@@ -1,12 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
-import { contactLink, hasWhatsApp, site, sucursales } from '../config';
+import { contactLink, formspreeUrl, site, sucursales } from '../config';
 ---
 
 <Base
-  title="Contacto"
-  description="Contactá a Districo S.A.: Casa Matriz en Montevideo, sucursal Maldonado, 0800 1004."
+  title="Contacto y sucursales"
+  description="Escribinos para abrir cuenta mayorista con Districo S.A. Casa Matriz en Montevideo, sucursal en Maldonado y línea gratuita 0800 1004."
 >
   <section class="head">
     <div class="container">
@@ -20,7 +20,12 @@ import { contactLink, hasWhatsApp, site, sucursales } from '../config';
   </section>
 
   <section class="wrap container">
-    <form class="form" id="form" data-reveal novalidate>
+    <form class="form" id="form" data-reveal>
+      {/* Honeypot: campo invisible que los humanos nunca completan. Formspree
+          descarta el envío si viene lleno. */}
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true" />
+      {/* Asunto con el que llega el mail a la casilla de Districo. */}
+      <input type="hidden" name="_subject" value="Consulta desde el sitio web" />
       <div class="row">
         <label class="field">
           <span>Nombre y apellido *</span>
@@ -54,12 +59,16 @@ import { contactLink, hasWhatsApp, site, sucursales } from '../config';
       </label>
 
       <div class="form__foot">
-        <Button type="submit" variant="primary" size="lg">Enviar consulta</Button>
+        <Button type="submit" variant="primary" size="lg" id="form-submit">Enviar consulta</Button>
         <p class="form__note">
-          Se abre tu cliente de correo con la consulta ya escrita hacia {site.email}.
+          Te respondemos por correo a la brevedad. También podés escribirnos a {site.email}.
         </p>
       </div>
-      <p class="form__error" id="form-error" hidden>Completá nombre, email y consulta.</p>
+
+      <p class="form__msg form__msg--ok" id="form-ok" role="status" hidden>
+        Consulta enviada. Un vendedor de tu zona se pone en contacto.
+      </p>
+      <p class="form__msg form__msg--error" id="form-error" role="alert" hidden></p>
     </form>
 
     <aside class="side" data-reveal style="--reveal-delay:110ms">
@@ -69,9 +78,7 @@ import { contactLink, hasWhatsApp, site, sucursales } from '../config';
         <p><a href={`tel:${site.phone.replace(/[^0-9+]/g, '')}`}>{site.phone}</a></p>
         <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
         <div class="actions">
-          <Button href={contactLink('Hola Districo, quiero hacer una consulta comercial.')} variant="lime">
-            {hasWhatsApp() ? 'WhatsApp' : `Llamar al ${site.tollFree}`}
-          </Button>
+          <Button href={contactLink()} variant="lime">WhatsApp</Button>
         </div>
       </div>
     </aside>
@@ -105,27 +112,46 @@ import { contactLink, hasWhatsApp, site, sucursales } from '../config';
   </section>
 </Base>
 
-<script is:inline define:vars={{ email: site.email }}>
-  // Sitio 100% estático: sin backend, el formulario compone un mailto.
-  // Al contratar un endpoint (Formspree, Netlify Forms, etc.) se cambia por un POST.
+<script is:inline define:vars={{ endpoint: formspreeUrl }}>
+  // Envío real vía Formspree: no hace falta backend propio en Vercel.
+  // El ID del form se configura en src/config.ts (FORMSPREE_ID).
   const form = document.getElementById('form');
+  const btn = document.getElementById('form-submit');
+  const ok = document.getElementById('form-ok');
   const error = document.getElementById('form-error');
-  form?.addEventListener('submit', (e) => {
+  const btnTexto = btn.textContent;
+
+  function fallo(msg) {
+    error.textContent = msg;
+    error.hidden = false;
+  }
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const f = new FormData(form);
-    const req = ['nombre', 'email', 'mensaje'].every((k) => String(f.get(k) ?? '').trim());
-    if (!req) { error.hidden = false; return; }
+    ok.hidden = true;
     error.hidden = true;
-    const cuerpo = [
-      `Nombre: ${f.get('nombre')}`,
-      `Comercio: ${f.get('comercio') || '-'}`,
-      `Email: ${f.get('email')}`,
-      `Teléfono: ${f.get('telefono') || '-'}`,
-      `Localidad: ${f.get('localidad') || '-'}`,
-      '',
-      String(f.get('mensaje')),
-    ].join('\n');
-    location.href = `mailto:${email}?subject=${encodeURIComponent('Consulta desde el sitio web')}&body=${encodeURIComponent(cuerpo)}`;
+
+    // Validación nativa: required y type="email" ya marcan campo por campo.
+    if (!form.reportValidity()) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      ok.hidden = false;
+    } catch {
+      fallo('No pudimos enviar la consulta. Probá de nuevo o escribinos por WhatsApp.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = btnTexto;
+    }
   });
 </script>
 
@@ -156,7 +182,19 @@ import { contactLink, hasWhatsApp, site, sucursales } from '../config';
 
   .form__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; padding-top: 0.5rem; }
   .form__note { font-size: var(--text-sm); color: var(--fg-muted); max-width: 34ch; }
-  .form__error { color: #B3261E; font-size: var(--text-sm); font-weight: 600; }
+  /* Honeypot: fuera de la vista y del tab order, sin display:none (algunos bots lo detectan). */
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+  .form__msg {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+  }
+  .form__msg--ok { color: var(--teal-900); background: color-mix(in srgb, var(--lime-500) 22%, transparent); }
+  .form__msg--error { color: #B3261E; background: color-mix(in srgb, #B3261E 8%, transparent); }
+
+  #form-submit[disabled] { opacity: 0.6; cursor: progress; transform: none; }
 
   .side__box {
     background: var(--teal-900);

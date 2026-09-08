@@ -1,7 +1,6 @@
 ---
 import Button from './Button.astro';
-import { contactLink, hasWhatsApp, site } from '../config';
-const wa = hasWhatsApp();
+import { contactLink, site } from '../config';
 ---
 
 <section class="cta">
@@ -16,8 +15,8 @@ const wa = hasWhatsApp();
       </p>
     </div>
     <div class="cta__actions">
-      <Button href={contactLink('Hola Districo, quiero abrir una cuenta mayorista.')} variant="lime" size="lg">
-        {wa ? 'Escribir por WhatsApp' : `Llamar gratis al ${site.tollFree}`}
+      <Button href={contactLink('Hola, quisiera abrir una cuenta mayorista con Districo.')} variant="lime" size="lg">
+        Escribir por WhatsApp
       </Button>
       <Button href="/contacto" variant="outline" size="lg">Formulario de contacto</Button>
       <a class="cta__mail" href={`mailto:${site.email}`}>{site.email}</a>

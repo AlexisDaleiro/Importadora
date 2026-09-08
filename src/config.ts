@@ -3,6 +3,38 @@
 // (districo.com.uy). Lo que no está confirmado queda en null y los componentes
 // lo omiten — no se rellena con datos inventados.
 
+/* ──────────────────────────────────────────────────────────────────────────
+   INDEXACIÓN EN BUSCADORES
+   Mientras el sitio viva en importadora.vercel.app tiene que estar fuera de
+   Google, para no competir con districo.com.uy ni indexar una URL provisoria.
+   NOINDEX = true  → <meta name="robots" content="noindex, nofollow"> en todas
+   las páginas + robots.txt con Disallow.
+   AL PASAR A DOMINIO PROPIO: poner NOINDEX = false acá y cambiar `site` en
+   astro.config.mjs. No hay que tocar nada más.
+   ────────────────────────────────────────────────────────────────────────── */
+export const NOINDEX = true;
+
+/* ──────────────────────────────────────────────────────────────────────────
+   WHATSAPP
+   Número al que apunta el botón flotante y todos los CTA de consulta.
+   Formato internacional, solo dígitos, sin +, sin espacios y sin guiones:
+   código de país (598) + número sin el 0 inicial.  Ej: 59899123456
+   ────────────────────────────────────────────────────────────────────────── */
+export const WHATSAPP_NUMBER = '59895673109'; // +598 095 673 109
+
+/* ──────────────────────────────────────────────────────────────────────────
+   FORMULARIO DE CONTACTO (Formspree)
+   El form de /contacto postea a https://formspree.io/f/<ID>.
+   El ID sale del panel de formspree.io. El destinatario de los mails se
+   configura allá, no acá. Si se cambia de cuenta, se reemplaza solo esta línea.
+   ────────────────────────────────────────────────────────────────────────── */
+export const FORMSPREE_ID = 'xnpqoooe';
+
+export const formspreeUrl = `https://formspree.io/f/${FORMSPREE_ID}`;
+
+/** Mensaje por defecto del botón flotante. */
+export const WHATSAPP_MENSAJE = 'Hola, quisiera hacer una consulta sobre sus productos';
+
 export const site = {
   name: 'Districo S.A.',
   shortName: 'Districo',
@@ -11,10 +43,10 @@ export const site = {
   email: 'contacto@districo.com.uy',
   tollFree: '0800 1004',
   phone: '(+598) 2320 1381',
-  /** PENDIENTE: Districo no publica un número de WhatsApp. Al confirmarlo,
-   *  poner acá el número en formato internacional sin signos (ej '59899123456')
-   *  y el botón flotante + los CTA pasan solos de tel: a wa.me. */
-  whatsapp: null as string | null,
+  whatsapp: WHATSAPP_NUMBER,
+  /** Imagen por defecto al compartir el link (1200x630).
+   *  Se regenera con `npm run gen:og` — ver scripts/gen-og.mjs. */
+  ogImage: '/og.png',
 };
 
 export const nav = [
@@ -26,10 +58,13 @@ export const nav = [
 ];
 
 // Cifras verificadas: catálogo relevado del sitio oficial + hitos institucionales.
+// 1995 es el año de Distribuidora Colón, la empresa que hoy es Districo S.A.
+// Agropecuaria Colón (1960) fue una razón social distinta: aparece como
+// antecedente en la línea de tiempo de /nosotros, no como antigüedad propia.
 export const stats = [
   { value: '156', label: 'Productos' },
   { value: '21', label: 'Marcas' },
-  { value: '1960', label: 'Desde' },
+  { value: '1995', label: 'Desde' },
   { value: '6.000 m²', label: 'Casa Matriz' },
   { value: 'ISO 9001', label: 'Certificación' },
 ];
@@ -78,10 +113,6 @@ export const lineShort: Record<string, string> = {
 export const lineAccent = (slug: string) =>
   lineAccents[slug] ?? { color: '#003647', text: '#FFFFFF' };
 
-/** wa.me si hay WhatsApp confirmado; si no, el 0800 por teléfono. */
-export const contactLink = (mensaje: string) =>
-  site.whatsapp
-    ? `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(mensaje)}`
-    : 'tel:08001004';
-
-export const hasWhatsApp = () => site.whatsapp !== null;
+/** Link de WhatsApp con el mensaje ya escrito. */
+export const contactLink = (mensaje: string = WHATSAPP_MENSAJE) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;

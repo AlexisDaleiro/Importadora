@@ -4,7 +4,7 @@ import Base from '../../layouts/Base.astro';
 import Button from '../../components/Button.astro';
 import BrandCard from '../../components/BrandCard.astro';
 import ProductCard from '../../components/ProductCard.astro';
-import { contactLink, hasWhatsApp, lineAccent, site } from '../../config';
+import { contactLink, lineAccent } from '../../config';
 
 export async function getStaticPaths() {
   const brands = await getCollection('brands');
@@ -36,7 +36,7 @@ const { brand, linea, products, siblings } = Astro.props;
 const accent = lineAccent(linea?.id ?? '');
 // Subcategorías presentes en el catálogo de esta marca, no las de la línea entera.
 const subs = [...new Set(products.map((p) => p.data.subcategory).filter(Boolean))] as string[];
-const consulta = `Hola Districo, quiero consultar por los productos ${brand.data.name}.`;
+const consulta = `Hola, quisiera consultar por los productos de ${brand.data.name}`;
 ---
 
 <Base
@@ -76,7 +76,7 @@ const consulta = `Hola Districo, quiero consultar por los productos ${brand.data
 
         <div class="actions head__actions">
           <Button href={contactLink(consulta)} variant="primary" size="lg">
-            {hasWhatsApp() ? 'Consultar por WhatsApp' : `Consultar al ${site.tollFree}`}
+            Consultar por WhatsApp
           </Button>
           <Button href={`/productos?marca=${brand.id}`} variant="outline" size="lg">
             Ver en el catálogo

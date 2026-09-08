@@ -1,11 +1,11 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Button from '../../components/Button.astro';
 import Badge from '../../components/Badge.astro';
 import ProductCard from '../../components/ProductCard.astro';
-import { contactLink, hasWhatsApp, lineAccent, site } from '../../config';
+import { contactLink, lineAccent, site } from '../../config';
 
 export async function getStaticPaths() {
   const products = await getCollection('products');
@@ -39,12 +39,30 @@ const { product, brand, linea, related } = Astro.props;
 const d = product.data;
 const accent = lineAccent(linea.id);
 const gallery = d.gallery.length > 0 ? d.gallery : d.image ? [d.image] : [];
-const consulta = `Hola Districo, quiero consultar por el producto "${d.name}".`;
+// Mensaje del CTA de WhatsApp: nombre del producto + marca, como pide el cliente.
+const consulta = `Hola, quisiera consultar por disponibilidad de ${d.name}${brand ? ` (${brand.data.name})` : ''}`;
+
+// La mayoría de los nombres ya arrancan con la marca ("BIOFRESH para gatos"):
+// solo se agrega cuando no está, para no repetirla en el <title>.
+const tituloFicha =
+  brand && !d.name.toLowerCase().includes(brand.data.name.toLowerCase())
+    ? `${d.name} — ${brand.data.name}`
+    : d.name;
+
+// Al compartir la ficha, la preview usa la foto del producto en vez del og.png del sitio.
+const ogProducto = gallery[0]
+  ? (await getImage({ src: gallery[0], width: 1200, format: 'png' })).src
+  : undefined;
 ---
 
 <Base
-  title={d.name}
-  description={d.shortDescription ?? `${d.name}, distribuido por Districo S.A. en todo Uruguay.`}
+  title={tituloFicha}
+  description={
+    d.shortDescription?.slice(0, 300) ??
+    `${d.name}${brand ? ` de ${brand.data.name}` : ''}: ${linea.data.name.toLowerCase()} que Districo S.A. distribuye a comercios de todo Uruguay.`
+  }
+  image={ogProducto}
+  ogType="product"
 >
   <nav class="crumbs container" aria-label="Miga de pan">
     <a href="/productos">Productos</a>
@@ -114,9 +132,8 @@ const consulta = `Hola Districo, quiero consultar por el producto "${d.name}".`;
       )}
 
       <div class="sheet__cta">
-        <Button href={contactLink(consulta)} variant="primary" size="lg">
-          {hasWhatsApp() ? 'Consultar por WhatsApp' : `Consultar al ${site.tollFree}`}
-        </Button>
+        <Button href={contactLink(consulta)} variant="primary" size="lg">Consultar por WhatsApp</Button>
+        <Button href="tel:08001004" variant="outline" size="lg">Llamar al {site.tollFree}</Button>
         <Button href={`mailto:${site.email}?subject=${encodeURIComponent(`Consulta: ${d.name}`)}`} variant="outline" size="lg">
           Consultar por correo
         </Button>
