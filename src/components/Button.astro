@@ -1,0 +1,67 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'lime' | 'outline' | 'ghost' | 'white';
+  size?: 'md' | 'lg';
+  type?: 'button' | 'submit';
+  class?: string;
+  [key: string]: any;
+}
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  type = 'button',
+  class: className = '',
+  ...rest
+} = Astro.props;
+const Tag = href ? 'a' : 'button';
+const classes = `btn btn--${variant} btn--${size} ${className}`;
+const external = href?.startsWith('http');
+---
+
+<Tag
+  class={classes}
+  href={href}
+  type={href ? undefined : type}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener' : undefined}
+  {...rest}
+>
+  <span><slot /></span>
+</Tag>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(0); }
+
+  .btn--md { padding: 0.75rem 1.5rem; font-size: var(--text-sm); }
+  .btn--lg { padding: 1rem 2rem; font-size: var(--text-base); }
+
+  .btn--primary { background: var(--teal-900); color: var(--white); }
+  .btn--primary:hover { background: var(--teal-700); }
+
+  .btn--lime { background: var(--lime-500); color: var(--teal-950); }
+  .btn--lime:hover { background: var(--lime-400); }
+
+  .btn--outline { border-color: currentColor; color: inherit; }
+  .btn--outline:hover { background: var(--teal-900); border-color: var(--teal-900); color: var(--white); }
+
+  .btn--white { background: var(--white); color: var(--teal-950); }
+  .btn--white:hover { background: var(--gray-100); }
+
+  .btn--ghost { color: inherit; padding-inline: 0.25rem; }
+  .btn--ghost:hover { color: var(--teal-600); }
+</style>

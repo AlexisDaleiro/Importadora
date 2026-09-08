@@ -1,0 +1,48 @@
+---
+import { stats } from '../config';
+---
+
+<section class="stats">
+  <div class="container stats__inner">
+    {stats.map((s, i) => (
+      <div class="stats__item" data-reveal style={`--reveal-delay:${i * 70}ms`}>
+        <span class="stats__value">{s.value}</span>
+        <span class="stats__label">{s.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .stats { background: var(--teal-900); color: var(--white); }
+  .stats__inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgb(255 255 255 / 0.12);
+    border-inline: 1px solid rgb(255 255 255 / 0.12);
+  }
+  .stats__item {
+    background: var(--teal-900);
+    padding: clamp(1.5rem, 3vw, 2.25rem) 1rem;
+    display: grid;
+    gap: 0.35rem;
+    justify-items: center;
+    text-align: center;
+  }
+  .stats__value {
+    font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--lime-500);
+    line-height: 1;
+  }
+  .stats__label {
+    font-size: var(--text-kicker);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgb(255 255 255 / 0.66);
+    font-weight: 600;
+  }
+  @media (min-width: 760px) { .stats__inner { grid-template-columns: repeat(5, 1fr); } }
+</style>

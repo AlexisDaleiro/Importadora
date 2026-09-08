@@ -1,0 +1,109 @@
+---
+import Logo from './Logo.astro';
+import Button from './Button.astro';
+import { nav } from '../config';
+const path = Astro.url.pathname;
+const isActive = (href: string) => path === href || path.startsWith(href + '/');
+---
+
+<header class="hdr">
+  <div class="container hdr__inner">
+    <a href="/" class="hdr__logo"><Logo /></a>
+
+    <nav class="hdr__nav" aria-label="Principal">
+      {nav.map((item) => (
+        <a href={item.href} class:list={['hdr__link', { 'is-active': isActive(item.href) }]}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hdr__cta">
+      <Button href="/contacto" variant="primary">Contacto</Button>
+    </div>
+
+    <details class="hdr__mobile">
+      <summary aria-label="Abrir menú"><span></span><span></span><span></span></summary>
+      <div class="hdr__panel">
+        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      </div>
+    </details>
+  </div>
+</header>
+
+<style>
+  .hdr {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgb(255 255 255 / 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .hdr__inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    min-height: 76px;
+  }
+  .hdr__logo { margin-right: auto; }
+  .hdr__nav { display: none; gap: 1.75rem; }
+  .hdr__link {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--gray-800);
+    padding-block: 0.25rem;
+    border-bottom: 2px solid transparent;
+  }
+  .hdr__link:hover { color: var(--teal-600); }
+  .hdr__link.is-active { color: var(--teal-900); border-color: var(--lime-500); }
+  .hdr__cta { display: none; }
+
+  /* Menú móvil con <details>: cero JS. */
+  .hdr__mobile summary {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+  .hdr__mobile summary::-webkit-details-marker { display: none; }
+  .hdr__mobile summary span {
+    display: block;
+    height: 2px;
+    background: var(--teal-900);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .hdr__mobile[open] summary span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hdr__mobile[open] summary span:nth-child(2) { opacity: 0; }
+  .hdr__mobile[open] summary span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .hdr__panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem var(--gutter) 1.75rem;
+    display: grid;
+    gap: 0.25rem;
+    box-shadow: var(--shadow-md);
+  }
+  .hdr__panel a {
+    padding: 0.85rem 0;
+    font-size: var(--text-xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  @media (min-width: 900px) {
+    .hdr__nav, .hdr__cta { display: flex; }
+    .hdr__mobile { display: none; }
+  }
+</style>

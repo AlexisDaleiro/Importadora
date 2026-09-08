@@ -1,0 +1,32 @@
+---
+interface Props {
+  color?: string;
+  tone?: 'soft' | 'solid' | 'outline';
+  class?: string;
+}
+const { color, tone = 'soft', class: className = '' } = Astro.props;
+---
+
+<span class={`badge badge--${tone} ${className}`} style={color ? `--badge-color:${color}` : undefined}>
+  <slot />
+</span>
+
+<style>
+  .badge {
+    --badge-color: var(--teal-700);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-size: var(--text-kicker);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .badge--soft { background: color-mix(in srgb, var(--badge-color) 12%, transparent); color: var(--badge-color); }
+  .badge--solid { background: var(--badge-color); color: var(--white); }
+  .badge--outline { border: 1.5px solid color-mix(in srgb, var(--badge-color) 40%, transparent); color: var(--badge-color); }
+</style>

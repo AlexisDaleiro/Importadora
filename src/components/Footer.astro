@@ -1,0 +1,69 @@
+---
+import Logo from './Logo.astro';
+import { nav, site, sucursales } from '../config';
+---
+
+<footer class="ftr">
+  <div class="container ftr__inner">
+    <div class="ftr__brand">
+      <Logo onDark />
+      <p class="ftr__tagline">{site.tagline}.</p>
+      <p class="ftr__iso">ISO 9001 · Más de 25 años distribuyendo en todo Uruguay</p>
+    </div>
+
+    <nav class="ftr__nav" aria-label="Pie de página">
+      <h2>Sitio</h2>
+      <a href="/">Home</a>
+      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+
+    {sucursales.map((s) => (
+      <div class="ftr__col">
+        <h2>{s.nombre}</h2>
+        <p>{s.direccion}</p>
+        <p><a href={`tel:${s.telefono.replace(/\s/g, '')}`}>{s.telefono}</a></p>
+        <p>{s.horario}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="container ftr__legal">
+    <p>© {new Date().getFullYear()} {site.name}. Todos los derechos reservados.</p>
+    <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+  </div>
+</footer>
+
+<style>
+  .ftr { background: var(--teal-950); color: rgb(255 255 255 / 0.72); padding-top: clamp(3.5rem, 6vw, 5.5rem); }
+  .ftr__inner {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: 1fr;
+    padding-bottom: 3rem;
+  }
+  .ftr__tagline { margin-top: 1.25rem; max-width: 34ch; color: rgb(255 255 255 / 0.66); }
+  .ftr__iso { margin-top: 0.75rem; font-size: var(--text-sm); color: var(--lime-500); font-weight: 600; }
+  .ftr h2 {
+    font-size: var(--text-kicker);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .ftr__nav { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+  .ftr__nav a:hover, .ftr__col a:hover { color: var(--lime-500); }
+  .ftr__col p { font-size: var(--text-sm); margin-bottom: 0.4rem; }
+  .ftr__legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    justify-content: space-between;
+    padding-block: 1.5rem;
+    border-top: 1px solid rgb(255 255 255 / 0.12);
+    font-size: var(--text-sm);
+  }
+  @media (min-width: 760px) {
+    .ftr__inner { grid-template-columns: 1.4fr 0.8fr 1fr 1fr; gap: 3rem; }
+  }
+</style>

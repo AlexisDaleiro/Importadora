@@ -1,0 +1,31 @@
+---
+interface Props { onDark?: boolean; class?: string; }
+const { onDark = false, class: className = '' } = Astro.props;
+---
+
+<span class={`logo ${onDark ? 'logo--onDark' : ''} ${className}`} aria-label="Districo S.A.">
+  <span class="logo__mark" aria-hidden="true"></span>
+  <span class="logo__word">districo<span class="logo__dot">.</span></span>
+</span>
+
+<style>
+  /* Placeholder tipográfico del logo hasta tener el SVG oficial de Districo. */
+  .logo { display: inline-flex; align-items: center; gap: 0.55rem; }
+  .logo__mark {
+    width: 1.15rem;
+    height: 1.15rem;
+    border-radius: 4px;
+    background: var(--lime-500);
+    box-shadow: inset 0 0 0 4px var(--teal-900);
+  }
+  .logo__word {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.055em;
+    color: var(--teal-900);
+    line-height: 1;
+  }
+  .logo__dot { color: var(--lime-500); }
+  .logo--onDark .logo__word { color: var(--white); }
+  .logo--onDark .logo__mark { box-shadow: inset 0 0 0 4px var(--teal-950); }
+</style>

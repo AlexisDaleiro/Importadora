@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import StatsBar from '../components/StatsBar.astro';
+import { site } from '../config';
+---
+
+<Base title={site.name} description={site.tagline}>
+  <Hero />
+  <StatsBar />
+</Base>

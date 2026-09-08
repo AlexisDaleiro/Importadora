@@ -1,0 +1,17 @@
+{
+  "name": "districo",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "gen:placeholders": "node scripts/gen-placeholders.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/figtree": "^5.1.0",
+    "astro": "^5.6.1"
+  }
+}
