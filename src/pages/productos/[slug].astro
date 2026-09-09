@@ -6,6 +6,7 @@ import Button from '../../components/Button.astro';
 import Badge from '../../components/Badge.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import { contactLink, formspreeB2bListo, formspreeB2bUrl, lineAccent, site } from '../../config';
+import { normalizarTecnica } from '../../lib/tabla-tecnica';
 
 export async function getStaticPaths() {
   const products = await getCollection('products');
@@ -143,7 +144,16 @@ const ogProducto = gallery[0]
   </article>
 
   {(d.description.length > 0 || d.technicalSheet.length > 0) && (
-    <section class="detail container">
+    <section
+      class:list={[
+        'detail',
+        'container',
+        /* Dos columnas solo cuando hay contenido de los dos lados: 52 fichas no
+           tienen ficha técnica y con la grilla fija les quedaba media pantalla
+           en blanco. */
+        d.description.length > 0 && d.technicalSheet.length > 0 && 'detail--dos',
+      ]}
+    >
       {d.description.length > 0 && (
         <div class="detail__text" data-reveal>
           <h2 class="title-lg">Descripción</h2>
@@ -157,7 +167,7 @@ const ogProducto = gallery[0]
           {d.technicalSheet.map((block) => (
             <details>
               <summary>{block.label}</summary>
-              <div class="tech__body" set:html={block.content} />
+              <div class="tech__body" set:html={normalizarTecnica(block.content)} />
             </details>
           ))}
         </div>
@@ -414,7 +424,11 @@ const ogProducto = gallery[0]
     gap: clamp(2rem, 4vw, 3rem);
     padding-block: clamp(2rem, 4vw, 3rem);
     border-top: 1px solid var(--border);
+    /* Sin esto las dos columnas se estiran a la misma altura y el borde de la
+       más corta marca el hueco. */
+    align-items: start;
   }
+  .detail > * { max-width: 74ch; }
   .detail__text p { color: var(--fg-muted); margin-top: 1rem; max-width: 62ch; }
   .detail h2 { margin-bottom: 0.5rem; }
 
@@ -437,7 +451,19 @@ const ogProducto = gallery[0]
   .detail__tech summary::-webkit-details-marker { display: none; }
   .detail__tech summary::after { content: '+'; float: right; font-size: 1.25rem; line-height: 1; }
   .detail__tech details[open] summary::after { content: '−'; }
-  .tech__body { padding: 0 1.1rem 1.1rem; font-size: var(--text-sm); color: var(--fg-muted); overflow-x: auto; }
+  .tech__body {
+    padding: 0 1.1rem 1.1rem;
+    font-size: var(--text-sm);
+    color: var(--fg-muted);
+    overflow-x: auto;
+    /* Sombra de scroll: avisa que la tabla sigue a la derecha. Se apoya en el
+       fondo del acordeón, así que el degradado sale del mismo --bg-soft. */
+    background:
+      linear-gradient(to right, var(--bg-soft) 30%, transparent) left / 40px 100% no-repeat local,
+      linear-gradient(to left, var(--bg-soft) 30%, transparent) right / 40px 100% no-repeat local,
+      radial-gradient(farthest-side at 0 50%, rgb(4 25 29 / 0.16), transparent) left / 14px 100% no-repeat scroll,
+      radial-gradient(farthest-side at 100% 50%, rgb(4 25 29 / 0.16), transparent) right / 14px 100% no-repeat scroll;
+  }
 
   .related { background: var(--bg-soft); }
   .related h2 { margin-bottom: 1.5rem; }
@@ -549,15 +575,53 @@ const ogProducto = gallery[0]
 
   @media (min-width: 940px) {
     .sheet { grid-template-columns: 1fr 1fr; }
-    .detail { grid-template-columns: 1fr 1fr; }
     .lead__inner { grid-template-columns: 0.85fr 1.15fr; }
+    /* Descripción a la izquierda, ficha técnica a la derecha. La técnica se
+       lleva la columna ancha porque es la que manda la altura: acorta el bloque
+       y deja el formulario "Quiero vender <marca>" mucho más arriba. */
+    .detail--dos { grid-template-columns: 0.85fr 1.15fr; }
+    .detail--dos > * { max-width: none; }
   }
 </style>
 
 <style is:global>
-  /* El HTML técnico viene del sitio oficial: tablas sin clases propias. */
-  .tech__body table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
-  .tech__body td { border: 1px solid var(--border); padding: 0.4rem 0.6rem; }
-  .tech__body thead td { background: var(--gray-100); font-weight: 700; color: var(--fg); }
+  /* El HTML técnico viene del sitio oficial y se normaliza en build con
+     src/lib/tabla-tecnica.ts: acá las tablas ya llegan con <th scope> y con
+     todas las filas del mismo largo. */
+  .tech__body table {
+    /* min-width en vez de width:100%: sin esto una tabla de 7 columnas se
+       comprime hasta partir "Apolo Adulto" en tres líneas en lugar de scrollear. */
+    min-width: max-content;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+  }
+  .tech__body th,
+  .tech__body td {
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .tech__body thead th {
+    background: var(--gray-100);
+    font-weight: 700;
+    color: var(--fg);
+    white-space: nowrap;
+  }
+  /* La esquina del encabezado acompaña a la columna de referencia. */
+  .tech__body thead th:first-child { position: sticky; left: 0; z-index: 1; }
+  .tech__body tbody th {
+    font-weight: 700;
+    color: var(--fg);
+    /* La columna de referencia queda a la vista mientras se scrollea la tabla. */
+    position: sticky;
+    left: 0;
+    background: var(--bg-soft);
+  }
+  .tech__body tbody th[colspan] {
+    position: static;
+    background: var(--gray-100);
+    letter-spacing: 0.04em;
+  }
   .tech__body p { margin-bottom: 0.75rem; }
 </style>
