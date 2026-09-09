@@ -29,7 +29,7 @@ const brands = (await getCollection('brands'))
       </p>
     </header>
 
-    <ul class="brands__grid">
+    <ul class="brand-grid">
       {brands.map((brand, i) => (
         <li data-reveal style={`--reveal-delay:${Math.min(i, 8) * 45}ms`}>
           <BrandCard
@@ -53,14 +53,6 @@ const brands = (await getCollection('brands'))
   .brands__head { display: grid; gap: 1rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
   .brands__head .kicker { display: block; margin-bottom: 0.5rem; }
 
-  .brands__grid {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
-    gap: clamp(0.75rem, 1.5vw, 1rem);
-  }
-  .brands__grid > li { display: grid; }
   .brands__cta { margin-top: clamp(2rem, 4vw, 3rem); }
 
   @media (min-width: 940px) {

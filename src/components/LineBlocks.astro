@@ -69,9 +69,11 @@ const blocks = lineas.map((linea) => {
           <div class="line__media" data-reveal style="--reveal-delay:120ms">
             <div class="line__stage">
               <span class="line__ring" aria-hidden="true"></span>
+              {/* alt vacío a propósito: la foto es decorativa y el link de
+                  abajo ya anuncia el nombre del producto. */}
               <Image
                 src={cutout}
-                alt={hero.data.name}
+                alt=""
                 widths={[360, 560, 800]}
                 sizes="(min-width: 940px) 38vw, 72vw"
                 loading="lazy"
@@ -90,7 +92,7 @@ const blocks = lineas.map((linea) => {
   .line {
     background: var(--line-bg);
     color: var(--line-fg);
-    padding-block: clamp(3.5rem, 7vw, 6rem);
+    padding-block: var(--section-y-sm);
     overflow: hidden;
   }
   .line__inner {
@@ -105,8 +107,10 @@ const blocks = lineas.map((linea) => {
 
   .line__cats { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; }
   .line__cats li {
-    border: 1.5px solid color-mix(in srgb, currentColor 32%, transparent);
-    border-radius: 999px;
+    /* 32% daba 1.92:1 sobre el amarillo de snacks, por debajo del 3:1 que
+       pide WCAG 1.4.11 para bordes de componentes. */
+    border: var(--bd) solid color-mix(in srgb, currentColor 55%, transparent);
+    border-radius: var(--radius-pill);
     padding: 0.35rem 0.85rem;
     font-size: var(--text-kicker);
     font-weight: 700;
@@ -154,7 +158,7 @@ const blocks = lineas.map((linea) => {
     text-align: center;
     background: var(--line-fg);
     color: var(--line-bg);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     padding: 0.5rem 1.1rem;
     font-size: var(--text-sm);
     font-weight: 700;

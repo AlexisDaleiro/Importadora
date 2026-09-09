@@ -17,7 +17,7 @@ const { id, name, linea, count } = Astro.props;
   data-linea={linea}
   style={`--brand:${lineAccent(linea).color}`}
 >
-  <span class="bcard__name">{name}</span>
+  <h3 class="bcard__name">{name}</h3>
   <span class="bcard__meta">
     <span class="bcard__line">{lineShort[linea] ?? 'Distribución'}</span>
     {count > 0 && <em>{count}</em>}
@@ -33,7 +33,7 @@ const { id, name, linea, count } = Astro.props;
     height: 100%;
     min-height: 130px;
     padding: 1.25rem 1rem;
-    border: 1px solid var(--border);
+    border: var(--bd) solid var(--border);
     border-radius: var(--radius-lg);
     background: var(--bg-soft);
     text-decoration: none;
@@ -43,7 +43,7 @@ const { id, name, linea, count } = Astro.props;
   .bcard:hover {
     border-color: var(--teal-700);
     background: var(--white);
-    transform: translateY(-3px);
+    transform: translateY(var(--lift));
   }
   .bcard__name {
     font-size: clamp(1.1rem, 0.95rem + 0.5vw, 1.45rem);
@@ -68,7 +68,7 @@ const { id, name, linea, count } = Astro.props;
     font-style: normal;
     background: var(--lime-500);
     color: var(--teal-950);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     padding: 0.05rem 0.45rem;
   }
 </style>

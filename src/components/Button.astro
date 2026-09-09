@@ -1,7 +1,7 @@
 ---
 interface Props {
   href?: string;
-  variant?: 'primary' | 'lime' | 'outline' | 'ghost' | 'white';
+  variant?: 'primary' | 'lime' | 'outline' | 'ghost' | 'white' | 'accent';
   size?: 'md' | 'lg';
   type?: 'button' | 'submit';
   class?: string;
@@ -36,15 +36,15 @@ const external = href?.startsWith('http');
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    border: 2px solid transparent;
-    border-radius: 999px;
+    border: var(--bd) solid transparent;
+    border-radius: var(--radius-pill);
     font-weight: 700;
     letter-spacing: -0.01em;
     cursor: pointer;
     text-align: center;
     transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
   }
-  .btn:hover { transform: translateY(-2px); }
+  .btn:hover { transform: translateY(var(--lift)); }
   .btn:active { transform: translateY(0); }
 
   .btn--md { padding: 0.75rem 1.5rem; font-size: var(--text-sm); }
@@ -58,10 +58,22 @@ const external = href?.startsWith('http');
 
   .btn--outline { border-color: currentColor; color: inherit; }
   .btn--outline:hover { background: var(--teal-900); border-color: var(--teal-900); color: var(--white); }
+  /* Sobre fondo oscuro el hover teal-900 quedaba casi igual que el fondo
+     (#002733 sobre #001A22) y el botón desaparecía. Se invierte. */
+  :global(.on-dark) .btn--outline:hover { background: var(--white); border-color: var(--white); color: var(--teal-950); }
 
   .btn--white { background: var(--white); color: var(--teal-950); }
   .btn--white:hover { background: var(--gray-100); }
 
   .btn--ghost { color: inherit; padding-inline: 0.25rem; }
   .btn--ghost:hover { color: var(--teal-600); }
+
+  /* Toma el par de colores de la sección que lo contiene (--accent / --accent-fg,
+     que salen de lineAccents). Lo usa el formulario "Quiero vender <marca>" de la
+     ficha, donde el fondo cambia con la línea del producto. */
+  .btn--accent { background: var(--accent-fg); color: var(--accent); border-color: var(--accent-fg); }
+  .btn--accent:hover { background: color-mix(in srgb, var(--accent-fg) 88%, var(--accent)); }
+
+  /* Enviando…: lo tenían duplicado /contacto y el formulario B2B de la ficha. */
+  .btn[disabled] { opacity: 0.6; cursor: progress; transform: none; }
 </style>

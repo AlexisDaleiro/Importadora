@@ -85,19 +85,25 @@ const subs = lineas.flatMap((l) =>
 
   <section class="grid-wrap">
     <div class="container">
-      <ul class="grid" id="grid">
-        {products.map((p) => (
+      <h2 class="sr-only">Catálogo de productos</h2>
+      <ul class="card-grid" id="grid">
+        {products.map((p, i) => (
           <li>
             <ProductCard
               product={p}
               brandName={p.data.brand ? brandName.get(p.data.brand.id) : undefined}
+              priority={i < 8}
             />
           </li>
         ))}
       </ul>
-      <p class="empty" id="empty" hidden>
-        No hay productos con esos filtros. <button class="linkish" id="f-reset2" type="button">Ver todo el catálogo</button>
-      </p>
+      <div class="empty" id="empty" hidden>
+        <p class="empty__titulo">No hay productos con esos filtros</p>
+        {/* Eco de lo que está filtrado: sin esto la página queda en blanco y no
+            se ve qué combinación dejó el catálogo vacío. */}
+        <p class="empty__filtros" id="empty-filtros"></p>
+        <button class="chip chip--reset" id="f-reset2" type="button">Ver todo el catálogo</button>
+      </div>
     </div>
   </section>
 </Base>
@@ -113,6 +119,7 @@ const subs = lineas.flatMap((l) =>
   const inputQ = document.getElementById('f-q') as HTMLInputElement;
   const count = document.getElementById('f-count') as HTMLElement;
   const empty = document.getElementById('empty') as HTMLElement;
+  const emptyFiltros = document.getElementById('empty-filtros') as HTMLElement;
 
   const state = { linea: '', marca: '', sub: '', q: '' };
 
@@ -130,6 +137,16 @@ const subs = lineas.flatMap((l) =>
     }
     count.textContent = String(shown);
     empty.hidden = shown !== 0;
+
+    if (shown === 0) {
+      const puestos = [
+        state.linea && `Línea: ${chips.find((c) => c.dataset.filterLinea === state.linea)?.textContent?.trim()}`,
+        state.marca && `Marca: ${selMarca.selectedOptions[0]?.textContent}`,
+        state.sub && `Subcategoría: ${state.sub}`,
+        state.q && `Búsqueda: “${inputQ.value.trim()}”`,
+      ].filter(Boolean);
+      emptyFiltros.textContent = puestos.join(' · ');
+    }
 
     // Las subcategorías pertenecen a una línea: se ocultan las que no aplican.
     for (const opt of selSub.options) {
@@ -179,37 +196,13 @@ const subs = lineas.flatMap((l) =>
 </script>
 
 <style>
-  .head { padding-block: clamp(2.5rem, 5vw, 4rem) 1.5rem; background: var(--bg-soft); }
+  .head { padding-block: var(--section-y-xs) 1.5rem; background: var(--bg-soft); }
   .head .kicker { display: block; margin-bottom: 0.5rem; }
   .head h1 { margin-bottom: 0.75rem; }
 
-  .filters {
-    position: sticky;
-    /* Debajo del header, que también es sticky. */
-    top: var(--hdr-h);
-    z-index: 20;
-    background: color-mix(in srgb, var(--bg-soft) 92%, transparent);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-    padding-block: 1rem;
-  }
   .filters__inner { display: grid; gap: 0.85rem; }
   .filters__lines, .filters__selects { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: end; }
 
-  .chip {
-    --chip: var(--teal-800);
-    border: 1.5px solid var(--border);
-    background: var(--white);
-    color: var(--fg-muted);
-    border-radius: 999px;
-    padding: 0.5rem 1rem;
-    font-size: var(--text-sm);
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
-  }
-  .chip:hover { border-color: var(--chip); color: color-mix(in srgb, var(--chip) 75%, var(--teal-950)); }
-  .chip.is-on { background: var(--chip); border-color: var(--chip); color: var(--chip-fg, #fff); }
   .chip--reset { align-self: end; }
 
   .field { display: grid; gap: 0.25rem; font-size: var(--text-kicker); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--fg-muted); }
@@ -221,8 +214,8 @@ const subs = lineas.flatMap((l) =>
     letter-spacing: normal;
     color: var(--fg);
     background: var(--white);
-    border: 1.5px solid var(--border);
-    border-radius: 999px;
+    border: var(--bd) solid var(--border);
+    border-radius: var(--radius);
     padding: 0.5rem 0.9rem;
     min-width: 12rem;
   }
@@ -233,17 +226,21 @@ const subs = lineas.flatMap((l) =>
   .filters__count strong { color: var(--fg); font-size: var(--text-base); }
 
   .grid-wrap { padding-block: clamp(2rem, 4vw, 3.5rem) var(--section-y); }
-  .grid {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
-    gap: clamp(0.85rem, 1.6vw, 1.4rem);
-  }
-  .grid > li { display: grid; }
-  .grid > li[hidden] { display: none; }
 
-  .empty { text-align: center; padding: 3rem 1rem; color: var(--fg-muted); }
+  .empty {
+    display: grid;
+    justify-items: center;
+    gap: 0.75rem;
+    text-align: center;
+    padding: clamp(2.5rem, 6vw, 4rem) 1.5rem;
+    color: var(--fg-muted);
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-soft);
+  }
+  .empty__titulo { font-size: var(--text-lg); font-weight: 700; color: var(--fg); }
+  .empty__filtros { font-size: var(--text-sm); }
+  .empty__filtros:empty { display: none; }
   .linkish {
     border: 0;
     background: none;
@@ -253,4 +250,5 @@ const subs = lineas.flatMap((l) =>
     cursor: pointer;
     text-decoration: underline;
   }
+  .linkish:hover { color: var(--teal-800); }
 </style>

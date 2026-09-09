@@ -94,9 +94,9 @@ const consulta = `Hola, quisiera consultar por los productos de ${brand.data.nam
   <section class="listado section">
     <div class="container">
       <h2 class="title-lg" data-reveal>Productos {brand.data.name}</h2>
-      <ul class="listado__grid">
-        {products.map((p) => (
-          <li><ProductCard product={p} brandName={brand.data.name} /></li>
+      <ul class="card-grid">
+        {products.map((p, i) => (
+          <li><ProductCard product={p} brandName={brand.data.name} priority={i < 8} /></li>
         ))}
       </ul>
     </div>
@@ -106,7 +106,7 @@ const consulta = `Hola, quisiera consultar por los productos de ${brand.data.nam
     <section class="vecinas section">
       <div class="container">
         <h2 class="title-lg" data-reveal>Otras marcas de la línea</h2>
-        <ul class="vecinas__grid">
+        <ul class="brand-grid">
           {siblings.map((s) => (
             <li><BrandCard id={s.id} name={s.name} linea={s.linea} count={s.count} /></li>
           ))}
@@ -117,15 +117,6 @@ const consulta = `Hola, quisiera consultar por los productos de ${brand.data.nam
 </Base>
 
 <style>
-  .crumbs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding-top: 1.5rem;
-    font-size: var(--text-sm);
-    color: var(--fg-muted);
-  }
-  .crumbs a:hover { color: var(--teal-600); text-decoration: underline; }
 
   .head { padding-block: clamp(2rem, 4vw, 3.5rem); background: var(--bg-soft); }
   .head__inner { display: grid; gap: clamp(1.5rem, 3vw, 3rem); align-items: center; }
@@ -139,9 +130,9 @@ const consulta = `Hola, quisiera consultar por los productos de ${brand.data.nam
   .head__subs { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; margin-top: 1.25rem; }
   .head__subs a {
     display: inline-block;
-    border: 1.5px solid var(--border);
+    border: var(--bd) solid var(--border);
     background: var(--white);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     padding: 0.4rem 0.9rem;
     font-size: var(--text-sm);
     font-weight: 700;
@@ -167,12 +158,7 @@ const consulta = `Hola, quisiera consultar por los productos de ${brand.data.nam
   .head__count span { font-size: var(--text-kicker); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; opacity: 0.82; }
 
   .listado h2, .vecinas h2 { margin-bottom: 1.5rem; }
-  .listado__grid, .vecinas__grid { list-style: none; padding: 0; display: grid; gap: 1rem; }
-  .listado__grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); }
-  .listado__grid > li { display: grid; }
   .vecinas { background: var(--bg-soft); }
-  .vecinas__grid { grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); }
-  .vecinas__grid > li { display: grid; }
 
   @media (min-width: 940px) {
     .head__inner { grid-template-columns: 1fr auto; }

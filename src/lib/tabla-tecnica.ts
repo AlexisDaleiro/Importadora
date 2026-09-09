@@ -11,6 +11,34 @@
 // las 156 fichas: p, table, thead, tr, tbody, td, em, strong, b, h3 y nada más),
 // así que las tablas se reconstruyen desde la matriz de celdas.
 
+/**
+ * Términos que el sitio de origen dejó en portugués. Se traducen acá y no en los
+ * JSON por el mismo motivo que la estructura: el contenido raspado queda intacto
+ * y un re-scrape sale traducido solo. Solo entra lo inequívoco — "proteína
+ * bruta" y "materia mineral", por ejemplo, son términos válidos del etiquetado
+ * de alimento balanceado en castellano y se dejan como están.
+ */
+const GLOSARIO: [RegExp, string][] = [
+  [/\bEnergia\b/g, 'Energía'],
+  [/\bMetaboliz[áa]vel\b/gi, 'Metabolizable'],
+  [/\bExtrato Et[ée]reo\b/gi, 'Extracto etéreo'],
+  [/\bdi[áa]ria\b/g, 'diaria'],
+  [/\(g\/dia\)/g, '(g/día)'],
+  [/\+\s*10g\s*\/\s*kg a mais de peso/g, '+10g por kg de peso adicional'],
+  [/\bFilhotes\b/g, 'Cachorros'],
+  [/\bFilhote\b/g, 'Cachorro'],
+  // Calco de "seja feita": "recomendamos que la sustitución sea hecha…".
+  [/\bsea hecha\b/g, 'se haga'],
+  [/\bel perro alcanzar la fase adulta\b/g, 'el perro alcanza la fase adulta'],
+];
+
+/** Traduce los términos del glosario. Exportada para poder chequearla sola. */
+export function traducirTerminos(html: string): string {
+  let out = html;
+  for (const [re, es] of GLOSARIO) out = out.replace(re, es);
+  return out;
+}
+
 const RE_TR = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
 const RE_CELDA = /<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/gi;
 
@@ -159,6 +187,7 @@ export function normalizarTecnica(html: string): string {
     .replace(/<\/?b>/gi, '')
     // <p> que quedaron vacíos: el sitio de origen los usa como separadores.
     .replace(/<p>\s*<\/p>/gi, '');
+  out = traducirTerminos(out);
   out = desanidar(out);
   out = reconstruirTablas(out);
   return out.replace(/\s{2,}/g, ' ').trim();

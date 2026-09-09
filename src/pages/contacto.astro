@@ -156,7 +156,7 @@ import { contactLink, formspreeUrl, site, sucursales } from '../config';
 </script>
 
 <style>
-  .head { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--bg-soft); }
+  .head { padding-block: var(--section-y-xs); background: var(--bg-soft); }
   .head .kicker { display: block; margin-bottom: 0.5rem; }
   .head h1 { margin-bottom: 0.75rem; }
 
@@ -173,7 +173,7 @@ import { contactLink, formspreeUrl, site, sucursales } from '../config';
     letter-spacing: normal;
     color: var(--fg);
     background: var(--white);
-    border: 1.5px solid var(--border);
+    border: var(--bd) solid var(--border);
     border-radius: var(--radius);
     padding: 0.7rem 0.9rem;
   }
@@ -194,7 +194,6 @@ import { contactLink, formspreeUrl, site, sucursales } from '../config';
   .form__msg--ok { color: var(--teal-900); background: color-mix(in srgb, var(--lime-500) 22%, transparent); }
   .form__msg--error { color: #B3261E; background: color-mix(in srgb, #B3261E 8%, transparent); }
 
-  #form-submit[disabled] { opacity: 0.6; cursor: progress; transform: none; }
 
   .side__box {
     background: var(--teal-900);
@@ -225,6 +224,7 @@ import { contactLink, formspreeUrl, site, sucursales } from '../config';
   .sede__sup { font-size: var(--text-kicker); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--teal-600); }
   .sede__info p { color: var(--fg-muted); }
   .sede__info a { color: var(--teal-700); font-weight: 600; text-decoration: none; }
+  .sede__info a:hover { text-decoration: underline; }
   .sede__mapa { width: 100%; min-height: 240px; border: 0; display: block; }
 
   @media (min-width: 760px) {

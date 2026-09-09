@@ -3,7 +3,7 @@ import Button from './Button.astro';
 import { contactLink, site } from '../config';
 ---
 
-<section class="cta">
+<section class="cta on-dark">
   <div class="container cta__inner" data-reveal>
     <span class="blob cta__blob" aria-hidden="true"></span>
     <div class="cta__text">
@@ -25,7 +25,7 @@ import { contactLink, site } from '../config';
 </section>
 
 <style>
-  .cta { background: var(--teal-950); color: var(--white); padding-block: clamp(3.5rem, 7vw, 6rem); overflow: hidden; }
+  .cta { background: var(--teal-950); color: var(--white); padding-block: var(--section-y-sm); overflow: hidden; }
   .cta__inner { position: relative; display: grid; gap: 2rem; align-items: center; }
   .cta__blob { width: 340px; aspect-ratio: 1; background: var(--teal-700); top: -40%; right: -12%; opacity: 0.55; }
   .cta__text { position: relative; z-index: 1; }

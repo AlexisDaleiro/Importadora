@@ -8,7 +8,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
-import { normalizarTecnica } from '../src/lib/tabla-tecnica.ts';
+import { normalizarTecnica, traducirTerminos } from '../src/lib/tabla-tecnica.ts';
 
 // fileURLToPath y no URL.pathname: la ruta del proyecto tiene un espacio
 // ("Proyectos PROGRAMACION") que pathname deja como %20.
@@ -47,8 +47,15 @@ for (const archivo of readdirSync(DIR).filter((f) => f.endsWith('.json'))) {
         assert.equal(new Set(largos).size, 1, `filas de largo desparejo: ${largos.join(',')}`);
       }
 
-      // El texto no se pierde: toda palabra del original sigue estando.
-      const antes = new Set(plano(bloque.content).split(' ').filter(Boolean));
+      assert.ok(
+        !/Metaboliz[áa]vel|Extrato|diária|\(g\/dia\)|Filhote|sea hecha|a mais de peso|\bEnergia\b/.test(out),
+        'quedó un término en portugués'
+      );
+
+      // El texto no se pierde: toda palabra del original (ya traducida) sigue
+      // estando. Se compara contra traducirTerminos, no contra el crudo, para
+      // que el glosario no cuente como pérdida.
+      const antes = new Set(plano(traducirTerminos(bloque.content)).split(' ').filter(Boolean));
       const despues = new Set(plano(out).split(' ').filter(Boolean));
       const perdidas = [...antes].filter((p) => !despues.has(p));
       assert.deepEqual(perdidas, [], `se perdió texto: ${perdidas.slice(0, 5).join(' | ')}`);

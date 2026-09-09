@@ -35,9 +35,16 @@
 
   /* Tipografía */
   --font-sans: 'Figtree Variable', 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --text-kicker: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
+  /* Escala con piso: nada por debajo de 12px, y 12px SOLO para etiquetas en
+     mayúscula (kickers, badges, contadores). El texto corrido arranca en 15px:
+     --text-sm estaba en 14px y lo usaban bloques que son prosa, como toda la
+     información técnica del producto. */
+  --text-2xs: 0.75rem;   /* 12px — etiquetas en mayúscula, nunca texto corrido */
+  --text-xs: 0.8125rem;  /* 13px — metadatos de una línea */
+  --text-sm: 0.9375rem;  /* 15px — texto corrido secundario */
+  --text-base: 1rem;     /* 16px */
+  /* Alias del nombre viejo: lo usan .kicker y una docena de componentes. */
+  --text-kicker: var(--text-2xs);
   --text-lg: clamp(1.05rem, 0.98rem + 0.35vw, 1.25rem);
   --text-xl: clamp(1.35rem, 1.2rem + 0.7vw, 1.75rem);
   --text-2xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.75rem);
@@ -46,12 +53,30 @@
   --text-hero: clamp(2.5rem, 1.15rem + 4.3vw, 5.5rem);
 
   /* Layout */
-  --hdr-h: 77px; /* alto del header sticky: lo usan las barras sticky de abajo */
+  /* Alto real del header sticky (min-height de .hdr__inner). Lo usan las
+     barras de filtros, que se pegan justo debajo. */
+  --hdr-h: 76px;
   --container: 1240px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --section-y: clamp(4rem, 8vw, 7.5rem);
+  /* Segundo escalón del ritmo vertical: cabeceras de página y bloques
+     secundarios. Reemplaza a los clamps sueltos que había repartidos por
+     componente, que daban seis aires distintos para el mismo tipo de bloque. */
+  --section-y-sm: clamp(3rem, 6vw, 5rem);
+  --section-y-xs: clamp(2.5rem, 5vw, 4rem);
   --radius: 14px;
   --radius-lg: 28px;
+  --radius-pill: 999px;
+  /* Un solo grosor de borde. Convivían 1px, 1.5px y 2px entre tarjetas, chips,
+     botones y campos de formulario sin criterio. */
+  --bd: 1.5px;
+  /* Un solo desplazamiento de hover. Había -2px en los botones, -3px en las
+     tarjetas de marca y -4px en las de producto. */
+  --lift: -3px;
+  /* Rejillas: mismo ancho mínimo para la misma tarjeta en las cinco grillas. */
+  --card-min: 220px;
+  --brand-min: 158px;
+  --grid-gap: clamp(0.85rem, 1.6vw, 1.4rem);
   --shadow-sm: 0 2px 8px rgb(4 25 29 / 0.06);
   --shadow-md: 0 18px 40px -22px rgb(4 25 29 / 0.45);
   --shadow-lg: 0 40px 80px -40px rgb(4 25 29 / 0.55);
@@ -68,7 +93,6 @@ body {
   font-size: var(--text-base);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 img, picture, svg, video { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
@@ -132,6 +156,67 @@ p { text-wrap: pretty; }
   font-weight: 700;
   border-radius: 999px;
 }
+
+/* ── Piezas compartidas ─────────────────────────────────────────────────
+   Estos tres bloques estaban copiados letra por letra en dos páginas cada
+   uno (/productos y /marcas para .chip y .filters; las dos fichas para
+   .crumbs). Viven acá para que no se separen al tocar uno solo. */
+
+/* Miga de pan de las fichas de producto y de marca. */
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 1.5rem;
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+}
+.crumbs a:hover { color: var(--teal-600); text-decoration: underline; }
+
+/* Barra de filtros pegada debajo del header, que también es sticky. */
+.filters {
+  position: sticky;
+  top: var(--hdr-h);
+  z-index: 20;
+  background: color-mix(in srgb, var(--bg-soft) 72%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding-block: 1rem;
+}
+
+/* Chip de filtro. --chip / --chip-fg los pone cada botón con el acento de su
+   línea; el par sale de lineAccents para que el amarillo de snacks reciba
+   texto oscuro. */
+.chip {
+  --chip: var(--teal-800);
+  border: var(--bd) solid var(--border);
+  background: var(--white);
+  color: var(--fg-muted);
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 1rem;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.chip:hover { border-color: var(--chip); color: color-mix(in srgb, var(--chip) 75%, var(--teal-950)); }
+.chip.is-on { background: var(--chip); border-color: var(--chip); color: var(--chip-fg, #fff); }
+.chip:active { transform: translateY(1px); }
+
+/* Rejillas de catálogo y de marcas. */
+.card-grid,
+.brand-grid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--grid-gap);
+}
+.card-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--card-min)), 1fr)); }
+.brand-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--brand-min)), 1fr)); }
+.card-grid > li,
+.brand-grid > li { display: grid; }
+.card-grid > li[hidden],
+.brand-grid > li[hidden] { display: none; }
 
 /* Círculo decorativo detrás de fotos */
 .blob {

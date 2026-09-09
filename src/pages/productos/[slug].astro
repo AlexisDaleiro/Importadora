@@ -77,7 +77,13 @@ const ogProducto = gallery[0]
     )}
   </nav>
 
-  <article class="sheet container" style={`--accent:${accent.color}`}>
+  {/* 114 de 156 productos tienen una sola foto: sin miniaturas debajo, la
+      columna de imagen queda con un hueco del alto de la tira. Se agranda la
+      foto en vez de dejarlo vacío. */}
+  <article
+    class:list={['sheet', 'container', gallery.length < 2 && 'sheet--sinGaleria']}
+    style={`--accent:${accent.color}`}
+  >
     <div class="sheet__media" data-reveal>
       <span class="sheet__ring" aria-hidden="true"></span>
       {gallery[0] && (
@@ -97,7 +103,14 @@ const ogProducto = gallery[0]
         <ul class="sheet__thumbs">
           {gallery.map((img, i) => (
             <li>
-              <button type="button" class:list={['thumb', i === 0 && 'is-on']} data-src={img.src} data-i={i}>
+              <button
+                type="button"
+                class:list={['thumb', i === 0 && 'is-on']}
+                data-src={img.src}
+                data-i={i}
+                aria-label={`Ver imagen ${i + 1} de ${gallery.length}`}
+                aria-pressed={i === 0 ? 'true' : 'false'}
+              >
                 <Image src={img} alt={`${d.name} — imagen ${i + 1}`} widths={[110]} sizes="90px" loading="lazy" />
               </button>
             </li>
@@ -127,7 +140,7 @@ const ogProducto = gallery[0]
 
       {d.presentations.length > 0 && (
         <div class="sheet__pres">
-          <h2>Presentaciones</h2>
+          <p class="sheet__pres-label">Presentaciones</p>
           <ul>{d.presentations.map((p) => <li>{p}</li>)}</ul>
         </div>
       )}
@@ -249,7 +262,9 @@ const ogProducto = gallery[0]
           </div>
 
           <div class="lead__foot">
-            <button type="submit" class="lead__btn" id="lead-btn">Quiero vender {brand.data.name}</button>
+            <Button type="submit" variant="accent" size="lg" id="lead-btn">
+              Quiero vender {brand.data.name}
+            </Button>
             <p class="lead__legal">Te respondemos por correo. No compartimos tus datos.</p>
           </div>
 
@@ -266,7 +281,7 @@ const ogProducto = gallery[0]
     <section class="related section">
       <div class="container">
         <h2 class="title-lg" data-reveal>También distribuimos</h2>
-        <ul class="related__grid">
+        <ul class="card-grid">
           {related.map((p) => (
             <li data-reveal><ProductCard product={p} brandName={brand?.data.name} /></li>
           ))}
@@ -286,7 +301,10 @@ const ogProducto = gallery[0]
       if (!main || !img) return;
       main.src = img.currentSrc || img.src;
       main.srcset = img.srcset;
-      for (const o of thumbs) o.classList.toggle('is-on', o === t);
+      for (const o of thumbs) {
+        o.classList.toggle('is-on', o === t);
+        o.setAttribute('aria-pressed', String(o === t));
+      }
     });
   }
 
@@ -343,16 +361,6 @@ const ogProducto = gallery[0]
 </script>
 
 <style>
-  .crumbs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding-top: 1.5rem;
-    font-size: var(--text-sm);
-    color: var(--fg-muted);
-  }
-  .crumbs a { color: inherit; text-decoration: none; }
-  .crumbs a:hover { color: var(--teal-600); text-decoration: underline; }
 
   .sheet {
     display: grid;
@@ -378,6 +386,9 @@ const ogProducto = gallery[0]
     height: auto;
     object-fit: contain;
   }
+  .sheet--sinGaleria .sheet__ring { width: min(96%, 520px); }
+  .sheet--sinGaleria .sheet__img { width: min(92%, 500px); }
+
   .sheet__thumbs { position: relative; z-index: 1; display: flex; gap: 0.5rem; list-style: none; padding: 0; }
   .thumb {
     width: 72px;
@@ -386,12 +397,13 @@ const ogProducto = gallery[0]
     place-items: center;
     padding: 0.35rem;
     background: var(--gray-50);
-    border: 1.5px solid var(--border);
+    border: var(--bd) solid var(--border);
     border-radius: var(--radius);
     cursor: pointer;
   }
   .thumb img { width: 100%; height: 100%; object-fit: contain; }
-  .thumb.is-on { border-color: var(--accent); }
+  .thumb:hover { border-color: var(--accent); background: var(--white); }
+  .thumb.is-on { border-color: var(--accent); border-width: 2.5px; }
 
   .sheet__info > * + * { margin-top: 1.15rem; }
   .sheet__info .kicker { display: block; }
@@ -400,7 +412,7 @@ const ogProducto = gallery[0]
 
   .sheet__benefits { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; padding: 0; }
 
-  .sheet__pres h2 {
+  .sheet__pres-label {
     font-size: var(--text-kicker);
     text-transform: uppercase;
     letter-spacing: 0.12em;
@@ -409,7 +421,7 @@ const ogProducto = gallery[0]
   }
   .sheet__pres ul { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; }
   .sheet__pres li {
-    border: 1.5px solid var(--border);
+    border: var(--bd) solid var(--border);
     border-radius: var(--radius);
     padding: 0.45rem 0.9rem;
     font-weight: 700;
@@ -467,13 +479,6 @@ const ogProducto = gallery[0]
 
   .related { background: var(--bg-soft); }
   .related h2 { margin-bottom: 1.5rem; }
-  .related__grid {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
-    gap: 1rem;
-  }
 
   /* ── Bloque de captación B2B ─────────────────────────────────────────
      Toma el acento de la línea del producto. El par color/texto sale de
@@ -482,7 +487,7 @@ const ogProducto = gallery[0]
   .lead-b2b {
     background: var(--accent);
     color: var(--accent-fg);
-    padding-block: clamp(3rem, 6vw, 5rem);
+    padding-block: var(--section-y-sm);
     overflow: hidden;
   }
   .lead__inner { display: grid; gap: clamp(2rem, 4vw, 3.5rem); align-items: start; }
@@ -525,7 +530,7 @@ const ogProducto = gallery[0]
     font-size: var(--text-base);
     color: var(--fg);
     background: var(--white);
-    border: 2px solid transparent;
+    border: var(--bd) solid transparent;
     border-radius: var(--radius);
     padding: 0.7rem 0.9rem;
     width: 100%;
@@ -544,19 +549,6 @@ const ogProducto = gallery[0]
   .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
   .lead__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 0.5rem; }
-  .lead__btn {
-    border: 0;
-    border-radius: 999px;
-    background: var(--accent-fg);
-    color: var(--accent);
-    padding: 1rem 2rem;
-    font: inherit;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform 0.18s ease, opacity 0.18s ease;
-  }
-  .lead__btn:hover { transform: translateY(-2px); }
-  .lead__btn[disabled] { opacity: 0.6; cursor: progress; transform: none; }
   .lead__legal { font-size: var(--text-sm); opacity: 0.7; max-width: 26ch; }
 
   .lead__msg {

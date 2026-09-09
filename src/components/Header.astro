@@ -109,6 +109,8 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     gap: 0.25rem;
     box-shadow: var(--shadow-md);
   }
+  .hdr__panel a:hover { color: var(--brand-lime); }
+  .hdr__mobile summary:hover span { background: var(--brand-lime); }
   .hdr__panel a {
     padding: 0.85rem 0;
     font-size: var(--text-xl);
@@ -117,7 +119,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     border-bottom: 1px solid rgb(255 255 255 / 0.14);
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 940px) {
     .hdr__nav, .hdr__cta { display: flex; }
     .hdr__mobile { display: none; }
   }

@@ -31,10 +31,9 @@ export const WHATSAPP_NUMBER = '59895673109'; // +598 095 673 109
    Los IDs salen del panel de formspree.io; el destinatario se configura allá.
    El tipo `string` es a propósito: sin él TypeScript estrecha la constante al
    literal y marca la comparación con el placeholder como imposible (ts2367).
-   PENDIENTE: crear el form B2B y pegar su ID acá.
    ────────────────────────────────────────────────────────────────────────── */
 export const FORMSPREE_ID: string = 'xnpqoooe';
-export const FORMSPREE_ID_B2B: string = 'PEGAR_ID_B2B';
+export const FORMSPREE_ID_B2B: string = 'xaeylvdp';
 
 export const formspreeUrl = `https://formspree.io/f/${FORMSPREE_ID}`;
 export const formspreeB2bUrl = `https://formspree.io/f/${FORMSPREE_ID_B2B}`;
