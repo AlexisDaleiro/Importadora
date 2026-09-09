@@ -70,9 +70,48 @@
   /* Un solo grosor de borde. Convivían 1px, 1.5px y 2px entre tarjetas, chips,
      botones y campos de formulario sin criterio. */
   --bd: 1.5px;
-  /* Un solo desplazamiento de hover. Había -2px en los botones, -3px en las
-     tarjetas de marca y -4px en las de producto. */
-  --lift: -3px;
+
+  /* ── Motion ────────────────────────────────────────────────────────────
+     Dos familias, y toda animación elige una antes de escribirse.
+
+     SEGURA — opacidad y color. No desplaza nada, así que bajo
+     prefers-reduced-motion: reduce se conserva tal cual: es el sustituto del
+     movimiento, no un extra. Duraciones --dur-fast / --dur-base / --dur-slow
+     / --dur-reveal.
+
+     MOVIMIENTO — transform (translate, scale, rotate) y el scroll suave. Bajo
+     reduce hay que anularlo, y hay dos maneras según qué pase con el estado
+     final:
+
+       a) Decoración: el estado final no informa nada. La tarjeta que se
+          levanta en hover, el zoom de un tile, la flecha que avanza, el
+          reveal que sube 28px. Se anula el RECORRIDO poniendo su magnitud en
+          cero (--move-lift, --move-press, --move-zoom, --move-nudge,
+          --reveal-shift). La transición sigue declarada pero no viaja, y si
+          además animaba opacidad esa parte se conserva.
+       b) Estado: el transform ES la información. La hamburguesa que se vuelve
+          X, o el header que se compacta. El recorrido tiene que quedar, así
+          que se anula la DURACIÓN con --dur-move, que pasa a 0s y hace el
+          cambio instantáneo.
+
+     Hay una sola @media (prefers-reduced-motion: reduce) en todo el proyecto,
+     al final de este archivo, y lo único que hace es reasignar estos tokens.
+     Un componente nuevo no debería necesitar la suya. */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 0.2s;    /* hover de controles y tarjetas */
+  --dur-base: 0.3s;    /* cross-fades: scrim, velos, mensajes de formulario */
+  --dur-slow: 0.5s;    /* piezas grandes: la foto de un tile */
+  --dur-reveal: 0.7s;  /* entrada de sección */
+  --dur-move: 0.2s;    /* categoría (b): 0s bajo reduce */
+
+  /* Magnitudes de la categoría (a). Un solo desplazamiento de hover: había
+     -2px en los botones, -3px en las tarjetas de marca y -4px en las de
+     producto. */
+  --move-lift: -3px;
+  --move-press: 1px;
+  --move-zoom: 1.08;
+  --move-nudge: 4px;
+  --reveal-shift: 28px;
   /* Rejillas: mismo ancho mínimo para la misma tarjeta en las cinco grillas. */
   --card-min: 220px;
   --brand-min: 158px;
@@ -197,11 +236,11 @@ p { text-wrap: pretty; }
   font-size: var(--text-sm);
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease, border-color var(--dur-fast) ease;
 }
 .chip:hover { border-color: var(--chip); color: color-mix(in srgb, var(--chip) 75%, var(--teal-950)); }
 .chip.is-on { background: var(--chip); border-color: var(--chip); color: var(--chip-fg, #fff); }
-.chip:active { transform: translateY(1px); }
+.chip:active { transform: translateY(var(--move-press)); }
 
 /* Rejillas de catálogo y de marcas. */
 .card-grid,
@@ -226,18 +265,37 @@ p { text-wrap: pretty; }
   pointer-events: none;
 }
 
-/* ── Motion: fade-in + slide-up al entrar en viewport ───────────────── */
+/* ── Motion: fade-in + slide-up al entrar en viewport ─────────────────
+   Bajo reduce --reveal-shift vale 0px, así que esto queda como fade puro:
+   el contenido sigue apareciendo con suavidad, sin desplazarse. Por eso el
+   observer de Base.astro corre en los dos modos. */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(var(--reveal-shift));
+  transition: opacity var(--dur-reveal) var(--ease-out), transform var(--dur-reveal) var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
 [data-reveal].is-visible { opacity: 1; transform: none; }
 
+/* ── prefers-reduced-motion ──────────────────────────────────────────────
+   Reduce = menos movimiento, no menos vida. Acá no se apaga ni una sola
+   transición de opacidad o de color: siguen corriendo con su duración normal
+   y son el sustituto de lo que se quitó. Lo único que cambia es que los
+   recorridos valen cero y que las transiciones cuyo estado final hay que
+   conservar pasan a ser instantáneas. Ver el bloque Motion de los tokens.
+
+   Esta tiene que ser la única @media (prefers-reduced-motion: reduce) del
+   proyecto. Si un componente necesita la suya, es que está usando un valor
+   suelto en vez de un token. */
 @media (prefers-reduced-motion: reduce) {
+  :root {
+    --move-lift: 0px;
+    --move-press: 0px;
+    --move-zoom: 1;
+    --move-nudge: 0px;
+    --reveal-shift: 0px;
+    --dur-move: 0s;
+  }
   html { scroll-behavior: auto; }
-  [data-reveal] { opacity: 1; transform: none; transition: none; }
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

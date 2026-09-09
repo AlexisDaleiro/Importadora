@@ -114,7 +114,7 @@ const brands = limit ? todas.slice(0, limit) : todas;
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform var(--dur-slow) var(--ease-out);
   }
   .tile__liso { background: var(--tile-accent); }
 
@@ -131,7 +131,7 @@ const brands = limit ? todas.slice(0, limit) : todas;
       rgb(0 26 34 / 0.12) 70%,
       rgb(0 26 34 / 0.05) 100%
     );
-    transition: opacity 0.3s ease;
+    transition: opacity var(--dur-base) ease;
   }
   /* Velo del acento institucional, encima del scrim, solo en hover/foco. */
   .tile::after {
@@ -141,7 +141,7 @@ const brands = limit ? todas.slice(0, limit) : todas;
     z-index: 2;
     background: var(--tile-accent);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--dur-base) ease;
   }
 
   .tile__texto {
@@ -177,16 +177,16 @@ const brands = limit ? todas.slice(0, limit) : todas;
        partía en dos líneas y la flecha caía sola contra el borde. */
     white-space: nowrap;
   }
-  .tile__flecha { transition: transform 0.3s ease; }
+  .tile__flecha { transition: transform var(--dur-base) ease; }
 
   /* ── Hover / foco ────────────────────────────────────────────────────
      La foto acerca, el velo del acento aparece y la flecha avanza. */
   .tile:hover .tile__img,
-  .tile:focus-visible .tile__img { transform: scale(1.08); }
+  .tile:focus-visible .tile__img { transform: scale(var(--move-zoom)); }
   .tile:hover::after,
   .tile:focus-visible::after { opacity: 0.55; }
   .tile:hover .tile__flecha,
-  .tile:focus-visible .tile__flecha { transform: translateX(4px); }
+  .tile:focus-visible .tile__flecha { transform: translateX(var(--move-nudge)); }
 
   /* Anillo blanco sobre las fotos: el aro teal del foco global se pierde
      contra un tile oscuro. El halo lima de global.css se mantiene. */
@@ -209,14 +209,13 @@ const brands = limit ? todas.slice(0, limit) : todas;
   /* "Ver N productos" NO se esconde detrás del hover en ningún tamaño.
      Tres razones que apuntan al mismo lado: en touch no hay hover; es la única
      pista de que el tile lleva al catálogo filtrado; y bajo
-     prefers-reduced-motion el reveal tendría que quedar anulado igual, o sea que
-     quien tenga esa preferencia activa nunca vería el dato. Un texto que informa
-     no puede depender de una preferencia del sistema operativo.
-     El zoom y el avance de la flecha sí son decoración pura: se apagan. */
-  @media (prefers-reduced-motion: reduce) {
-    .tile:hover .tile__img,
-    .tile:focus-visible .tile__img,
-    .tile:hover .tile__flecha,
-    .tile:focus-visible .tile__flecha { transform: none; }
-  }
+     prefers-reduced-motion el zoom y el avance de la flecha quedan anulados
+     igual, o sea que quien tenga esa preferencia activa nunca vería el dato.
+     Un texto que informa no puede depender de una preferencia del sistema
+     operativo.
+
+     El zoom y la flecha son decoración pura y se apagan solos: usan
+     --move-zoom y --move-nudge, que global.css pone en 1 y en 0px bajo
+     reduce. El velo del acento (::after) es opacidad, así que se conserva:
+     bajo reduce el hover del tile pasa a ser solo ese cross-fade. */
 </style>

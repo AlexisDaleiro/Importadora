@@ -61,14 +61,14 @@ const accent = lineAccent(category.id);
     border-radius: var(--radius-lg);
     background: var(--white);
     overflow: hidden;
-    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color var(--dur-fast) ease, transform var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
   }
   /* :focus-within porque el foco cae en el <a> de adentro, no en la tarjeta:
      tabulando el catálogo las tarjetas no reaccionaban. */
   .card:hover,
   .card:focus-within {
     border-color: var(--card-accent);
-    transform: translateY(var(--lift));
+    transform: translateY(var(--move-lift));
     box-shadow: var(--shadow-md);
   }
   .card[hidden] { display: none; }

@@ -63,8 +63,14 @@ const ogImage = new URL(image, Astro.site);
 
     <script>
       // Fade-in + slide-up al entrar en viewport. Un solo observer para todo el documento.
+      // Corre igual con prefers-reduced-motion: reduce, y a propósito. Bajo esa
+      // preferencia global.css pone --reveal-shift en 0px, así que lo que queda
+      // es un fade puro, sin desplazamiento: la entrada se conserva como
+      // sustituto del movimiento en vez de desaparecer. Por eso acá no hay
+      // ningún matchMedia: el CSS ya decide, y una rama en JS solo podría
+      // desincronizarse con él.
       const items = document.querySelectorAll('[data-reveal]');
-      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+      if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver(
           (entries) => {
             for (const entry of entries) {

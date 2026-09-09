@@ -38,12 +38,12 @@ const { id, name, linea, count } = Astro.props;
     background: var(--bg-soft);
     text-decoration: none;
     text-align: center;
-    transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    transition: border-color var(--dur-fast) ease, transform var(--dur-fast) ease, background-color var(--dur-fast) ease;
   }
   .bcard:hover {
     border-color: var(--teal-700);
     background: var(--white);
-    transform: translateY(var(--lift));
+    transform: translateY(var(--move-lift));
   }
   .bcard__name {
     font-size: clamp(1.1rem, 0.95rem + 0.5vw, 1.45rem);

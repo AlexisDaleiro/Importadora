@@ -91,7 +91,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     height: 2px;
     background: var(--white);
     border-radius: 2px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: transform var(--dur-move) ease, opacity var(--dur-move) ease;
   }
   .hdr__mobile[open] summary span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hdr__mobile[open] summary span:nth-child(2) { opacity: 0; }
