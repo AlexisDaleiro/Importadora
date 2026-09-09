@@ -183,11 +183,15 @@ const subs = lineas.flatMap((l) =>
   document.getElementById('f-reset')?.addEventListener('click', reset);
   document.getElementById('f-reset2')?.addEventListener('click', reset);
 
-  // Estado inicial desde la URL: los bloques del Home enlazan con ?linea= y ?marca=.
+  // Estado inicial desde la URL: los tiles de marca enlazan con ?marca= y los
+  // bloques de línea del home con ?linea=.
+  // Un valor que no existe se descarta en vez de filtrar a cero: si no, un link
+  // viejo o mal escrito dejaba el catálogo vacío con "Marca: undefined".
   const url = new URLSearchParams(location.search);
-  state.linea = url.get('linea') ?? '';
-  state.marca = url.get('marca') ?? '';
-  state.sub = url.get('sub') ?? '';
+  const valido = (valor: string, valores: string[]) => (valores.includes(valor) ? valor : '');
+  state.linea = valido(url.get('linea') ?? '', chips.map((c) => c.dataset.filterLinea ?? ''));
+  state.marca = valido(url.get('marca') ?? '', [...selMarca.options].map((o) => o.value));
+  state.sub = valido(url.get('sub') ?? '', [...selSub.options].map((o) => o.value));
   state.q = url.get('q') ?? '';
   selMarca.value = state.marca;
   selSub.value = state.sub;

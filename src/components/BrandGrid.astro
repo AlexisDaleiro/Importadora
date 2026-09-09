@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BrandCard from './BrandCard.astro';
+import BrandMosaic from './BrandMosaic.astro';
 import Button from './Button.astro';
 
 // El sitio oficial no publica logotipos de marca en formato reutilizable, así que
@@ -29,21 +29,11 @@ const brands = (await getCollection('brands'))
       </p>
     </header>
 
-    <ul class="brand-grid">
-      {brands.map((brand, i) => (
-        <li data-reveal style={`--reveal-delay:${Math.min(i, 8) * 45}ms`}>
-          <BrandCard
-            id={brand.id}
-            name={brand.data.name}
-            linea={brand.lineas[0] ?? ''}
-            count={brand.count}
-          />
-        </li>
-      ))}
-    </ul>
+    <BrandMosaic limit={8} />
 
     <div class="actions brands__cta" data-reveal>
-      <Button href="/productos" variant="primary" size="lg">Ver el catálogo completo</Button>
+      <Button href="/marcas" variant="primary" size="lg">Ver las {brands.length} marcas</Button>
+      <Button href="/productos" variant="outline" size="lg">Ver el catálogo completo</Button>
     </div>
   </div>
 </section>

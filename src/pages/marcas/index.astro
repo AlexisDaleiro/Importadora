@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import BrandCard from '../../components/BrandCard.astro';
+import BrandMosaic from '../../components/BrandMosaic.astro';
 import CtaBlock from '../../components/CtaBlock.astro';
 import { lineAccent } from '../../config';
 
@@ -52,13 +52,7 @@ const brands = (await getCollection('brands'))
   <section class="grid-wrap">
     <div class="container">
       <h2 class="sr-only">Marcas que distribuimos</h2>
-      <ul class="brand-grid" id="grid">
-        {brands.map((brand, i) => (
-          <li data-reveal style={`--reveal-delay:${Math.min(i, 8) * 45}ms`}>
-            <BrandCard id={brand.id} name={brand.name} linea={brand.linea} count={brand.count} />
-          </li>
-        ))}
-      </ul>
+      <BrandMosaic id="grid" />
     </div>
   </section>
 

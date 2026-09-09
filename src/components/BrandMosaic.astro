@@ -1,0 +1,222 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { lineAccent, lineShort } from '../config';
+
+interface Props {
+  /** Cuántas marcas mostrar. Sin límite, van las 21. */
+  limit?: number;
+  /** id del <ul>, para el filtro por línea de /marcas. */
+  id?: string;
+}
+const { limit, id } = Astro.props;
+
+const products = await getCollection('products');
+const lineas = await getCollection('lineas');
+const coverDe = new Map(lineas.map((l) => [l.id, l.data.cover]));
+
+// El orden es por catálogo: la marca con más productos primero. Así el recorte
+// del home (limit=8) se queda con las que de verdad pesan, sin una lista
+// "destacadas" a mano que haya que mantener aparte.
+const todas = (await getCollection('brands'))
+  .map((b) => {
+    const lineaId = b.data.categories[0]?.id ?? '';
+    return {
+      id: b.id,
+      name: b.data.name,
+      lineaId,
+      count: products.filter((p) => p.data.brand?.id === b.id).length,
+      accent: lineAccent(lineaId),
+      // Cadena de respaldo: foto propia de la marca → foto de su línea de
+      // negocio → sin foto (el tile se pinta con el acento). Ver el comentario
+      // de `photo` en src/content.config.ts para dónde van los archivos.
+      foto: b.data.photo ?? coverDe.get(lineaId) ?? null,
+      fotoPropia: b.data.photo !== null,
+    };
+  })
+  .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'es'));
+
+const brands = limit ? todas.slice(0, limit) : todas;
+---
+
+<ul class="mosaic" id={id}>
+  {brands.map((b, i) => (
+    <li data-reveal style={`--reveal-delay:${Math.min(i, 8) * 45}ms`}>
+      <a
+        class="tile"
+        href={`/productos?marca=${b.id}`}
+        data-brand
+        data-linea={b.lineaId}
+        style={`--tile-accent:${b.accent.color}`}
+      >
+        {b.foto ? (
+          <Image
+            class="tile__img"
+            src={b.foto}
+            alt=""
+            widths={[320, 640]}
+            sizes="(min-width: 940px) 25vw, (min-width: 640px) 33vw, 50vw"
+            loading={i < 4 ? 'eager' : 'lazy'}
+            decoding="async"
+          />
+        ) : (
+          <span class="tile__liso" aria-hidden="true"></span>
+        )}
+
+        <span class="tile__scrim" aria-hidden="true"></span>
+
+        <span class="tile__texto">
+          <span class="tile__nombre">{b.name}</span>
+          <span class="tile__meta">
+            {b.count > 0 ? `Ver ${b.count} ${b.count === 1 ? 'producto' : 'productos'}` : lineShort[b.lineaId] ?? 'Ver catálogo'}
+            <span class="tile__flecha" aria-hidden="true">→</span>
+          </span>
+        </span>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .mosaic {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--grid-gap);
+    /* 2 columnas en mobile, 3 en tablet, 4 en desktop. */
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mosaic > li { display: grid; }
+  /* Obligatorio junto al display de arriba: el filtro por línea de /marcas
+     oculta con el atributo hidden, y `display: grid` le gana al
+     `[hidden] { display: none }` del navegador. Sin esto el filtro marca los
+     <li> pero no se oculta ninguno. */
+  .mosaic > li[hidden] { display: none; }
+
+  .tile {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    /* Relación fija: la grilla no salta mientras cargan las fotos. */
+    aspect-ratio: 4 / 5;
+    background: var(--tile-accent);
+    color: var(--white);
+    text-decoration: none;
+    isolation: isolate;
+  }
+
+  .tile__img,
+  .tile__liso {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .tile__liso { background: var(--tile-accent); }
+
+  /* Scrim de abajo hacia arriba: el nombre se lee sobre cualquier foto, clara
+     u oscura. Va más opaco abajo, donde está el texto. */
+  .tile__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to top,
+      rgb(0 26 34 / 0.88) 0%,
+      rgb(0 26 34 / 0.55) 38%,
+      rgb(0 26 34 / 0.12) 70%,
+      rgb(0 26 34 / 0.05) 100%
+    );
+    transition: opacity 0.3s ease;
+  }
+  /* Velo del acento institucional, encima del scrim, solo en hover/foco. */
+  .tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: var(--tile-accent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .tile__texto {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 3;
+    display: grid;
+    justify-items: center;
+    gap: 0.35rem;
+    padding: 1rem 0.85rem 1.1rem;
+    text-align: center;
+  }
+  /* Siempre en el DOM y siempre visible: en touch no hay hover. */
+  .tile__nombre {
+    font-size: clamp(1rem, 0.9rem + 0.45vw, 1.35rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    text-wrap: balance;
+    text-shadow: 0 1px 12px rgb(0 26 34 / 0.5);
+  }
+  .tile__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: var(--text-2xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(255 255 255 / 0.92);
+    /* La flecha no se despega del texto: en un tile de 161px "VER 16 PRODUCTOS →"
+       partía en dos líneas y la flecha caía sola contra el borde. */
+    white-space: nowrap;
+  }
+  .tile__flecha { transition: transform 0.3s ease; }
+
+  /* ── Hover / foco ────────────────────────────────────────────────────
+     La foto acerca, el velo del acento aparece y la flecha avanza. */
+  .tile:hover .tile__img,
+  .tile:focus-visible .tile__img { transform: scale(1.08); }
+  .tile:hover::after,
+  .tile:focus-visible::after { opacity: 0.55; }
+  .tile:hover .tile__flecha,
+  .tile:focus-visible .tile__flecha { transform: translateX(4px); }
+
+  /* Anillo blanco sobre las fotos: el aro teal del foco global se pierde
+     contra un tile oscuro. El halo lima de global.css se mantiene. */
+  .tile:focus-visible { outline-color: var(--white); outline-offset: 3px; }
+
+  /* Dos columnas dejan el tile en 161px: sin aflojar el tracking, la línea de
+     "VER N PRODUCTOS →" no entra. */
+  @media (max-width: 639px) {
+    .tile__texto { padding: 0.75rem 0.5rem 0.85rem; gap: 0.25rem; }
+    .tile__meta { letter-spacing: 0.01em; gap: 0.25rem; }
+  }
+
+  @media (min-width: 640px) {
+    .mosaic { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 940px) {
+    .mosaic { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  /* "Ver N productos" NO se esconde detrás del hover en ningún tamaño.
+     Tres razones que apuntan al mismo lado: en touch no hay hover; es la única
+     pista de que el tile lleva al catálogo filtrado; y bajo
+     prefers-reduced-motion el reveal tendría que quedar anulado igual, o sea que
+     quien tenga esa preferencia activa nunca vería el dato. Un texto que informa
+     no puede depender de una preferencia del sistema operativo.
+     El zoom y el avance de la flecha sí son decoración pura: se apagan. */
+  @media (prefers-reduced-motion: reduce) {
+    .tile:hover .tile__img,
+    .tile:focus-visible .tile__img,
+    .tile:hover .tile__flecha,
+    .tile:focus-visible .tile__flecha { transform: none; }
+  }
+</style>
