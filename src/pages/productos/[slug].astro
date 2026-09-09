@@ -5,7 +5,7 @@ import Base from '../../layouts/Base.astro';
 import Button from '../../components/Button.astro';
 import Badge from '../../components/Badge.astro';
 import ProductCard from '../../components/ProductCard.astro';
-import { contactLink, lineAccent, site } from '../../config';
+import { contactLink, formspreeB2bListo, formspreeB2bUrl, lineAccent, site } from '../../config';
 
 export async function getStaticPaths() {
   const products = await getCollection('products');
@@ -154,14 +154,101 @@ const ogProducto = gallery[0]
       {d.technicalSheet.length > 0 && (
         <div class="detail__tech" data-reveal>
           <h2 class="title-lg">Información técnica</h2>
-          {d.technicalSheet.map((block, i) => (
-            <details open={i === 0}>
+          {d.technicalSheet.map((block) => (
+            <details>
               <summary>{block.label}</summary>
               <div class="tech__body" set:html={block.content} />
             </details>
           ))}
         </div>
       )}
+    </section>
+  )}
+
+  {brand && (
+    <section class="lead-b2b" style={`--accent:${accent.color};--accent-fg:${accent.text}`}>
+      <div class="container lead__inner">
+        <div class="lead__intro">
+          <span class="kicker lead__kicker">Distribución mayorista</span>
+          <h2 class="title-xl lead__title">Quiero vender <span class="lead__marca">{brand.data.name}</span></h2>
+          <p class="lead__copy">
+            Sumá {brand.data.name} a tu comercio. Dejanos tus datos y un vendedor de tu zona
+            te contacta.
+          </p>
+          <p class="lead__nota">
+            Districo distribuye a veterinarias, pet shops, agropecuarias y grandes superficies.
+            No hacemos venta directa al público.
+          </p>
+        </div>
+
+        <form
+          class="lead__form"
+          id="lead-form"
+          data-endpoint={formspreeB2bUrl}
+          data-listo={String(formspreeB2bListo())}
+        >
+          {/* Honeypot: invisible para personas, tentador para bots. */}
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true" />
+          {/* Contexto de la consulta: Districo tiene que saber por qué marca entró. */}
+          <input type="hidden" name="marca" value={brand.data.name} />
+          <input type="hidden" name="producto" value={d.name} />
+          <input type="hidden" name="origen" value={Astro.url.href} />
+
+          <div class="lead__row">
+            <div class="lead__field">
+              <label for="lead-nombre">Nombre y apellido *</label>
+              <input id="lead-nombre" name="nombre" type="text" required autocomplete="name" />
+            </div>
+            <div class="lead__field">
+              <label for="lead-comercio">Nombre del comercio *</label>
+              <input id="lead-comercio" name="comercio" type="text" required autocomplete="organization" />
+            </div>
+          </div>
+
+          <div class="lead__row">
+            <div class="lead__field">
+              <label for="lead-tipo">Tipo de comercio</label>
+              <select id="lead-tipo" name="tipo">
+                <option value="Veterinaria">Veterinaria</option>
+                <option value="Pet shop">Pet shop</option>
+                <option value="Agropecuaria">Agropecuaria</option>
+                <option value="Supermercado">Supermercado</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="lead__field">
+              <label for="lead-email">Email *</label>
+              <input id="lead-email" name="email" type="email" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="lead__row">
+            <div class="lead__field">
+              <label for="lead-tel">Teléfono</label>
+              <input id="lead-tel" name="telefono" type="tel" autocomplete="tel" />
+            </div>
+            <div class="lead__field">
+              <label for="lead-localidad">Localidad / departamento</label>
+              <input id="lead-localidad" name="localidad" type="text" autocomplete="address-level2" />
+            </div>
+          </div>
+
+          <div class="lead__field">
+            <label for="lead-mensaje">Mensaje (opcional)</label>
+            <textarea id="lead-mensaje" name="mensaje" rows="3"></textarea>
+          </div>
+
+          <div class="lead__foot">
+            <button type="submit" class="lead__btn" id="lead-btn">Quiero vender {brand.data.name}</button>
+            <p class="lead__legal">Te respondemos por correo. No compartimos tus datos.</p>
+          </div>
+
+          <p class="lead__msg lead__msg--ok" id="lead-ok" role="status" hidden>
+            Consulta enviada. Un vendedor de tu zona se pone en contacto.
+          </p>
+          <p class="lead__msg lead__msg--error" id="lead-error" role="alert" hidden></p>
+        </form>
+      </div>
     </section>
   )}
 
@@ -190,6 +277,57 @@ const ogProducto = gallery[0]
       main.src = img.currentSrc || img.src;
       main.srcset = img.srcset;
       for (const o of thumbs) o.classList.toggle('is-on', o === t);
+    });
+  }
+
+  // Formulario B2B: mismo criterio que /contacto, POST a Formspree con fetch.
+  // Usa su propio form (FORMSPREE_ID_B2B) para que los "quiero vender X" no se
+  // mezclen con las consultas generales en la bandeja de Districo.
+  const leadForm = document.getElementById('lead-form') as HTMLFormElement | null;
+  const leadBtn = document.getElementById('lead-btn') as HTMLButtonElement | null;
+  const leadOk = document.getElementById('lead-ok') as HTMLElement | null;
+  const leadError = document.getElementById('lead-error') as HTMLElement | null;
+
+  if (leadForm && leadBtn && leadOk && leadError) {
+    const endpoint = leadForm.dataset.endpoint ?? '';
+    const listo = leadForm.dataset.listo === 'true';
+    const btnTexto = leadBtn.textContent;
+
+    leadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      leadOk.hidden = true;
+      leadError.hidden = true;
+
+      // Validación nativa: marca campo por campo y anuncia el error.
+      if (!leadForm.reportValidity()) return;
+
+      if (!listo) {
+        leadError.textContent =
+          'El envío todavía no está conectado. Escribinos por WhatsApp o al 0800 1004.';
+        leadError.hidden = false;
+        return;
+      }
+
+      leadBtn.disabled = true;
+      leadBtn.textContent = 'Enviando…';
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          body: new FormData(leadForm),
+          headers: { Accept: 'application/json' },
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        leadForm.reset();
+        leadOk.hidden = false;
+      } catch {
+        leadError.textContent =
+          'No pudimos enviar la consulta. Probá de nuevo o escribinos por WhatsApp.';
+        leadError.hidden = false;
+      } finally {
+        leadBtn.disabled = false;
+        leadBtn.textContent = btnTexto;
+      }
     });
   }
 </script>
@@ -291,6 +429,10 @@ const ogProducto = gallery[0]
     padding: 0.9rem 1.1rem;
     font-weight: 700;
     list-style: none;
+    /* Sin esto, abrir y cerrar rápido cuenta como doble clic y el navegador
+       selecciona el texto del título. */
+    user-select: none;
+    -webkit-user-select: none;
   }
   .detail__tech summary::-webkit-details-marker { display: none; }
   .detail__tech summary::after { content: '+'; float: right; font-size: 1.25rem; line-height: 1; }
@@ -307,9 +449,108 @@ const ogProducto = gallery[0]
     gap: 1rem;
   }
 
+  /* ── Bloque de captación B2B ─────────────────────────────────────────
+     Toma el acento de la línea del producto. El par color/texto sale de
+     lineAccents, así que el amarillo de snacks recibe texto oscuro en vez
+     de blanco y el bloque de BIOFRESH se ve distinto al de STACK. */
+  .lead-b2b {
+    background: var(--accent);
+    color: var(--accent-fg);
+    padding-block: clamp(3rem, 6vw, 5rem);
+    overflow: hidden;
+  }
+  .lead__inner { display: grid; gap: clamp(2rem, 4vw, 3.5rem); align-items: start; }
+  .lead__kicker { color: color-mix(in srgb, currentColor 72%, transparent); display: block; margin-bottom: 0.75rem; }
+  .lead__title { text-transform: uppercase; max-width: 12ch; }
+  /* La marca es una etiqueta pegada sobre la caja: el vocabulario de una
+     distribuidora, y la misma familia que el sticker rotado del hero.
+     Invierte el par del bloque (fondo = texto, texto = fondo), así el contraste
+     es el mismo que el del titular sobre el acento y no hay que ajustarlo por
+     línea: 12.97:1 en alimento, 10.87:1 en snacks.
+     La sombra va dura, sin blur, porque es papel pegado y no una tarjeta. */
+  .lead__marca {
+    display: inline-block;
+    background: var(--accent-fg);
+    color: var(--accent);
+    padding: 0.04em 0.24em 0.1em;
+    border-radius: 0.08em;
+    rotate: -1.5deg;
+    box-shadow: 0.13em 0.13em 0 color-mix(in srgb, var(--accent-fg) 28%, transparent);
+  }
+  .lead__copy { font-size: var(--text-lg); max-width: 44ch; margin-top: 1rem; opacity: 0.92; }
+  .lead__nota { font-size: var(--text-sm); max-width: 44ch; margin-top: 1rem; opacity: 0.7; }
+
+  .lead__form { display: grid; gap: 0.85rem; }
+  .lead__row { display: grid; gap: 0.85rem; }
+  .lead__field { display: grid; gap: 0.3rem; }
+  .lead__field label {
+    font-size: var(--text-kicker);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: color-mix(in srgb, currentColor 82%, transparent);
+  }
+  /* Campos en blanco sólido: es lo único que da contraste sobre los cuatro
+     acentos, del teal oscuro al amarillo de snacks. */
+  .lead__field input,
+  .lead__field select,
+  .lead__field textarea {
+    font: inherit;
+    font-size: var(--text-base);
+    color: var(--fg);
+    background: var(--white);
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    padding: 0.7rem 0.9rem;
+    width: 100%;
+  }
+  .lead__field textarea { resize: vertical; }
+  .lead__field input:focus-visible,
+  .lead__field select:focus-visible,
+  .lead__field textarea:focus-visible {
+    outline: 3px solid var(--accent-fg);
+    outline-offset: 2px;
+  }
+  /* Campo inválido tras intentar enviar: el borde acompaña al mensaje. */
+  .lead__field input:user-invalid,
+  .lead__field textarea:user-invalid { border-color: #B3261E; }
+
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+  .lead__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 0.5rem; }
+  .lead__btn {
+    border: 0;
+    border-radius: 999px;
+    background: var(--accent-fg);
+    color: var(--accent);
+    padding: 1rem 2rem;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.18s ease, opacity 0.18s ease;
+  }
+  .lead__btn:hover { transform: translateY(-2px); }
+  .lead__btn[disabled] { opacity: 0.6; cursor: progress; transform: none; }
+  .lead__legal { font-size: var(--text-sm); opacity: 0.7; max-width: 26ch; }
+
+  .lead__msg {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    background: var(--white);
+  }
+  .lead__msg--ok { color: #17603A; }
+  .lead__msg--error { color: #B3261E; }
+
+  @media (min-width: 760px) {
+    .lead__row { grid-template-columns: 1fr 1fr; }
+  }
+
   @media (min-width: 940px) {
     .sheet { grid-template-columns: 1fr 1fr; }
     .detail { grid-template-columns: 1fr 1fr; }
+    .lead__inner { grid-template-columns: 0.85fr 1.15fr; }
   }
 </style>
 

@@ -24,13 +24,21 @@ export const WHATSAPP_NUMBER = '59895673109'; // +598 095 673 109
 
 /* ──────────────────────────────────────────────────────────────────────────
    FORMULARIO DE CONTACTO (Formspree)
-   El form de /contacto postea a https://formspree.io/f/<ID>.
-   El ID sale del panel de formspree.io. El destinatario de los mails se
-   configura allá, no acá. Si se cambia de cuenta, se reemplaza solo esta línea.
+   Los dos formularios del sitio postean a https://formspree.io/f/<ID>, cada uno
+   con su form propio para que las bandejas no se mezclen:
+     FORMSPREE_ID     → /contacto, consultas generales
+     FORMSPREE_ID_B2B → ficha de producto, "quiero vender <marca>"
+   Los IDs salen del panel de formspree.io; el destinatario se configura allá.
+   El tipo `string` es a propósito: sin él TypeScript estrecha la constante al
+   literal y marca la comparación con el placeholder como imposible (ts2367).
+   PENDIENTE: crear el form B2B y pegar su ID acá.
    ────────────────────────────────────────────────────────────────────────── */
-export const FORMSPREE_ID = 'xnpqoooe';
+export const FORMSPREE_ID: string = 'xnpqoooe';
+export const FORMSPREE_ID_B2B: string = 'PEGAR_ID_B2B';
 
 export const formspreeUrl = `https://formspree.io/f/${FORMSPREE_ID}`;
+export const formspreeB2bUrl = `https://formspree.io/f/${FORMSPREE_ID_B2B}`;
+export const formspreeB2bListo = () => FORMSPREE_ID_B2B !== 'PEGAR_ID_B2B';
 
 /** Mensaje por defecto del botón flotante. */
 export const WHATSAPP_MENSAJE = 'Hola, quisiera hacer una consulta sobre sus productos';
