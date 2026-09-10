@@ -1,0 +1,346 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+/*
+  Carrusel de novedades del home. Vive entre el header y el hero.
+
+  Tres modos según cuántos banners activos haya, resueltos acá y no en la
+  página: con 0 no se renderiza nada, con 1 se pinta un banner fijo (sin
+  puntos, sin flechas y sin slides asomados, que con uno solo se ven rotos) y
+  con 2 o más se arma el carrusel.
+
+  El movimiento es el scroll nativo del track con scroll-snap. No hay librería
+  ni animación propia: el JS solo lee en qué slide quedó el scroll para pintar
+  los puntos, y lo empuja cuando alguien toca un punto, una flecha o un slide
+  asomado.
+*/
+const slides = (await getCollection('banners'))
+  .filter((b) => b.data.active)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const carrusel = slides.length >= 2;
+---
+
+{slides.length > 0 && (
+  <section
+    class:list={['bnr', { 'bnr--solo': !carrusel }]}
+    aria-label="Novedades de Districo"
+    aria-roledescription={carrusel ? 'carrusel' : undefined}
+  >
+    <div class="container">
+      <div class="bnr__stage">
+        <div class="bnr__track" id="bnr-track" tabindex={carrusel ? 0 : undefined}>
+          {slides.map((s, i) => (
+            <a
+              class="bnr__slide"
+              href={s.data.href}
+              style={`--acc:${s.data.accent}`}
+              data-i={i}
+              tabindex={carrusel && i > 0 ? -1 : undefined}
+            >
+              <Image
+                src={s.data.image}
+                alt={s.data.alt}
+                width={1240}
+                height={330}
+                widths={[600, 900, 1160, 2320]}
+                sizes="(min-width: 940px) 1160px, 92vw"
+                loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                class="bnr__img"
+              />
+              <span class="bnr__scrim" aria-hidden="true"></span>
+              <span class="bnr__text">
+                <span class="kicker kicker--onDark">{s.data.kicker}</span>
+                <span class="bnr__titulo">{s.data.title}</span>
+                <span class="bnr__cta">{s.data.cta}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+
+        {carrusel && (
+          <>
+            <button class="bnr__flecha bnr__flecha--prev" type="button" data-bnr-paso="-1" aria-label="Banner anterior">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 5l-7 7 7 7" />
+              </svg>
+            </button>
+            <button class="bnr__flecha bnr__flecha--next" type="button" data-bnr-paso="1" aria-label="Banner siguiente">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </>
+        )}
+      </div>
+
+      {carrusel && (
+        <div class="bnr__puntos" role="group" aria-label="Elegir banner">
+          {slides.map((_, i) => (
+            <button
+              class="bnr__punto"
+              type="button"
+              data-bnr-ir={i}
+              aria-label={`Ir al slide ${i + 1} de ${slides.length}`}
+              aria-current={i === 0 ? 'true' : undefined}
+            >
+              <span aria-hidden="true"></span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+)}
+
+<script>
+  // Con el ClientRouter el modulo se evalua una sola vez por sesion, asi que
+  // el listener corre tambien en paginas donde el carrusel no existe.
+  document.addEventListener('astro:page-load', () => {
+    const track = document.getElementById('bnr-track');
+    if (!track) return;
+
+    const slides = [...track.querySelectorAll<HTMLAnchorElement>('.bnr__slide')];
+    if (slides.length < 2) return; // banner fijo: no hay nada que manejar
+
+    const puntos = [...document.querySelectorAll<HTMLButtonElement>('[data-bnr-ir]')];
+    let activo = 0;
+
+    // Distancia entre dos slides, gap incluido. Se lee del DOM en vez de
+    // recalcularla con los tokens: asi sigue valiendo en los dos breakpoints
+    // y despues de cualquier cambio de CSS.
+    const paso = () => slides[1].offsetLeft - slides[0].offsetLeft;
+
+    function pintar(i: number) {
+      if (i === activo) return;
+      activo = i;
+      slides.forEach((s, j) => {
+        s.classList.toggle('is-on', j === i);
+        // Los slides que no estan a la vista salen del recorrido del tabulador.
+        if (j === i) s.removeAttribute('tabindex');
+        else s.tabIndex = -1;
+      });
+      puntos.forEach((p, j) => {
+        if (j === i) p.setAttribute('aria-current', 'true');
+        else p.removeAttribute('aria-current');
+      });
+    }
+
+    // behavior queda en 'auto' a proposito: asi respeta el scroll-behavior del
+    // CSS, que bajo prefers-reduced-motion pasa a instantaneo por token.
+    const ir = (i: number) => {
+      const n = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: n * paso() });
+      pintar(n);
+    };
+
+    track.addEventListener('scroll', () => {
+      const p = paso();
+      if (p > 0) pintar(Math.round(track.scrollLeft / p));
+    });
+
+    for (const p of puntos) p.addEventListener('click', () => ir(Number(p.dataset.bnrIr)));
+    for (const f of document.querySelectorAll<HTMLButtonElement>('[data-bnr-paso]')) {
+      f.addEventListener('click', () => ir(activo + Number(f.dataset.bnrPaso)));
+    }
+
+    // Un clic en un slide asomado lo centra en vez de navegar: el enlace solo
+    // dispara cuando el slide ya es el activo.
+    for (const s of slides) {
+      s.addEventListener('click', (e) => {
+        const i = Number(s.dataset.i);
+        if (i !== activo) { e.preventDefault(); ir(i); }
+      });
+    }
+
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); ir(activo + 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); ir(activo - 1); }
+    });
+
+    pintar(0);
+    slides[0].classList.add('is-on');
+  });
+</script>
+
+<style>
+  .bnr {
+    /* Asomo del slide vecino a cada lado y aire entre slides. El padding del
+       track es la suma de los dos: con eso el slide activo queda centrado y
+       del vecino se ve exactamente --peek. */
+    --peek: 16px;
+    --gap: 10px;
+    --ar: 4 / 3;
+    padding-block: 1rem 0;
+  }
+  .bnr__stage { position: relative; }
+
+  .bnr__track {
+    display: flex;
+    gap: var(--gap);
+    overflow-x: auto;
+    padding-inline: calc(var(--peek) + var(--gap));
+    scroll-snap-type: x mandatory;
+    /* El token pasa a 'auto' bajo prefers-reduced-motion: el cambio de slide
+       es instantaneo y lo unico que queda es el cross-fade de los vecinos. */
+    scroll-behavior: var(--scroll-carousel);
+    scrollbar-width: none;
+  }
+  .bnr__track::-webkit-scrollbar { display: none; }
+  /* Sin puntos ni asomo cuando hay un solo banner. */
+  .bnr--solo .bnr__track { padding-inline: 0; overflow-x: visible; }
+
+  .bnr__slide {
+    position: relative;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    /* La altura queda reservada desde el primer frame: el banner esta arriba
+       de todo y cualquier salto se lo come el LCP. */
+    aspect-ratio: var(--ar);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--acc);
+    /* Familia SEGURA: los vecinos se atenuan con opacidad, que se conserva
+       igual bajo reduce. */
+    opacity: 0.55;
+    transition: opacity var(--dur-base) var(--ease-out);
+  }
+  .bnr__slide.is-on,
+  .bnr--solo .bnr__slide { opacity: 1; }
+
+  .bnr__img { width: 100%; height: 100%; object-fit: cover; }
+
+  .bnr__scrim {
+    position: absolute;
+    inset: 0;
+    /* Zona segura de contraste: el texto se apoya siempre sobre el color de
+       acento casi opaco, nunca sobre la foto pelada.
+       En mobile el slide mide 283px de ancho y no hay lugar para una franja
+       lateral, asi que el velo es horizontal: la foto se ve arriba y el texto
+       va abajo, sobre la parte opaca. */
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      color-mix(in srgb, var(--acc) 25%, transparent) 22%,
+      color-mix(in srgb, var(--acc) 92%, transparent) 36%,
+      color-mix(in srgb, var(--acc) 92%, transparent) 100%
+    );
+  }
+
+  .bnr__text {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    gap: 0.5rem;
+    width: min(100%, 26rem);
+    padding: 1.25rem clamp(1.25rem, 4vw, 2.5rem);
+    color: var(--white);
+  }
+  .bnr__titulo {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  .bnr__cta {
+    margin-top: 0.35rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-pill);
+    background: var(--lime-500);
+    color: var(--teal-950);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    transition: background-color var(--dur-fast) ease;
+  }
+  .bnr__slide:hover .bnr__cta { background: var(--lime-400); }
+
+  /* Puntos: debajo del banner, sobre el fondo de la pagina. El area tactil
+     mide 44px aunque la pildora se vea chica. */
+  .bnr__puntos {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+    padding-top: 0.15rem;
+  }
+  .bnr__punto {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .bnr__punto > span {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-pill);
+    background: var(--gray-400);
+    /* El activo se distingue por forma ademas de por color: se estira a
+       pildora, asi no depende de percibir la diferencia de tono. */
+    transition: width var(--dur-fast) var(--ease-out), background-color var(--dur-fast) ease;
+  }
+  .bnr__punto[aria-current] > span { width: 26px; background: var(--teal-800); }
+
+  /* Flechas: solo desktop, superpuestas sobre el slide activo. */
+  .bnr__flecha { display: none; }
+
+  @media (min-width: 940px) {
+    .bnr {
+      --peek: 24px;
+      --gap: 16px;
+      /* Franja 6:1. La altura la manda el hero, no el gusto: su titular ocupa
+         cinco lineas de 82px en 1440x900 y tiene que seguir entrando entero
+         arriba del pliegue. Con este alto sobran ~30px. */
+      --ar: 6 / 1;
+      --scrim-end: 62%;
+      padding-block: 0.75rem 0;
+    }
+    /* --text-2xl deja el bloque de texto midiendo exactamente el alto del
+       slide: un titulo de una palabra mas se cortaria. */
+    /* Desktop: el slide es una franja 6:1 y el velo pasa a ser vertical, con
+       la mitad derecha libre para la foto. */
+    .bnr__scrim {
+      background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--acc) 92%, transparent) 0%,
+        color-mix(in srgb, var(--acc) 92%, transparent) var(--scrim-end) ,
+        transparent 100%
+      );
+    }
+    .bnr__text { justify-content: center; }
+    .bnr__titulo { font-size: var(--text-xl); }
+    /* El bloque de texto no puede pasar de --scrim-end: mas alla el velo se
+       abre y el blanco quedaria sobre la foto pelada. El padding de la
+       izquierda deja libre la flecha. */
+    .bnr__text { width: min(58%, 34rem); padding-inline-start: 6rem; }
+
+    .bnr__flecha {
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: rgb(255 255 255 / 0.9);
+      color: var(--teal-950);
+      cursor: pointer;
+      transition: background-color var(--dur-fast) ease;
+    }
+    .bnr__flecha:hover { background: var(--white); }
+    .bnr__flecha--prev { inset-inline-start: calc(var(--peek) + var(--gap) + 0.5rem); }
+    .bnr__flecha--next { inset-inline-end: calc(var(--peek) + var(--gap) + 0.5rem); }
+    .bnr--solo .bnr__flecha { display: none; }
+  }
+</style>

@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../../components/ProductCard.astro';
+import Button from '../../components/Button.astro';
 import { lineAccent } from '../../config';
 
 const lineas = (await getCollection('lineas')).sort((a, b) => a.data.order - b.data.order);
@@ -34,52 +35,87 @@ const subs = lineas.flatMap((l) =>
     </div>
   </section>
 
+  {/* Un solo filtro para los dos tamaños: el mismo DOM y el mismo estado.
+      En desktop .filters__panel es un bloque más de la barra sticky; por
+      debajo de 760px pasa a ser un panel inferior modal y la única cara
+      visible es .filters__bar. No hay una segunda implementación. */}
   <section class="filters" aria-label="Filtros del catálogo">
     <div class="container filters__inner">
-      <div class="filters__lines" role="group" aria-label="Línea de negocio">
-        <button class="chip is-on" data-filter-linea="" type="button">Todas</button>
-        {lineas.map((l) => (
-          <button
-            class="chip"
-            type="button"
-            data-filter-linea={l.id}
-            style={`--chip:${lineAccent(l.id).color};--chip-fg:${lineAccent(l.id).text}`}
-          >
-            {l.data.name}
+      <div class="filters__bar">
+        <button class="btn-filtros" id="f-open" type="button" aria-expanded="false" aria-controls="f-panel">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M3 6h18M6 12h12M10 18h4" />
+          </svg>
+          Filtros<span class="btn-filtros__n" id="f-activos" hidden></span>
+        </button>
+        <p class="filters__count" aria-live="polite">
+          <strong id="f-count" data-count>{products.length}</strong> productos
+        </p>
+      </div>
+
+      <div class="filters__scrim" id="f-scrim"></div>
+
+      {/* role/aria-modal los pone el script solo mientras el panel está
+          abierto: en desktop esto no es un diálogo. */}
+      <div class="filters__panel" id="f-panel">
+        <div class="panel__head" id="f-head">
+          <span class="panel__grab" aria-hidden="true"></span>
+          <h2 class="panel__titulo">Filtros</h2>
+          <button class="panel__x" id="f-close" type="button" aria-label="Cerrar filtros">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
           </button>
-        ))}
-      </div>
+        </div>
 
-      <div class="filters__selects">
-        <label class="field">
-          <span>Marca</span>
-          <select id="f-marca">
-            <option value="">Todas las marcas</option>
-            {brands.map((b) => <option value={b.id}>{b.data.name}</option>)}
-          </select>
-        </label>
-
-        <label class="field">
-          <span>Subcategoría</span>
-          <select id="f-sub">
-            <option value="">Todas</option>
-            {subs.map((s) => (
-              <option value={s.name} data-linea={s.linea}>{s.name}</option>
+        <div class="panel__body">
+          <div class="filters__lines" role="group" aria-label="Línea de negocio">
+            <button class="chip is-on" data-filter-linea="" type="button">Todas</button>
+            {lineas.map((l) => (
+              <button
+                class="chip"
+                type="button"
+                data-filter-linea={l.id}
+                style={`--chip:${lineAccent(l.id).color};--chip-fg:${lineAccent(l.id).text}`}
+              >
+                {l.data.name}
+              </button>
             ))}
-          </select>
-        </label>
+          </div>
 
-        <label class="field field--search">
-          <span>Buscar</span>
-          <input id="f-q" type="search" placeholder="Nombre o marca…" autocomplete="off" />
-        </label>
+          <div class="filters__selects">
+            <label class="field">
+              <span>Marca</span>
+              <select id="f-marca">
+                <option value="">Todas las marcas</option>
+                {brands.map((b) => <option value={b.id}>{b.data.name}</option>)}
+              </select>
+            </label>
 
-        <button class="chip chip--reset" id="f-reset" type="button">Limpiar</button>
+            <label class="field">
+              <span>Subcategoría</span>
+              <select id="f-sub">
+                <option value="">Todas</option>
+                {subs.map((s) => (
+                  <option value={s.name} data-linea={s.linea}>{s.name}</option>
+                ))}
+              </select>
+            </label>
+
+            <label class="field field--search">
+              <span>Buscar</span>
+              <input id="f-q" type="search" placeholder="Nombre o marca…" autocomplete="off" />
+            </label>
+
+            <button class="chip chip--reset" data-reset type="button">Limpiar</button>
+          </div>
+        </div>
+
+        <div class="panel__foot">
+          <button class="linkish" id="f-limpiar" data-reset type="button" hidden>Limpiar filtros</button>
+          <Button id="f-ver" class="panel__ver">Ver <span data-count>{products.length}</span> productos</Button>
+        </div>
       </div>
-
-      <p class="filters__count" aria-live="polite">
-        <strong id="f-count">{products.length}</strong> productos
-      </p>
     </div>
   </section>
 
@@ -102,7 +138,7 @@ const subs = lineas.flatMap((l) =>
         {/* Eco de lo que está filtrado: sin esto la página queda en blanco y no
             se ve qué combinación dejó el catálogo vacío. */}
         <p class="empty__filtros" id="empty-filtros"></p>
-        <button class="chip chip--reset" id="f-reset2" type="button">Ver todo el catálogo</button>
+        <button class="chip chip--reset" data-reset type="button">Ver todo el catálogo</button>
       </div>
     </div>
   </section>
@@ -128,7 +164,11 @@ const subs = lineas.flatMap((l) =>
     const selMarca = document.getElementById('f-marca') as HTMLSelectElement;
     const selSub = document.getElementById('f-sub') as HTMLSelectElement;
     const inputQ = document.getElementById('f-q') as HTMLInputElement;
-    const count = document.getElementById('f-count') as HTMLElement;
+    // Dos contadores con el mismo número: el de la barra compacta y el del
+    // botón "Ver N productos" del pie del panel.
+    const counts = [...document.querySelectorAll<HTMLElement>('[data-count]')];
+    const activos = document.getElementById('f-activos') as HTMLElement;
+    const limpiar = document.getElementById('f-limpiar') as HTMLElement;
     const empty = document.getElementById('empty') as HTMLElement;
     const emptyFiltros = document.getElementById('empty-filtros') as HTMLElement;
 
@@ -146,8 +186,15 @@ const subs = lineas.flatMap((l) =>
         items[i].hidden = !ok;
         if (ok) shown++;
       }
-      count.textContent = String(shown);
+      for (const c of counts) c.textContent = String(shown);
       empty.hidden = shown !== 0;
+
+      // Cuántos filtros hay puestos: alimenta el globito del botón "Filtros"
+      // y decide si el panel muestra su enlace de limpiar.
+      const n = [state.linea, state.marca, state.sub, state.q].filter(Boolean).length;
+      activos.textContent = String(n);
+      activos.hidden = n === 0;
+      limpiar.hidden = n === 0;
 
       if (shown === 0) {
         const puestos = [
@@ -191,8 +238,101 @@ const subs = lineas.flatMap((l) =>
       selMarca.value = ''; selSub.value = ''; inputQ.value = '';
       apply();
     }
-    document.getElementById('f-reset')?.addEventListener('click', reset);
-    document.getElementById('f-reset2')?.addEventListener('click', reset);
+    for (const b of document.querySelectorAll('[data-reset]')) b.addEventListener('click', reset);
+
+    // ── Panel inferior (solo mobile) ──────────────────────────────────────
+    // El mismo panel que en desktop es un bloque de la barra sticky. Acá solo
+    // se abre y se cierra: el estado de los filtros no se toca, así que
+    // cambiar de tamaño de ventana con filtros puestos no pierde nada.
+    const panel = document.getElementById('f-panel') as HTMLElement;
+    const scrim = document.getElementById('f-scrim') as HTMLElement;
+    const abrir = document.getElementById('f-open') as HTMLButtonElement;
+    let abierto = false;
+
+    function toggle(on: boolean) {
+      if (abierto === on) return;
+      abierto = on;
+      // La clase va en cada pieza y no en un ancestro comun: el CSS de la
+      // pagina esta scopeado por Astro y un selector descendiente con una
+      // clase que solo existe en runtime no es fiable.
+      panel.classList.toggle('is-open', on);
+      scrim.classList.toggle('is-open', on);
+      abrir.setAttribute('aria-expanded', String(on));
+      // En desktop el panel no es un diálogo, así que estos atributos existen
+      // solo mientras está abierto.
+      if (on) {
+        panel.setAttribute('role', 'dialog');
+        panel.setAttribute('aria-modal', 'true');
+        panel.setAttribute('aria-label', 'Filtros del catálogo');
+      } else {
+        panel.removeAttribute('role');
+        panel.removeAttribute('aria-modal');
+        panel.removeAttribute('aria-label');
+      }
+      // Bloqueo del scroll de fondo con overflow y no con position:fixed:
+      // así la posición se conserva sola y no hay que restaurarla.
+      // ponytail: en iOS Safari el fondo todavía puede arrastrarse; el
+      // overscroll-behavior del cuerpo del panel cubre el caso normal.
+      // La clase la lee global.css: bloquea el scroll del fondo y retira el
+      // FAB de WhatsApp, las dos cosas dentro de la misma media query que el
+      // panel. En CSS y no en JS para que al pasar a escritorio el bloqueo se
+      // levante solo, aunque el panel quedara abierto.
+      document.body.classList.toggle('f-open', on);
+      // La lectura fuerza el recalculo de estilo: hasta que no se aplica la
+      // clase, el panel sigue en visibility:hidden y sus botones no aceptan
+      // el foco, que se quedaba en "Filtros".
+      if (on) { void panel.offsetHeight; (document.getElementById('f-close') as HTMLElement).focus(); }
+      else abrir.focus();
+    }
+
+    // Al salir del modo mobile (girar el telefono, agrandar la ventana) el
+    // panel vuelve a ser un bloque normal: si quedaba abierto, el scroll del
+    // fondo se quedaba bloqueado y el foco atrapado en un dialogo que ya no
+    // existe.
+    const mq = matchMedia('(max-width: 759px), (max-height: 480px)');
+    mq.addEventListener('change', () => { if (!mq.matches) toggle(false); });
+
+    abrir.addEventListener('click', () => toggle(true));
+    scrim.addEventListener('click', () => toggle(false));
+    document.getElementById('f-close')?.addEventListener('click', () => toggle(false));
+    document.getElementById('f-ver')?.addEventListener('click', () => toggle(false));
+
+    document.addEventListener('keydown', (e) => {
+      if (!abierto) return;
+      if (e.key === 'Escape') { toggle(false); return; }
+      if (e.key !== 'Tab') return;
+      // Foco atrapado: el panel es modal mientras está abierto.
+      const f = [...panel.querySelectorAll<HTMLElement>('button, select, input, a[href]')]
+        .filter((el) => el.offsetParent !== null);
+      const primero = f[0];
+      const ultimo = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === primero) { ultimo.focus(); e.preventDefault(); }
+      else if (!e.shiftKey && document.activeElement === ultimo) { primero.focus(); e.preventDefault(); }
+    });
+
+    // Arrastrar hacia abajo para cerrar, desde la cabecera del panel.
+    const head = document.getElementById('f-head') as HTMLElement;
+    let y0 = 0;
+    head.addEventListener('pointerdown', (e) => {
+      if (!abierto) return;
+      y0 = e.clientY;
+      head.setPointerCapture(e.pointerId);
+      panel.style.transition = 'none';
+    });
+    head.addEventListener('pointermove', (e) => {
+      if (!y0) return;
+      panel.style.transform = `translateY(${Math.max(0, e.clientY - y0)}px)`;
+    });
+    const soltar = (e: PointerEvent) => {
+      if (!y0) return;
+      const dy = e.clientY - y0;
+      y0 = 0;
+      panel.style.transition = '';
+      panel.style.transform = '';
+      if (e.type === 'pointerup' && dy > 80) toggle(false);
+    };
+    head.addEventListener('pointerup', soltar);
+    head.addEventListener('pointercancel', soltar);
 
     // Estado inicial desde la URL: los tiles de marca enlazan con ?marca= y los
     // bloques de línea del home con ?linea=.
@@ -218,6 +358,15 @@ const subs = lineas.flatMap((l) =>
 
   .filters__inner { display: grid; gap: 0.85rem; }
   .filters__lines, .filters__selects { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: end; }
+  .panel__body { display: grid; gap: 0.85rem; }
+
+  /* Desktop: el panel es un bloque más de la barra y de la barra compacta
+     solo sobrevive el contador, que va al final como estaba. */
+  .filters__bar { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; order: 2; }
+  .btn-filtros,
+  .filters__scrim,
+  .panel__head,
+  .panel__foot { display: none; }
 
   .chip--reset { align-self: end; }
 
@@ -254,6 +403,10 @@ const subs = lineas.flatMap((l) =>
     border-radius: var(--radius-lg);
     background: var(--bg-soft);
   }
+  /* El display de author le gana al [hidden] del navegador: sin esta regla
+     el bloque de "no hay productos" se veia bajo la grilla con el catalogo
+     entero cargado. */
+  .empty[hidden] { display: none; }
   .empty__titulo { font-size: var(--text-lg); font-weight: 700; color: var(--fg); }
   .empty__filtros { font-size: var(--text-sm); }
   .empty__filtros:empty { display: none; }
@@ -267,4 +420,158 @@ const subs = lineas.flatMap((l) =>
     text-decoration: underline;
   }
   .linkish:hover { color: var(--teal-800); }
+
+  /* ── Panel inferior en mobile ───────────────────────────────────────────
+     El corte son 760px de ancho, y también 480px de alto: el problema real es
+     la altura, y un teléfono girado mide 844x390, o sea que por ancho caería
+     del lado de escritorio con menos pantalla que nunca. Debajo de cualquiera
+     de los dos, la barra de filtros se guarda en el panel. */
+  @media (max-width: 759px), (max-height: 480px) {
+    /* .filters deja de ser sticky y de crear contexto de apilamiento. Con su
+       backdrop-filter puesto, un hijo position:fixed se posiciona contra la
+       barra en vez de contra la ventana, y el z-index 50 del header lo
+       taparía. La que se pega ahora es la barra compacta. */
+    .filters {
+      position: static;
+      z-index: auto;
+      background: none;
+      backdrop-filter: none;
+      border-bottom: 0;
+      padding-block: 0;
+    }
+    .filters__bar {
+      position: sticky;
+      top: var(--hdr-h);
+      z-index: 20;
+      margin-inline: calc(var(--gutter) * -1);
+      padding: 0.5rem var(--gutter);
+      background: var(--bg-soft);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .btn-filtros {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-height: 44px;
+      padding: 0.5rem 1rem;
+      border: var(--bd) solid var(--border);
+      border-radius: var(--radius-pill);
+      background: var(--white);
+      color: var(--fg);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-filtros__n {
+      display: grid;
+      place-items: center;
+      min-width: 1.4rem;
+      height: 1.4rem;
+      padding-inline: 0.35rem;
+      border-radius: var(--radius-pill);
+      background: var(--teal-800);
+      color: var(--white);
+      font-size: var(--text-2xs);
+    }
+    /* Una regla de author gana a la del UA: sin esto el globito se ve con
+       cero filtros puestos. */
+    .btn-filtros__n[hidden] { display: none; }
+
+    .filters__scrim {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: 70;
+      background: rgb(4 25 29 / 0.55);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--dur-base) ease, visibility var(--dur-base);
+    }
+    .filters__scrim.is-open { opacity: 1; visibility: visible; }
+
+    .filters__panel {
+      position: fixed;
+      inset-inline: 0;
+      bottom: 0;
+      z-index: 71;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      max-height: 85dvh;
+      background: var(--bg);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      box-shadow: var(--shadow-lg);
+      /* --sheet-shift vale 0% bajo prefers-reduced-motion: el panel aparece
+         en su sitio y lo único que queda es el fundido del fondo. */
+      transform: translateY(var(--sheet-shift));
+      visibility: hidden;
+      transition: transform var(--dur-base) var(--ease-out), visibility var(--dur-base);
+    }
+    .filters__panel.is-open { transform: none; visibility: visible; }
+
+    .panel__head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem var(--gutter) 0.5rem;
+      border-bottom: 1px solid var(--border);
+      touch-action: none; /* el arrastre para cerrar */
+      cursor: grab;
+    }
+    .panel__grab {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: 2.5rem;
+      height: 4px;
+      border-radius: var(--radius-pill);
+      background: var(--gray-200);
+      margin-bottom: 0.5rem;
+    }
+    .panel__titulo { font-size: var(--text-lg); }
+    .panel__x {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--gray-50);
+      color: var(--fg);
+      cursor: pointer;
+    }
+
+    .panel__body {
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 1rem var(--gutter);
+    }
+    /* Área táctil de 44px en todo lo que se toca dentro del panel. */
+    .panel__body .chip { min-height: 44px; }
+    .panel__body .field select,
+    .panel__body .field input { min-height: 44px; width: 100%; }
+    .panel__body .field { width: 100%; }
+    .filters__selects { flex-direction: column; align-items: stretch; }
+    /* El "Limpiar" de escritorio: en mobile lo reemplaza el del pie. */
+    .chip--reset { display: none; }
+
+    .panel__foot {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem var(--gutter);
+      padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .panel__foot .linkish { min-height: 44px; font-size: var(--text-sm); }
+    .panel__ver { flex: 1; justify-content: center; min-height: 44px; }
+  }
+
+  /* Dos tarjetas completas por pantalla: en una sola columna la tarjeta mide
+     media pantalla de alto y no entra ni el par. */
+  @media (max-width: 639px) {
+    .card-grid { --card-min: 150px; }
+    .grid-wrap { padding-block: 1.25rem var(--section-y); }
+  }
 </style>

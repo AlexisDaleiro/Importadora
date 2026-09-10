@@ -1,0 +1,12 @@
+{
+  "slug": "linea-arenas-sanitarias",
+  "kicker": "LÍNEA COMPLETA",
+  "title": "Arenas sanitarias",
+  "cta": "Ver la línea",
+  "href": "/productos?linea=arenas-sanitarias",
+  "image": "../../assets/categories/arenas-sanitarias.jpg",
+  "alt": "Gato sobre una bandeja con arena sanitaria",
+  "accent": "#0A4A5C",
+  "order": 3,
+  "active": true
+}
