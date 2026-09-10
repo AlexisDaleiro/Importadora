@@ -6,7 +6,7 @@ const path = Astro.url.pathname;
 const isActive = (href: string) => path === href || path.startsWith(href + '/');
 ---
 
-<header class="hdr">
+<header class="hdr" transition:persist>
   <div class="container hdr__inner">
     <a href="/" class="hdr__logo"><Logo onDark /></a>
 
@@ -30,6 +30,22 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     </details>
   </div>
 </header>
+
+<script>
+  // El header va con transition:persist: su DOM sobrevive a cada navegación,
+  // así que el subrayado de "página activa" quedaría clavado en la primera
+  // página que se visitó. Se recalcula acá con el mismo criterio que usa el
+  // render en el servidor. De paso cierra el menú móvil, que si no queda
+  // abierto sobre la página nueva.
+  document.addEventListener('astro:page-load', () => {
+    const path = location.pathname;
+    for (const a of document.querySelectorAll<HTMLAnchorElement>('.hdr__link')) {
+      const href = a.getAttribute('href') ?? '';
+      a.classList.toggle('is-active', path === href || path.startsWith(href + '/'));
+    }
+    document.querySelector('.hdr__mobile')?.removeAttribute('open');
+  });
+</script>
 
 <style>
   .hdr {

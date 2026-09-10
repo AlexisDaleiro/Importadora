@@ -60,25 +60,35 @@ const brands = (await getCollection('brands'))
 </Base>
 
 <script>
-  // Mismo criterio que /productos: las 21 tarjetas ya están en el HTML y solo se
-  // alternan con el atributo hidden. Cero hidratación, cero dependencias.
-  const items = [...document.querySelectorAll<HTMLLIElement>('#grid > li')];
-  const chips = [...document.querySelectorAll<HTMLButtonElement>('[data-filter-linea]')];
+  // Con el ClientRouter este modulo se evalua una sola vez en toda la sesion:
+  // sin esto los listeners quedarian atados al DOM de la primera pagina y la
+  // isla dejaria de funcionar al navegar y volver. astro:page-load tambien
+  // dispara en la carga inicial.
+  document.addEventListener('astro:page-load', () => {
+    // Corta en cualquier pagina que no sea esta. El selector distingue de
+    // /productos, que usa el mismo id de grilla pero con [data-product].
+    if (!document.querySelector('#grid [data-brand]')) return;
 
-  function apply(linea: string, push = true) {
-    for (const li of items) {
-      const el = li.querySelector<HTMLElement>('[data-brand]');
-      li.hidden = Boolean(linea) && el?.dataset.linea !== linea;
+    // Mismo criterio que /productos: las 21 tarjetas ya están en el HTML y solo se
+    // alternan con el atributo hidden. Cero hidratación, cero dependencias.
+    const items = [...document.querySelectorAll<HTMLLIElement>('#grid > li')];
+    const chips = [...document.querySelectorAll<HTMLButtonElement>('[data-filter-linea]')];
+
+    function apply(linea: string, push = true) {
+      for (const li of items) {
+        const el = li.querySelector<HTMLElement>('[data-brand]');
+        li.hidden = Boolean(linea) && el?.dataset.linea !== linea;
+      }
+      for (const chip of chips) chip.classList.toggle('is-on', chip.dataset.filterLinea === linea);
+      if (push) history.replaceState(null, '', linea ? `?linea=${linea}` : location.pathname);
     }
-    for (const chip of chips) chip.classList.toggle('is-on', chip.dataset.filterLinea === linea);
-    if (push) history.replaceState(null, '', linea ? `?linea=${linea}` : location.pathname);
-  }
 
-  for (const chip of chips) {
-    chip.addEventListener('click', () => apply(chip.dataset.filterLinea ?? ''));
-  }
+    for (const chip of chips) {
+      chip.addEventListener('click', () => apply(chip.dataset.filterLinea ?? ''));
+    }
 
-  apply(new URLSearchParams(location.search).get('linea') ?? '', false);
+    apply(new URLSearchParams(location.search).get('linea') ?? '', false);
+  });
 </script>
 
 <style>

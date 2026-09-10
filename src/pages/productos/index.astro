@@ -109,94 +109,106 @@ const subs = lineas.flatMap((l) =>
 </Base>
 
 <script>
-  // Filtrado en el cliente sin framework: los 156 productos ya están en el HTML
-  // y solo se alternan con el atributo hidden. Cero hidratación, cero dependencias.
-  const items = [...document.querySelectorAll('#grid > li')] as HTMLLIElement[];
-  const cards = items.map((li) => li.querySelector('[data-product]') as HTMLElement);
-  const chips = [...document.querySelectorAll<HTMLButtonElement>('[data-filter-linea]')];
-  const selMarca = document.getElementById('f-marca') as HTMLSelectElement;
-  const selSub = document.getElementById('f-sub') as HTMLSelectElement;
-  const inputQ = document.getElementById('f-q') as HTMLInputElement;
-  const count = document.getElementById('f-count') as HTMLElement;
-  const empty = document.getElementById('empty') as HTMLElement;
-  const emptyFiltros = document.getElementById('empty-filtros') as HTMLElement;
+  // Con el ClientRouter este modulo se evalua una sola vez en toda la sesion:
+  // sin esto los listeners quedarian atados al DOM de la primera pagina y la
+  // isla dejaria de funcionar al navegar y volver. astro:page-load tambien
+  // dispara en la carga inicial.
+  document.addEventListener('astro:page-load', () => {
+    // El listener queda vivo toda la sesion, asi que corre tambien en las
+    // paginas que no son esta. Sin este corte revienta con un null al
+    // navegar a cualquier otra. #f-count solo existe en el catalogo, y
+    // distingue de /marcas, que tambien usa un #grid.
+    if (!document.getElementById('f-count')) return;
 
-  const state = { linea: '', marca: '', sub: '', q: '' };
+    // Filtrado en el cliente sin framework: los 156 productos ya están en el HTML
+    // y solo se alternan con el atributo hidden. Cero hidratación, cero dependencias.
+    const items = [...document.querySelectorAll('#grid > li')] as HTMLLIElement[];
+    const cards = items.map((li) => li.querySelector('[data-product]') as HTMLElement);
+    const chips = [...document.querySelectorAll<HTMLButtonElement>('[data-filter-linea]')];
+    const selMarca = document.getElementById('f-marca') as HTMLSelectElement;
+    const selSub = document.getElementById('f-sub') as HTMLSelectElement;
+    const inputQ = document.getElementById('f-q') as HTMLInputElement;
+    const count = document.getElementById('f-count') as HTMLElement;
+    const empty = document.getElementById('empty') as HTMLElement;
+    const emptyFiltros = document.getElementById('empty-filtros') as HTMLElement;
 
-  function apply(push = true) {
-    let shown = 0;
-    for (let i = 0; i < cards.length; i++) {
-      const d = cards[i].dataset;
-      const ok =
-        (!state.linea || d.linea === state.linea) &&
-        (!state.marca || d.marca === state.marca) &&
-        (!state.sub || d.sub === state.sub) &&
-        (!state.q || (d.nombre ?? '').includes(state.q));
-      items[i].hidden = !ok;
-      if (ok) shown++;
+    const state = { linea: '', marca: '', sub: '', q: '' };
+
+    function apply(push = true) {
+      let shown = 0;
+      for (let i = 0; i < cards.length; i++) {
+        const d = cards[i].dataset;
+        const ok =
+          (!state.linea || d.linea === state.linea) &&
+          (!state.marca || d.marca === state.marca) &&
+          (!state.sub || d.sub === state.sub) &&
+          (!state.q || (d.nombre ?? '').includes(state.q));
+        items[i].hidden = !ok;
+        if (ok) shown++;
+      }
+      count.textContent = String(shown);
+      empty.hidden = shown !== 0;
+
+      if (shown === 0) {
+        const puestos = [
+          state.linea && `Línea: ${chips.find((c) => c.dataset.filterLinea === state.linea)?.textContent?.trim()}`,
+          state.marca && `Marca: ${selMarca.selectedOptions[0]?.textContent}`,
+          state.sub && `Subcategoría: ${state.sub}`,
+          state.q && `Búsqueda: “${inputQ.value.trim()}”`,
+        ].filter(Boolean);
+        emptyFiltros.textContent = puestos.join(' · ');
+      }
+
+      // Las subcategorías pertenecen a una línea: se ocultan las que no aplican.
+      for (const opt of selSub.options) {
+        const l = opt.dataset.linea;
+        opt.hidden = Boolean(state.linea && l && l !== state.linea);
+      }
+      if (selSub.selectedOptions[0]?.hidden) { selSub.value = ''; state.sub = ''; }
+
+      for (const chip of chips) chip.classList.toggle('is-on', chip.dataset.filterLinea === state.linea);
+
+      if (push) {
+        const p = new URLSearchParams();
+        if (state.linea) p.set('linea', state.linea);
+        if (state.marca) p.set('marca', state.marca);
+        if (state.sub) p.set('sub', state.sub);
+        if (state.q) p.set('q', state.q);
+        const qs = p.toString();
+        history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
+      }
     }
-    count.textContent = String(shown);
-    empty.hidden = shown !== 0;
 
-    if (shown === 0) {
-      const puestos = [
-        state.linea && `Línea: ${chips.find((c) => c.dataset.filterLinea === state.linea)?.textContent?.trim()}`,
-        state.marca && `Marca: ${selMarca.selectedOptions[0]?.textContent}`,
-        state.sub && `Subcategoría: ${state.sub}`,
-        state.q && `Búsqueda: “${inputQ.value.trim()}”`,
-      ].filter(Boolean);
-      emptyFiltros.textContent = puestos.join(' · ');
+    for (const chip of chips) {
+      chip.addEventListener('click', () => { state.linea = chip.dataset.filterLinea ?? ''; apply(); });
     }
+    selMarca.addEventListener('change', () => { state.marca = selMarca.value; apply(); });
+    selSub.addEventListener('change', () => { state.sub = selSub.value; apply(); });
+    inputQ.addEventListener('input', () => { state.q = inputQ.value.trim().toLowerCase(); apply(); });
 
-    // Las subcategorías pertenecen a una línea: se ocultan las que no aplican.
-    for (const opt of selSub.options) {
-      const l = opt.dataset.linea;
-      opt.hidden = Boolean(state.linea && l && l !== state.linea);
+    function reset() {
+      state.linea = state.marca = state.sub = state.q = '';
+      selMarca.value = ''; selSub.value = ''; inputQ.value = '';
+      apply();
     }
-    if (selSub.selectedOptions[0]?.hidden) { selSub.value = ''; state.sub = ''; }
+    document.getElementById('f-reset')?.addEventListener('click', reset);
+    document.getElementById('f-reset2')?.addEventListener('click', reset);
 
-    for (const chip of chips) chip.classList.toggle('is-on', chip.dataset.filterLinea === state.linea);
-
-    if (push) {
-      const p = new URLSearchParams();
-      if (state.linea) p.set('linea', state.linea);
-      if (state.marca) p.set('marca', state.marca);
-      if (state.sub) p.set('sub', state.sub);
-      if (state.q) p.set('q', state.q);
-      const qs = p.toString();
-      history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
-    }
-  }
-
-  for (const chip of chips) {
-    chip.addEventListener('click', () => { state.linea = chip.dataset.filterLinea ?? ''; apply(); });
-  }
-  selMarca.addEventListener('change', () => { state.marca = selMarca.value; apply(); });
-  selSub.addEventListener('change', () => { state.sub = selSub.value; apply(); });
-  inputQ.addEventListener('input', () => { state.q = inputQ.value.trim().toLowerCase(); apply(); });
-
-  function reset() {
-    state.linea = state.marca = state.sub = state.q = '';
-    selMarca.value = ''; selSub.value = ''; inputQ.value = '';
-    apply();
-  }
-  document.getElementById('f-reset')?.addEventListener('click', reset);
-  document.getElementById('f-reset2')?.addEventListener('click', reset);
-
-  // Estado inicial desde la URL: los tiles de marca enlazan con ?marca= y los
-  // bloques de línea del home con ?linea=.
-  // Un valor que no existe se descarta en vez de filtrar a cero: si no, un link
-  // viejo o mal escrito dejaba el catálogo vacío con "Marca: undefined".
-  const url = new URLSearchParams(location.search);
-  const valido = (valor: string, valores: string[]) => (valores.includes(valor) ? valor : '');
-  state.linea = valido(url.get('linea') ?? '', chips.map((c) => c.dataset.filterLinea ?? ''));
-  state.marca = valido(url.get('marca') ?? '', [...selMarca.options].map((o) => o.value));
-  state.sub = valido(url.get('sub') ?? '', [...selSub.options].map((o) => o.value));
-  state.q = url.get('q') ?? '';
-  selMarca.value = state.marca;
-  selSub.value = state.sub;
-  inputQ.value = state.q;
-  apply(false);
+    // Estado inicial desde la URL: los tiles de marca enlazan con ?marca= y los
+    // bloques de línea del home con ?linea=.
+    // Un valor que no existe se descarta en vez de filtrar a cero: si no, un link
+    // viejo o mal escrito dejaba el catálogo vacío con "Marca: undefined".
+    const url = new URLSearchParams(location.search);
+    const valido = (valor: string, valores: string[]) => (valores.includes(valor) ? valor : '');
+    state.linea = valido(url.get('linea') ?? '', chips.map((c) => c.dataset.filterLinea ?? ''));
+    state.marca = valido(url.get('marca') ?? '', [...selMarca.options].map((o) => o.value));
+    state.sub = valido(url.get('sub') ?? '', [...selSub.options].map((o) => o.value));
+    state.q = url.get('q') ?? '';
+    selMarca.value = state.marca;
+    selSub.value = state.sub;
+    inputQ.value = state.q;
+    apply(false);
+  });
 </script>
 
 <style>

@@ -292,72 +292,81 @@ const ogProducto = gallery[0]
 </Base>
 
 <script>
-  // Galería: una sola imagen grande, las miniaturas solo cambian el src.
-  const main = document.getElementById('main-img') as HTMLImageElement | null;
-  const thumbs = [...document.querySelectorAll<HTMLButtonElement>('.thumb')];
-  for (const t of thumbs) {
-    t.addEventListener('click', () => {
-      const img = t.querySelector('img');
-      if (!main || !img) return;
-      main.src = img.currentSrc || img.src;
-      main.srcset = img.srcset;
-      for (const o of thumbs) {
-        o.classList.toggle('is-on', o === t);
-        o.setAttribute('aria-pressed', String(o === t));
-      }
-    });
-  }
+  // Con el ClientRouter este modulo se evalua una sola vez en toda la sesion:
+  // sin esto los listeners quedarian atados al DOM de la primera pagina y la
+  // isla dejaria de funcionar al navegar y volver. astro:page-load tambien
+  // dispara en la carga inicial.
+  document.addEventListener('astro:page-load', () => {
+    // Corta en cualquier pagina que no sea una ficha de producto.
+    if (!document.querySelector('.sheet')) return;
 
-  // Formulario B2B: mismo criterio que /contacto, POST a Formspree con fetch.
-  // Usa su propio form (FORMSPREE_ID_B2B) para que los "quiero vender X" no se
-  // mezclen con las consultas generales en la bandeja de Districo.
-  const leadForm = document.getElementById('lead-form') as HTMLFormElement | null;
-  const leadBtn = document.getElementById('lead-btn') as HTMLButtonElement | null;
-  const leadOk = document.getElementById('lead-ok') as HTMLElement | null;
-  const leadError = document.getElementById('lead-error') as HTMLElement | null;
+    // Galería: una sola imagen grande, las miniaturas solo cambian el src.
+    const main = document.getElementById('main-img') as HTMLImageElement | null;
+    const thumbs = [...document.querySelectorAll<HTMLButtonElement>('.thumb')];
+    for (const t of thumbs) {
+      t.addEventListener('click', () => {
+        const img = t.querySelector('img');
+        if (!main || !img) return;
+        main.src = img.currentSrc || img.src;
+        main.srcset = img.srcset;
+        for (const o of thumbs) {
+          o.classList.toggle('is-on', o === t);
+          o.setAttribute('aria-pressed', String(o === t));
+        }
+      });
+    }
 
-  if (leadForm && leadBtn && leadOk && leadError) {
-    const endpoint = leadForm.dataset.endpoint ?? '';
-    const listo = leadForm.dataset.listo === 'true';
-    const btnTexto = leadBtn.textContent;
+    // Formulario B2B: mismo criterio que /contacto, POST a Formspree con fetch.
+    // Usa su propio form (FORMSPREE_ID_B2B) para que los "quiero vender X" no se
+    // mezclen con las consultas generales en la bandeja de Districo.
+    const leadForm = document.getElementById('lead-form') as HTMLFormElement | null;
+    const leadBtn = document.getElementById('lead-btn') as HTMLButtonElement | null;
+    const leadOk = document.getElementById('lead-ok') as HTMLElement | null;
+    const leadError = document.getElementById('lead-error') as HTMLElement | null;
 
-    leadForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      leadOk.hidden = true;
-      leadError.hidden = true;
+    if (leadForm && leadBtn && leadOk && leadError) {
+      const endpoint = leadForm.dataset.endpoint ?? '';
+      const listo = leadForm.dataset.listo === 'true';
+      const btnTexto = leadBtn.textContent;
 
-      // Validación nativa: marca campo por campo y anuncia el error.
-      if (!leadForm.reportValidity()) return;
+      leadForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        leadOk.hidden = true;
+        leadError.hidden = true;
 
-      if (!listo) {
-        leadError.textContent =
-          'El envío todavía no está conectado. Escribinos por WhatsApp o al 0800 1004.';
-        leadError.hidden = false;
-        return;
-      }
+        // Validación nativa: marca campo por campo y anuncia el error.
+        if (!leadForm.reportValidity()) return;
 
-      leadBtn.disabled = true;
-      leadBtn.textContent = 'Enviando…';
+        if (!listo) {
+          leadError.textContent =
+            'El envío todavía no está conectado. Escribinos por WhatsApp o al 0800 1004.';
+          leadError.hidden = false;
+          return;
+        }
 
-      try {
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          body: new FormData(leadForm),
-          headers: { Accept: 'application/json' },
-        });
-        if (!res.ok) throw new Error(String(res.status));
-        leadForm.reset();
-        leadOk.hidden = false;
-      } catch {
-        leadError.textContent =
-          'No pudimos enviar la consulta. Probá de nuevo o escribinos por WhatsApp.';
-        leadError.hidden = false;
-      } finally {
-        leadBtn.disabled = false;
-        leadBtn.textContent = btnTexto;
-      }
-    });
-  }
+        leadBtn.disabled = true;
+        leadBtn.textContent = 'Enviando…';
+
+        try {
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            body: new FormData(leadForm),
+            headers: { Accept: 'application/json' },
+          });
+          if (!res.ok) throw new Error(String(res.status));
+          leadForm.reset();
+          leadOk.hidden = false;
+        } catch {
+          leadError.textContent =
+            'No pudimos enviar la consulta. Probá de nuevo o escribinos por WhatsApp.';
+          leadError.hidden = false;
+        } finally {
+          leadBtn.disabled = false;
+          leadBtn.textContent = btnTexto;
+        }
+      });
+    }
+  });
 </script>
 
 <style>

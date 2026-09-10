@@ -103,6 +103,10 @@
   --dur-slow: 0.5s;    /* piezas grandes: la foto de un tile */
   --dur-reveal: 0.7s;  /* entrada de sección */
   --dur-move: 0.2s;    /* categoría (b): 0s bajo reduce */
+  /* Entrada de página al navegar. Familia SEGURA: es solo opacidad, así que
+     no aparece en el bloque de reduce y se conserva idéntica en los dos
+     modos. Único lugar donde se ajusta la duración. */
+  --dur-page-enter: 1s;
 
   /* Magnitudes de la categoría (a). Un solo desplazamiento de hover: había
      -2px en los botones, -3px en las tarjetas de marca y -4px en las de
@@ -277,6 +281,28 @@ p { text-wrap: pretty; }
   will-change: opacity, transform;
 }
 [data-reveal].is-visible { opacity: 1; transform: none; }
+
+/* ── Entrada de página ────────────────────────────────────────────────
+   Fade puro, una sola definición para todo el sitio, sin variantes por
+   sección. Solo opacidad: nada de transform, escala ni escalonado.
+
+   Corre sobre el <main> real y NO sobre los pseudo-elementos de View
+   Transitions, que era donde estaba antes. Esa capa es una captura estática
+   superpuesta al DOM que no acepta clics, así que durante toda la animación
+   la página quedaba bloqueada. Acá se anima el contenido montado: los
+   enlaces, los botones y los filtros responden desde el primer frame.
+
+   Efecto lateral bueno: al no ser una view transition, la manta que el
+   ClientRouter inyecta bajo prefers-reduced-motion
+   (`::view-transition-old(*) { animation: none !important }`) ya no la
+   alcanza, y el fade se conserva en los dos modos sin necesidad de pisar
+   nada con !important.
+
+   La clase la pone el script del layout en astro:page-load. Si el JavaScript
+   no corre, la clase no aparece y el <main> se ve en opacidad 1: el contenido
+   nunca queda atrapado en 0. */
+.page-enter { animation: page-in var(--dur-page-enter) var(--ease-out) both; }
+@keyframes page-in { from { opacity: 0; } }
 
 /* ── prefers-reduced-motion ──────────────────────────────────────────────
    Reduce = menos movimiento, no menos vida. Acá no se apaga ni una sola

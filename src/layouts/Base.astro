@@ -4,6 +4,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFab from '../components/WhatsAppFab.astro';
+import { ClientRouter } from 'astro:transitions';
 import { NOINDEX, site } from '../config';
 
 interface Props {
@@ -23,7 +24,7 @@ const ogImage = new URL(image, Astro.site);
 ---
 
 <!doctype html>
-<html lang="es-UY">
+<html lang="es-UY" transition:animate="none">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -51,6 +52,8 @@ const ogImage = new URL(image, Astro.site);
     <meta name="twitter:image" content={ogImage} />
 
     <meta name="theme-color" content="#06262C" />
+
+    <ClientRouter />
   </head>
   <body>
     <a href="#main" class="sr-only">Saltar al contenido</a>
@@ -69,23 +72,72 @@ const ogImage = new URL(image, Astro.site);
       // sustituto del movimiento en vez de desaparecer. Por eso acá no hay
       // ningún matchMedia: el CSS ya decide, y una rama en JS solo podría
       // desincronizarse con él.
-      const items = document.querySelectorAll('[data-reveal]');
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver(
-          (entries) => {
-            for (const entry of entries) {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                io.unobserve(entry.target);
+      //
+      // Va colgado de astro:page-load y no del arranque del módulo: con el
+      // ClientRouter el módulo se evalúa una sola vez en toda la sesión, así
+      // que un observer creado al arrancar solo vería los elementos de la
+      // primera página y todo lo que se navegara después quedaría en
+      // opacidad 0. astro:page-load también dispara en la carga inicial.
+      let navegacionCliente = false;
+      document.addEventListener('astro:before-preparation', () => {
+        navegacionCliente = true;
+      });
+
+      // Fade de entrada del contenido. Va sobre el <main> real y no sobre los
+      // pseudo-elementos de View Transitions: esa capa es una captura estática
+      // que no acepta clics, así que el fade bloqueaba la página mientras
+      // corría. Por eso el <html> lleva transition:animate="none", que deja el
+      // swap inmediato, y la animación la hace el CSS sobre el DOM montado.
+      document.addEventListener('astro:page-load', () => {
+        const contenido = document.getElementById('main');
+        if (!contenido) return;
+        // Navegar durante un fade cancela el anterior. Al cancelarse, la
+        // opacidad vuelve al 1 que tiene el <main> por CSS, así que encadenar
+        // navegaciones rápidas no puede dejar ninguna página a medio camino.
+        for (const a of contenido.getAnimations()) a.cancel();
+        contenido.classList.remove('page-enter');
+        // Lectura forzada: sin esto el navegador junta el quitar y el poner en
+        // el mismo estilo calculado y la animación no vuelve a arrancar.
+        void contenido.offsetWidth;
+        contenido.classList.add('page-enter');
+      });
+
+      document.addEventListener('astro:page-load', () => {
+        let items = [...document.querySelectorAll('[data-reveal]:not(.is-visible)')];
+
+        // En una navegación con el router, lo que ya está en pantalla no se
+        // revela: la entrada de página acaba de traerlo. Encadenar los dos
+        // fades dejaría la mitad de arriba en blanco casi dos segundos, porque
+        // el reveal dura 0.7s y arrancaría recién al terminar el swap.
+        if (navegacionCliente) {
+          const yaVisibles = items.filter((el) => el.getBoundingClientRect().top < window.innerHeight);
+          for (const el of yaVisibles) {
+            (el as HTMLElement).style.transition = 'none';
+            el.classList.add('is-visible');
+          }
+          requestAnimationFrame(() => {
+            for (const el of yaVisibles) (el as HTMLElement).style.transition = '';
+          });
+          items = items.filter((el) => !el.classList.contains('is-visible'));
+        }
+
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver(
+            (entries) => {
+              for (const entry of entries) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  io.unobserve(entry.target);
+                }
               }
-            }
-          },
-          { rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
-        );
-        items.forEach((el) => io.observe(el));
-      } else {
-        items.forEach((el) => el.classList.add('is-visible'));
-      }
+            },
+            { rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
+          );
+          items.forEach((el) => io.observe(el));
+        } else {
+          items.forEach((el) => el.classList.add('is-visible'));
+        }
+      });
     </script>
   </body>
 </html>
