@@ -87,7 +87,8 @@
           levanta en hover, el zoom de un tile, la flecha que avanza, el
           reveal que sube 28px. Se anula el RECORRIDO poniendo su magnitud en
           cero (--move-lift, --move-press, --move-zoom, --move-nudge,
-          --reveal-shift). La transición sigue declarada pero no viaja, y si
+          --reveal-shift, --sheet-shift, y el scroll del carrusel con
+          --scroll-carousel). La transición sigue declarada pero no viaja, y si
           además animaba opacidad esa parte se conserva.
        b) Estado: el transform ES la información. La hamburguesa que se vuelve
           X, o el header que se compacta. El recorrido tiene que quedar, así
@@ -116,6 +117,16 @@
   --move-zoom: 1.08;
   --move-nudge: 4px;
   --reveal-shift: 28px;
+  /* Recorrido del panel de filtros de /productos en mobile: entra desde
+     abajo con --dur-base. Bajo reduce vale 0% y el panel aparece en su sitio,
+     con el fundido del velo como único aviso. */
+  --sheet-shift: 101%;
+  /* Carrusel de banners del home. El desplazamiento entre slides es el scroll
+     nativo del track, asi que su "duracion" es este scroll-behavior: pasa a
+     'auto' bajo reduce y el cambio de slide se vuelve instantaneo. La
+     atenuacion por opacidad de los slides vecinos es familia SEGURA y se
+     conserva en los dos modos. */
+  --scroll-carousel: smooth;
   /* Rejillas: mismo ancho mínimo para la misma tarjeta en las cinco grillas. */
   --card-min: 220px;
   --brand-min: 158px;
@@ -261,6 +272,17 @@ p { text-wrap: pretty; }
 .card-grid > li[hidden],
 .brand-grid > li[hidden] { display: none; }
 
+/* Panel de filtros de /productos abierto en mobile. La clase la pone el
+   script del catálogo. Dos efectos: se retira el FAB de WhatsApp, que vive
+   abajo a la derecha y choca de frente con el panel, y se bloquea el scroll
+   del fondo. El bloqueo va con overflow y no con position:fixed para que la
+   posición se conserve sola, y va dentro de la misma media query que el
+   panel para que se levante solo si la ventana pasa a escritorio. */
+@media (max-width: 759px), (max-height: 480px) {
+  body.f-open { overflow: hidden; }
+  body.f-open .wa { display: none; }
+}
+
 /* Círculo decorativo detrás de fotos */
 .blob {
   position: absolute;
@@ -321,6 +343,8 @@ p { text-wrap: pretty; }
     --move-zoom: 1;
     --move-nudge: 0px;
     --reveal-shift: 0px;
+    --sheet-shift: 0%;
+    --scroll-carousel: auto;
     --dur-move: 0s;
   }
   html { scroll-behavior: auto; }

@@ -83,4 +83,41 @@ const milestones = defineCollection({
   }),
 });
 
-export const collections = { lineas, brands, products, milestones };
+/**
+ * Banners del carrusel del home. CONTENIDO PROVISORIO: los tres archivos que
+ * hay hoy en src/content/banners son ejemplos con foto real de Districo, para
+ * que se vea el componente. Antes de mostrarle el sitio al cliente hay que
+ * reemplazar kicker, title y cta por campañas reales.
+ *
+ * DÓNDE VAN LAS IMÁGENES: src/assets/banners/<slug>.jpg
+ * Formato: JPG, 2480x660 (el slide mide 1240x330 en desktop y se sirve a 2x).
+ * El texto se apoya sobre un velo del color de acento, así que la mitad
+ * derecha de la foto es la que se ve: poné ahí el motivo.
+ *
+ * Con menos de 2 banners activos el carrusel no se arma: con 1 se pinta como
+ * banner fijo y con 0 no se renderiza nada. Ver BannerCarousel.astro.
+ */
+const banners = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/banners' }),
+  schema: ({ image }) =>
+    z.object({
+      slug: z.string(),
+      /** Etiqueta corta en mayúscula, ej. "NUEVO EN URUGUAY". */
+      kicker: z.string(),
+      /** Dos o tres palabras. Más largo se come el ancho del slide. */
+      title: z.string(),
+      cta: z.string(),
+      /** Destino real del sitio: una marca, una línea o el catálogo filtrado. */
+      href: z.string(),
+      image: image(),
+      /** Texto alternativo de la foto. */
+      alt: z.string(),
+      /** Color del velo sobre el que se apoya el texto. Tiene que ser oscuro:
+       *  el blanco encima necesita 4.5:1. */
+      accent: z.string().default('#001A22'),
+      order: z.number(),
+      active: z.boolean().default(true),
+    }),
+});
+
+export const collections = { lineas, brands, products, milestones, banners };
