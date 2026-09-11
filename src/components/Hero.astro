@@ -43,7 +43,9 @@ import heroImg from '../assets/institutional/casa-matriz-fachada.jpg';
   .hero {
     position: relative;
     padding-block: clamp(3rem, 7vw, 6rem) clamp(3rem, 6vw, 5rem);
-    background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
+    /* El degradado se mudó a .portada (src/pages/index.astro): corre continuo
+       desde abajo del header hasta donde arrancan las estadísticas, y es lo
+       que borra la costura entre el banner y el hero. */
     overflow: hidden;
   }
   .hero__inner {
@@ -98,8 +100,56 @@ import heroImg from '../assets/institutional/casa-matriz-fachada.jpg';
   }
   .hero__sticker strong { font-size: 1.6rem; letter-spacing: -0.02em; color: var(--lime-500); }
 
+  /* ── Presupuesto vertical de la portada ───────────────────────────────
+     Desde 940px el hero es la fila elastica de .portada (index.astro): el
+     banner pide su alto y el hero se queda con todo el resto de la primera
+     pantalla. Por eso acá no hay ninguna altura declarada, solo la escala del
+     contenido, que mezcla vw y vh para responder tambien al alto del viewport.
+     En una pantalla muy baja el contenido se pasa de largo y hay scroll, nunca
+     recorte.
+     Mobile queda fuera a proposito: alli el bloque se apila y el objetivo no
+     aplica, asi que ninguna de estas reglas sale de la media query. */
   @media (min-width: 940px) {
-    .hero__inner { grid-template-columns: 1.05fr 0.95fr; }
+    .hero {
+      /* Alto de la foto. De aca sale tambien su ancho, via la relacion 4:3,
+         y con el ancho se achican en proporcion el circulo lima y el badge. */
+      --hero-media-h: clamp(215px, 25vh + 8vw, 460px);
+      /* El hero ocupa toda la fila que le deja el banner y centra su contenido
+         ahi adentro: es lo que lo deja respirar sin atarlo a un alto fijo. */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-block: clamp(1rem, 2.4vh, 3rem);
+    }
+    .hero__inner {
+      /* La columna de la foto mide lo que mide la foto; el resto es para el
+         texto, que igual se detiene en su propio max-width. */
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: clamp(1.75rem, 3vw, 3rem);
+    }
+    .hero__text > * + * { margin-top: clamp(0.7rem, 1.6vh, 1.75rem); }
+    /* Sigue siendo el texto mas grande de la pagina, con el mismo peso 800.
+       El max-width de 19ch es lo que mantiene el titular en tres lineas: con
+       15ch eran cinco y se comia la pantalla entera. La escala subio con el
+       espacio que dejo libre la barra de stats al salir del presupuesto. */
+    .hero__text h1 {
+      font-size: clamp(2.1rem, 0.7rem + 2vw + 1.9vh, 4.4rem);
+      max-width: 19ch;
+    }
+    .hero__text .lead { font-size: var(--text-lg); max-width: 46ch; }
+    .hero .actions { padding-top: clamp(0.25rem, 0.9vh, 0.75rem); }
+
+    .hero__media { width: calc(var(--hero-media-h) * 4 / 3); }
     .hero__blob { width: 68%; }
+    /* En porcentaje del ancho de la foto, para que no se coma la imagen
+       cuando la foto se achica. El piso de 80px deja las etiquetas en 12px
+       sin que se toquen. */
+    .hero__sticker {
+      width: clamp(80px, 24%, 118px);
+      height: auto;
+      aspect-ratio: 1;
+      bottom: -1rem;
+    }
+    .hero__sticker strong { font-size: clamp(1.05rem, 0.55rem + 1vw, 1.6rem); }
   }
 </style>

@@ -95,6 +95,17 @@
           que se anula la DURACIÓN con --dur-move, que pasa a 0s y hace el
           cambio instantáneo.
 
+       c) Movimiento autónomo: arranca solo, sin que el usuario haga nada. El
+          avance automático del carrusel de banners del home es el único caso.
+          Acá no hay sustituto posible: un carrusel que se mueve solo es
+          exactamente lo que la preferencia busca evitar, así que bajo reduce
+          la función se APAGA completa — se ve el primer slide y el usuario
+          navega a mano si quiere. No se puede expresar con un token porque la
+          decisión es de JS, así que BannerCarousel.astro lo consulta con
+          matchMedia y escucha su evento change; es la única excepción a la
+          regla de abajo, y el CSS solo pinta el relleno de progreso de los
+          puntos cuando el JS enciende la clase .bnr--auto.
+
      Hay una sola @media (prefers-reduced-motion: reduce) en todo el proyecto,
      al final de este archivo, y lo único que hace es reasignar estos tokens.
      Un componente nuevo no debería necesitar la suya. */

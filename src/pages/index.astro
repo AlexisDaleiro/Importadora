@@ -13,11 +13,41 @@ import CtaBlock from '../components/CtaBlock.astro';
   title="Districo S.A. — Distribuidora de alimento y cuidado para mascotas en Uruguay"
   description="Distribuidora mayorista uruguaya de alimento balanceado, arenas sanitarias, cuidado animal y snacks. 156 productos de 21 marcas, con reparto en todo el país."
 >
-  <BannerCarousel />
-  <Hero />
+  <div class="portada">
+    <BannerCarousel />
+    <Hero />
+  </div>
   <StatsBar />
   <LineBlocks />
   <BrandGrid />
   <AboutBlock />
   <CtaBlock />
 </Base>
+
+<style>
+  /* ── Portada ──────────────────────────────────────────────────────────
+     Header, banner y hero son una sola composición, no tres secciones
+     apiladas. Lo que las une es este degradado continuo, que antes vivía en
+     el hero y dejaba una costura visible arriba, contra el fondo blanco sobre
+     el que flotaba el banner. */
+  .portada {
+    background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
+  }
+
+  @media (min-width: 940px) {
+    .portada {
+      /* La primera pantalla menos el header, que es sticky y ocupa su lugar en
+         el flujo. min-height y no height: si el contenido crece más que la
+         pantalla, la portada crece con él y aparece scroll, nunca un corte.
+         dvh y no vh por la barra de direcciones de los navegadores móviles,
+         aunque acá la regla arranque recién en 940px. */
+      min-height: calc(100dvh - var(--hdr-h));
+      /* El banner pide el alto que necesita y el hero se queda con el resto:
+         es lo que deja la barra de estadísticas justo debajo del pliegue, sin
+         tener que calcularle el alto a nadie. */
+      display: grid;
+      grid-template-rows: auto 1fr;
+      padding-block: clamp(0.5rem, 1.6vh, 1.5rem) 0;
+    }
+  }
+</style>
