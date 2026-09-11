@@ -1,10 +1,19 @@
 ---
+import { getCollection } from 'astro:content';
 import { stats } from '../config';
+
+// Las dos primeras cifras salen del catálogo, no de config.ts: son las únicas
+// que cambian solas cada vez que se agrega o se discontinúa una marca.
+const filas = [
+  { value: String((await getCollection('products')).length), label: 'Productos' },
+  { value: String((await getCollection('brands')).length), label: 'Marcas' },
+  ...stats,
+];
 ---
 
 <section class="stats">
   <div class="container stats__inner">
-    {stats.map((s, i) => (
+    {filas.map((s, i) => (
       <div class="stats__item" data-reveal style={`--reveal-delay:${i * 70}ms`}>
         <span class="stats__value">{s.value}</span>
         <span class="stats__label">{s.label}</span>

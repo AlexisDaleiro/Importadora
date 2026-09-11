@@ -1,1 +1,15 @@
-{"0": "Layout Shell Components", "1": "Content Cards And Banners", "2": "Build Config And Dependencies", "3": "Design Decisions And Content Model", "4": "Technical Spec Tables", "5": "Home Content Specification", "6": "Catalog Filter Island", "7": "Line Image Cutout Script", "8": "Content Collection Schemas", "9": "Open Graph Image Generator", "10": "TypeScript Configuration", "11": "Floating WhatsApp Button"}
+{
+  "0": "config.ts",
+  "1": "BrandMosaic.astro",
+  "2": "package.json",
+  "3": "Colección products (src/content/products)",
+  "4": "tabla-tecnica.ts",
+  "5": "Banners del home (colección JSON)",
+  "6": "productos/index.astro",
+  "7": "cutout-lineas.mjs",
+  "8": "content.config.ts",
+  "9": "gen-og.mjs",
+  "10": "tsconfig.json",
+  "11": "Referencia Sadenir (botón WhatsApp flotante)",
+  "12": "astro:content"
+}

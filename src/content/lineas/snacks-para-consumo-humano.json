@@ -7,26 +7,21 @@
   "subcategories": [
     {
       "name": "Maníes",
-      "slug": "manies",
-      "count": 1
+      "slug": "manies"
     },
     {
       "name": "Packs",
-      "slug": "packs",
-      "count": 2
+      "slug": "packs"
     },
     {
       "name": "Palitos",
-      "slug": "palitos",
-      "count": 3
+      "slug": "palitos"
     },
     {
       "name": "Papas",
-      "slug": "papas",
-      "count": 8
+      "slug": "papas"
     }
   ],
-  "productCount": 14,
   "cover": "../../assets/categories/snacks-para-consumo-humano.jpg",
   "sourceSlug": "snacks-para-consumo-humano",
   "coverBackground": "#FAC541"

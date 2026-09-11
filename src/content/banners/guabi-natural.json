@@ -1,0 +1,10 @@
+{
+  "slug": "guabi-natural",
+  "brand": "guabi-natural",
+  "href": "/productos?marca=guabi-natural",
+  "imageDesktop": "../../assets/banners/banner-guabi-natural-desktop.png",
+  "imageMobile": "../../assets/banners/banner-guabi-natural-mobile.png",
+  "alt": "Banner de la marca Guabi Natural",
+  "order": 3,
+  "active": true
+}

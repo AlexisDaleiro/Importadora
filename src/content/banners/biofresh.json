@@ -1,0 +1,10 @@
+{
+  "slug": "biofresh",
+  "brand": "biofresh",
+  "href": "/productos?marca=biofresh",
+  "imageDesktop": "../../assets/banners/banner-biofresh-desktop.png",
+  "imageMobile": "../../assets/banners/banner-biofresh-mobile.png",
+  "alt": "Banner de la marca BIOFRESH",
+  "order": 2,
+  "active": true
+}

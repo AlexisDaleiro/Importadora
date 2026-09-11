@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
+import { getImage } from 'astro:assets';
 
 /*
   Carrusel de novedades del home. Vive entre el header y el hero.
@@ -15,9 +15,20 @@ import { Image } from 'astro:assets';
   los puntos, y lo empuja cuando alguien toca un punto, una flecha o un slide
   asomado.
 */
-const slides = (await getCollection('banners'))
+const activos = (await getCollection('banners'))
   .filter((b) => b.data.active)
   .sort((a, b) => a.data.order - b.data.order);
+
+// Los PNG y JPG oficiales quedan como fuente en el repo; al navegador se le
+// sirve WebP generado por astro:assets. Las dos piezas se resuelven acá y no
+// en el markup porque getImage es asincrónico.
+const slides = await Promise.all(
+  activos.map(async (b) => ({
+    data: b.data,
+    desktop: await getImage({ src: b.data.imageDesktop, widths: [1160, 1560, 1950], format: 'webp' }),
+    mobile: await getImage({ src: b.data.imageMobile, widths: [390, 560, 768, 1024], format: 'webp' }),
+  })),
+);
 
 const carrusel = slides.length >= 2;
 ---
@@ -35,26 +46,27 @@ const carrusel = slides.length >= 2;
             <a
               class="bnr__slide"
               href={s.data.href}
-              style={`--acc:${s.data.accent}`}
+              aria-label={s.data.alt}
               tabindex={carrusel && i > 0 ? -1 : undefined}
             >
-              <Image
-                src={s.data.image}
-                alt={s.data.alt}
-                width={1240}
-                height={330}
-                widths={[600, 900, 1160, 2320]}
-                sizes="(min-width: 940px) 1160px, 92vw"
-                loading={i === 0 ? 'eager' : 'lazy'}
-                decoding="async"
-                class="bnr__img"
-              />
-              <span class="bnr__scrim" aria-hidden="true"></span>
-              <span class="bnr__text">
-                <span class="kicker kicker--onDark">{s.data.kicker}</span>
-                <span class="bnr__titulo">{s.data.title}</span>
-                <span class="bnr__cta">{s.data.cta}</span>
-              </span>
+              {/* El enlace envuelve la pieza entera: no hay texto propio que
+                  pueda recibir el clic por su cuenta. La vertical y la
+                  apaisada son artes distintos, no dos recortes de la misma
+                  foto, asi que van como dos fuentes y no como un srcset. */}
+              <picture>
+                <source media="(min-width: 768px)" srcset={s.desktop.srcSet.attribute} sizes="(min-width: 940px) 1160px, 92vw" />
+                <img
+                  class="bnr__img"
+                  src={s.mobile.src}
+                  srcset={s.mobile.srcSet.attribute}
+                  sizes="92vw"
+                  width={768}
+                  height={1024}
+                  alt=""
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </picture>
             </a>
           ))}
         </div>
@@ -316,7 +328,10 @@ const carrusel = slides.length >= 2;
        del vecino se ve exactamente --peek. */
     --peek: 16px;
     --gap: 10px;
-    --ar: 4 / 3;
+    /* La relacion de aspecto es la de la pieza oficial, 768x1024 en la
+       vertical y 1950x500 en la apaisada, para que el arte entre entero:
+       estos banners traen su texto incrustado y cualquier recorte se lo come. */
+    --ar: 768 / 1024;
     padding-block: 1rem 0;
   }
   .bnr__stage { position: relative; }
@@ -345,7 +360,7 @@ const carrusel = slides.length >= 2;
     aspect-ratio: var(--ar);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    background: var(--acc);
+    background: var(--gray-100);
     /* Familia SEGURA: los vecinos se atenuan con opacidad, que se conserva
        igual bajo reduce. */
     opacity: 0.55;
@@ -354,56 +369,11 @@ const carrusel = slides.length >= 2;
   .bnr__slide.is-on,
   .bnr--solo .bnr__slide { opacity: 1; }
 
-  .bnr__img { width: 100%; height: 100%; object-fit: cover; }
+  /* contain y no cover: la relacion del slide ya es la de la pieza, asi que
+     no hay nada que recortar, y si alguna vez entra un arte con otra
+     relacion se ve entero con franjas en vez de perder texto. */
+  .bnr__img { width: 100%; height: 100%; object-fit: contain; }
 
-  .bnr__scrim {
-    position: absolute;
-    inset: 0;
-    /* Zona segura de contraste: el texto se apoya siempre sobre el color de
-       acento casi opaco, nunca sobre la foto pelada.
-       En mobile el slide mide 283px de ancho y no hay lugar para una franja
-       lateral, asi que el velo es horizontal: la foto se ve arriba y el texto
-       va abajo, sobre la parte opaca. */
-    background: linear-gradient(
-      180deg,
-      transparent 0%,
-      color-mix(in srgb, var(--acc) 25%, transparent) 22%,
-      color-mix(in srgb, var(--acc) 92%, transparent) 36%,
-      color-mix(in srgb, var(--acc) 92%, transparent) 100%
-    );
-  }
-
-  .bnr__text {
-    position: absolute;
-    inset-block: 0;
-    inset-inline-start: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: end;
-    gap: 0.5rem;
-    width: min(100%, 26rem);
-    padding: 1.25rem clamp(1.25rem, 4vw, 2.5rem);
-    color: var(--white);
-  }
-  .bnr__titulo {
-    font-size: var(--text-xl);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    text-wrap: balance;
-  }
-  .bnr__cta {
-    margin-top: 0.35rem;
-    padding: 0.6rem 1.2rem;
-    border-radius: var(--radius-pill);
-    background: var(--lime-500);
-    color: var(--teal-950);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    transition: background-color var(--dur-fast) ease;
-  }
-  .bnr__slide:hover .bnr__cta { background: var(--lime-400); }
 
   /* Puntos: debajo del banner, sobre el fondo de la pagina. El area tactil
      mide 44px aunque la pildora se vea chica. */
@@ -466,47 +436,38 @@ const carrusel = slides.length >= 2;
   /* Flechas: solo desktop, superpuestas sobre el slide activo. */
   .bnr__flecha { display: none; }
 
+  /* El cambio de pieza va en 768px, el ancho para el que esta dibujada la
+     vertical, y NO en los 940px del resto del componente. Con el corte en 940
+     una tablet de 834px recibia el arte de telefono estirado: 700px de ancho
+     por 934 de alto, mas que la pantalla entera. Este breakpoint tiene que
+     coincidir con el `media` del <source> en el markup. */
+  @media (min-width: 768px) {
+    /* La pieza apaisada, 1950x500. El alto sale del ancho y no de una escala
+       propia: estos banners traen el texto incrustado, asi que cualquier
+       recorte o deformacion corta palabras. */
+    .bnr { --ar: 1950 / 500; }
+  }
+
   @media (min-width: 940px) {
     .bnr {
       --peek: 24px;
       --gap: 16px;
-      --scrim-end: 62%;
       /* El aire de arriba lo pone .portada en index.astro, que es quien
          reparte la primera pantalla. Acá queda en cero para que no haya
          costura entre el header y el banner. */
       padding-block: 0;
     }
-    /* Desde 940px el alto del banner deja de salir de una relacion de aspecto
-       fija (era 6:1, o sea 206px en 1366 de ancho para cualquier alto de
-       pantalla) y pasa a mezclar vw con vh: header + banner + hero tienen que
-       llenar la primera pantalla sin pasarse, y con el alto atado solo al
-       ancho el banner se comia el presupuesto en un portatil. La foto absorbe
-       el cambio con object-fit: cover.
-       Con la barra de stats fuera del presupuesto el banner subio de
-       clamp(120px, 9vh + 6vw, 210px) a esta escala: es el reparto del espacio
-       que se libero, no un agrandamiento suelto. */
-    .bnr__slide {
-      aspect-ratio: auto;
-      height: clamp(150px, 13vh + 5vw, 300px);
+    /* Con el alto atado al ancho, en un portátil de 720px de alto la franja
+       1950x500 se comía el presupuesto del hero y empujaba la barra de
+       estadísticas 101px abajo del pliegue. La salida no es recortar el arte,
+       que tiene el texto incrustado, sino achicar el banner entero: se le pone
+       techo al alto y el ancho lo sigue por la relación de aspecto. En una
+       pantalla alta el techo no llega a tocar y el banner va a ancho completo. */
+    .bnr__stage {
+      --bnr-alto-max: min(273px, 28.5vh);
+      max-width: calc(var(--bnr-alto-max) * 1950 / 500 + 2 * (var(--peek) + var(--gap)));
+      margin-inline: auto;
     }
-    /* --text-2xl deja el bloque de texto midiendo exactamente el alto del
-       slide: un titulo de una palabra mas se cortaria. */
-    /* Desktop: el slide es una franja 6:1 y el velo pasa a ser vertical, con
-       la mitad derecha libre para la foto. */
-    .bnr__scrim {
-      background: linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--acc) 92%, transparent) 0%,
-        color-mix(in srgb, var(--acc) 92%, transparent) var(--scrim-end) ,
-        transparent 100%
-      );
-    }
-    .bnr__text { justify-content: center; padding-block: 0.9rem; }
-    .bnr__titulo { font-size: var(--text-xl); }
-    /* El bloque de texto no puede pasar de --scrim-end: mas alla el velo se
-       abre y el blanco quedaria sobre la foto pelada. El padding de la
-       izquierda deja libre la flecha. */
-    .bnr__text { width: min(58%, 34rem); padding-inline-start: 6rem; }
 
     .bnr__flecha {
       position: absolute;

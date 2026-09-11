@@ -15,9 +15,11 @@ const brandName = new Map(brands.map((b) => [b.id, b.data.name]));
 
 
 // Subcategorías reales, agrupadas por línea para poder ocultarlas al filtrar.
-const subs = lineas.flatMap((l) =>
-  l.data.subcategories.map((s) => ({ ...s, linea: l.id }))
-);
+// Se descartan las que no tienen ningún producto: el chip existiría para
+// devolver una grilla vacía.
+const subs = lineas
+  .flatMap((l) => l.data.subcategories.map((s) => ({ ...s, linea: l.id })))
+  .filter((s) => products.some((p) => p.data.category.id === s.linea && p.data.subcategory === s.name));
 ---
 
 <Base

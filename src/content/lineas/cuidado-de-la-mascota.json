@@ -3,35 +3,29 @@
   "name": "Cuidado de la mascota",
   "order": 3,
   "accent": "cuidado",
-  "description": "Somos distribuidores de Trading Care Brasil, fabricante de las lineas Procao , Proauto y Amazonia (línea de productos naturales y veganos)",
+  "description": "Somos distribuidores de Trading Care Brasil, fabricante de las lineas Procao y Proauto",
   "subcategories": [
     {
       "name": "Acondicionador",
-      "slug": "acondicionador",
-      "count": 4
+      "slug": "acondicionador"
     },
     {
       "name": "Educadores",
-      "slug": "educadores",
-      "count": 2
+      "slug": "educadores"
     },
     {
       "name": "Otros",
-      "slug": "otros",
-      "count": 4
+      "slug": "otros"
     },
     {
       "name": "Pet Spray",
-      "slug": "pet-spray",
-      "count": 5
+      "slug": "pet-spray"
     },
     {
       "name": "Shampoo",
-      "slug": "shampoo",
-      "count": 13
+      "slug": "shampoo"
     }
   ],
-  "productCount": 26,
   "cover": "../../assets/categories/cuidado-de-la-mascota.jpg",
   "sourceSlug": "cuidado-mascotas",
   "coverBackground": "#E7EDE9"

@@ -13,10 +13,13 @@ const lineas = defineCollection({
       order: z.number(),
       accent: z.string(),
       description: z.string(),
+      // Sin contadores: el relevamiento traía un `count` por subcategoría y un
+      // `productCount` por línea que nadie mantenía, y ya estaban mal contra el
+      // catálogo real. Todo número de productos se cuenta sobre la colección
+      // de productos en el componente que lo muestra.
       subcategories: z
-        .array(z.object({ name: z.string(), slug: z.string(), count: z.number() }))
+        .array(z.object({ name: z.string(), slug: z.string() }))
         .default([]),
-      productCount: z.number(),
       cover: image(),
       coverBackground: z.string().optional(),
       sourceSlug: z.string().optional(),
@@ -69,6 +72,13 @@ const products = defineCollection({
       image: image().nullable().default(null),
       gallery: z.array(image()).default([]),
       featured: z.boolean().default(false),
+      /** Orden dentro del selector de productos del bloque de línea de la home.
+       *  Sin este número el producto no aparece ahí. Va uno por marca: la idea
+       *  es mostrar el catálogo de un vistazo, no repetir la misma marca.
+       *  Cambiar la selección es editar estos números, no tocar el componente.
+       *  Después de editarlos hay que correr `node scripts/cutout-lineas.mjs`,
+       *  que genera el recorte con transparencia de cada producto marcado. */
+      destacadoEnLinea: z.number().optional(),
       sourceUrl: z.string().url().nullable().default(null),
     }),
 });
@@ -102,19 +112,18 @@ const banners = defineCollection({
   schema: ({ image }) =>
     z.object({
       slug: z.string(),
-      /** Etiqueta corta en mayúscula, ej. "NUEVO EN URUGUAY". */
-      kicker: z.string(),
-      /** Dos o tres palabras. Más largo se come el ancho del slide. */
-      title: z.string(),
-      cta: z.string(),
+      /** Marca que promociona el banner, para saber de quién es la pieza. */
+      brand: z.string(),
       /** Destino real del sitio: una marca, una línea o el catálogo filtrado. */
       href: z.string(),
-      image: image(),
-      /** Texto alternativo de la foto. */
+      /** Las piezas vienen con su propio arte y su propio texto, así que el
+       *  slide ES la imagen: no hay kicker, ni título, ni botón encima. Por eso
+       *  hacen falta dos, con relaciones de aspecto muy distintas: la apaisada
+       *  1950x500 es ilegible en 390px de ancho. */
+      imageDesktop: image(),
+      imageMobile: image(),
+      /** Texto alternativo de la pieza, ej. "Banner de la marca Biofresh". */
       alt: z.string(),
-      /** Color del velo sobre el que se apoya el texto. Tiene que ser oscuro:
-       *  el blanco encima necesita 4.5:1. */
-      accent: z.string().default('#001A22'),
       order: z.number(),
       active: z.boolean().default(true),
     }),

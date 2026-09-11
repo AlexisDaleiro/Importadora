@@ -1,0 +1,10 @@
+{
+  "slug": "procao",
+  "brand": "procao",
+  "href": "/productos?marca=procao",
+  "imageDesktop": "../../assets/banners/banner-procao-desktop.jpg",
+  "imageMobile": "../../assets/banners/banner-procao-mobile.jpg",
+  "alt": "Banner de la marca Procão",
+  "order": 8,
+  "active": true
+}

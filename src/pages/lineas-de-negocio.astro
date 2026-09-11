@@ -7,8 +7,17 @@ import CtaBlock from '../components/CtaBlock.astro';
 import { lineAccent } from '../config';
 
 const products = await getCollection('products');
-// Se cuenta sobre el catálogo real, no sobre el productCount del relevamiento.
+// Se cuenta sobre el catálogo real, no sobre los números del relevamiento, que
+// quedaron viejos. Vale igual para el total de la línea y para cada chip de
+// subcategoría; una subcategoría sin productos no se muestra.
 const countOf = (id: string) => products.filter((p) => p.data.category.id === id).length;
+const subsOf = (id: string, subs: { name: string; slug: string }[]) =>
+  subs
+    .map((s) => ({
+      ...s,
+      count: products.filter((p) => p.data.category.id === id && p.data.subcategory === s.name).length,
+    }))
+    .filter((s) => s.count > 0);
 const lineas = (await getCollection('lineas')).sort((a, b) => a.data.order - b.data.order);
 const total = products.length;
 ---
@@ -38,9 +47,9 @@ const total = products.length;
             <h2 class="title-lg">{linea.data.name}</h2>
             <p class="linea__desc">{linea.data.description}</p>
 
-            {linea.data.subcategories.length > 0 && (
+            {subsOf(linea.id, linea.data.subcategories).length > 0 && (
               <ul class="linea__subs">
-                {linea.data.subcategories.map((s) => (
+                {subsOf(linea.id, linea.data.subcategories).map((s) => (
                   <li>
                     <a href={`/productos?linea=${linea.id}&sub=${encodeURIComponent(s.name)}`}>
                       {s.name} <span>{s.count}</span>

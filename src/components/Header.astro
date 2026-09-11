@@ -1,6 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import Button from './Button.astro';
+import SocialLinks from './SocialLinks.astro';
 import { nav, site } from '../config';
 const path = Astro.url.pathname;
 const isActive = (href: string) => path === href || path.startsWith(href + '/');
@@ -8,7 +9,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
 
 <header class="hdr" transition:persist>
   <div class="container hdr__inner">
-    <a href="/" class="hdr__logo"><Logo onDark /></a>
+    <a href="/" class="hdr__logo"><Logo /></a>
 
     <nav class="hdr__nav" aria-label="Principal">
       {nav.map((item) => (
@@ -19,6 +20,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     </nav>
 
     <div class="hdr__cta">
+      <SocialLinks class="hdr__soc" />
       <Button href="tel:08001004" variant="primary">{site.tollFree}</Button>
     </div>
 
@@ -26,6 +28,8 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
       <summary aria-label="Abrir menú"><span></span><span></span><span></span></summary>
       <div class="hdr__panel">
         {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+        {/* En la barra angosta las redes no entran: viven adentro del menú. */}
+        <SocialLinks class="hdr__panel-soc" />
       </div>
     </details>
   </div>
@@ -68,11 +72,9 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     gap: 2rem;
     min-height: 76px;
   }
+  /* [logo] ... [navegación] ... [redes][0800]: el auto de cada lado empuja los
+     extremos a los bordes y deja la navegación centrada en el sobrante. */
   .hdr__logo { margin-right: auto; }
-  /* El PNG del logo está en negativo: la placa es opaca y las letras son huecos.
-     Con onDark la placa se vuelve blanca y las letras toman el teal del header
-     (8.96:1). El 0.95 de opacidad que usa el footer acá la ensuciaba de gris. */
-  .hdr__logo :global(.logo--onDark) { opacity: 1; }
   .hdr__nav { display: none; gap: 1.75rem; }
   .hdr__link {
     font-size: var(--text-sm);
@@ -83,7 +85,10 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
   }
   .hdr__link:hover { color: var(--brand-lime); }
   .hdr__link.is-active { color: var(--white); border-color: var(--brand-lime); }
-  .hdr__cta { display: none; }
+  .hdr__cta { display: none; align-items: center; gap: 0.5rem; margin-left: auto; }
+  /* Las redes no suman alto: los 44px del área táctil son menores que los 76
+     del header, así que la barra mide exactamente lo mismo que antes. */
+  .hdr__soc { color: var(--white); }
   /* El botón se pinta acá y no con una variante nueva de Button.astro, para no
      tocar el lima del resto del sitio (--lime-500) desde el header. */
   .hdr__cta :global(.btn) { background: var(--brand-lime); color: #001A22; }
@@ -125,15 +130,18 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     gap: 0.25rem;
     box-shadow: var(--shadow-md);
   }
-  .hdr__panel a:hover { color: var(--brand-lime); }
+  .hdr__panel > a:hover { color: var(--brand-lime); }
   .hdr__mobile summary:hover span { background: var(--brand-lime); }
-  .hdr__panel a {
+  /* Hijo directo: si no, la regla también pintaba los enlaces de redes, que
+     van dentro de una lista y no llevan ni ese tamaño ni ese borde. */
+  .hdr__panel > a {
     padding: 0.85rem 0;
     font-size: var(--text-xl);
     font-weight: 700;
     letter-spacing: -0.03em;
     border-bottom: 1px solid rgb(255 255 255 / 0.14);
   }
+  .hdr__panel-soc { color: var(--white); margin-top: 0.5rem; }
 
   @media (min-width: 940px) {
     .hdr__nav, .hdr__cta { display: flex; }

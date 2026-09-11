@@ -1,0 +1,10 @@
+{
+  "slug": "granplus",
+  "brand": "granplus",
+  "href": "/productos?marca=granplus",
+  "imageDesktop": "../../assets/banners/banner-gran-plus-desktop.png",
+  "imageMobile": "../../assets/banners/banner-gran-plus-mobile.png",
+  "alt": "Banner de la marca GRAN PLUS",
+  "order": 4,
+  "active": true
+}

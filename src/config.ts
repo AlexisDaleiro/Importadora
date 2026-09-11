@@ -61,16 +61,27 @@ export const nav = [
   { href: '/marcas', label: 'Marcas' },
   { href: '/lineas-de-negocio', label: 'Líneas de negocio' },
   { href: '/nosotros', label: 'Nosotros' },
-  { href: '/contacto', label: 'Contacto' },
+  // Contacto NO está acá: se sacó de la barra para dejarle aire a la derecha,
+  // donde ahora conviven las redes y el botón del 0800. Sigue llegándose desde
+  // el footer y desde los CTA de todo el sitio.
 ];
+
+// Las dos únicas redes de Districo, verificadas en su sitio oficial. No hay
+// Instagram, ni X, ni YouTube: agregar una sería publicar un enlace roto.
+export const social = [
+  { label: 'Districo en Facebook', href: 'https://es-la.facebook.com/districosa/', icon: 'facebook' },
+  { label: 'Districo en LinkedIn', href: 'https://uy.linkedin.com/company/districouy', icon: 'linkedin' },
+] as const;
 
 // Cifras verificadas: catálogo relevado del sitio oficial + hitos institucionales.
 // 1995 es el año de Distribuidora Colón, la empresa que hoy es Districo S.A.
 // Agropecuaria Colón (1960) fue una razón social distinta: aparece como
 // antecedente en la línea de tiempo de /nosotros, no como antigüedad propia.
+// Productos y Marcas NO están acá: los cuenta StatsBar.astro sobre las content
+// collections, porque escritos a mano quedan viejos en cuanto se agrega o se
+// discontinúa una marca, que es exactamente lo que pasó con las cinco marcas
+// dadas de baja.
 export const stats = [
-  { value: '156', label: 'Productos' },
-  { value: '21', label: 'Marcas' },
   { value: '1995', label: 'Desde' },
   { value: '6.000 m²', label: 'Casa Matriz' },
   { value: 'ISO 9001', label: 'Certificación' },

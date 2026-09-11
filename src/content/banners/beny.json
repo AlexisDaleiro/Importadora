@@ -1,0 +1,10 @@
+{
+  "slug": "beny",
+  "brand": "beny",
+  "href": "/productos?marca=beny",
+  "imageDesktop": "../../assets/banners/banner-beny-desktop.png",
+  "imageMobile": "../../assets/banners/banner-beny-mobile.png",
+  "alt": "Banner de la marca Beny",
+  "order": 7,
+  "active": true
+}

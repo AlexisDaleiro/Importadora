@@ -8,19 +8,22 @@
  * (etiquetas, textos) no se toca.
  *
  * Uso: node scripts/cutout-lineas.mjs
- * Volver a correrlo si cambian los productos elegidos en HEROES.
+ * Volver a correrlo cada vez que cambie qué productos llevan destacadoEnLinea.
  */
-import { readdirSync, mkdirSync } from 'node:fs';
+import { readdirSync, mkdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
-// Producto protagonista de cada línea (slug del contenido).
-const HEROES = {
-  'alimento-para-mascotas': 'adultos-todas-las-razas-carne-y-cereales',
-  'arenas-sanitarias': 'pipicat-classic',
-  'cuidado-de-la-mascota': 'acondicionador-aloe-vera',
-  'snacks-para-consumo-humano': 'mega-pack',
-};
+// Qué productos se recortan: los que la colección marca con destacadoEnLinea.
+// Antes había acá un mapa de un producto por línea, duplicado dentro de
+// LineBlocks.astro, y cambiar el protagonista pedía editar los dos archivos.
+// Ahora la única fuente es el contenido.
+const CONTENIDO = fileURLToPath(new URL('../src/content/products/', import.meta.url));
+const destacados = readdirSync(CONTENIDO)
+  .filter((f) => f.endsWith('.json'))
+  .map((f) => JSON.parse(readFileSync(CONTENIDO + f, 'utf8')))
+  .filter((p) => typeof p.destacadoEnLinea === 'number' && p.image)
+  .sort((a, b) => a.category.localeCompare(b.category) || a.destacadoEnLinea - b.destacadoEnLinea);
 
 const SRC = fileURLToPath(new URL('../src/assets/products/', import.meta.url));
 const OUT = fileURLToPath(new URL('../src/assets/lineas/', import.meta.url));
@@ -83,13 +86,15 @@ async function cutout(file, destino) {
 mkdirSync(OUT, { recursive: true });
 const archivos = readdirSync(SRC);
 
-for (const [linea, slug] of Object.entries(HEROES)) {
-  // El archivo del catálogo lleva un hash al final: se busca por prefijo.
-  const file = archivos.find((f) => f.startsWith(slug + '-'));
-  if (!file) {
-    console.error(`FALTA la imagen de ${slug} (línea ${linea})`);
+for (const p of destacados) {
+  // El nombre del archivo sale del campo image del producto y no de su slug:
+  // el relevamiento recorta el nombre a ~60 caracteres antes del hash, asi que
+  // buscar por prefijo falla justo en los productos de nombre largo.
+  const file = p.image.split('/').pop();
+  if (!archivos.includes(file)) {
+    console.error(`FALTA ${file}, imagen de ${p.slug} (línea ${p.category})`);
     process.exitCode = 1;
     continue;
   }
-  await cutout(file, `${linea}.png`);
+  await cutout(file, `${p.slug}.png`);
 }

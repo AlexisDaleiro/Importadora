@@ -7,16 +7,13 @@
   "subcategories": [
     {
       "name": "Gatos",
-      "slug": "gatos",
-      "count": 43
+      "slug": "gatos"
     },
     {
       "name": "Perros",
-      "slug": "perros",
-      "count": 64
+      "slug": "perros"
     }
   ],
-  "productCount": 107,
   "cover": "../../assets/categories/alimento-para-mascotas.jpg",
   "sourceSlug": "alimento-para-mascotas",
   "coverBackground": "#94CADE"

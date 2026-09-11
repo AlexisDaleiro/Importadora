@@ -7,11 +7,17 @@ import LineBlocks from '../components/LineBlocks.astro';
 import BrandGrid from '../components/BrandGrid.astro';
 import AboutBlock from '../components/AboutBlock.astro';
 import CtaBlock from '../components/CtaBlock.astro';
+import { getCollection } from 'astro:content';
+
+// La descripción cita el tamaño del catálogo: se cuenta acá para que no quede
+// vieja cuando se agrega o se discontinúa una marca.
+const totalProductos = (await getCollection('products')).length;
+const totalMarcas = (await getCollection('brands')).length;
 ---
 
 <Base
   title="Districo S.A. — Distribuidora de alimento y cuidado para mascotas en Uruguay"
-  description="Distribuidora mayorista uruguaya de alimento balanceado, arenas sanitarias, cuidado animal y snacks. 156 productos de 21 marcas, con reparto en todo el país."
+  description={`Distribuidora mayorista uruguaya de alimento balanceado, arenas sanitarias, cuidado animal y snacks. ${totalProductos} productos de ${totalMarcas} marcas, con reparto en todo el país.`}
 >
   <div class="portada">
     <BannerCarousel />

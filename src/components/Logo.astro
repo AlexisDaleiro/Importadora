@@ -1,24 +1,41 @@
 ---
 import { Image } from 'astro:assets';
-import logo from '../assets/brand/districo-logo.png';
+import logo from '../assets/brand/logo-districo.png';
 
-interface Props { onDark?: boolean; class?: string; }
-const { onDark = false, class: className = '' } = Astro.props;
+/*
+  Logo oficial de Districo, bajado de
+  https://www.districo.com.uy/wp-content/uploads/2023/01/logo-districo-23.png
+
+  El archivo del cliente viene en 201x38 SIN transparencia: son letras blancas
+  sobre un plato liso #20505F, que es el mismo teal del header. Acá se guarda
+  con el plato convertido en alfa, sacando la transparencia de la luminancia
+  para conservar el antialias del original. No se recoloreó nada: las letras ya
+  eran blancas. Así el mismo archivo sirve sobre el teal del header y sobre el
+  petróleo del footer sin filtros ni una segunda versión.
+
+  El ancho y el alto van explícitos y en la proporción original: el logo está
+  arriba de todo y cualquier reflow suyo se lo come el LCP.
+*/
+interface Props { class?: string; }
+const { class: className = '' } = Astro.props;
+
+const ANCHO = 150;
+const ALTO = Math.round((ANCHO * 38) / 201); // 28
 ---
 
 <Image
   src={logo}
   alt="Districo S.A."
-  widths={[160, 320]}
-  sizes="150px"
+  width={ANCHO}
+  height={ALTO}
+  densities={[1, 2]}
   loading="eager"
-  class={`logo ${onDark ? 'logo--onDark' : ''} ${className}`}
+  class={`logo ${className}`}
 />
 
 <style>
-  /* Logo oficial de Districo (PNG con fondo transparente, petróleo #003647). */
-  .logo { width: 150px; height: auto; display: block; }
-  /* Sobre fondo oscuro el petróleo del logo desaparece: se aclara con un filtro
-     en vez de mantener una segunda versión del archivo. */
-  .logo--onDark { filter: brightness(0) invert(1); opacity: 0.95; }
+  /* Blanco sobre el teal del header da 8.5:1 y sobre el petróleo del footer
+     todavía más, así que no hace falta una variante por fondo ni el filtro de
+     inversión que necesitaba el logo anterior. */
+  .logo { width: 150px; height: 28px; display: block; }
 </style>

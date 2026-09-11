@@ -113,13 +113,17 @@ import heroImg from '../assets/institutional/casa-matriz-fachada.jpg';
     .hero {
       /* Alto de la foto. De aca sale tambien su ancho, via la relacion 4:3,
          y con el ancho se achican en proporcion el circulo lima y el badge. */
-      --hero-media-h: clamp(215px, 25vh + 8vw, 460px);
+      /* Los coeficientes en vh bajaron cuando el banner pasó a la relación
+         1950x500 de las piezas oficiales y creció de 215px a 319px de alto.
+         El que cede es el hero, no el arte del banner: recortarlo o
+         deformarlo cortaría el texto que traen incrustado. */
+      --hero-media-h: clamp(200px, 20vh + 7.5vw, 460px);
       /* El hero ocupa toda la fila que le deja el banner y centra su contenido
          ahi adentro: es lo que lo deja respirar sin atarlo a un alto fijo. */
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-block: clamp(1rem, 2.4vh, 3rem);
+      padding-block: clamp(0.85rem, 1.9vh, 3rem);
     }
     .hero__inner {
       /* La columna de la foto mide lo que mide la foto; el resto es para el
@@ -127,13 +131,13 @@ import heroImg from '../assets/institutional/casa-matriz-fachada.jpg';
       grid-template-columns: minmax(0, 1fr) auto;
       gap: clamp(1.75rem, 3vw, 3rem);
     }
-    .hero__text > * + * { margin-top: clamp(0.7rem, 1.6vh, 1.75rem); }
+    .hero__text > * + * { margin-top: clamp(0.55rem, 1.25vh, 1.75rem); }
     /* Sigue siendo el texto mas grande de la pagina, con el mismo peso 800.
        El max-width de 19ch es lo que mantiene el titular en tres lineas: con
        15ch eran cinco y se comia la pantalla entera. La escala subio con el
        espacio que dejo libre la barra de stats al salir del presupuesto. */
     .hero__text h1 {
-      font-size: clamp(2.1rem, 0.7rem + 2vw + 1.9vh, 4.4rem);
+      font-size: clamp(1.95rem, 0.55rem + 1.9vw + 1.45vh, 4.4rem);
       max-width: 19ch;
     }
     .hero__text .lead { font-size: var(--text-lg); max-width: 46ch; }

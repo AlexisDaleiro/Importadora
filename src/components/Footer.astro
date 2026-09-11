@@ -1,20 +1,24 @@
 ---
 import Logo from './Logo.astro';
+import SocialLinks from './SocialLinks.astro';
 import { nav, site, sucursales } from '../config';
 ---
 
 <footer class="ftr">
   <div class="container ftr__inner">
     <div class="ftr__brand">
-      <Logo onDark />
+      <Logo />
       <p class="ftr__tagline">{site.tagline}.</p>
       <p class="ftr__iso">ISO 9001 · Distribuyendo en todo Uruguay desde 1995</p>
+      <SocialLinks class="ftr__soc" />
     </div>
 
     <nav class="ftr__nav" aria-label="Pie de página">
       <h2>Sitio</h2>
       <a href="/">Home</a>
       {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      {/* Contacto salió de la barra de arriba: el pie es ahora su entrada fija. */}
+      <a href="/contacto">Contacto</a>
     </nav>
 
     {sucursales.map((s) => (
@@ -44,6 +48,9 @@ import { nav, site, sucursales } from '../config';
   }
   .ftr__tagline { margin-top: 1.25rem; max-width: 34ch; color: rgb(255 255 255 / 0.66); }
   .ftr__iso { margin-top: 0.75rem; font-size: var(--text-sm); color: var(--lime-500); font-weight: 600; }
+  /* El área táctil de 44px ya trae su propio aire: el margen compensa para que
+     los íconos no queden despegados del bloque de marca. */
+  .ftr__soc { margin-top: 0.5rem; margin-inline-start: -10px; color: var(--white); }
   .ftr h2 {
     font-size: var(--text-kicker);
     letter-spacing: 0.16em;

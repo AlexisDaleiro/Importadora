@@ -1,0 +1,10 @@
+{
+  "slug": "three-orig",
+  "brand": "three-orig",
+  "href": "/productos?marca=three-orig",
+  "imageDesktop": "../../assets/banners/banner-three-desktop.png",
+  "imageMobile": "../../assets/banners/banner-three-mobile.png",
+  "alt": "Banner de la marca Three Dogs Original",
+  "order": 5,
+  "active": true
+}

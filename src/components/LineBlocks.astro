@@ -1,48 +1,67 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import Button from './Button.astro';
 import { lineAccent } from '../config';
 
-// Recortes con transparencia generados por scripts/cutout-lineas.mjs.
-import cutAlimento from '../assets/lineas/alimento-para-mascotas.png';
-import cutArenas from '../assets/lineas/arenas-sanitarias.png';
-import cutCuidado from '../assets/lineas/cuidado-de-la-mascota.png';
-import cutSnacks from '../assets/lineas/snacks-para-consumo-humano.png';
-
-const CUTOUTS: Record<string, ImageMetadata> = {
-  'alimento-para-mascotas': cutAlimento,
-  'arenas-sanitarias': cutArenas,
-  'cuidado-de-la-mascota': cutCuidado,
-  'snacks-para-consumo-humano': cutSnacks,
-};
-const HEROES: Record<string, string> = {
-  'alimento-para-mascotas': 'adultos-todas-las-razas-carne-y-cereales',
-  'arenas-sanitarias': 'pipicat-classic',
-  'cuidado-de-la-mascota': 'acondicionador-aloe-vera',
-  'snacks-para-consumo-humano': 'mega-pack',
-};
+// Recortes con transparencia generados por scripts/cutout-lineas.mjs, uno por
+// producto marcado con destacadoEnLinea. Se toman en bloque en vez de con un
+// import por archivo: la selección vive en el contenido y cambia sin tocar
+// este componente.
+const CUTOUTS = import.meta.glob<{ default: ImageMetadata }>('../assets/lineas/*.png', { eager: true });
+const recorte = (slug: string) => CUTOUTS[`../assets/lineas/${slug}.png`]?.default;
 
 const lineas = (await getCollection('lineas')).sort((a, b) => a.data.order - b.data.order);
 const products = await getCollection('products');
+// El nombre comercial de la marca, para la píldora: "Distribuimos BIOFRESH".
+const brandName = new Map((await getCollection('brands')).map((b) => [b.id, b.data.name]));
 
-// El productCount del relevamiento difiere del catálogo real: se cuenta acá.
-const blocks = lineas.map((linea) => {
+// El count del relevamiento difiere del catálogo real: todo se cuenta acá,
+// tanto el total de la línea como el de cada subcategoría. Los números que
+// vienen en la colección quedaron viejos hace rato y no se usan.
+const blocks = await Promise.all(lineas.map(async (linea) => {
   const ofLine = products.filter((p) => p.data.category.id === linea.id);
-  // La foto es el recorte sin fondo; el link va al producto que la origina.
-  const hero = ofLine.find((p) => p.id === HEROES[linea.id]) ?? ofLine.find((p) => p.data.image);
+
+  // Los que la colección marcó, en su orden. Si no hay ninguno marcado cae al
+  // primer producto con foto de la línea, para que el bloque nunca quede sin
+  // imagen. La fila de miniaturas la decide la cantidad, no la línea: con uno
+  // solo no se dibuja, porque una fila de una miniatura se ve rota.
+  const marcados = ofLine
+    .filter((p) => p.data.destacadoEnLinea !== undefined && recorte(p.id))
+    .sort((a, b) => a.data.destacadoEnLinea! - b.data.destacadoEnLinea!);
+  const elegidos = marcados.length > 0 ? marcados : [ofLine.find((p) => recorte(p.id))].filter(Boolean);
+
+  const items = await Promise.all(
+    elegidos.map(async (p) => ({
+      id: p!.id,
+      name: p!.data.name,
+      // La píldora dice la MARCA, no el producto: los nombres de producto
+      // cambian mucho de largo y la píldora saltaba de ancho en cada paso.
+      brand: p!.data.brand?.id ?? null,
+      brandName: p!.data.brand ? (brandName.get(p!.data.brand.id) ?? p!.data.brand.id) : null,
+      // La miniatura se genera chica de verdad: la grande escalada por CSS
+      // baja un archivo diez veces más pesado por cada punto de la fila.
+      thumb: await getImage({ src: recorte(p!.id)!, width: 96, height: 96, fit: 'contain', format: 'webp' }),
+      cutout: recorte(p!.id)!,
+    })),
+  );
+
   return {
     linea,
-    hero,
-    cutout: CUTOUTS[linea.id],
+    items,
     count: ofLine.length,
+    // Una subcategoría sin productos deja de mostrarse: el chip vacío no
+    // lleva a ningún lado.
+    subs: linea.data.subcategories
+      .map((sub) => ({ ...sub, count: ofLine.filter((p) => p.data.subcategory === sub.name).length }))
+      .filter((sub) => sub.count > 0),
     accent: lineAccent(linea.id),
   };
-});
+}));
 ---
 
 <div class="lines">
-  {blocks.map(({ linea, hero, cutout, count, accent }, i) => (
+  {blocks.map(({ linea, items, count, subs, accent }, i) => (
     <section class="line" style={`--line-bg:${accent.color};--line-fg:${accent.text}`}>
       <div class="container line__inner" data-flip={i % 2 === 1}>
         <div class="line__text" data-reveal>
@@ -50,9 +69,9 @@ const blocks = lineas.map((linea) => {
           <h2 class="title-lg">{linea.data.name}</h2>
           <p class="line__desc">{linea.data.description}</p>
 
-          {linea.data.subcategories.length > 0 && (
+          {subs.length > 0 && (
             <ul class="line__cats">
-              {linea.data.subcategories.map((sub) => (
+              {subs.map((sub) => (
                 <li>{sub.name} <span>{sub.count}</span></li>
               ))}
             </ul>
@@ -65,28 +84,160 @@ const blocks = lineas.map((linea) => {
           </div>
         </div>
 
-        {hero && cutout && (
-          <div class="line__media" data-reveal style="--reveal-delay:120ms">
+        {items.length > 0 && (
+          <div class="line__media" data-reveal style="--reveal-delay:120ms" data-linea={linea.id}>
             <div class="line__stage">
               <span class="line__ring" aria-hidden="true"></span>
-              {/* alt vacío a propósito: la foto es decorativa y el link de
-                  abajo ya anuncia el nombre del producto. */}
-              <Image
-                src={cutout}
-                alt=""
-                widths={[360, 560, 800]}
-                sizes="(min-width: 940px) 38vw, 72vw"
-                loading="lazy"
-                class="line__img"
-              />
+              {/* Todos los productos se pintan de entrada, superpuestos: el
+                  cambio es un cross-fade de opacidad y no hay una segunda
+                  descarga que haga parpadear el primer paso. alt vacío a
+                  propósito, la píldora de abajo dice el nombre. */}
+              {items.map((it, j) => (
+                <Image
+                  src={it.cutout}
+                  alt=""
+                  widths={[360, 560, 800]}
+                  sizes="(min-width: 940px) 38vw, 72vw"
+                  loading={j === 0 ? 'eager' : 'lazy'}
+                  class:list={['line__img', { 'is-on': j === 0 }]}
+                  data-j={j}
+                />
+              ))}
             </div>
-            <a class="line__tag" href={`/productos/${hero.id}`}>{hero.data.name}</a>
+
+            {/* Las píldoras se apilan en la misma celda de la grilla: la altura
+                queda reservada por la más alta y el bloque no salta al pasar a
+                un nombre más largo. */}
+            <div class="line__pills">
+              {items.map((it, j) => (
+                <a
+                  class:list={['line__tag', { 'is-on': j === 0 }]}
+                  href={it.brand ? `/productos?marca=${it.brand}` : `/productos/${it.id}`}
+                  data-j={j}
+                  aria-hidden={j === 0 ? undefined : 'true'}
+                  tabindex={j === 0 ? undefined : -1}
+                  aria-label={it.brandName
+                    ? `Ver productos de ${it.brandName}. Producto mostrado: ${it.name}`
+                    : it.name}
+                >
+                  Distribuimos {it.brandName ?? it.name}
+                  {/* El nombre completo del producto no se va del DOM: es lo que
+                      identifica qué se está viendo, y el aria-label de arriba no
+                      lo deja disponible para quien no usa lector de pantalla. */}
+                  <span class="sr-only"> · {it.name}</span>
+                </a>
+              ))}
+            </div>
+
+            {items.length > 1 && (
+              <div class="line__thumbs" role="group" aria-label={`Elegir producto de ${linea.data.name}`}>
+                {items.map((it, j) => (
+                  <button
+                    type="button"
+                    class:list={['line__thumb', { 'is-on': j === 0 }]}
+                    data-j={j}
+                    aria-label={`Ver ${it.name}`}
+                    aria-pressed={j === 0 ? 'true' : 'false'}
+                  >
+                    <img src={it.thumb.src} alt="" width="48" height="48" loading="lazy" decoding="async" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>
     </section>
   ))}
 </div>
+
+<script>
+  // Rotacion del selector de productos de cada bloque de linea.
+  const ROTACION_MS = 4500;
+
+  // Con el ClientRouter el modulo se evalua una sola vez por sesion: cada vuelta
+  // al home montaria temporizadores encima de los de la visita anterior y los
+  // productos empezarian a cambiar cada vez mas rapido. Toda instancia guarda
+  // como desarmarse y se desarma antes de la siguiente.
+  let desmontar: (() => void) | null = null;
+  const limpiar = () => { desmontar?.(); desmontar = null; };
+  document.addEventListener('astro:before-swap', limpiar);
+
+  document.addEventListener('astro:page-load', () => {
+    limpiar();
+
+    const medios = [...document.querySelectorAll<HTMLElement>('.line__media[data-linea]')];
+    if (medios.length === 0) return;
+
+    const mq = matchMedia('(prefers-reduced-motion: reduce)');
+    const ac = new AbortController();
+    const on = { signal: ac.signal };
+    const bajas: (() => void)[] = [];
+
+    for (const medio of medios) {
+      const botones = [...medio.querySelectorAll<HTMLButtonElement>('.line__thumb')];
+      // Sin fila de miniaturas no hay nada que rotar: un solo producto.
+      if (botones.length < 2) continue;
+
+      const imgs = [...medio.querySelectorAll<HTMLElement>('.line__img')];
+      const tags = [...medio.querySelectorAll<HTMLElement>('.line__tag')];
+      let activo = 0;
+      let timer = 0;
+      // Una vez que el usuario elige, manda el usuario: la rotacion no vuelve.
+      let manual = false;
+      const motivos = new Set<string>();
+
+      const pintar = (j: number) => {
+        activo = j;
+        imgs.forEach((el, k) => el.classList.toggle('is-on', k === j));
+        tags.forEach((el, k) => {
+          const on = k === j;
+          el.classList.toggle('is-on', on);
+          // El nombre inactivo sale del arbol de accesibilidad y del tabulador:
+          // sigue en el DOM, pero el unico anunciable es el que se ve.
+          if (on) { el.removeAttribute('aria-hidden'); el.removeAttribute('tabindex'); }
+          else { el.setAttribute('aria-hidden', 'true'); el.tabIndex = -1; }
+        });
+        botones.forEach((b, k) => {
+          b.classList.toggle('is-on', k === j);
+          b.setAttribute('aria-pressed', k === j ? 'true' : 'false');
+        });
+      };
+
+      const detener = () => { clearInterval(timer); timer = 0; };
+      const arrancar = () => {
+        detener();
+        if (manual || mq.matches || motivos.size > 0) return;
+        timer = window.setInterval(() => pintar((activo + 1) % imgs.length), ROTACION_MS);
+      };
+      const pausar = (m: string) => { motivos.add(m); arrancar(); };
+      const seguir = (m: string) => { motivos.delete(m); arrancar(); };
+
+      botones.forEach((b, j) => b.addEventListener('click', () => {
+        manual = true;
+        detener();
+        pintar(j);
+      }, on));
+
+      // Fuera de pantalla no hay nada que mirar, y en segundo plano tampoco.
+      const io = new IntersectionObserver(
+        ([e]) => (e.isIntersecting ? seguir('fuera') : pausar('fuera')),
+        { threshold: 0.3 },
+      );
+      io.observe(medio);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) pausar('pestana'); else seguir('pestana');
+      }, on);
+      // El usuario puede cambiar la preferencia con la pagina abierta.
+      mq.addEventListener('change', arrancar, on);
+
+      bajas.push(() => { detener(); io.disconnect(); });
+      arrancar();
+    }
+
+    desmontar = () => { for (const baja of bajas) baja(); ac.abort(); };
+  });
+</script>
 
 <style>
   .line {
@@ -149,11 +300,34 @@ const blocks = lineas.map((linea) => {
     height: 84%;
     object-fit: contain;
     filter: drop-shadow(0 26px 40px rgb(0 0 0 / 0.32));
+    /* Cross-fade entre productos. El círculo de atrás no se toca. */
+    opacity: 0;
+    transition: opacity var(--dur-base) var(--ease-out);
   }
-  .line__tag {
+  .line__img.is-on { opacity: 1; }
+  /* Todas las píldoras ocupan la MISMA celda: la altura de la fila la fija la
+     más alta y no hay salto al cambiar de producto. */
+  .line__pills {
     position: relative;
     z-index: 2;
+    display: grid;
+    /* stretch y no center: al compartir celda, todas las píldoras toman el
+       ancho de la más larga de la línea. Así el ancho es el mismo para todos
+       los productos sin tener que adivinar un número, y sigue siéndolo si
+       mañana entra una marca de nombre más largo. */
+    justify-items: stretch;
+    justify-content: center;
     margin-top: 0.75rem;
+  }
+  .line__pills > * { grid-area: 1 / 1; }
+
+  .line__tag {
+    /* Ancho mínimo para que no salte al cambiar de marca, y área táctil de
+       44px de alto aunque el texto sea una línea chica. */
+    min-width: 15rem;
+    min-height: 44px;
+    display: grid;
+    place-content: center;
     max-width: 26ch;
     text-align: center;
     background: var(--line-fg);
@@ -163,8 +337,51 @@ const blocks = lineas.map((linea) => {
     font-size: var(--text-sm);
     font-weight: 700;
     text-decoration: none;
+    /* Familia SEGURA: el cambio es un cross-fade de opacidad, que se conserva
+       igual bajo prefers-reduced-motion. */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--dur-base) var(--ease-out);
   }
-  .line__tag:hover { opacity: 0.88; }
+  .line__tag.is-on { opacity: 1; pointer-events: auto; }
+  .line__tag.is-on:hover { opacity: 0.88; }
+  /* El foco tiene que verse sobre el fondo de color del bloque. */
+  .line__tag:focus-visible { outline: 2px solid var(--line-fg); outline-offset: 3px; }
+
+  /* Miniaturas: se ven de 36px pero el botón mide 44 para el dedo. */
+  .line__thumbs {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.15rem;
+    margin-top: 0.5rem;
+  }
+  .line__thumb {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .line__thumb > img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    border: 2px solid transparent;
+    background: color-mix(in srgb, var(--line-fg) 13%, transparent);
+    opacity: 0.55;
+    transition: opacity var(--dur-base) var(--ease-out), border-color var(--dur-base) ease;
+  }
+  .line__thumb.is-on > img { opacity: 1; border-color: var(--lime-500); }
+  .line__thumb:hover > img { opacity: 0.85; }
+  /* El foco tiene que verse sobre el fondo de color del bloque, no sobre blanco. */
+  .line__thumb:focus-visible { outline: 2px solid var(--line-fg); outline-offset: 2px; border-radius: var(--radius-sm); }
 
   @media (min-width: 940px) {
     .line__inner { grid-template-columns: 1fr 1fr; }

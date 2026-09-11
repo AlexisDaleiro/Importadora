@@ -1,0 +1,10 @@
+{
+  "slug": "primocao",
+  "brand": "primocao",
+  "href": "/productos?marca=primocao",
+  "imageDesktop": "../../assets/banners/banner-primocao-desktop.png",
+  "imageMobile": "../../assets/banners/banner-primocao-mobile.png",
+  "alt": "Banner de la marca Primocão",
+  "order": 6,
+  "active": true
+}
