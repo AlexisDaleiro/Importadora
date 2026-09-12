@@ -40,6 +40,33 @@ const { product, brand, linea, related } = Astro.props;
 const d = product.data;
 const accent = lineAccent(linea.id);
 const gallery = d.gallery.length > 0 ? d.gallery : d.image ? [d.image] : [];
+
+// ── Galería ───────────────────────────────────────────────────────────────
+// La imagen principal se muestra a 440px CSS con miniaturas y a 500px sin
+// ellas: es lo que dice `.sheet__img` (min(80%, 440px) / min(92%, 500px)).
+// El `sizes` anterior decía 46vw, que en una pantalla de 1920 pide 883px para
+// una imagen que nunca pasa de 440.
+const anchoMain = gallery.length > 1 ? 440 : 500;
+const sizesMain = `(min-width: 940px) ${anchoMain}px, ${gallery.length > 1 ? '80vw' : '92vw'}`;
+
+// Densidades 1x, 1.5x y 2x, recortadas al ancho del archivo fuente: se
+// aprovecha toda la resolución que hay y nunca se amplía. Las fuentes de este
+// catálogo llegan a 600px, así que en la práctica salen dos variantes.
+const densidades = (ancho: number, fuente: number) => {
+  const ws = [ancho, Math.round(ancho * 1.5), ancho * 2].filter((w) => w <= fuente);
+  if (fuente > (ws.at(-1) ?? 0)) ws.push(fuente);
+  return [...new Set(ws)];
+};
+
+// Cada vista de la galería en su versión GRANDE. Hacen falta todas, no solo la
+// primera: al tocar una miniatura hay que poder poner la grande de esa imagen.
+// Antes el script copiaba src y srcset del <img> de la miniatura, que trae una
+// sola variante de 110w, y estiraba 110px a 440px.
+const grandes = await Promise.all(
+  gallery.map((img) =>
+    getImage({ src: img, widths: densidades(anchoMain, img.width), sizes: sizesMain, format: 'webp' }),
+  ),
+);
 // Mensaje del CTA de WhatsApp: nombre del producto + marca, como pide el cliente.
 const consulta = `Hola, quisiera consultar por disponibilidad de ${d.name}${brand ? ` (${brand.data.name})` : ''}`;
 
@@ -49,6 +76,25 @@ const tituloFicha =
   brand && !d.name.toLowerCase().includes(brand.data.name.toLowerCase())
     ? `${d.name} — ${brand.data.name}`
     : d.name;
+
+// ── Acordeones de "Información técnica" ──────────────────────────────────
+// La composición es un acordeón más, no un bloque aparte: son 120 palabras y
+// siempre a la vista descompensarían el alto de las dos columnas.
+//
+// Va en el medio, entre las recomendaciones de uso y la tabla nutricional, y
+// desplaza a cualquier bloque "Ingredientes" que el relevamiento ya hubiera
+// traído: son el mismo dato, y 4 fichas tienen los dos.
+const tecnicos: { label: string; html?: string; texto?: string }[] = d.technicalSheet
+  .filter((b) => !(d.composition && /ingredientes/i.test(b.label)))
+  .map((b) => ({ label: b.label, html: normalizarTecnica(b.content) }));
+
+if (d.composition) {
+  const nutricional = tecnicos.findIndex((b) => /tabla nutricional/i.test(b.label));
+  tecnicos.splice(nutricional === -1 ? tecnicos.length : nutricional, 0, {
+    label: 'Composición básica',
+    texto: d.composition,
+  });
+}
 
 // Al compartir la ficha, la preview usa la foto del producto en vez del og.png del sitio.
 const ogProducto = gallery[0]
@@ -86,16 +132,23 @@ const ogProducto = gallery[0]
   >
     <div class="sheet__media" data-reveal>
       <span class="sheet__ring" aria-hidden="true"></span>
-      {gallery[0] && (
-        <Image
-          src={gallery[0]}
+      {grandes[0] && (
+        /* <img> crudo y no <Image>: el JS de las miniaturas reemplaza src y
+           srcset, así que las variantes se resuelven acá arriba y son las
+           mismas que va a poner el clic. El alto lo fija la relación 1:1 del
+           CSS, no el archivo, para que cambiar de vista no mueva la página. */
+        <img
+          id="main-img"
+          class="sheet__img"
+          src={grandes[0].src}
+          srcset={grandes[0].srcSet.attribute}
+          sizes={sizesMain}
+          width={anchoMain}
+          height={anchoMain}
           alt={d.name}
-          widths={[420, 700, 980]}
-          sizes="(min-width: 940px) 46vw, 90vw"
           loading="eager"
           fetchpriority="high"
-          class="sheet__img"
-          id="main-img"
+          decoding="async"
         />
       )}
 
@@ -106,12 +159,18 @@ const ogProducto = gallery[0]
               <button
                 type="button"
                 class:list={['thumb', i === 0 && 'is-on']}
-                data-src={img.src}
                 data-i={i}
+                data-src={grandes[i].src}
+                data-srcset={grandes[i].srcSet.attribute}
+                data-alt={`${d.name} — imagen ${i + 1}`}
                 aria-label={`Ver imagen ${i + 1} de ${gallery.length}`}
                 aria-pressed={i === 0 ? 'true' : 'false'}
               >
-                <Image src={img} alt={`${d.name} — imagen ${i + 1}`} widths={[110]} sizes="90px" loading="lazy" />
+                {/* La miniatura se ve a 57px: 58w para 1x y 116w para pantallas
+                    de alta densidad. Estas variantes son solo para el botón; la
+                    imagen principal usa las de `grandes`, que viajan en los
+                    data-. */}
+                <Image src={img} alt="" widths={[58, 116]} sizes="58px" loading="lazy" />
               </button>
             </li>
           ))}
@@ -156,7 +215,7 @@ const ogProducto = gallery[0]
     </div>
   </article>
 
-  {(d.description.length > 0 || d.technicalSheet.length > 0) && (
+  {(d.description.length > 0 || tecnicos.length > 0) && (
     <section
       class:list={[
         'detail',
@@ -164,7 +223,7 @@ const ogProducto = gallery[0]
         /* Dos columnas solo cuando hay contenido de los dos lados: 52 fichas no
            tienen ficha técnica y con la grilla fija les quedaba media pantalla
            en blanco. */
-        d.description.length > 0 && d.technicalSheet.length > 0 && 'detail--dos',
+        d.description.length > 0 && tecnicos.length > 0 && 'detail--dos',
       ]}
     >
       {d.description.length > 0 && (
@@ -174,13 +233,22 @@ const ogProducto = gallery[0]
         </div>
       )}
 
-      {d.technicalSheet.length > 0 && (
+      {tecnicos.length > 0 && (
         <div class="detail__tech" data-reveal>
           <h2 class="title-lg">Información técnica</h2>
-          {d.technicalSheet.map((block) => (
+          {tecnicos.map((block) => (
             <details>
               <summary>{block.label}</summary>
-              <div class="tech__body" set:html={normalizarTecnica(block.content)} />
+              {block.html ? (
+                <div class="tech__body" set:html={block.html} />
+              ) : (
+                <div class="tech__body">
+                  <p>{block.texto}</p>
+                  <p class="tech__nota">
+                    Los ingredientes se listan en orden de proporción en la fórmula.
+                  </p>
+                </div>
+              )}
             </details>
           ))}
         </div>
@@ -300,20 +368,44 @@ const ogProducto = gallery[0]
     // Corta en cualquier pagina que no sea una ficha de producto.
     if (!document.querySelector('.sheet')) return;
 
-    // Galería: una sola imagen grande, las miniaturas solo cambian el src.
+    // Galería. Cada miniatura lleva en sus data- la version GRANDE de su
+    // imagen, generada en el build al ancho de despliegue de la principal.
+    //
+    // Nunca se copia src ni srcset del <img> de la miniatura: ese elemento solo
+    // tiene la variante de 58w porque se ve a 57px, y la principal se muestra a
+    // 440px. Copiarlo dejaba la imagen estirada, y como tambien pisaba el
+    // srcset de la primera vista, volver a la miniatura inicial no recuperaba
+    // nada: hacia falta recargar.
     const main = document.getElementById('main-img') as HTMLImageElement | null;
     const thumbs = [...document.querySelectorAll<HTMLButtonElement>('.thumb')];
-    for (const t of thumbs) {
-      t.addEventListener('click', () => {
-        const img = t.querySelector('img');
-        if (!main || !img) return;
-        main.src = img.currentSrc || img.src;
-        main.srcset = img.srcset;
+
+    if (main && thumbs.length > 0) {
+      const mostrar = (t: HTMLButtonElement) => {
+        // srcset antes que src: el navegador elige del srcset y src queda de
+        // respaldo. Al reves se descarga la de respaldo antes de tiempo.
+        main.srcset = t.dataset.srcset ?? '';
+        main.src = t.dataset.src ?? '';
+        main.alt = t.dataset.alt ?? main.alt;
         for (const o of thumbs) {
           o.classList.toggle('is-on', o === t);
           o.setAttribute('aria-pressed', String(o === t));
         }
-      });
+      };
+      for (const t of thumbs) t.addEventListener('click', () => mostrar(t));
+
+      // Precarga de las vistas grandes, para que el cambio sea inmediato y no
+      // se vea el salto de baja a alta calidad. Va despues del primer render
+      // para no competir con la imagen que manda el LCP.
+      const precargar = () => {
+        for (const t of thumbs) {
+          const im = new Image();
+          im.sizes = main.sizes;
+          im.srcset = t.dataset.srcset ?? '';
+          im.src = t.dataset.src ?? '';
+        }
+      };
+      if ('requestIdleCallback' in window) requestIdleCallback(precargar, { timeout: 3000 });
+      else setTimeout(precargar, 1200);
     }
 
     // Formulario B2B: mismo criterio que /contacto, POST a Formspree con fetch.
@@ -392,6 +484,11 @@ const ogProducto = gallery[0]
     position: relative;
     z-index: 1;
     width: min(80%, 440px);
+    /* Caja cuadrada fija en vez de alto automático: 228 de las 234 fotos del
+       catálogo ya son cuadradas, y las seis que no lo son movían la página
+       entera al cambiar de vista. Con `contain` esas seis se ven enteras,
+       centradas dentro del círculo de acento. */
+    aspect-ratio: 1;
     height: auto;
     object-fit: contain;
   }
@@ -485,6 +582,9 @@ const ogProducto = gallery[0]
       radial-gradient(farthest-side at 0 50%, rgb(4 25 29 / 0.16), transparent) left / 14px 100% no-repeat scroll,
       radial-gradient(farthest-side at 100% 50%, rgb(4 25 29 / 0.16), transparent) right / 14px 100% no-repeat scroll;
   }
+  /* La composición es el único acordeón con texto corrido en vez de tabla. */
+  .tech__body p { margin: 0; }
+  .tech__body .tech__nota { margin-top: 0.75rem; font-size: var(--text-2xs); opacity: 0.75; }
 
   .related { background: var(--bg-soft); }
   .related h2 { margin-bottom: 1.5rem; }

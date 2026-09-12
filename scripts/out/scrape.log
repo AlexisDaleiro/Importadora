@@ -1,0 +1,112 @@
+103 productos de alimento-para-mascotas; 101 por bajar.
+[1/101] ok     beny-para-perros-cachorro-de-todas-las-razas — 4 palabras
+[2/101] ok     biofresh-para-cachorros-razas-grandes-y-gigantes — 196 palabras
+[3/101] ok     biofresh-para-gatos-adultos — 137 palabras
+[4/101] ok     biofresh-para-gatos-cachorros — 136 palabras
+[5/101] ok     biofresh-para-gatos-castrados — 140 palabras
+[6/101] ok     biofresh-para-perro-adulto-light-razas-grandes-y-gigantes — 333 palabras
+[7/101] ok     biofresh-para-perros-adulto-de-razas-medianas-castrado — 344 palabras
+[8/101] ok     biofresh-para-perros-adultos-razas-grandes-y-gigantes — 193 palabras
+[9/101] ok     biofresh-para-perros-adultos-razas-pequenas-y-mini — 188 palabras
+[10/101] ok     biofresh-para-perros-adultos-razas-pequenas-y-mini-2 — 191 palabras
+[11/101] ok     biofresh-para-perros-adultos-razas-pequenas-y-mini-light — 323 palabras
+[12/101] ERROR  biofresh-para-perros-castrados-razas-grandes-y-gigantes — page.waitForFunction: Timeout 20000ms exceeded.
+[13/101] ok     biofresh-para-perros-light-razas-medianas — 213 palabras
+[14/101] ok     biofresh-para-perros-razas-medianas — 188 palabras
+[15/101] ok     biofresh-para-perros-razas-medianas-adulto — 189 palabras
+[16/101] ok     biofresh-para-perros-razas-pequenas-y-mini-adulto-castrado — 348 palabras
+[17/101] ok     biofresh-para-perros-senior-razas-grandes-y-gigantes — 206 palabras
+[18/101] ok     biofresh-para-perros-senior-razas-medianas — 199 palabras
+[19/101] ok     biofresh-para-perros-senior-razas-pequenas-y-mini — 206 palabras
+[20/101] ok     cachorros-todas-las-razas-carne-y-leche — 92 palabras
+[21/101] ok     castrados-pollo — 91 palabras
+[22/101] ok     gatitos-pollo-y-leche — 105 palabras
+[23/101] ok     gatos-adultos-carne-pollo-y-pescado — 114 palabras
+[24/101] ok     gran-plus-cachorros-sobre — 105 palabras
+[25/101] ok     gran-plus-choice-para-gatos-adulto — 116 palabras
+[26/101] ok     gran-plus-gourmet-para-perros-adultos-razas-medianas-y-grandes — 150 palabras
+[27/101] ok     gran-plus-gourmet-perro-adulto-razas-pequenas-y-mini — 148 palabras
+[28/101] ok     gran-plus-para-gatos-adulto — 165 palabras
+[29/101] ok     gran-plus-para-gatos-adulto-sobre — 112 palabras
+[30/101] ok     gran-plus-para-gatos-cachorro — 105 palabras
+[31/101] ok     gran-plus-para-gatos-cachorros — 154 palabras
+[32/101] ok     gran-plus-para-gatos-castrado-sobre — 110 palabras
+[33/101] ok     gran-plus-para-gatos-castrados — 171 palabras
+[34/101] ok     gran-plus-para-gatos-senior-castrado — 171 palabras
+[35/101] ok     gran-plus-para-gatos-tracto-urinario-sobre — 105 palabras
+[36/101] ok     gran-plus-para-perros-adulto-sobre — 101 palabras
+[37/101] ok     gran-plus-para-perros-adultos-razas-medianas — 140 palabras
+[38/101] ok     gran-plus-para-perros-adultos-razas-pequenas-y-mini — 141 palabras
+[39/101] ok     gran-plus-para-perros-adultos-razas-pequenas-y-mini-light — 141 palabras
+[40/101] ok     gran-plus-para-perros-cachorros-razas-medianas-y-grandes — 140 palabras
+[41/101] ok     gran-plus-para-perros-cachorros-razas-pequenas-y-mini — 141 palabras
+[42/101] ok     gran-plus-para-perros-razas-medianas-y-grandes-senior — 144 palabras
+[43/101] ok     gran-plus-para-perros-razas-pequenas-y-mini-senior — 148 palabras
+[44/101] ok     guabi-natural-para-gatos-adulto-castrado-grain-free — 206 palabras
+[45/101] ok     guabi-natural-para-gatos-adultos — 237 palabras
+[46/101] ok     guabi-natural-para-gatos-adultos-sobre-2 — 26 palabras
+[47/101] ok     guabi-natural-para-gatos-cachorro — 218 palabras
+[48/101] ok     guabi-natural-para-gatos-castrados — 241 palabras
+[49/101] ok     guabi-natural-para-gatos-senior-castrado — 235 palabras
+[50/101] ok     guabi-natural-para-gatos-sobre-grain-free — 17 palabras
+[51/101] ok     guabi-natural-para-perros-adultos-sachet — 55 palabras
+[52/101] ok     guabi-natural-para-perros-razas-medianas-grain-free — 208 palabras
+[53/101] ok     guabi-natural-para-perros-razas-pequenas-y-mini-grain-free — 198 palabras
+[54/101] ok     guabi-natural-para-perros-sachet-grain-free — 17 palabras
+[55/101] ok     original-adultos-de-pequenas-razas-carne-y-arroz — 98 palabras
+[56/101] ERROR  original-adultos-razas-medianas-y-grandes-carne-y-pollo — locator.waitFor: Timeout 20000ms exceeded.
+[57/101] ok     original-gatos-adultos-carne-y-pollo — 100 palabras
+[58/101] ok     pate-para-gatos-adultos-primogato — 176 palabras
+[59/101] ok     pate-para-gatos-cachorros-primogato — 86 palabras
+[60/101] ok     pate-para-perros-adultos-primocao — 182 palabras
+[61/101] ok     pate-para-perros-cachorros-primocao — 87 palabras
+[62/101] ok     pate-three-cats-adultos-sabor-de-pescado-pollo-y-carne — 98 palabras
+[63/101] ok     pate-three-cats-castrado-bola-de-pelos-sabor-pescado-blanco — 87 palabras
+[64/101] ok     pate-three-cats-castrados-sabor-pollo — 89 palabras
+[65/101] ok     pate-three-cats-gatitos-sabor-pollo — 85 palabras
+[66/101] ok     pate-three-dogs-adulto-sabor-carne-y-zanahoria — 99 palabras
+[67/101] ok     pate-three-dogs-cachorro-sabor-pollo — 87 palabras
+[68/101] ok     pate-three-dogs-light-sabor-pollo — 92 palabras
+[69/101] ok     pate-three-dogs-senior-sabor-pollo — 100 palabras
+[70/101] ok     perros-adultos-de-pequenas-razas-pollo-y-vegetales — 129 palabras
+[71/101] ok     perros-adultos-razas-medianas-y-grandes-carne-y-vegetales — 101 palabras
+[72/101] ERROR  primocao-original — page.waitForFunction: Timeout 20000ms exceeded.
+[73/101] ok     sachet-para-gatos-adultos-primogato — 121 palabras
+[74/101] ok     sachet-para-gatos-cachorro — 54 palabras
+[75/101] ok     sachet-para-perros-adultos-primocao — 121 palabras
+[76/101] ok     sachet-para-perros-cachorros-primocao — 55 palabras
+[77/101] ok     sachet-three-cats-adultos — 89 palabras
+[78/101] ok     sachet-three-cats-castrados — 90 palabras
+[79/101] ok     sachet-three-cats-gatitos — 91 palabras
+[80/101] ok     sachet-three-dogs-adulto-razas-medianas-y-grandes — 90 palabras
+[81/101] ok     sachet-three-dogs-adulto-razas-pequenas — 90 palabras
+[82/101] ok     sachet-three-dogs-cachorros — 93 palabras
+[83/101] ok     snack-para-perros-distintos-sabores — 104 palabras
+[84/101] ok     three-cats-original-castrados-senior — 38 palabras
+[85/101] ok     three-cats-premium-especial-original-adultos — 109 palabras
+[86/101] ok     three-cats-premium-especial-original-castrados — 106 palabras
+[87/101] ok     three-cats-super-premium-adultos-castrados-bolas-de-pelos-pollo — 118 palabras
+[88/101] ok     three-cats-super-premium-adultos-salmon-pollo-y-carne — 121 palabras
+[89/101] ok     three-cats-super-premium-gatitos-pollo — 115 palabras
+[90/101] ok     three-cats-super-premium-gatos-castrados-6-meses-salmon — 116 palabras
+[91/101] ok     three-dogs-adulto-super-premium-razas-medianas-y-grandes-carne-y-arroz — 124 palabras
+[92/101] ok     three-dogs-original-perros-razas-medianas-y-grandes — 100 palabras
+[93/101] ok     three-dogs-original-perros-senior-razas-medianas-y-grandes — 210 palabras
+[94/101] ok     three-dogs-premium-especial-original-adultos-razas-pequenas-e-minis — 97 palabras
+[95/101] ok     three-dogs-premium-especial-original-cachorros-de-razas-medianas-y-grandes — 100 palabras
+[96/101] ok     three-dogs-premium-especial-original-cachorros-de-razas-pequenas-y-mini — 100 palabras
+[97/101] ok     three-dogs-super-premium-adultos-razas-pequenas-y-mini-pollo-y-zanahoria — 130 palabras
+[98/101] ok     three-dogs-super-premium-cachorros-razas-medianas-y-grandes-pollo-y-arroz — 118 palabras
+[99/101] ok     three-dogs-super-premium-cachorros-razas-pequenas-y-mini-pollo-y-arroz — 117 palabras
+[100/101] ok     three-dogs-super-premium-light-pollo-y-papa-dulce — 131 palabras
+[101/101] ok     three-dogs-super-premium-senior-7-pollo-y-te-verde — 127 palabras
+
+── Reporte ──
+con composición : 100
+sin pestaña     : 0
+fallaron        : 3
+  biofresh-para-perros-castrados-razas-grandes-y-gigantes — page.waitForFunction: Timeout 20000ms exceeded.
+  original-adultos-razas-medianas-y-grandes-carne-y-pollo — locator.waitFor: Timeout 20000ms exceeded.
+  primocao-original — page.waitForFunction: Timeout 20000ms exceeded.
+
+JSON: C:\Users\CRISTIAN\Desktop\Proyectos PROGRAMACION\Importadora\scripts\out\ingredientes.json

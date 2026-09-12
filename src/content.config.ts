@@ -69,6 +69,13 @@ const products = defineCollection({
       technicalSheet: z
         .array(z.object({ label: z.string(), content: z.string() }))
         .default([]),
+      /**
+       * Lista de ingredientes tal como la publica la pestaña "Ingredientes" de
+       * la ficha oficial. La baja `scripts/scrape-ingredientes.mjs`. Solo la
+       * tienen los productos de alimento, y ni siquiera todos: es opcional de
+       * verdad y la ficha no dibuja el acordeón cuando falta.
+       */
+      composition: z.string().nullable().default(null),
       image: image().nullable().default(null),
       gallery: z.array(image()).default([]),
       featured: z.boolean().default(false),
