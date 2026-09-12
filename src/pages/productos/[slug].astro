@@ -206,9 +206,16 @@ const ogProducto = gallery[0]
 
       <div class="sheet__cta">
         <Button href={contactLink(consulta)} variant="primary" size="lg">Consultar por WhatsApp</Button>
-        <Button href="tel:08001004" variant="outline" size="lg">Llamar al {site.tollFree}</Button>
-        <Button href={`mailto:${site.email}?subject=${encodeURIComponent(`Consulta: ${d.name}`)}`} variant="outline" size="lg">
-          Consultar por correo
+        <Button href="tel:08001004" variant="outline" size="lg" aria-label={`Llamar al ${site.tollFree}`}>
+          {site.tollFree}
+        </Button>
+        <Button
+          href={`mailto:${site.email}?subject=${encodeURIComponent(`Consulta: ${d.name}`)}`}
+          variant="outline"
+          size="lg"
+          aria-label="Consultar por correo"
+        >
+          Correo
         </Button>
       </div>
       <p class="sheet__note">Districo distribuye a comercios; no realiza venta directa al público.</p>
@@ -495,7 +502,18 @@ const ogProducto = gallery[0]
   .sheet--sinGaleria .sheet__ring { width: min(96%, 520px); }
   .sheet--sinGaleria .sheet__img { width: min(92%, 500px); }
 
-  .sheet__thumbs { position: relative; z-index: 1; display: flex; gap: 0.5rem; list-style: none; padding: 0; }
+  /* Con wrap: cinco miniaturas de 72px no entran en 360px y estiraban la
+     columna de la ficha hasta desbordar el documento. */
+  .sheet__thumbs {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+  }
   .thumb {
     width: 72px;
     height: 72px;
@@ -546,7 +564,11 @@ const ogProducto = gallery[0]
        más corta marca el hueco. */
     align-items: start;
   }
-  .detail > * { max-width: 74ch; }
+  /* min-width: 0 obligatorio: el min-width:auto de un item de grid toma el
+     min-content de su contenido, y ahí entra la tabla técnica con
+     min-width:max-content. Sin esto la columna se estira a 684px y desborda el
+     documento entero en mobile, en vez de dejar que scrollee .tech__body. */
+  .detail > * { max-width: 74ch; min-width: 0; }
   .detail__text p { color: var(--fg-muted); margin-top: 1rem; max-width: 62ch; }
   .detail h2 { margin-bottom: 0.5rem; }
 

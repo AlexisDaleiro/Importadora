@@ -24,7 +24,10 @@ const { color, tone = 'soft', class: className = '' } = Astro.props;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     line-height: 1.2;
-    white-space: nowrap;
+    /* Sin nowrap: los chips de beneficios llevan frases largas ("Sin
+       transgénicos, sal, colorantes...") y en 412px su min-content estiraba la
+       columna de la ficha a 445px, o sea desbordaba el documento entero. */
+    text-wrap: balance;
   }
   .badge--soft { background: color-mix(in srgb, var(--badge-color) 12%, transparent); color: var(--badge-color); }
   .badge--solid { background: var(--badge-color); color: var(--white); }
