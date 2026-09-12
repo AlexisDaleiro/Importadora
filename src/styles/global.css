@@ -56,7 +56,12 @@
   /* Alto real del header sticky (min-height de .hdr__inner). Lo usan las
      barras de filtros, que se pegan justo debajo. */
   --hdr-h: 76px;
-  --container: 1240px;
+  /* Ancho de la composición. Subió de 1240px a 1440px para que el banner del
+     home tenga presencia: con 1240 el slide activo medía 1064px en una pantalla
+     de 1920 y quedaban 428px en blanco a cada lado. Todas las grillas del sitio
+     son `fr`, así que escalan solas y el header, el banner, el hero y la barra
+     de estadísticas siguen alineados sobre el mismo borde. */
+  --container: 1440px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --section-y: clamp(4rem, 8vw, 7.5rem);
   /* Segundo escalón del ritmo vertical: cabeceras de página y bloques

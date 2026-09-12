@@ -7,13 +7,16 @@ import { getImage } from 'astro:assets';
 
   Tres modos según cuántos banners activos haya, resueltos acá y no en la
   página: con 0 no se renderiza nada, con 1 se pinta un banner fijo (sin
-  puntos, sin flechas y sin slides asomados, que con uno solo se ven rotos) y
-  con 2 o más se arma el carrusel.
+  puntos y sin flechas) y con 2 o más se arma el carrusel. La cantidad sale
+  siempre de la colección: no hay ningún número de banners escrito a mano.
 
   El movimiento es el scroll nativo del track con scroll-snap. No hay librería
   ni animación propia: el JS solo lee en qué slide quedó el scroll para pintar
-  los puntos, y lo empuja cuando alguien toca un punto, una flecha o un slide
-  asomado.
+  los puntos, y lo empuja cuando alguien toca un punto o una flecha.
+
+  El track no lleva padding lateral, así que el slide activo ocupa la ventana
+  entera y los vecinos quedan afuera del borde de recorte: no se ve nunca un
+  fragmento de otro banner.
 */
 const activos = (await getCollection('banners'))
   .filter((b) => b.data.active)
@@ -54,12 +57,12 @@ const carrusel = slides.length >= 2;
                   apaisada son artes distintos, no dos recortes de la misma
                   foto, asi que van como dos fuentes y no como un srcset. */}
               <picture>
-                <source media="(min-width: 768px)" srcset={s.desktop.srcSet.attribute} sizes="(min-width: 940px) 1160px, 92vw" />
+                <source media="(min-width: 768px)" srcset={s.desktop.srcSet.attribute} sizes="(min-width: 940px) 1344px, 100vw" />
                 <img
                   class="bnr__img"
                   src={s.mobile.src}
                   srcset={s.mobile.srcSet.attribute}
-                  sizes="92vw"
+                  sizes="100vw"
                   width={768}
                   height={1024}
                   alt=""
@@ -148,10 +151,11 @@ const carrusel = slides.length >= 2;
     // primero seria un rebobinado. Se clona el ultimo al principio y el
     // primero al final, siempre dos clones sea cual sea la cantidad de
     // banners, calculados desde la coleccion y nunca escritos a mano. La
-    // fila queda [N] [1] [2] ... [N] [1]: el usuario nunca ve un extremo,
-    // siempre asoma un vecino de los dos lados, y al aterrizar sobre un clon
-    // se reposiciona al gemelo real de golpe, invisible porque lo pintado es
-    // identico.
+    // fila queda [N] [1] [2] ... [N] [1]: el usuario nunca ve un extremo, y al
+    // aterrizar sobre un clon se reposiciona al gemelo real de golpe,
+    // invisible porque lo pintado es identico. Los clones viven dentro del
+    // track, que recorta en su borde, asi que nunca asoman fuera de la
+    // ventana del carrusel.
     const clonar = (s: HTMLAnchorElement) => {
       const c = s.cloneNode(true) as HTMLAnchorElement;
       c.setAttribute('aria-hidden', 'true');
@@ -323,10 +327,10 @@ const carrusel = slides.length >= 2;
 
 <style>
   .bnr {
-    /* Asomo del slide vecino a cada lado y aire entre slides. El padding del
-       track es la suma de los dos: con eso el slide activo queda centrado y
-       del vecino se ve exactamente --peek. */
-    --peek: 16px;
+    /* Aire entre slides. Es la separación durante el desplazamiento, no un
+       asomo: el track no lleva padding, así que el slide activo ocupa el ancho
+       entero de la ventana y el vecino queda justo afuera del borde de
+       recorte. Nunca se ve un fragmento de otro banner. */
     --gap: 10px;
     /* La relacion de aspecto es la de la pieza oficial, 768x1024 en la
        vertical y 1950x500 en la apaisada, para que el arte entre entero:
@@ -340,7 +344,6 @@ const carrusel = slides.length >= 2;
     display: flex;
     gap: var(--gap);
     overflow-x: auto;
-    padding-inline: calc(var(--peek) + var(--gap));
     scroll-snap-type: x mandatory;
     /* El token pasa a 'auto' bajo prefers-reduced-motion: el cambio de slide
        es instantaneo y lo unico que queda es el cross-fade de los vecinos. */
@@ -348,8 +351,6 @@ const carrusel = slides.length >= 2;
     scrollbar-width: none;
   }
   .bnr__track::-webkit-scrollbar { display: none; }
-  /* Sin puntos ni asomo cuando hay un solo banner. */
-  .bnr--solo .bnr__track { padding-inline: 0; overflow-x: visible; }
 
   .bnr__slide {
     position: relative;
@@ -361,8 +362,9 @@ const carrusel = slides.length >= 2;
     border-radius: var(--radius-lg);
     overflow: hidden;
     background: var(--gray-100);
-    /* Familia SEGURA: los vecinos se atenuan con opacidad, que se conserva
-       igual bajo reduce. */
+    /* Familia SEGURA: el slide entrante se aclara y el saliente se apaga
+       mientras cruzan la ventana. Ya no hay vecinos asomados que atenuar, pero
+       la opacidad sigue siendo lo que suaviza el cambio a mitad de recorrido. */
     opacity: 0.55;
     transition: opacity var(--dur-base) var(--ease-out);
   }
@@ -450,7 +452,6 @@ const carrusel = slides.length >= 2;
 
   @media (min-width: 940px) {
     .bnr {
-      --peek: 24px;
       --gap: 16px;
       /* El aire de arriba lo pone .portada en index.astro, que es quien
          reparte la primera pantalla. Acá queda en cero para que no haya
@@ -464,8 +465,13 @@ const carrusel = slides.length >= 2;
        techo al alto y el ancho lo sigue por la relación de aspecto. En una
        pantalla alta el techo no llega a tocar y el banner va a ancho completo. */
     .bnr__stage {
-      --bnr-alto-max: min(273px, 28.5vh);
-      max-width: calc(var(--bnr-alto-max) * 1950 / 500 + 2 * (var(--peek) + var(--gap)));
+      /* Los 344px son el alto que le toca al banner cuando ocupa el ancho
+         entero del container (1440px menos dos gutters de 48px) con la
+         relación 1950x500. El 36vh es el que manda en pantallas bajas: ahí el
+         banner se angosta en vez de robarle el alto al hero. En 1920x1080 gana
+         el tope en píxeles y el banner va a ancho completo. */
+      --bnr-alto-max: min(344px, 36vh);
+      max-width: calc(var(--bnr-alto-max) * 1950 / 500);
       margin-inline: auto;
     }
 
@@ -485,8 +491,10 @@ const carrusel = slides.length >= 2;
       transition: background-color var(--dur-fast) ease;
     }
     .bnr__flecha:hover { background: var(--white); }
-    .bnr__flecha--prev { inset-inline-start: calc(var(--peek) + var(--gap) + 0.5rem); }
-    .bnr__flecha--next { inset-inline-end: calc(var(--peek) + var(--gap) + 0.5rem); }
+    /* Sin asomo, el borde del slide es el borde del stage: las flechas se
+       apoyan directamente sobre el arte. */
+    .bnr__flecha--prev { inset-inline-start: 0.75rem; }
+    .bnr__flecha--next { inset-inline-end: 0.75rem; }
     .bnr--solo .bnr__flecha { display: none; }
   }
 </style>
