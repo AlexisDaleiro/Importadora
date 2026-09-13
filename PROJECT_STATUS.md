@@ -1,6 +1,6 @@
 # Districo — Estado vigente del proyecto
 
-Actualizado: 2026-09-12.
+Actualizado: 2026-09-13.
 
 ## Producto y objetivo
 
@@ -20,6 +20,10 @@ superficies mediante formulario, teléfono o WhatsApp.
 - Imágenes actuales aceptadas para esta etapa aunque varias sean de resolución limitada.
 - Las 18 fotos editoriales de marca siguen siendo placeholders y deben sustituirse antes de
   una presentación final al cliente.
+- La página `Nosotros` incluye una maqueta de cultura, equipo y novedades. La cifra de 150
+  colaboradores, Mariana Silva y las tres novedades son contenido ficticio de demostración.
+- Los 12 hitos de `Nosotros` se presentan en una línea de tiempo horizontal accesible, sin
+  autoplay, con navegación táctil, por flechas y por teclado. Inicia en 1960.
 
 ## Decisiones vigentes
 
@@ -51,6 +55,8 @@ Después de cambios de código o contenido:
   producto; no corregirlos por inferencia.
 - Completar la descripción de `biofresh-para-perros-castrados-razas-grandes-y-gigantes`
   cuando exista una fuente confirmada.
+- Sustituir la cifra de colaboradores, la historia destacada y las novedades demostrativas de
+  `Nosotros` por datos, fotografías y testimonios aprobados por Districo.
 - Antes de entregar: cambiar credenciales de prueba de Formspree, confirmar WhatsApp y dominio,
   desactivar `NOINDEX` y actualizar `site` en `astro.config.mjs`.
 - Definir precio, mantenimiento y responsable de altas futuras de productos.

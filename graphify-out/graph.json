@@ -398,6 +398,42 @@
       "source_location": "L36"
     },
     {
+      "id": "src_components_milestonetimeline_centraranio",
+      "label": "centrarAnio()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "centraranio()",
+      "source_file": "src/components/MilestoneTimeline.astro",
+      "source_location": "L123"
+    },
+    {
+      "id": "src_components_milestonetimeline_ira",
+      "label": "irA()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "ira()",
+      "source_file": "src/components/MilestoneTimeline.astro",
+      "source_location": "L141"
+    },
+    {
+      "id": "src_components_milestonetimeline_pintar",
+      "label": "pintar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "pintar()",
+      "source_file": "src/components/MilestoneTimeline.astro",
+      "source_location": "L129"
+    },
+    {
       "id": "src_pages_productos_index_apply",
       "label": "apply()",
       "_callable": true,
@@ -664,6 +700,28 @@
       "source_location": "L15"
     },
     {
+      "id": "src_components_statsbar",
+      "label": "StatsBar.astro",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "code",
+      "norm_label": "statsbar.astro",
+      "source_file": "src/components/StatsBar.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_statsbar_filas",
+      "label": "filas",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "code",
+      "norm_label": "filas",
+      "source_file": "src/components/StatsBar.astro",
+      "source_location": "L7"
+    },
+    {
       "id": "src_components_whatsappfab",
       "label": "WhatsAppFab.astro",
       "_origin": "ast",
@@ -794,6 +852,17 @@
       "norm_label": "social",
       "source_file": "src/config.ts",
       "source_location": "L71"
+    },
+    {
+      "id": "src_config_stats",
+      "label": "stats",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "code",
+      "norm_label": "stats",
+      "source_file": "src/config.ts",
+      "source_location": "L84"
     },
     {
       "id": "src_config_sucursales",
@@ -1412,39 +1481,6 @@
       "source_location": "L16"
     },
     {
-      "id": "src_components_statsbar",
-      "label": "StatsBar.astro",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "astro:content",
-      "file_type": "code",
-      "norm_label": "statsbar.astro",
-      "source_file": "src/components/StatsBar.astro",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_statsbar_filas",
-      "label": "filas",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "astro:content",
-      "file_type": "code",
-      "norm_label": "filas",
-      "source_file": "src/components/StatsBar.astro",
-      "source_location": "L7"
-    },
-    {
-      "id": "src_config_centrosregionales",
-      "label": "centrosRegionales",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "astro:content",
-      "file_type": "code",
-      "norm_label": "centrosregionales",
-      "source_file": "src/config.ts",
-      "source_location": "L110"
-    },
-    {
       "id": "src_config_lineshort",
       "label": "lineShort",
       "_origin": "ast",
@@ -1454,17 +1490,6 @@
       "norm_label": "lineshort",
       "source_file": "src/config.ts",
       "source_location": "L128"
-    },
-    {
-      "id": "src_config_stats",
-      "label": "stats",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "astro:content",
-      "file_type": "code",
-      "norm_label": "stats",
-      "source_file": "src/config.ts",
-      "source_location": "L84"
     },
     {
       "id": "src_pages_index",
@@ -1520,39 +1545,6 @@
       "norm_label": "lineas",
       "source_file": "src/pages/marcas/index.astro",
       "source_location": "L9"
-    },
-    {
-      "id": "src_pages_nosotros",
-      "label": "nosotros.astro",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "astro:content",
-      "file_type": "code",
-      "norm_label": "nosotros.astro",
-      "source_file": "src/pages/nosotros.astro",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_pages_nosotros_hitos",
-      "label": "hitos",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "astro:content",
-      "file_type": "code",
-      "norm_label": "hitos",
-      "source_file": "src/pages/nosotros.astro",
-      "source_location": "L13"
-    },
-    {
-      "id": "src_pages_nosotros_infra",
-      "label": "infra",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "astro:content",
-      "file_type": "code",
-      "norm_label": "infra",
-      "source_file": "src/pages/nosotros.astro",
-      "source_location": "L17"
     },
     {
       "id": "scripts_aplicar_ingredientes",
@@ -1774,7 +1766,7 @@
       "node_kind": "heading",
       "norm_label": "decisiones vigentes",
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L24"
+      "source_location": "L28"
     },
     {
       "id": "project_status_districo_estado_vigente_del_proyecto",
@@ -1798,7 +1790,7 @@
       "node_kind": "heading",
       "norm_label": "documentos",
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L58"
+      "source_location": "L64"
     },
     {
       "id": "project_status_estado_actual",
@@ -1822,7 +1814,7 @@
       "node_kind": "heading",
       "norm_label": "pendientes confirmados",
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L47"
+      "source_location": "L51"
     },
     {
       "id": "project_status_producto_y_objetivo",
@@ -1846,7 +1838,7 @@
       "node_kind": "heading",
       "norm_label": "verificacion obligatoria",
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L36"
+      "source_location": "L40"
     },
     {
       "id": "agents",
@@ -2213,6 +2205,83 @@
       "norm_label": "glosario",
       "source_file": "src/lib/tabla-tecnica.ts",
       "source_location": "L21"
+    },
+    {
+      "id": "src_components_milestonetimeline",
+      "label": "MilestoneTimeline.astro",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "milestonetimeline.astro",
+      "source_file": "src/components/MilestoneTimeline.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_config_centrosregionales",
+      "label": "centrosRegionales",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "centrosregionales",
+      "source_file": "src/config.ts",
+      "source_location": "L110"
+    },
+    {
+      "id": "src_pages_nosotros",
+      "label": "nosotros.astro",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "nosotros.astro",
+      "source_file": "src/pages/nosotros.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_pages_nosotros_historiasequipo",
+      "label": "historiasEquipo",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "historiasequipo",
+      "source_file": "src/pages/nosotros.astro",
+      "source_location": "L27"
+    },
+    {
+      "id": "src_pages_nosotros_hitos",
+      "label": "hitos",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "hitos",
+      "source_file": "src/pages/nosotros.astro",
+      "source_location": "L14"
+    },
+    {
+      "id": "src_pages_nosotros_infra",
+      "label": "infra",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "infra",
+      "source_file": "src/pages/nosotros.astro",
+      "source_location": "L18"
+    },
+    {
+      "id": "src_pages_nosotros_novedadesequipo",
+      "label": "novedadesEquipo",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "novedadesequipo",
+      "source_file": "src/pages/nosotros.astro",
+      "source_location": "L40"
     },
     {
       "id": "src_pages_productos_index",
@@ -2786,6 +2855,21 @@
       "source_url": null
     },
     {
+      "id": "districo_brief_diseno_elementos_decorativos",
+      "label": "C\u00edrculos/blobs y stickers de certificaci\u00f3n",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "circulos/blobs y stickers de certificacion",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74 Elementos decorativos",
+      "source_url": null
+    },
+    {
       "id": "districo_brief_diseno_ficha_producto_cta_whatsapp",
       "label": "Ficha de producto con CTA \"Consultar disponibilidad\" prellenado",
       "_origin": "semantic",
@@ -2813,6 +2897,21 @@
       "norm_label": "filtro de catalogo como isla client-side",
       "source_file": "districo-brief-diseno.md",
       "source_location": "\u00a73, \u00a76",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_fotografia_producto_grande",
+      "label": "Fotograf\u00eda de producto grande y protagonista",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "fotografia de producto grande y protagonista",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74 Fotograf\u00eda",
       "source_url": null
     },
     {
@@ -2846,6 +2945,21 @@
       "source_url": null
     },
     {
+      "id": "districo_brief_diseno_motion_fade_slide_up",
+      "label": "Motion: fade-in + slide-up al scroll",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "motion: fade-in + slide-up al scroll",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74 Motion",
+      "source_url": null
+    },
+    {
       "id": "districo_brief_diseno_products_collection",
       "label": "Colecci\u00f3n products (src/content/products)",
       "_origin": "semantic",
@@ -2858,6 +2972,51 @@
       "norm_label": "coleccion products (src/content/products)",
       "source_file": "districo-brief-diseno.md",
       "source_location": "\u00a73",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_referencia_cantera",
+      "label": "Referencia visual Cantera",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "referencia visual cantera",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a71, \u00a74",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_sistema_visual",
+      "label": "Sistema visual",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "sistema visual",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_tipografia_protagonista",
+      "label": "Tipograf\u00eda protagonista (titulares 60-90px, kicker + t\u00edtulo + apoyo)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "tipografia protagonista (titulares 60-90px, kicker + titulo + apoyo)",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74 Tipograf\u00eda",
       "source_url": null
     },
     {
@@ -2966,6 +3125,21 @@
       "source_url": null
     },
     {
+      "id": "districo_brief_diseno_cuello_botella_fotos_baja_resolucion",
+      "label": "Cuello de botella: fotos de producto en baja resoluci\u00f3n",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "cuello de botella: fotos de producto en baja resolucion",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a77",
+      "source_url": null
+    },
+    {
       "id": "districo_brief_diseno_migrar_contenido_real",
       "label": "Migrar contenido textual real del sitio actual",
       "_origin": "semantic",
@@ -2993,6 +3167,21 @@
       "norm_label": "objetivo: conversion a contacto comercial, no venta online",
       "source_file": "districo-brief-diseno.md",
       "source_location": "\u00a71",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_paleta_identidad_actual",
+      "label": "Paleta: teal petr\u00f3leo + verde lima del logo actual",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "paleta: teal petroleo + verde lima del logo actual",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74 Paleta",
       "source_url": null
     },
     {
@@ -3069,126 +3258,6 @@
       "source_file": "src/content/banners/LEEME.md",
       "source_location": null,
       "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_elementos_decorativos",
-      "label": "C\u00edrculos/blobs y stickers de certificaci\u00f3n",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "circulos/blobs y stickers de certificacion",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74 Elementos decorativos",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_fotografia_producto_grande",
-      "label": "Fotograf\u00eda de producto grande y protagonista",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "fotografia de producto grande y protagonista",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74 Fotograf\u00eda",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_motion_fade_slide_up",
-      "label": "Motion: fade-in + slide-up al scroll",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "motion: fade-in + slide-up al scroll",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74 Motion",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_referencia_cantera",
-      "label": "Referencia visual Cantera",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "referencia visual cantera",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a71, \u00a74",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_sistema_visual",
-      "label": "Sistema visual",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "sistema visual",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_tipografia_protagonista",
-      "label": "Tipograf\u00eda protagonista (titulares 60-90px, kicker + t\u00edtulo + apoyo)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "tipografia protagonista (titulares 60-90px, kicker + titulo + apoyo)",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74 Tipograf\u00eda",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_cuello_botella_fotos_baja_resolucion",
-      "label": "Cuello de botella: fotos de producto en baja resoluci\u00f3n",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "cuello de botella: fotos de producto en baja resolucion",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a77",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_paleta_identidad_actual",
-      "label": "Paleta: teal petr\u00f3leo + verde lima del logo actual",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "paleta: teal petroleo + verde lima del logo actual",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74 Paleta",
-      "source_url": null
     }
   ],
   "links": [
@@ -3238,6 +3307,30 @@
       "context": "call",
       "source_file": "src/components/BrandStrip.astro",
       "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_milestonetimeline_ira",
+      "target": "src_components_milestonetimeline_pintar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/MilestoneTimeline.astro",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_milestonetimeline_pintar",
+      "target": "src_components_milestonetimeline_centraranio",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/MilestoneTimeline.astro",
+      "source_location": "L138",
       "weight": 1.0
     },
     {
@@ -3837,7 +3930,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -3849,7 +3942,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -4533,7 +4626,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -4570,6 +4663,18 @@
       "context": "import",
       "source_file": "src/pages/nosotros.astro",
       "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_nosotros",
+      "target": "src_components_milestonetimeline",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/pages/nosotros.astro",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -4978,7 +5083,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L24",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -4989,18 +5094,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L36",
-      "weight": 1.0
-    },
-    {
-      "source": "project_status_districo_estado_vigente_del_proyecto",
-      "target": "project_status_pendientes_confirmados",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PROJECT_STATUS.md",
-      "source_location": "L47",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -5016,13 +5110,24 @@
     },
     {
       "source": "project_status_districo_estado_vigente_del_proyecto",
+      "target": "project_status_pendientes_confirmados",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "project_status_districo_estado_vigente_del_proyecto",
       "target": "project_status_documentos",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L58",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -5884,6 +5989,39 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_milestonetimeline",
+      "target": "src_components_milestonetimeline_centraranio",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/MilestoneTimeline.astro",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_milestonetimeline",
+      "target": "src_components_milestonetimeline_pintar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/MilestoneTimeline.astro",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_milestonetimeline",
+      "target": "src_components_milestonetimeline_ira",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/MilestoneTimeline.astro",
+      "source_location": "L141",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_productcard",
       "target": "src_components_productcard_accent",
       "relation": "contains",
@@ -6452,7 +6590,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -6463,7 +6601,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L17",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_nosotros",
+      "target": "src_pages_nosotros_historiasequipo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/nosotros.astro",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_nosotros",
+      "target": "src_pages_nosotros_novedadesequipo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/nosotros.astro",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -7013,6 +7173,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_brandstrip_armarpuntos",
+      "target": "src_components_milestonetimeline_ira",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "src/components/BrandStrip.astro",
+      "source_location": "L161",
+      "weight": 1.0
+    },
+    {
       "source": "scripts_cargar_toh_yowup",
       "target": "src_lib_tabla_tecnica_texto",
       "relation": "indirect_call",
@@ -7498,5 +7670,5 @@
       "source_file": "districo-brief-diseno.md"
     }
   ],
-  "built_at_commit": "c514d9a5e6eebfbfcadd2867fc45a7101295da1b"
+  "built_at_commit": "6d5092ea2b49db429b62d508a64648938133c174"
 }

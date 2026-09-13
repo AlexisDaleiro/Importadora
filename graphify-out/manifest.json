@@ -1218,10 +1218,10 @@
     "semantic_hash": "bd04f232b6177934913aaf62c117df1d"
   },
   "src/pages/nosotros.astro": {
-    "mtime": 1788923683.122164,
-    "seen": 1789083822.7310963,
-    "ast_hash": "7423fcecbe16f83e946df095a8ae5f06",
-    "semantic_hash": "7423fcecbe16f83e946df095a8ae5f06"
+    "mtime": 1789273695.6964664,
+    "seen": 1789276061.7248535,
+    "ast_hash": "2f6980873ddc27c8a04e71c5d947e113",
+    "semantic_hash": ""
   },
   "src/pages/productos/[slug].astro": {
     "mtime": 1789267593.0630536,
@@ -1554,9 +1554,15 @@
     "semantic_hash": ""
   },
   "PROJECT_STATUS.md": {
-    "mtime": 1789267603.645372,
-    "seen": 1789267721.2326033,
-    "ast_hash": "abcce1ac3e099b3701d8285a322242fe",
+    "mtime": 1789275936.7350464,
+    "seen": 1789276061.7248535,
+    "ast_hash": "3f309e86d2c1cdf1c86e38e8cdde4538",
+    "semantic_hash": ""
+  },
+  "src/components/MilestoneTimeline.astro": {
+    "mtime": 1789275935.1447248,
+    "seen": 1789276061.7248535,
+    "ast_hash": "17e489b593153534988cee1c45cf0640",
     "semantic_hash": ""
   }
 }
