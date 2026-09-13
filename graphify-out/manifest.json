@@ -72,10 +72,10 @@
     "semantic_hash": "403598bfc4e07ad9976eafb1fcfb22c2"
   },
   "src/components/CtaBlock.astro": {
-    "mtime": 1788923716.4103763,
-    "seen": 1789083822.7310963,
-    "ast_hash": "abce871266f02fa5dfecf99e62952553",
-    "semantic_hash": "abce871266f02fa5dfecf99e62952553"
+    "mtime": 1789342463.3904226,
+    "seen": 1789342570.7778575,
+    "ast_hash": "1faef28cfedfd4062642b38bdc16cf84",
+    "semantic_hash": ""
   },
   "src/components/Footer.astro": {
     "mtime": 1789338335.4946995,
