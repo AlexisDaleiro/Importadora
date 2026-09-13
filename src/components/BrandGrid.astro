@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BrandMosaic from './BrandMosaic.astro';
+import BrandStrip from './BrandStrip.astro';
 import Button from './Button.astro';
 
 // El sitio oficial no publica logotipos de marca en formato reutilizable, así que
@@ -29,8 +29,15 @@ const brands = (await getCollection('brands'))
       </p>
     </header>
 
-    <BrandMosaic limit={8} />
+  </div>
 
+  {/* La cinta muestra las 16, no un recorte: el carrusel es justamente lo que
+      permite que entren todas sin llenar la pantalla. Va FUERA del .container
+      a propósito: es más ancha que el contenido del resto del sitio, con
+      márgenes laterales mínimos. */}
+  <BrandStrip />
+
+  <div class="container">
     <div class="actions brands__cta" data-reveal>
       <Button href="/marcas" variant="primary" size="lg">Ver las {brands.length} marcas</Button>
       <Button href="/productos" variant="outline" size="lg">Ver el catálogo completo</Button>

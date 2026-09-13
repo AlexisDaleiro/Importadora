@@ -7,5 +7,7 @@
   "description": null,
   "logo": null,
   "featured": false,
-  "externalUrl": null
+  "externalUrl": null,
+  "accent": "#7AB843",
+  "photo": "../../assets/brands/eco-cane.jpg"
 }

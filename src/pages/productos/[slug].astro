@@ -38,6 +38,12 @@ interface Props {
 
 const { product, brand, linea, related } = Astro.props;
 const d = product.data;
+
+// Nombre de marca POR PRODUCTO. "También distribuimos" no trae solo productos
+// de esta marca: el criterio incluye los de la misma subcategoría, así que
+// pasarle a cada tarjeta la marca de la ficha abierta hacía que un producto
+// Beny apareciera rotulado "Biofresh".
+const nombreMarca = new Map((await getCollection('brands')).map((b) => [b.id, b.data.name]));
 const accent = lineAccent(linea.id);
 const gallery = d.gallery.length > 0 ? d.gallery : d.image ? [d.image] : [];
 
@@ -358,7 +364,12 @@ const ogProducto = gallery[0]
         <h2 class="title-lg" data-reveal>También distribuimos</h2>
         <ul class="card-grid">
           {related.map((p) => (
-            <li data-reveal><ProductCard product={p} brandName={brand?.data.name} /></li>
+            <li data-reveal>
+              <ProductCard
+                product={p}
+                brandName={p.data.brand ? nombreMarca.get(p.data.brand.id) : undefined}
+              />
+            </li>
           ))}
         </ul>
       </div>
@@ -610,6 +621,47 @@ const ogProducto = gallery[0]
 
   .related { background: var(--bg-soft); }
   .related h2 { margin-bottom: 1.5rem; }
+
+  /* ── "También distribuimos" en mobile ─────────────────────────────────
+     Hasta 640px la grilla pasa a cinta horizontal: apiladas, cuatro tarjetas
+     son media pantalla de scroll para una sección secundaria. Es el mismo
+     componente y la misma tarjeta, solo cambia la disposición; desde 640px
+     vuelve a ser la grilla de siempre sin tocar nada.
+
+     Sin puntos indicadores a propósito: la señal es el asomo de la tarjeta
+     siguiente, que además de avisar que hay más muestra HACIA DÓNDE
+     deslizar. Unos puntos serían un control más que mantener (y JS) para
+     cuatro tarjetas que ya se recorren con el dedo. */
+  @media (max-width: 639.98px) {
+    .related .card-grid {
+      display: flex;
+      /* 62% deja asomando el borde de la siguiente: una tarjeta y media larga. */
+      grid-template-columns: none;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: var(--scroll-carousel);
+      /* La cinta desborda hacia la derecha SOLO sobre el padding del
+         contenedor: se come el gutter con margen negativo y lo devuelve como
+         padding propio, así la primera tarjeta sigue alineada con el título y
+         el documento no se ensancha ni un pixel. */
+      margin-inline-end: calc(-1 * var(--gutter));
+      padding-inline-end: var(--gutter);
+      /* La barra se oculta, el scroll sigue. */
+      scrollbar-width: none;
+      /* Sin esto el foco del tabulador recorta la tarjeta contra el borde. */
+      scroll-padding-inline: 2px;
+    }
+    .related .card-grid::-webkit-scrollbar { display: none; }
+
+    .related .card-grid > li {
+      flex: 0 0 62%;
+      scroll-snap-align: start;
+    }
+    /* Alto parejo: los títulos van de una a tres líneas y sin esto cada
+       tarjeta de la fila mide distinto. El estirado lo hace el flex; la
+       tarjeta sólo tiene que ocupar el alto que le toca. */
+    .related .card-grid > li > :global(.card) { height: 100%; }
+  }
 
   /* ── Bloque de captación B2B ─────────────────────────────────────────
      Toma el acento de la línea del producto. El par color/texto sale de

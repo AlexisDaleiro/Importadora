@@ -36,6 +36,15 @@ const brands = defineCollection({
       description: z.string().nullable().default(null),
       logo: image().nullable().default(null),
       /**
+       * Color propio de la marca, para el velo del panel en el carrusel del
+       * home. Lo siembra `node scripts/marcas-color-y-foto.mjs` sacándolo del
+       * envase real del producto más representativo de la marca — es un punto
+       * de partida, no el color oficial. Cuando Districo entregue el manual de
+       * marca, se pisa a mano acá y el script ya no lo toca.
+       * En null, el panel cae al acento de la línea de negocio.
+       */
+      accent: z.string().nullable().default(null),
+      /**
        * Foto del mosaico de marcas (/marcas y el bloque del home).
        * DÓNDE VAN LOS ARCHIVOS: src/assets/brands/<slug-de-la-marca>.jpg
        *   ej. src/assets/brands/biofresh.jpg  →  "photo": "../../assets/brands/biofresh.jpg"

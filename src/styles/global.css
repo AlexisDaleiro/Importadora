@@ -137,11 +137,15 @@
      abajo con --dur-base. Bajo reduce vale 0% y el panel aparece en su sitio,
      con el fundido del velo como único aviso. */
   --sheet-shift: 101%;
-  /* Carrusel de banners del home. El desplazamiento entre slides es el scroll
-     nativo del track, asi que su "duracion" es este scroll-behavior: pasa a
-     'auto' bajo reduce y el cambio de slide se vuelve instantaneo. La
-     atenuacion por opacidad de los slides vecinos es familia SEGURA y se
-     conserva en los dos modos. */
+  /* Carrusel de banners del home y cinta de marcas (BrandStrip). El
+     desplazamiento entre slides o paginas es el scroll nativo del track, asi
+     que su "duracion" es este scroll-behavior: pasa a 'auto' bajo reduce y el
+     cambio se vuelve instantaneo. La atenuacion por opacidad de los slides
+     vecinos es familia SEGURA y se conserva en los dos modos.
+     La cinta de marcas no tiene avance automatico —cada panel es un enlace—,
+     asi que no entra en la categoria (c) del banner: bajo reduce se apagan el
+     zoom de la foto (--move-zoom) y el recorrido del cambio de pagina, y queda
+     el aclarado del velo, que es opacidad. */
   --scroll-carousel: smooth;
   /* Rejillas: mismo ancho mínimo para la misma tarjeta en las cinco grillas. */
   --card-min: 220px;

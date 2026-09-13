@@ -1,0 +1,406 @@
+---
+/**
+ * Cinta de paneles verticales de marca para el home.
+ *
+ * Paneles pegados (sin gap ni radio), foto propia por marca, velo del color de
+ * la marca y el nombre abajo. Se desliza con scroll-snap nativo; el JS solo
+ * agrega las flechas, los puntos y el estado de página.
+ *
+ * NO tiene avance automático, y es a propósito: cada panel es un enlace, y un
+ * blanco que se mueve solo hace fallar el clic. Además el home ya tiene el
+ * carrusel de banners rotando y los productos rotando en las líneas.
+ *
+ * LOGOS: hoy ninguna marca tiene logotipo en el repositorio, así que los 16
+ * paneles muestran el nombre en texto blanco. Cuando llegue el archivo se
+ * completa `logo` en el JSON de la marca y el panel lo usa solo: el nombre
+ * queda igual en el DOM como texto accesible.
+ */
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { lineAccent } from '../config';
+
+const products = await getCollection('products');
+const lineas = await getCollection('lineas');
+const coverDe = new Map(lineas.map((l) => [l.id, l.data.cover]));
+
+/** Luminancia relativa (WCAG) para saber cuánto hay que oscurecer el velo.
+ *  Los colores claros —procao y stack salen del envase casi en pastel— no
+ *  sostienen texto blanco sin un refuerzo abajo. */
+const luminancia = (hex: string) => {
+  const m = /^#?([\da-f]{6})$/i.exec(hex.trim());
+  if (!m) return 0;
+  const n = parseInt(m[1], 16);
+  const c = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((v) => v / 255);
+  const l = c.map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+  return 0.2126 * l[0] + 0.7152 * l[1] + 0.0722 * l[2];
+};
+
+const marcas = (await getCollection('brands'))
+  .map((b) => {
+    const lineaId = b.data.categories[0]?.id ?? '';
+    const color = b.data.accent ?? lineAccent(lineaId).color;
+    return {
+      id: b.id,
+      name: b.data.name,
+      color,
+      // Colores claros: el velo del pie se lleva más negro para que el nombre
+      // blanco siga cumpliendo contraste. Es el único ajuste por marca.
+      piso: luminancia(color) > 0.45 ? '90%' : '80%',
+      logo: b.data.logo,
+      foto: b.data.photo ?? coverDe.get(lineaId) ?? null,
+      count: products.filter((p) => p.data.brand?.id === b.id).length,
+    };
+  })
+  .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'es'));
+---
+
+<div class="strip" data-strip data-reveal>
+  <div class="strip__stage">
+    <ul class="strip__track" id="strip-track" tabindex="0" aria-label="Marcas que distribuye Districo">
+      {marcas.map((m, i) => (
+        <li class="strip__item">
+          <a
+            class="panel"
+            href={`/productos?marca=${m.id}`}
+            style={`--marca:${m.color};--piso:${m.piso}`}
+          >
+            {m.foto && (
+              <Image
+                class="panel__img"
+                src={m.foto}
+                alt=""
+                widths={[220, 440]}
+                sizes="(min-width: 940px) 13vw, (min-width: 640px) 22vw, 40vw"
+                loading={i < 8 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            )}
+            <span class="panel__velo" aria-hidden="true"></span>
+            <span class="panel__pie">
+              {m.logo ? (
+                <>
+                  <Image class="panel__logo" src={m.logo} alt="" widths={[160, 320]} sizes="13vw" loading="lazy" />
+                  <span class="sr-only">{m.name}</span>
+                </>
+              ) : (
+                <span class="panel__nombre">{m.name}</span>
+              )}
+              {/* El contador sale de la colección de productos, nunca de un
+                  número escrito en el JSON de la marca. */}
+              <span class="panel__count">
+                {m.count} {m.count === 1 ? 'producto' : 'productos'}
+              </span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <button class="strip__flecha strip__flecha--prev" type="button" data-strip-paso="-1" aria-label="Marcas anteriores" hidden>
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+    <button class="strip__flecha strip__flecha--next" type="button" data-strip-paso="1" aria-label="Marcas siguientes" hidden>
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  </div>
+
+  {/* Los puntos los arma el JS: cuántas páginas hay depende de cuántos paneles
+      entren, y eso cambia con el ancho. Sin JS la cinta se desliza igual. */}
+  <div class="strip__puntos" data-strip-puntos role="group" aria-label="Elegir página de marcas"></div>
+</div>
+
+<script>
+  // Mismo patrón que el resto de las islas del sitio: con el ClientRouter el
+  // módulo se evalúa una sola vez por sesión, así que cada instancia guarda
+  // cómo desarmarse y se desarma antes de la siguiente.
+  let desmontar: (() => void) | null = null;
+  const limpiar = () => { desmontar?.(); desmontar = null; };
+  document.addEventListener('astro:before-swap', limpiar);
+
+  document.addEventListener('astro:page-load', () => {
+    limpiar();
+
+    const track = document.getElementById('strip-track');
+    if (!track) return;
+    const raizOpt = track.closest<HTMLElement>('[data-strip]');
+    const puntosOpt = raizOpt?.querySelector<HTMLElement>('[data-strip-puntos]');
+    if (!raizOpt || !puntosOpt) return;
+    // Copias no nulas: las funciones de abajo se declaran antes del uso y ahí
+    // TypeScript ya no conserva el estrechamiento de la guarda.
+    const raiz = raizOpt;
+    const puntos = puntosOpt;
+
+    const flechas = [...raiz.querySelectorAll<HTMLButtonElement>('[data-strip-paso]')];
+    const ac = new AbortController();
+    const on = { signal: ac.signal };
+
+    const paginas = () => Math.max(1, Math.round(track.scrollWidth / track.clientWidth));
+    const actual = () => Math.round(track.scrollLeft / track.clientWidth);
+
+    // Los puntos se rehacen cuando cambia la cantidad de páginas, no en cada
+    // scroll: entre 390px y desktop pasan de 6 a 2 y volver a armarlos en
+    // cada evento haría parpadear el foco.
+    let dibujadas = 0;
+    function armarPuntos() {
+      const n = paginas();
+      raiz.classList.toggle('strip--navegable', n > 1);
+      for (const f of flechas) f.hidden = n <= 1;
+      if (n === dibujadas) return;
+      dibujadas = n;
+      puntos.textContent = '';
+      for (let i = 0; i < n; i++) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'strip__punto';
+        b.setAttribute('aria-label', `Página ${i + 1} de ${n}`);
+        b.append(document.createElement('span'));
+        b.addEventListener('click', () => irA(i), on);
+        puntos.append(b);
+      }
+      pintar();
+    }
+
+    function pintar() {
+      const i = actual();
+      const n = dibujadas;
+      [...puntos.children].forEach((b, j) => {
+        if (j === i) b.setAttribute('aria-current', 'true');
+        else b.removeAttribute('aria-current');
+      });
+      // Extremos: la flecha que no lleva a ningún lado se apaga en vez de
+      // desaparecer, así la fila no se mueve.
+      flechas[0].disabled = i <= 0;
+      flechas[1].disabled = i >= n - 1;
+    }
+
+    // behavior 'auto' respeta el scroll-behavior del CSS, que bajo
+    // prefers-reduced-motion pasa a instantáneo por el token --scroll-carousel.
+    const irA = (i: number) => {
+      track.scrollTo({ left: Math.max(0, i) * track.clientWidth, behavior: 'auto' });
+    };
+
+    for (const f of flechas) {
+      f.addEventListener('click', () => irA(actual() + Number(f.dataset.stripPaso)), on);
+    }
+    track.addEventListener('scroll', pintar, { ...on, passive: true });
+    // El track es foco propio: con las flechas del teclado se pasa de página
+    // sin tener que tabular panel por panel.
+    track.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      irA(actual() + (e.key === 'ArrowRight' ? 1 : -1));
+    }, on);
+
+    const ro = new ResizeObserver(armarPuntos);
+    ro.observe(track);
+    armarPuntos();
+
+    desmontar = () => { ac.abort(); ro.disconnect(); };
+  });
+</script>
+
+<style>
+  /* Cuántos paneles entran en una pantalla. Es el único número que cambia
+     entre breakpoints: el ancho del panel sale de acá y las páginas del
+     carrusel también. */
+  .strip {
+    --visibles: 2.5;
+    --alto: clamp(250px, 62vw, 300px);
+    --sep: 0.6rem;
+    /* La cinta es más ancha que el contenido del resto del sitio (--container
+       vale 1440px) y se apoya casi en el borde de la pantalla: es la pieza que
+       muestra que son 16 marcas, no un bloque de texto. */
+    width: 100%;
+    max-width: 1760px;
+    margin-inline: auto;
+    padding-inline: clamp(0.75rem, 1.5vw, 1.5rem);
+  }
+
+  .strip__stage { position: relative; }
+
+  .strip__track {
+    display: flex;
+    /* Con separación y radio, al revés que la referencia: cada marca es una
+       pieza propia, que es el mensaje de la sección —representamos 16 marcas
+       distintas—, y el radio es el mismo del resto del sitio. */
+    gap: var(--sep);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: var(--scroll-carousel);
+    scrollbar-width: none;
+  }
+  .strip__track::-webkit-scrollbar { display: none; }
+  .strip__track:focus-visible { outline: 3px solid var(--teal-700); outline-offset: 3px; }
+
+  /* El ancho del panel sale de cuántos entran, descontando las separaciones:
+     al ensanchar la cinta siguen entrando 8 por página en desktop en vez de
+     agrandarse, que es lo que deja las 16 marcas en dos páginas justas. */
+  .strip__item {
+    flex: 0 0 calc((100% - (var(--visibles) - 1) * var(--sep)) / var(--visibles));
+    scroll-snap-align: start;
+  }
+
+  .panel {
+    position: relative;
+    display: block;
+    height: var(--alto);
+    border-radius: var(--radius);
+    overflow: hidden;
+    color: var(--white);
+    text-decoration: none;
+    isolation: isolate;
+  }
+  .panel:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: -6px;
+  }
+
+  .panel__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Categoría (a) del sistema de movimiento: bajo reduce --move-zoom vale 1
+       y el zoom no viaja; el aclarado del velo, que es opacidad, queda. */
+    transition: scale var(--dur-slow) var(--ease-out);
+  }
+  .panel:hover .panel__img,
+  .panel:focus-visible .panel__img { scale: var(--move-zoom); }
+
+  /* Velo: color de la marca arriba, negro abajo. El pie oscuro no es
+     decoración, es lo que sostiene el contraste del nombre blanco sobre
+     marcas claras (procao, stack), y por eso su opacidad la fija el
+     componente por marca con --piso. */
+  .panel__velo {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--marca) 58%, transparent) 0%,
+        color-mix(in srgb, var(--marca) 70%, transparent) 45%,
+        /* El pie no es negro puro: es la marca oscurecida, así la columna
+           sigue leyéndose del color de la marca de arriba abajo. */
+        color-mix(in srgb, color-mix(in srgb, var(--marca) 30%, #000) var(--piso), transparent) 100%
+      );
+    transition: opacity var(--dur-base) var(--ease-out);
+  }
+  .panel:hover .panel__velo,
+  .panel:focus-visible .panel__velo { opacity: 0.82; }
+
+  .panel__pie {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: grid;
+    place-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0.6rem 1.25rem;
+  }
+  .panel__nombre {
+    font-size: var(--text-sm);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .panel__logo { width: min(70%, 120px); height: auto; }
+  /* Sin hover en mobile: el pie del panel se ve siempre, en los dos modos. */
+  .panel__count {
+    font-size: var(--text-2xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .strip__puntos {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+    padding-top: 0.35rem;
+  }
+  .strip__puntos:empty { display: none; }
+  /* :global() porque los puntos los crea el JS: un elemento que no estaba en
+     la plantilla no lleva el atributo de scope de Astro y las reglas normales
+     no lo alcanzan. Van anidados bajo .strip__puntos, que sí está en la
+     plantilla, así que el alcance real sigue siendo este componente. */
+  .strip__puntos :global(.strip__punto) {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .strip__puntos :global(.strip__punto > span) {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-pill);
+    /* --gray-400: --gray-300 no existe en los tokens y el punto quedaba
+       invisible sobre el blanco. */
+    background: var(--gray-400);
+    transition: width var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+  }
+  /* El punto activo se distingue por FORMA además de por color: pasa de punto
+     a píldora, que se lee también sin percibir el contraste de color. */
+  .strip__puntos :global(.strip__punto[aria-current] > span) {
+    width: 26px;
+    background: var(--teal-800);
+  }
+  .strip__puntos :global(.strip__punto:focus-visible) {
+    outline: 3px solid var(--teal-700);
+    outline-offset: -6px;
+    border-radius: var(--radius);
+  }
+
+  .strip__flecha { display: none; }
+
+  /* Tablet: 4 visibles hasta 940px y 5 hasta 1240px. Los 8 por página son de
+     desktop: con 1024px de ancho, ocho paneles dan columnas de 116px, más
+     angostas que el nombre de la marca. */
+  @media (min-width: 640px) {
+    .strip { --visibles: 4; --alto: clamp(280px, 34vw, 360px); }
+  }
+
+  @media (min-width: 940px) {
+    .strip { --visibles: 5; --alto: clamp(300px, 26vw, 380px); }
+
+    .strip__flecha {
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: rgb(255 255 255 / 0.9);
+      color: var(--teal-950);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: background var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+    }
+    .strip__flecha:hover { background: var(--white); }
+    .strip__flecha:disabled { opacity: 0.35; cursor: default; }
+    .strip__flecha--prev { left: 0.5rem; }
+    .strip__flecha--next { right: 0.5rem; }
+  }
+
+  /* Desktop: 8 por página, así las 16 marcas son dos páginas exactas. */
+  @media (min-width: 1240px) {
+    .strip { --visibles: 8; --alto: clamp(320px, 22vw, 400px); }
+  }
+</style>

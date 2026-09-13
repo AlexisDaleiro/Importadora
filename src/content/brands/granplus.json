@@ -7,5 +7,7 @@
   "description": null,
   "logo": null,
   "featured": false,
-  "externalUrl": null
+  "externalUrl": null,
+  "accent": "#84152A",
+  "photo": "../../assets/brands/granplus.jpg"
 }

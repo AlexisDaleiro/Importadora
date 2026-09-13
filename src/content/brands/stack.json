@@ -7,5 +7,7 @@
   "description": null,
   "logo": null,
   "featured": false,
-  "externalUrl": null
+  "externalUrl": null,
+  "accent": "#E6C7A7",
+  "photo": "../../assets/brands/stack.jpg"
 }

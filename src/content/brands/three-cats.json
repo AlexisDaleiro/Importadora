@@ -7,5 +7,7 @@
   "description": null,
   "logo": null,
   "featured": false,
-  "externalUrl": null
+  "externalUrl": null,
+  "accent": "#DA9856",
+  "photo": "../../assets/brands/three-cats.jpg"
 }

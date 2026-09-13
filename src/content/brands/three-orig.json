@@ -7,5 +7,7 @@
   "description": null,
   "logo": null,
   "featured": false,
-  "externalUrl": null
+  "externalUrl": null,
+  "accent": "#A55648",
+  "photo": "../../assets/brands/three-orig.jpg"
 }

@@ -7,5 +7,7 @@
   "description": null,
   "logo": null,
   "featured": false,
-  "externalUrl": null
+  "externalUrl": null,
+  "accent": "#5B8474",
+  "photo": "../../assets/brands/biofresh.jpg"
 }
