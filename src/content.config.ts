@@ -56,6 +56,12 @@ const brands = defineCollection({
        */
       photo: image().nullable().default(null),
       featured: z.boolean().default(false),
+      /**
+       * La marca entra en la Garantía de Palatabilidad (/garantia).
+       * La franja de esa página lee este campo, así que sumar o sacar una marca
+       * de la garantía es editar este booleano, no el componente.
+       */
+      garantia: z.boolean().default(false),
       externalUrl: z.string().url().nullable().default(null),
     }),
 });

@@ -4,6 +4,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Button from '../../components/Button.astro';
 import Badge from '../../components/Badge.astro';
+import Accordion from '../../components/Accordion.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import { contactLink, formspreeB2bListo, formspreeB2bUrl, lineAccent, site } from '../../config';
 import { normalizarTecnica } from '../../lib/tabla-tecnica';
@@ -259,8 +260,7 @@ const ogProducto = gallery[0]
         <div class="detail__tech" data-reveal>
           <h2 class="title-lg">Información técnica</h2>
           {tecnicos.map((block) => (
-            <details>
-              <summary>{block.label}</summary>
+            <Accordion label={block.label}>
               {block.html ? (
                 <div class="tech__body" set:html={block.html} />
               ) : (
@@ -271,7 +271,7 @@ const ogProducto = gallery[0]
                   </p>
                 </div>
               )}
-            </details>
+            </Accordion>
           ))}
         </div>
       )}
@@ -592,29 +592,14 @@ const ogProducto = gallery[0]
   .detail__text p { color: var(--fg-muted); margin-top: 1rem; max-width: 62ch; }
   .detail h2 { margin-bottom: 0.5rem; }
 
-  .detail__tech details {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    margin-top: 0.75rem;
-    background: var(--bg-soft);
-  }
-  .detail__tech summary {
-    cursor: pointer;
-    padding: 0.9rem 1.1rem;
-    font-weight: 700;
-    list-style: none;
-    /* Sin esto, abrir y cerrar rápido cuenta como doble clic y el navegador
-       selecciona el texto del título. */
-    user-select: none;
-    -webkit-user-select: none;
-  }
-  .detail__tech summary::-webkit-details-marker { display: none; }
-  .detail__tech summary::after { content: '+'; float: right; font-size: 1.25rem; line-height: 1; }
-  .detail__tech details[open] summary::after { content: '−'; }
+  /* La caja, el + / − y el foco del acordeón viven en Accordion.astro. Acá
+     queda solo lo propio de la tabla técnica: el scroll horizontal y su sombra.
+     Va con :global porque el <details> lo renderiza el componente y no lleva el
+     scope de esta página; .detail__tech, que sí está en la plantilla, es lo que
+     mantiene la regla acotada. */
+  .detail__tech :global(.acc__body) { padding-inline: 0; padding-bottom: 0; }
   .tech__body {
     padding: 0 1.1rem 1.1rem;
-    font-size: var(--text-sm);
-    color: var(--fg-muted);
     overflow-x: auto;
     /* Sombra de scroll: avisa que la tabla sigue a la derecha. Se apoya en el
        fondo del acordeón, así que el degradado sale del mismo --bg-soft. */

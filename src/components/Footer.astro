@@ -17,7 +17,11 @@ import { nav, site, sucursales } from '../config';
       <h2>Sitio</h2>
       <a href="/">Home</a>
       {nav.map((item) => <a href={item.href}>{item.label}</a>)}
-      {/* Contacto salió de la barra de arriba: el pie es ahora su entrada fija. */}
+      {/* Dos entradas que no están en la barra de arriba y viven acá:
+          Contacto, que salió para dejarle aire al 0800, y Líneas de negocio,
+          que salió porque la home ya abre con los bloques de línea. La página
+          sigue existiendo y este es su único enlace del sitio. */}
+      <a href="/lineas-de-negocio">Líneas de negocio</a>
       <a href="/contacto">Contacto</a>
     </nav>
 

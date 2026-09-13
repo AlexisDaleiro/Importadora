@@ -9,5 +9,6 @@
   "featured": false,
   "externalUrl": null,
   "accent": "#A9C422",
-  "photo": "../../assets/brands/guabi-natural.jpg"
+  "photo": "../../assets/brands/guabi-natural.jpg",
+  "garantia": true
 }

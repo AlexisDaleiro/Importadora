@@ -9,5 +9,6 @@
   "featured": false,
   "externalUrl": null,
   "accent": "#84152A",
-  "photo": "../../assets/brands/granplus.jpg"
+  "photo": "../../assets/brands/granplus.jpg",
+  "garantia": true
 }

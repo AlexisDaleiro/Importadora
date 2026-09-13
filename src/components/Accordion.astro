@@ -1,0 +1,59 @@
+---
+/**
+ * Acordeón de una sola fila. Nació dentro de la ficha de producto (la
+ * "Información técnica") y se extrajo acá cuando /garantia necesitó el mismo
+ * comportamiento: un <details> nativo, sin JS, con el marcador propio + / −.
+ *
+ * Nativo a propósito: <details>/<summary> ya trae la navegación por teclado
+ * (Tab enfoca el resumen, Enter y Espacio abren y cierran) y el estado
+ * expandido para lectores de pantalla. Reescribirlo con botones y aria-expanded
+ * sería más código para llegar al mismo lugar.
+ *
+ * El cuerpo va en un slot, así que quien lo usa le puede dar sus propios
+ * estilos desde afuera con `.contenedor :global(.acc__body)` — hace falta el
+ * :global porque el <details> lo renderiza este componente y no lleva el scope
+ * de la página que lo invoca.
+ */
+interface Props {
+  /** Texto del <summary>. */
+  label: string;
+  open?: boolean;
+  class?: string;
+}
+const { label, open = false, class: className = '' } = Astro.props;
+---
+
+<details class:list={['acc', className]} open={open}>
+  <summary>{label}</summary>
+  <div class="acc__body"><slot /></div>
+</details>
+
+<style>
+  .acc {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-top: 0.75rem;
+    background: var(--bg-soft);
+  }
+  .acc summary {
+    cursor: pointer;
+    padding: 0.9rem 1.1rem;
+    font-weight: 700;
+    list-style: none;
+    /* Sin esto, abrir y cerrar rápido cuenta como doble clic y el navegador
+       selecciona el texto del título. */
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .acc summary::-webkit-details-marker { display: none; }
+  .acc summary::after { content: '+'; float: right; font-size: 1.25rem; line-height: 1; }
+  .acc[open] summary::after { content: '−'; }
+  /* El foco de teclado tiene que verse sobre el gris del acordeón: el outline
+     global se dibuja pegado al borde redondeado del <details>. */
+  .acc summary:focus-visible { outline: 2px solid var(--teal-600); outline-offset: -2px; border-radius: var(--radius); }
+  .acc__body {
+    padding: 0 1.1rem 1.1rem;
+    font-size: var(--text-sm);
+    color: var(--fg-muted);
+  }
+</style>

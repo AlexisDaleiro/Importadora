@@ -39,6 +39,29 @@ export const formspreeUrl = `https://formspree.io/f/${FORMSPREE_ID}`;
 export const formspreeB2bUrl = `https://formspree.io/f/${FORMSPREE_ID_B2B}`;
 export const formspreeB2bListo = () => FORMSPREE_ID_B2B !== 'PEGAR_ID_B2B';
 
+/* ──────────────────────────────────────────────────────────────────────────
+   FORMULARIO DE RECLAMO DE GARANTÍA
+   El sitio oficial menciona un "Formulario de Reclamo de Garantía" online pero
+   no publica su destino. PENDIENTE DE CONFIRMAR CON EL CLIENTE: pedirle la URL
+   real y pegarla acá; es el único lugar del sitio donde vive.
+   En null, /garantia no dibuja el botón y deja solo la vía presencial, que sí
+   está confirmada. No se inventa un destino.
+   ────────────────────────────────────────────────────────────────────────── */
+export const GARANTIA_FORM_URL: string | null = null;
+
+/* ──────────────────────────────────────────────────────────────────────────
+   ⚠ CASILLA DE POSTULACIONES — VALOR PROVISORIO
+   A esta dirección escribe el botón "Enviar mi CV" de /nosotros.
+   HOY APUNTA A UN CORREO DE PRUEBA, NO A DISTRICO.
+   AL PASAR A PRODUCCIÓN: pedirle a Districo la casilla de RRHH y pegarla acá.
+   Es el único lugar del sitio donde vive esta dirección; no hace falta tocar
+   ningún componente.
+   ────────────────────────────────────────────────────────────────────────── */
+export const CV_EMAIL: string = 'alexisdaleiro@gmail.com';
+export const CV_ASUNTO = 'Postulación — Districo';
+export const cvMailto = () =>
+  `mailto:${CV_EMAIL}?subject=${encodeURIComponent(CV_ASUNTO)}`;
+
 /** Mensaje por defecto del botón flotante. */
 export const WHATSAPP_MENSAJE = 'Hola, quisiera hacer una consulta sobre sus productos';
 
@@ -59,7 +82,15 @@ export const site = {
 export const nav = [
   { href: '/productos', label: 'Productos' },
   { href: '/marcas', label: 'Marcas' },
-  { href: '/lineas-de-negocio', label: 'Líneas de negocio' },
+  // "Líneas de negocio" salió de la barra: la home ya abre con los bloques de
+  // línea y el catálogo filtra por línea, así que el enlace repetía dos
+  // entradas que ya están un scroll más abajo. La página sigue viva y se llega
+  // desde el pie.
+  //
+  // "Garantía" y no "Términos y condiciones", que es como la llama el sitio
+  // oficial: el contenido real es la Garantía de Palatabilidad, una promesa
+  // comercial, no letra chica. Con este nombre se lee como beneficio.
+  { href: '/garantia', label: 'Garantía' },
   { href: '/nosotros', label: 'Nosotros' },
   // Contacto NO está acá: se sacó de la barra para dejarle aire a la derecha,
   // donde ahora conviven las redes y el botón del 0800. Sigue llegándose desde
@@ -83,7 +114,10 @@ export const social = [
 // dadas de baja.
 export const stats = [
   { value: '1995', label: 'Desde' },
-  { value: '6.000 m²', label: 'Casa Matriz' },
+  // Predio total, que es el dato vigente de la página de propuesta del sitio
+  // oficial. Los 6.000 m² que decía antes son la cifra de 2013, cuando se
+  // inauguró la Casa Matriz, y quedaron solo en el hito de ese año.
+  { value: '10.000 m²', label: 'Casa Matriz' },
   { value: 'ISO 9001', label: 'Certificación' },
 ];
 
@@ -93,7 +127,7 @@ export const sucursales = [
     nombre: 'Casa Matriz',
     direccion: 'Cesar Mayo Gutiérrez 3024 bis, esq. Camino Uruguay — Montevideo',
     telefonos: ['0800 1004', '(+598) 2320 1381'],
-    superficie: '6.000 m²',
+    superficie: '10.000 m² de predio, con 1.600 m² de depósito',
     mapa: 'https://www.google.com/maps?q=Cesar+Mayo+Guti%C3%A9rrez+3024+Montevideo&output=embed',
   },
   {
@@ -101,7 +135,7 @@ export const sucursales = [
     nombre: 'Sucursal Maldonado',
     direccion: 'A. Antonio Lusich esq. Vicenza — Maldonado',
     telefonos: ['(+598) 4225 2155'],
-    superficie: '400 m²',
+    superficie: '700 m² propios',
     mapa: 'https://www.google.com/maps?q=Antonio+Lusich+esq+Vicenza+Maldonado&output=embed',
   },
 ];

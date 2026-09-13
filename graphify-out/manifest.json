@@ -30,10 +30,10 @@
     "semantic_hash": "a89d3256dfa5ca99a8ebf64b443627be"
   },
   "src/components/AboutBlock.astro": {
-    "mtime": 1788906134.2452419,
-    "seen": 1789083822.7310963,
-    "ast_hash": "aaebb625d1627b121b7246249532a548",
-    "semantic_hash": "aaebb625d1627b121b7246249532a548"
+    "mtime": 1789340653.9426904,
+    "seen": 1789341028.567604,
+    "ast_hash": "2cd6f8d4cf5a72aed94a2fa1a6a12ab7",
+    "semantic_hash": ""
   },
   "src/components/Badge.astro": {
     "mtime": 1789253358.651808,
@@ -78,9 +78,9 @@
     "semantic_hash": "abce871266f02fa5dfecf99e62952553"
   },
   "src/components/Footer.astro": {
-    "mtime": 1789102087.5402255,
-    "seen": 1789102349.814529,
-    "ast_hash": "e24040bcb6eae6809c060568f5969cb5",
+    "mtime": 1789338335.4946995,
+    "seen": 1789338876.405508,
+    "ast_hash": "5eefc2382c5d5ce4071fbcc2950c49a2",
     "semantic_hash": ""
   },
   "src/components/Header.astro": {
@@ -126,15 +126,15 @@
     "semantic_hash": "cbf62f22d4dab63dd77c39f247ad08c6"
   },
   "src/config.ts": {
-    "mtime": 1789261145.2083251,
-    "seen": 1789267721.2326033,
-    "ast_hash": "3c6dd2d2580f289cde66670e2f8e95bf",
+    "mtime": 1789340679.5803545,
+    "seen": 1789341028.567604,
+    "ast_hash": "94cbdccb6177c91457791d74e48c80fc",
     "semantic_hash": ""
   },
   "src/content.config.ts": {
-    "mtime": 1789261108.8593278,
-    "seen": 1789267721.2326033,
-    "ast_hash": "3fa5b36bf9aa823987947bd2d20412c1",
+    "mtime": 1789338322.2064977,
+    "seen": 1789338876.405508,
+    "ast_hash": "8c29b4798abcee0ff76e4f3afbcd2186",
     "semantic_hash": ""
   },
   "src/content/brands/4-pets.json": {
@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "src/content/brands/biofresh.json": {
-    "mtime": 1789255869.5325906,
-    "seen": 1789267721.2326033,
-    "ast_hash": "334685db41aedde661c603e5012ff2b8",
+    "mtime": 1789338328.2548413,
+    "seen": 1789338876.405508,
+    "ast_hash": "f45907f5257b0a6b8741226e3f27ce89",
     "semantic_hash": ""
   },
   "src/content/brands/eco-cane.json": {
@@ -162,15 +162,15 @@
     "semantic_hash": ""
   },
   "src/content/brands/granplus.json": {
-    "mtime": 1789255869.59085,
-    "seen": 1789267721.2326033,
-    "ast_hash": "9894b280f67db5a70ad2f800b6ff4060",
+    "mtime": 1789338328.485244,
+    "seen": 1789338876.405508,
+    "ast_hash": "0120b9e6643dd52fe4aa11db4640611e",
     "semantic_hash": ""
   },
   "src/content/brands/guabi-natural.json": {
-    "mtime": 1789255869.621837,
-    "seen": 1789267721.2326033,
-    "ast_hash": "2b55f302bd86204e41f0a8bf170b3e0e",
+    "mtime": 1789338328.3093255,
+    "seen": 1789338876.405508,
+    "ast_hash": "d282ce49dc28266ceb6e01bb1807bef8",
     "semantic_hash": ""
   },
   "src/content/brands/kets.json": {
@@ -216,15 +216,15 @@
     "semantic_hash": ""
   },
   "src/content/brands/three-cats.json": {
-    "mtime": 1789255869.8567407,
-    "seen": 1789267721.2326033,
-    "ast_hash": "91a3850c93ceea072920c8f82449ca56",
+    "mtime": 1789338328.4260757,
+    "seen": 1789338876.405508,
+    "ast_hash": "ac43087220f6e99fadda37224671ecfa",
     "semantic_hash": ""
   },
   "src/content/brands/three-dogs.json": {
-    "mtime": 1789255869.8887892,
-    "seen": 1789267721.2326033,
-    "ast_hash": "1566d2b19e655e983d2566f6ab2b0504",
+    "mtime": 1789338328.367409,
+    "seen": 1789338876.405508,
+    "ast_hash": "19994b40430c7a39c9eb0cce8887db54",
     "semantic_hash": ""
   },
   "src/content/brands/three-orig.json": {
@@ -1200,9 +1200,9 @@
     "semantic_hash": ""
   },
   "src/pages/lineas-de-negocio.astro": {
-    "mtime": 1789098684.8330517,
-    "seen": 1789102349.817277,
-    "ast_hash": "e2118c0291989120c2dca15419aaed52",
+    "mtime": 1789340653.9426904,
+    "seen": 1789341028.567604,
+    "ast_hash": "90e4193efab3f2deac88c12c6a684a32",
     "semantic_hash": ""
   },
   "src/pages/marcas/[slug].astro": {
@@ -1218,15 +1218,15 @@
     "semantic_hash": "bd04f232b6177934913aaf62c117df1d"
   },
   "src/pages/nosotros.astro": {
-    "mtime": 1789273695.6964664,
-    "seen": 1789276061.7248535,
-    "ast_hash": "2f6980873ddc27c8a04e71c5d947e113",
+    "mtime": 1789340790.6039674,
+    "seen": 1789341028.567604,
+    "ast_hash": "b6364a3369029c0632a92e6b7564a5ef",
     "semantic_hash": ""
   },
   "src/pages/productos/[slug].astro": {
-    "mtime": 1789267593.0630536,
-    "seen": 1789267721.2326033,
-    "ast_hash": "45604f432085b535c069815a088c8f63",
+    "mtime": 1789338377.395192,
+    "seen": 1789338876.405508,
+    "ast_hash": "d536e9e2b2fddcbe967890ceb6dd47ab",
     "semantic_hash": ""
   },
   "src/pages/productos/index.astro": {
@@ -1338,9 +1338,9 @@
     "semantic_hash": ""
   },
   "scripts/check-overflow.mjs": {
-    "mtime": 1789268084.207241,
-    "seen": 1789268117.6994622,
-    "ast_hash": "f27ca764ed068b58c55859dfaee8a017",
+    "mtime": 1789338449.8806725,
+    "seen": 1789338876.405508,
+    "ast_hash": "a7d741b074bcbccf9859e43617b353cf",
     "semantic_hash": ""
   },
   "scripts/marcas-color-y-foto.mjs": {
@@ -1563,6 +1563,30 @@
     "mtime": 1789275935.1447248,
     "seen": 1789276061.7248535,
     "ast_hash": "17e489b593153534988cee1c45cf0640",
+    "semantic_hash": ""
+  },
+  "src/components/Accordion.astro": {
+    "mtime": 1789338349.0567186,
+    "seen": 1789338876.405508,
+    "ast_hash": "c2a360da7a6b8e9137f8ac4a23b2e8e4",
+    "semantic_hash": ""
+  },
+  "src/pages/garantia.astro": {
+    "mtime": 1789339456.97231,
+    "seen": 1789339715.2158144,
+    "ast_hash": "f9eaa38d46a773293a96414f9d5b0bf4",
+    "semantic_hash": ""
+  },
+  "src/content/milestones/2017.json": {
+    "mtime": 1789340638.1600804,
+    "seen": 1789341028.567604,
+    "ast_hash": "3dde02aa4f236602f8168f3b34e8f44f",
+    "semantic_hash": ""
+  },
+  "src/data/valores.ts": {
+    "mtime": 1789340692.1421194,
+    "seen": 1789341028.567604,
+    "ast_hash": "18c974a635f9c82b56568e6e4f5f728a",
     "semantic_hash": ""
   }
 }

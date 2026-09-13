@@ -22,6 +22,7 @@ const RUTAS = [
   '/nosotros',
   '/contacto',
   '/lineas-de-negocio',
+  '/garantia',
 ];
 
 // TODAS=1 barre además las 150+ fichas de producto: lento, para revisiones

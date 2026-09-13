@@ -1,0 +1,342 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
+import Accordion from '../components/Accordion.astro';
+import { GARANTIA_FORM_URL, contactLink } from '../config';
+
+// Las marcas de la garantía salen de la colección, no de una lista escrita acá:
+// sumar o sacar una marca es poner `"garantia": true` en su JSON y nada más.
+// Ver el campo `garantia` en src/content.config.ts.
+const marcas = (await getCollection('brands'))
+  .filter((b) => b.data.garantia)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name, 'es'));
+
+// El encabezado del sitio oficial dice "en todas sus presentaciones" y dos
+// párrafos más abajo aclara "desde 400 g hasta 20 kg". Se usa el rango, que es
+// el dato preciso, y en ningún lado se repite "todas sus presentaciones".
+const RANGO = '400 g a 20 kg';
+
+// Descripciones de dos líneas a propósito: los tres pasos tienen que entrar en
+// la primera pantalla junto con el hero y la franja de marcas, y cada línea de
+// más que sume una descripción empuja el bloque entero por debajo del pliegue.
+// El detalle completo está en el acordeón de más abajo.
+const pasos = [
+  {
+    titulo: 'Guardá el envase',
+    texto: 'Con al menos el 80 % del contenido, cerrado de fábrica y sin vencer.',
+  },
+  {
+    titulo: 'Volvé al comercio',
+    texto: 'Dentro de los 5 días corridos de la compra, con el ticket original.',
+  },
+  {
+    titulo: 'Elegí el reemplazo',
+    texto: 'El comercio lo coordina con Districo en hasta 5 días hábiles.',
+  },
+];
+---
+
+<Base
+  title="Garantía de palatabilidad"
+  description={`Si tu mascota no acepta el alimento, lo cambiamos. La garantía de palatabilidad de Districo cubre las presentaciones de ${RANGO} de ${marcas.map((m) => m.data.name).join(', ')}.`}
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="sello" data-reveal aria-hidden="true">
+        <strong>100%</strong>
+        <span>Satisfacción</span>
+      </div>
+
+      <div class="hero__text" data-reveal style="--reveal-delay:100ms">
+        <span class="kicker kicker--onDark">Garantía de palatabilidad</span>
+        {/* Sin .title-xl: el titular de esta página escala también con el alto
+            del viewport, porque de él depende que los tres pasos entren en la
+            primera pantalla. Ver --titular en los estilos. */}
+        <h1>Si tu mascota no lo acepta, lo cambiamos.</h1>
+        <p class="lead--onDark hero__lead">
+          Vale para las presentaciones de {RANGO} de las marcas que distribuimos: si tu perro o tu
+          gato lo rechaza, te lo cambiamos por otro producto Districo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="marcas">
+    <div class="container marcas__inner" data-reveal>
+      <h2 class="kicker kicker--accent">Marcas incluidas</h2>
+      <ul class="marcas__lista">
+        {marcas.map((m) => (
+          <li>
+            <a class="chip" href={`/productos?marca=${m.id}`}>{m.data.name}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="pasos">
+    <div class="container">
+      <h2 class="title-lg" data-reveal>Cómo se hace el cambio</h2>
+      <ol class="pasos__lista">
+        {pasos.map((p, i) => (
+          <li class="paso" data-reveal style={`--reveal-delay:${i * 90}ms`}>
+            <span class="paso__n" aria-hidden="true">{i + 1}</span>
+            <h3 class="paso__titulo">{p.titulo}</h3>
+            <p class="paso__texto">{p.texto}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section detalle">
+    {/* El ancho de lectura va en un div propio y no como max-width del
+        .container: el container se centra solo, así que limitarlo ahí despega
+        el acordeón del borde izquierdo del resto de la página. */}
+    <div class="container"><div class="detalle__inner" data-reveal>
+      <Accordion label="Alcance y condiciones completas">
+        <h3>Alcance</h3>
+        <p>
+          La garantía aplica a los productos de las marcas detalladas, en paquetería de {RANGO}, y
+          puede solicitarse cuando la mascota no acepta el alimento. Consiste en el cambio por otro
+          producto Districo de igual o menor valor comercial; no se devuelve el importe abonado. Si
+          el cambio es por un producto de menor valor, la diferencia queda a favor del cliente para
+          otra compra; si es por uno de mayor valor, se abona la diferencia.
+        </p>
+
+        <h3>Condiciones</h3>
+        <ul>
+          <li>El producto debe estar dentro de su fecha de vencimiento.</li>
+          <li>
+            Debe conservar al menos el 80 % de su contenido original, en su envase original cerrado
+            de fábrica y sin traspasar a otro recipiente.
+          </li>
+          <li>El reclamo debe hacerse dentro de los 5 días corridos posteriores a la compra.</li>
+          <li>Debe presentarse el ticket o comprobante original de compra con la fecha visible.</li>
+        </ul>
+
+        <h3>Procedimiento</h3>
+        <p>
+          El cliente concurre personalmente al punto de venta donde realizó la compra, en sus días y
+          horarios de atención habitual, y presenta el producto y el ticket original junto con el
+          formulario completo.
+        </p>
+        <p>El formulario solicita:</p>
+        <ul>
+          <li>Nombre y apellido.</li>
+          <li>Celular.</li>
+          <li>Establecimiento donde se realizó la compra.</li>
+          <li>Fecha de compra.</li>
+          <li>
+            Producto a devolver: nombre, presentación en kilogramos, lote y fecha de vencimiento.
+          </li>
+          <li>Nombre de la mascota.</li>
+        </ul>
+        <p>
+          El comercio gestiona el reemplazo en coordinación con Districo dentro de los 5 días
+          hábiles posteriores a la solicitud.
+        </p>
+      </Accordion>
+    </div></div>
+  </section>
+
+  <section class="cta">
+    <div class="container cta__inner" data-reveal>
+      {/* El destino del formulario online vive en GARANTIA_FORM_URL (src/config.ts)
+          y hoy está en null porque el sitio oficial no lo publica. Mientras tanto
+          el CTA lleva a un canal que sí existe, en vez de a un enlace inventado. */}
+      {GARANTIA_FORM_URL ? (
+        <Button href={GARANTIA_FORM_URL} variant="lime" size="lg">
+          Completar formulario de reclamo
+        </Button>
+      ) : (
+        <Button href={contactLink('Hola, quiero hacer un reclamo por la garantía de palatabilidad')} variant="lime" size="lg">
+          Consultar por la garantía
+        </Button>
+      )}
+      <p class="cta__nota">
+        También podés hacerlo en persona: llevá el producto y el ticket al comercio donde lo
+        compraste y completás el formulario ahí mismo.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ── Presupuesto vertical de la primera pantalla ──────────────────────
+     Header + hero + franja de marcas + los tres pasos tienen que entrar sin
+     scrollear en 1366x768, que es la pantalla más baja que se usa para revisar
+     este sitio, y seguir respirando en 1920x1080. El acordeón y el CTA van
+     abajo del pliegue a propósito.
+
+     Cómo se consigue: nada tiene alto fijo ni 100vh. Las piezas que ocupan
+     alto — paddings verticales, titular, sello y círculos numerados — escalan
+     con una mezcla de vw y vh, así que en una pantalla baja se comprimen solas
+     y en una alta recuperan tamaño. Todos los valores son clamp() con un piso
+     cómodo: en una pantalla más baja todavía el bloque deja de achicarse y
+     aparece scroll, que es la degradación correcta; nunca se recorta ni se
+     tapa contenido.
+
+     Los pisos de los clamp de texto respetan el mínimo de legibilidad del
+     sitio: 15px el texto corrido (nunca menos de 14) y 12px las etiquetas. */
+  :root {
+    /* Ritmo vertical de la portada: el mismo token lo usan el hero, la franja
+       de marcas y el bloque de pasos, así que la primera pantalla se aprieta o
+       se afloja entera y no por partes. */
+    --portada-y: clamp(1.35rem, 3.6vh, 3rem);
+    /* Titular de la página. Sustituye a .title-xl, que solo mira el ancho. */
+    --titular: clamp(1.9rem, 0.9rem + 1.4vw + 1.7vh, 3.5rem);
+  }
+
+  /* ── Hero ─────────────────────────────────────────────────────────────
+     Teal oscuro y no el gris de las otras cabeceras: la garantía es la única
+     promesa comercial del sitio y el fondo oscuro la separa del resto. */
+  .hero {
+    background: var(--teal-900);
+    color: var(--white);
+    padding-block: var(--portada-y);
+  }
+  .hero__inner {
+    display: grid;
+    gap: clamp(1.25rem, 3vw, 3rem);
+    align-items: center;
+    justify-items: start;
+  }
+  .hero__text > * + * { margin-top: clamp(0.5rem, 1.4vh, 1rem); }
+  .hero__text .kicker { display: block; }
+  .hero h1 {
+    font-size: var(--titular);
+    letter-spacing: -0.045em;
+    line-height: 1.04;
+    max-width: 18ch;
+  }
+  /* Dos líneas en desktop: cada línea de más empuja los pasos fuera de la
+     primera pantalla. El ancho máximo es lo que fuerza el corte. */
+  .hero__lead {
+    font-size: clamp(0.9375rem, 0.85rem + 0.45vh, 1.125rem);
+    max-width: 62ch;
+  }
+
+  /* Mismo lenguaje que el sticker ISO 9001 del home (Hero.astro): círculo
+     rotado, cifra grande y etiqueta en versalitas. Cambia el par de colores —
+     lima institucional con texto oscuro — para que no se lea como el mismo
+     sello repetido. */
+  .sello {
+    flex: none;
+    /* Escala con el alto: en 768px de viewport el sello baja a ~118px y le
+       devuelve ese espacio a los pasos. */
+    width: clamp(104px, 4vw + 9vh, 172px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--brand-lime);
+    color: var(--teal-950);
+    display: grid;
+    place-content: center;
+    text-align: center;
+    line-height: 1.1;
+    box-shadow: var(--shadow-md);
+    rotate: -8deg;
+  }
+  .sello strong {
+    font-size: clamp(1.6rem, 0.9rem + 1vw + 1.3vh, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+  }
+  .sello span {
+    font-size: var(--text-2xs);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* ── Marcas incluidas ─────────────────────────────────────────────── */
+  .marcas { background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+  .marcas__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem 1.5rem;
+    padding-block: var(--portada-y);
+  }
+  .marcas__lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── Pasos ────────────────────────────────────────────────────────── */
+  /* padding-block asimetrico: arriba entra en el presupuesto de la primera
+     pantalla, abajo ya es aire por debajo del pliegue y puede ser el del resto
+     del sitio. */
+  .pasos { padding-block: var(--portada-y) var(--section-y-sm); }
+  .pasos h2 {
+    font-size: clamp(1.5rem, 0.9rem + 0.9vw + 1.1vh, 2.75rem);
+    margin-bottom: clamp(0.9rem, 2.4vh, 2rem);
+  }
+  .pasos__lista {
+    display: grid;
+    gap: clamp(1.25rem, 2.5vw, 2.5rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .paso__n {
+    display: grid;
+    place-content: center;
+    width: var(--paso-n, clamp(42px, 5.6vh, 56px));
+    height: var(--paso-n, clamp(42px, 5.6vh, 56px));
+    border-radius: 50%;
+    background: var(--teal-800);
+    color: var(--lime-500);
+    font-size: clamp(1.15rem, 0.7rem + 1vh, 1.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: clamp(0.5rem, 1.4vh, 1rem);
+  }
+  .paso__titulo { font-size: var(--text-xl); letter-spacing: -0.03em; margin-bottom: 0.4rem; }
+  .paso__texto { color: var(--fg-muted); max-width: 40ch; }
+
+  /* ── Detalle legal ────────────────────────────────────────────────── */
+  .detalle { padding-top: 0; }
+  .detalle__inner { max-width: 74ch; }
+  /* El contenido va dentro del slot de Accordion.astro, que lo renderiza en su
+     propio scope: por eso :global, anclado en .detalle__inner, que sí está en
+     esta plantilla. */
+  .detalle__inner :global(.acc__body h3) {
+    font-size: var(--text-base);
+    color: var(--fg);
+    margin-top: 1.25rem;
+    margin-bottom: 0.4rem;
+  }
+  .detalle__inner :global(.acc__body h3:first-child) { margin-top: 0.25rem; }
+  .detalle__inner :global(.acc__body p) { margin-bottom: 0.75rem; }
+  .detalle__inner :global(.acc__body ul) { margin: 0 0 0.75rem 1.1rem; padding: 0; }
+  .detalle__inner :global(.acc__body li) { margin-bottom: 0.3rem; }
+
+  /* ── CTA ──────────────────────────────────────────────────────────── */
+  .cta { background: var(--teal-950); color: var(--white); }
+  .cta__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 2rem;
+    padding-block: var(--section-y-sm);
+  }
+  .cta__nota {
+    color: rgb(255 255 255 / 0.72);
+    font-size: var(--text-sm);
+    max-width: 44ch;
+    margin: 0;
+  }
+
+  @media (min-width: 760px) {
+    .pasos__lista { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 940px) {
+    .hero__inner { grid-template-columns: auto 1fr; gap: clamp(2rem, 4vw, 4rem); }
+  }
+</style>

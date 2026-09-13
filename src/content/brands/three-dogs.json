@@ -9,5 +9,6 @@
   "featured": false,
   "externalUrl": null,
   "accent": "#345A95",
-  "photo": "../../assets/brands/three-dogs.jpg"
+  "photo": "../../assets/brands/three-dogs.jpg",
+  "garantia": true
 }

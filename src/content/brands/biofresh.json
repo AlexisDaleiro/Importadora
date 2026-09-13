@@ -9,5 +9,6 @@
   "featured": false,
   "externalUrl": null,
   "accent": "#5B8474",
-  "photo": "../../assets/brands/biofresh.jpg"
+  "photo": "../../assets/brands/biofresh.jpg",
+  "garantia": true
 }

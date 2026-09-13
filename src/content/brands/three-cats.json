@@ -9,5 +9,6 @@
   "featured": false,
   "externalUrl": null,
   "accent": "#DA9856",
-  "photo": "../../assets/brands/three-cats.jpg"
+  "photo": "../../assets/brands/three-cats.jpg",
+  "garantia": true
 }

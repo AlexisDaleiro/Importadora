@@ -4,16 +4,17 @@
   "2": "package.json",
   "3": "Colección products (src/content/products)",
   "4": "tabla-tecnica.ts",
-  "5": "nosotros.astro",
+  "5": "MilestoneTimeline.astro",
   "6": "productos/index.astro",
   "7": "cutout-lineas.mjs",
   "8": "content.config.ts",
   "9": "cargar-toh-yowup.mjs",
   "10": "tsconfig.json",
   "11": "Referencia Sadenir (botón WhatsApp flotante)",
-  "12": "astro:content",
+  "12": "nosotros.astro",
   "13": "aplicar-ingredientes.mjs",
   "14": "marcas-color-y-foto.mjs",
   "15": "Districo — Estado vigente del proyecto",
-  "16": "AGENTS.md"
+  "16": "AGENTS.md",
+  "17": "lineAccent"
 }
