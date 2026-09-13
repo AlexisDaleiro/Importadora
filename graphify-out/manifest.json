@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "src/components/ProductCard.astro": {
-    "mtime": 1789267594.5022392,
-    "seen": 1789267721.2326033,
-    "ast_hash": "79a397db85308415f7867dbb45b545df",
+    "mtime": 1789268993.540575,
+    "seen": 1789269138.196592,
+    "ast_hash": "26d23fe6d7d0059d3234f1b5a1199bb0",
     "semantic_hash": ""
   },
   "src/components/StatsBar.astro": {
