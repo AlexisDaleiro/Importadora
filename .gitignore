@@ -5,3 +5,5 @@ dist/
 .env.production
 .DS_Store
 .token-optimizer/
+graphify-out/20??-??-??/
+graphify-out/cache/*.tmp

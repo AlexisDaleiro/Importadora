@@ -1,0 +1,5 @@
+# El grafo debe explicar código, contenido y decisiones; los binarios no agregan contexto útil.
+src/assets/
+public/*.png
+scripts/out/
+graphify-out/2026-*/

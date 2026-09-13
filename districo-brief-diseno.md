@@ -6,7 +6,7 @@
 ## 1. Objetivo del proyecto
 
 Sitio para vender directamente a Districo S.A. como reemplazo de su sitio institucional actual. Debe transmitir:
-- **Escala y solidez**: 25+ años, 156+ productos, 21+ marcas, ISO 9001, 6.000 m² de depósito.
+- **Escala y solidez**: 30+ años, 167 productos, 18 marcas, ISO 9001, 6.000 m² de depósito.
 - **Modernidad**: alejarse del sitio institucional genérico actual (bloques oscuros repetitivos, banners tipo flyer) hacia un lenguaje visual bold, con tipografía protagonista y fotografía de producto grande, como Cantera.
 - **Conversión**: que un comprador o un futuro cliente comercial encuentre rápido el catálogo y tenga una vía directa de contacto (WhatsApp/formulario).
 
@@ -19,8 +19,8 @@ No es e-commerce: no hay carrito ni pago online. El objetivo de cada ficha de pr
 ```
 /                          Home
 /nosotros                  Institucional (historia, valores, instalaciones, certificaciones)
-/lineas-de-negocio          Overview de las 4 líneas (mascotas, cuidado, snacks, etc.)
-/marcas                     Listado de las 21 marcas, filtrable por línea de negocio
+/lineas-de-negocio          Overview de las 6 líneas (alimento, arenas, cuidado, accesorios y snacks)
+/marcas                     Listado de las 18 marcas, filtrable por línea de negocio
 /marcas/[marca]             Página de marca individual (opcional en v1, evaluar si se fusiona con /productos)
 /productos                  Catálogo filtrable (por línea de negocio, marca, categoría)
 /productos/[slug]           Ficha de producto individual
@@ -101,7 +101,7 @@ Esto permite:
 ### Home
 1. Header sticky: logo + menú + CTA "Contacto"
 2. Hero: kicker + título enorme + texto de apoyo + 2 CTAs (ya lo tenés bien encaminado, solo hay que agrandar la escala tipográfica y sumar una foto/elemento visual al lado, no abajo en bloque separado)
-3. Barra de stats (156 productos / 21 marcas / 4 líneas / 6.000m² / ISO 9001) — mantener, funciona
+3. Barra de stats (cantidades calculadas desde las colecciones / 6.000m² / ISO 9001) — mantener, funciona
 4. Bloque "Líneas de negocio" en 4 tarjetas grandes full-bleed de color (una por línea), cada una con foto de producto protagonista + botón "Ver productos"
 5. Bloque de marcas destacadas (logos en grid blanco, como el sitio actual, pero con más aire y logos más grandes)
 6. Bloque institucional corto (certificación ISO, años de trayectoria) con foto de planta + círculo decorativo

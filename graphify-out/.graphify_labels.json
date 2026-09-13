@@ -1,15 +1,19 @@
 {
   "0": "config.ts",
-  "1": "BrandMosaic.astro",
+  "1": "scrape-ingredientes.mjs",
   "2": "package.json",
   "3": "Colección products (src/content/products)",
   "4": "tabla-tecnica.ts",
-  "5": "Banners del home (colección JSON)",
+  "5": "Sistema visual",
   "6": "productos/index.astro",
   "7": "cutout-lineas.mjs",
   "8": "content.config.ts",
-  "9": "gen-og.mjs",
+  "9": "cargar-toh-yowup.mjs",
   "10": "tsconfig.json",
   "11": "Referencia Sadenir (botón WhatsApp flotante)",
-  "12": "astro:content"
+  "12": "astro:content",
+  "13": "aplicar-ingredientes.mjs",
+  "14": "marcas-color-y-foto.mjs",
+  "15": "Districo — Estado vigente del proyecto",
+  "16": "AGENTS.md"
 }

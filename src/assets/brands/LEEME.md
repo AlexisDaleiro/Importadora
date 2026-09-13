@@ -5,7 +5,7 @@ Las usa la cinta de paneles del home (`BrandStrip.astro`) y el mosaico de
 
 ## Estado actual: TODAS SON PLACEHOLDER
 
-Los 16 archivos `.jpg` de esta carpeta los genera
+Los 18 archivos `.jpg` de esta carpeta los genera
 `node scripts/marcas-color-y-foto.mjs`. Son una placa con el color de la marca
 y el texto "FOTO PENDIENTE" encima, una distinta por marca. **No son diseño
 final y no se le muestran al cliente como tales**: están para que el carrusel
@@ -57,6 +57,8 @@ parecidas se notan enseguida.
 | `4-pets.jpg` | 4 Pets | Gato adulto — gris |
 | `procao.jpg` | Procão | Perro en el baño, con el pelo mojado |
 | `stack.jpg` | Stack | Sin animal: snacks sobre madera o textura del producto |
+| `toh.jpg` | TOH | Perro con collar, correa o pechera |
+| `yowup.jpg` | YowUp | Perro o gato consumiendo un snack funcional |
 
 Dos marcas de la misma especie no pueden compartir foto, ni siquiera parecida:
 hoy `BrandMosaic` caía en las 4 fotos de línea de negocio para las 16 marcas y
@@ -64,8 +66,8 @@ se veía el mismo perro seis veces.
 
 ## Logos
 
-Ninguna de las 16 marcas tiene logotipo en el repositorio (`"logo": null` en
-los 16 JSON), así que los paneles muestran el **nombre en texto blanco**. Al
+La mayoría de las marcas no tiene logotipo en el repositorio, así que los
+paneles muestran el **nombre en texto blanco**. Al
 cargar un logo —versión blanca o monocroma, PNG o SVG con fondo transparente,
 en `src/assets/logos/<slug>.png`, apuntado desde `"logo"`— el panel lo usa solo
 y el nombre queda igual en el DOM como texto accesible.

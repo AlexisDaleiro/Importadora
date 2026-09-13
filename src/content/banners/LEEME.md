@@ -1,21 +1,22 @@
 # Banners del home
 
-Los tres archivos JSON de esta carpeta son **contenido de ejemplo**. Sirven para ver el
-carrusel funcionando, no son campañas aprobadas por Districo.
+Los ocho banners actuales están aprobados para esta versión de demostración. Cada pieza usa
+una imagen de escritorio y otra vertical para mobile; no se superpone texto HTML porque el
+arte y el texto forman parte de la propia imagen.
 
-Antes de la revisión con el cliente hay que reemplazar `kicker`, `title` y `cta` por
-novedades comerciales reales: una marca que se empieza a distribuir, el lanzamiento de una
-línea, la presencia en una feria, una certificación. Districo no vende al público, así que
-el banner nunca comunica precios ni promociones de góndola.
+Los JSON se validan mediante la colección `banners` de `src/content.config.ts`:
 
-Las fotos apuntan a imágenes que ya están en el repositorio (`src/assets/categories` y
-`src/assets/institutional`), todas del relevamiento del sitio oficial. Las fotos definitivas
-de cada campaña van en `src/assets/banners/<slug>.jpg`, en 2480x660: el slide mide 1240x330
-en desktop y se sirve a 2x. El texto se apoya sobre un velo del color de `accent` que cubre
-la mitad izquierda, así que el motivo de la foto tiene que quedar a la derecha.
+- `brand`: marca responsable de la pieza.
+- `href`: destino interno al hacer clic.
+- `imageDesktop`: arte apaisado.
+- `imageMobile`: arte vertical.
+- `alt`: alternativa textual descriptiva.
+- `order`: posición en la rotación.
+- `active`: permite ocultar una pieza sin borrarla.
 
-`accent` tiene que ser un color oscuro: el texto encima es blanco y necesita 4.5:1.
+Con menos de dos banners activos no se arma el carrusel: con uno se muestra una pieza fija y
+con cero el bloque no se renderiza. No se publican precios porque Districo vende a comercios,
+no al público general.
 
-`active: false` saca un banner de la rotación sin borrar el archivo. Con menos de dos
-banners activos el carrusel no se arma: con uno se pinta como banner fijo, sin puntos ni
-slides asomados, y con ninguno el home no renderiza nada.
+Antes de reemplazar una pieza hay que conservar ambas variantes, verificar que el enlace sea
+válido y probar legibilidad en desktop y mobile. Los archivos viven en `src/assets/banners/`.

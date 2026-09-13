@@ -1,14 +1,14 @@
 // Normalización del HTML técnico raspado de districo.com.uy.
 //
 // El contenido de `technicalSheet` viene del sitio oficial y llega roto: no hay
-// un solo <th> en las 156 fichas, 110 bloques <thead> traen filas de datos
+// un solo <th> en muchas fichas, y numerosos bloques <thead> traen filas de datos
 // adentro (que el CSS pintaba como encabezado), hay celdas vacías de relleno,
 // filas más cortas que la tabla y una tabla anidada dentro de un <td>.
 //
 // Se normaliza acá, en tiempo de build, y no con un script que reescriba los
 // JSON: así el contenido raspado queda intacto y un futuro re-scrape sale
 // arreglado solo. El HTML de origen no tiene un solo atributo (verificado sobre
-// las 156 fichas: p, table, thead, tr, tbody, td, em, strong, b, h3 y nada más),
+// las fichas relevadas: p, table, thead, tr, tbody, td, em, strong, b, h3 y nada más),
 // así que las tablas se reconstruyen desde la matriz de celdas.
 
 /**

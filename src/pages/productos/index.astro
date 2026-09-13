@@ -166,7 +166,7 @@ const subs = lineas
     // distingue de /marcas, que tambien usa un #grid.
     if (!document.getElementById('f-count')) return;
 
-    // Filtrado en el cliente sin framework: los 156 productos ya están en el HTML
+    // Filtrado en el cliente sin framework: todos los productos ya están en el HTML
     // y solo se alternan con el atributo hidden. Cero hidratación, cero dependencias.
     const items = [...document.querySelectorAll('#grid > li')] as HTMLLIElement[];
     const cards = items.map((li) => li.querySelector('[data-product]') as HTMLElement);

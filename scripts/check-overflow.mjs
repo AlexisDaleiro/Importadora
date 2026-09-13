@@ -18,7 +18,7 @@ const RUTAS = [
   '/productos/guabi-natural-para-gatos-adultos',
   '/productos/biofresh-para-cachorros-razas-grandes-y-gigantes',
   '/marcas',
-  '/marcas/guabi',
+  '/marcas/guabi-natural',
   '/nosotros',
   '/contacto',
   '/lineas-de-negocio',
@@ -42,7 +42,12 @@ for (const ancho of ANCHOS) {
   const page = await ctx.newPage();
 
   for (const ruta of RUTAS) {
-    await page.goto(BASE + ruta, { waitUntil: 'networkidle' });
+    const respuesta = await page.goto(BASE + ruta, { waitUntil: 'networkidle' });
+    if (!respuesta?.ok()) {
+      fallas++;
+      console.error(`FALLA ${ancho}px ${ruta}: HTTP ${respuesta?.status() ?? 'sin respuesta'}`);
+      continue;
+    }
     // Los acordeones cerrados esconden las tablas anchas: abrirlos es parte de
     // la comprobación, ahí es donde aparecería un overflow-x mal contenido.
     await page.evaluate(() => document.querySelectorAll('details').forEach((d) => (d.open = true)));

@@ -33,20 +33,6 @@
         "confidence": "EXTRACTED",
         "confidence_score": 1.0,
         "source_file": "districo-brief-diseno.md"
-      },
-      {
-        "id": "andamio_de_contenido_provisorio",
-        "label": "Andamio de contenido e im\u00e1genes provisorio a reemplazar antes de la revisi\u00f3n con el cliente",
-        "nodes": [
-          "src_content_banners_leeme_contenido_de_ejemplo",
-          "src_assets_brands_leeme_fallback_foto_de_categoria",
-          "districo_brief_diseno_migrar_contenido_real",
-          "districo_brief_diseno_cuello_botella_fotos_baja_resolucion"
-        ],
-        "relation": "participate_in",
-        "confidence": "INFERRED",
-        "confidence_score": 0.85,
-        "source_file": "src/content/banners/LEEME.md"
       }
     ]
   },
@@ -73,7 +59,7 @@
       "file_type": "code",
       "norm_label": "contactlink()",
       "source_file": "src/config.ts",
-      "source_location": "L135"
+      "source_location": "L141"
     },
     {
       "id": "src_config_formspreeb2blisto",
@@ -100,6 +86,30 @@
       "source_location": "L124"
     },
     {
+      "id": "src_pages_marcas_slug_getstaticpaths",
+      "label": "getStaticPaths()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "code",
+      "norm_label": "getstaticpaths()",
+      "source_file": "src/pages/marcas/[slug].astro",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_pages_productos_slug_for",
+      "label": "for()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "code",
+      "norm_label": "for()",
+      "source_file": "src/pages/productos/[slug].astro",
+      "source_location": "L427"
+    },
+    {
       "id": "src_pages_productos_slug_getstaticpaths",
       "label": "getStaticPaths()",
       "_callable": true,
@@ -112,52 +122,52 @@
       "source_location": "L11"
     },
     {
-      "id": "src_components_productcard_image",
-      "label": "image()",
+      "id": "src_pages_robots_txt_get",
+      "label": "GET()",
       "_callable": true,
       "_origin": "ast",
-      "community": 1,
-      "community_name": "BrandMosaic.astro",
+      "community": 0,
+      "community_name": "config.ts",
       "file_type": "code",
-      "norm_label": "image()",
-      "source_file": "src/components/ProductCard.astro",
-      "source_location": "L30"
+      "norm_label": "get()",
+      "source_file": "src/pages/robots.txt.ts",
+      "source_location": "L6"
     },
     {
-      "id": "src_config_lineaccent",
-      "label": "lineAccent()",
+      "id": "scripts_scrape_ingredientes_leeringredientes",
+      "label": "leerIngredientes()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "BrandMosaic.astro",
+      "community_name": "scrape-ingredientes.mjs",
       "file_type": "code",
-      "norm_label": "lineaccent()",
-      "source_file": "src/config.ts",
-      "source_location": "L131"
+      "norm_label": "leeringredientes()",
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L64"
     },
     {
-      "id": "src_pages_marcas_index_apply",
-      "label": "apply()",
+      "id": "src_components_brandstrip_armarpuntos",
+      "label": "armarPuntos()",
       "_callable": true,
       "_origin": "ast",
-      "community": 1,
-      "community_name": "BrandMosaic.astro",
+      "community": 12,
+      "community_name": "astro:content",
       "file_type": "code",
-      "norm_label": "apply()",
-      "source_file": "src/pages/marcas/index.astro",
-      "source_location": "L77"
+      "norm_label": "armarpuntos()",
+      "source_file": "src/components/BrandStrip.astro",
+      "source_location": "L148"
     },
     {
-      "id": "src_pages_marcas_slug_getstaticpaths",
-      "label": "getStaticPaths()",
+      "id": "src_components_brandstrip_pintar",
+      "label": "pintar()",
       "_callable": true,
       "_origin": "ast",
-      "community": 1,
-      "community_name": "BrandMosaic.astro",
+      "community": 12,
+      "community_name": "astro:content",
       "file_type": "code",
-      "norm_label": "getstaticpaths()",
-      "source_file": "src/pages/marcas/[slug].astro",
-      "source_location": "L9"
+      "norm_label": "pintar()",
+      "source_file": "src/components/BrandStrip.astro",
+      "source_location": "L167"
     },
     {
       "id": "src_components_lineblocks_recorte",
@@ -172,16 +182,100 @@
       "source_location": "L12"
     },
     {
-      "id": "src_pages_robots_txt_get",
-      "label": "GET()",
+      "id": "src_components_productcard_image",
+      "label": "image()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
+      "community": 12,
+      "community_name": "astro:content",
       "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "src/pages/robots.txt.ts",
-      "source_location": "L6"
+      "norm_label": "image()",
+      "source_file": "src/components/ProductCard.astro",
+      "source_location": "L30"
+    },
+    {
+      "id": "src_config_lineaccent",
+      "label": "lineAccent()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "lineaccent()",
+      "source_file": "src/config.ts",
+      "source_location": "L137"
+    },
+    {
+      "id": "src_pages_marcas_index_apply",
+      "label": "apply()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "apply()",
+      "source_file": "src/pages/marcas/index.astro",
+      "source_location": "L77"
+    },
+    {
+      "id": "scripts_aplicar_ingredientes_esremision",
+      "label": "esRemision()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "aplicar-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "esremision()",
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L29"
+    },
+    {
+      "id": "scripts_ortografia_comovenia",
+      "label": "comoVenia()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "aplicar-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "comovenia()",
+      "source_file": "scripts/ortografia.mjs",
+      "source_location": "L42"
+    },
+    {
+      "id": "scripts_ortografia_corregir",
+      "label": "corregir()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "aplicar-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "corregir()",
+      "source_file": "scripts/ortografia.mjs",
+      "source_location": "L52"
+    },
+    {
+      "id": "scripts_marcas_color_y_foto_colordeenvase",
+      "label": "colorDeEnvase()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "marcas-color-y-foto.mjs",
+      "file_type": "code",
+      "norm_label": "colordeenvase()",
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L62"
+    },
+    {
+      "id": "scripts_marcas_color_y_foto_luminancia",
+      "label": "luminancia()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "marcas-color-y-foto.mjs",
+      "file_type": "code",
+      "norm_label": "luminancia()",
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L88"
     },
     {
       "id": "scripts_check_tablas_plano",
@@ -313,7 +407,43 @@
       "file_type": "code",
       "norm_label": "apply()",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L179"
+      "source_location": "L240"
+    },
+    {
+      "id": "src_pages_productos_index_medir",
+      "label": "medir()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "productos/index.astro",
+      "file_type": "code",
+      "norm_label": "medir()",
+      "source_file": "src/pages/productos/index.astro",
+      "source_location": "L398"
+    },
+    {
+      "id": "src_pages_productos_index_pintartags",
+      "label": "pintarTags()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "productos/index.astro",
+      "file_type": "code",
+      "norm_label": "pintartags()",
+      "source_file": "src/pages/productos/index.astro",
+      "source_location": "L220"
+    },
+    {
+      "id": "src_pages_productos_index_quitar",
+      "label": "quitar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "productos/index.astro",
+      "file_type": "code",
+      "norm_label": "quitar()",
+      "source_file": "src/pages/productos/index.astro",
+      "source_location": "L232"
     },
     {
       "id": "src_pages_productos_index_reset",
@@ -325,7 +455,19 @@
       "file_type": "code",
       "norm_label": "reset()",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L238"
+      "source_location": "L301"
+    },
+    {
+      "id": "src_pages_productos_index_setcompacto",
+      "label": "setCompacto()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "productos/index.astro",
+      "file_type": "code",
+      "norm_label": "setcompacto()",
+      "source_file": "src/pages/productos/index.astro",
+      "source_location": "L389"
     },
     {
       "id": "src_pages_productos_index_toggle",
@@ -337,19 +479,7 @@
       "file_type": "code",
       "norm_label": "toggle()",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L254"
-    },
-    {
-      "id": "src_pages_productos_index_visibility",
-      "label": "visibility()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "productos/index.astro",
-      "file_type": "code",
-      "norm_label": "visibility()",
-      "source_file": "src/pages/productos/index.astro",
-      "source_location": "L491"
+      "source_location": "L317"
     },
     {
       "id": "scripts_cutout_lineas_cutout",
@@ -376,12 +506,48 @@
       "source_location": "L32"
     },
     {
+      "id": "scripts_cargar_toh_yowup_bajar",
+      "label": "bajar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "bajar()",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L19"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_limpiarcolores",
+      "label": "limpiarColores()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "limpiarcolores()",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L38"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_ordenar",
+      "label": "ordenar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "ordenar()",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L52"
+    },
+    {
       "id": "scripts_gen_og_p",
       "label": "p()",
       "_callable": true,
       "_origin": "ast",
       "community": 9,
-      "community_name": "gen-og.mjs",
+      "community_name": "cargar-toh-yowup.mjs",
       "file_type": "code",
       "norm_label": "p()",
       "source_file": "scripts/gen-og.mjs",
@@ -421,14 +587,14 @@
       "source_location": "L1"
     },
     {
-      "id": "src_components_ctablock",
-      "label": "CtaBlock.astro",
+      "id": "src_components_brandcard",
+      "label": "BrandCard.astro",
       "_origin": "ast",
       "community": 0,
       "community_name": "config.ts",
       "file_type": "code",
-      "norm_label": "ctablock.astro",
-      "source_file": "src/components/CtaBlock.astro",
+      "norm_label": "brandcard.astro",
+      "source_file": "src/components/BrandCard.astro",
       "source_location": "L1"
     },
     {
@@ -597,6 +763,17 @@
       "source_location": "L59"
     },
     {
+      "id": "src_config_noindex",
+      "label": "NOINDEX",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "code",
+      "norm_label": "noindex",
+      "source_file": "src/config.ts",
+      "source_location": "L15"
+    },
+    {
       "id": "src_config_site",
       "label": "site",
       "_origin": "ast",
@@ -729,15 +906,37 @@
       "source_location": "L120"
     },
     {
-      "id": "src_pages_lineas_de_negocio",
-      "label": "lineas-de-negocio.astro",
+      "id": "src_pages_marcas_slug",
+      "label": "marcas/[slug].astro",
       "_origin": "ast",
       "community": 0,
       "community_name": "config.ts",
       "file_type": "code",
-      "norm_label": "lineas-de-negocio.astro",
-      "source_file": "src/pages/lineas-de-negocio.astro",
+      "norm_label": "marcas/[slug].astro",
+      "source_file": "src/pages/marcas/[slug].astro",
       "source_location": "L1"
+    },
+    {
+      "id": "src_pages_marcas_slug_accent",
+      "label": "accent",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "code",
+      "norm_label": "accent",
+      "source_file": "src/pages/marcas/[slug].astro",
+      "source_location": "L36"
+    },
+    {
+      "id": "src_pages_marcas_slug_subs",
+      "label": "subs",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "code",
+      "norm_label": "subs",
+      "source_file": "src/pages/marcas/[slug].astro",
+      "source_location": "L38"
     },
     {
       "id": "src_pages_productos_slug",
@@ -751,147 +950,180 @@
       "source_location": "L1"
     },
     {
-      "id": "src_components_brandcard",
-      "label": "BrandCard.astro",
+      "id": "src_pages_robots_txt",
+      "label": "robots.txt.ts",
       "_origin": "ast",
-      "community": 1,
-      "community_name": "BrandMosaic.astro",
+      "community": 0,
+      "community_name": "config.ts",
       "file_type": "code",
-      "norm_label": "brandcard.astro",
-      "source_file": "src/components/BrandCard.astro",
+      "norm_label": "robots.txt.ts",
+      "source_file": "src/pages/robots.txt.ts",
       "source_location": "L1"
     },
     {
-      "id": "src_components_brandmosaic",
-      "label": "BrandMosaic.astro",
+      "id": "ref_astro",
+      "label": "astro",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "concept",
+      "norm_label": "astro",
+      "source_file": "package.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "node_fs",
+      "label": "node:fs",
       "_origin": "ast",
       "community": 1,
-      "community_name": "BrandMosaic.astro",
+      "community_name": "scrape-ingredientes.mjs",
+      "confidence": "EXTRACTED",
       "file_type": "code",
-      "norm_label": "brandmosaic.astro",
-      "source_file": "src/components/BrandMosaic.astro",
+      "norm_label": "node:fs",
+      "source_file": "node:fs"
+    },
+    {
+      "id": "scripts_check_overflow",
+      "label": "check-overflow.mjs",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "check-overflow.mjs",
+      "source_file": "scripts/check-overflow.mjs",
       "source_location": "L1"
     },
     {
-      "id": "src_components_brandmosaic_coverde",
-      "label": "coverDe",
+      "id": "scripts_check_overflow_anchos",
+      "label": "ANCHOS",
       "_origin": "ast",
       "community": 1,
-      "community_name": "BrandMosaic.astro",
+      "community_name": "scrape-ingredientes.mjs",
       "file_type": "code",
-      "norm_label": "coverde",
-      "source_file": "src/components/BrandMosaic.astro",
-      "source_location": "L16"
+      "norm_label": "anchos",
+      "source_file": "scripts/check-overflow.mjs",
+      "source_location": "L14"
     },
     {
-      "id": "src_components_brandmosaic_todas",
-      "label": "todas",
+      "id": "scripts_check_overflow_rutas",
+      "label": "RUTAS",
       "_origin": "ast",
       "community": 1,
-      "community_name": "BrandMosaic.astro",
+      "community_name": "scrape-ingredientes.mjs",
       "file_type": "code",
-      "norm_label": "todas",
-      "source_file": "src/components/BrandMosaic.astro",
+      "norm_label": "rutas",
+      "source_file": "scripts/check-overflow.mjs",
+      "source_location": "L15"
+    },
+    {
+      "id": "scripts_scrape_ingredientes",
+      "label": "scrape-ingredientes.mjs",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "scrape-ingredientes.mjs",
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_scrape_ingredientes_args",
+      "label": "args",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "args",
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L39"
+    },
+    {
+      "id": "scripts_scrape_ingredientes_dirproductos",
+      "label": "dirProductos",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "dirproductos",
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L44"
+    },
+    {
+      "id": "scripts_scrape_ingredientes_fallos",
+      "label": "fallos",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "fallos",
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L99"
+    },
+    {
+      "id": "scripts_scrape_ingredientes_pendientes",
+      "label": "pendientes",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "pendientes",
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L55"
+    },
+    {
+      "id": "scripts_scrape_ingredientes_productos",
+      "label": "productos",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "productos",
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L45"
+    },
+    {
+      "id": "scripts_scrape_ingredientes_raiz",
+      "label": "raiz",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "raiz",
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L33"
+    },
+    {
+      "id": "scripts_scrape_ingredientes_salida",
+      "label": "SALIDA",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "salida",
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L35"
+    },
+    {
+      "id": "scripts_scrape_ingredientes_todos",
+      "label": "todos",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "todos",
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L40"
+    },
+    {
+      "id": "ref_playwright_core",
+      "label": "playwright-core",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "concept",
+      "norm_label": "playwright-core",
+      "source_file": "package.json",
       "source_location": "L21"
-    },
-    {
-      "id": "src_components_productcard",
-      "label": "ProductCard.astro",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "BrandMosaic.astro",
-      "file_type": "code",
-      "norm_label": "productcard.astro",
-      "source_file": "src/components/ProductCard.astro",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_productcard_accent",
-      "label": "accent",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "BrandMosaic.astro",
-      "file_type": "code",
-      "norm_label": "accent",
-      "source_file": "src/components/ProductCard.astro",
-      "source_location": "L16"
-    },
-    {
-      "id": "src_config_lineshort",
-      "label": "lineShort",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "BrandMosaic.astro",
-      "file_type": "code",
-      "norm_label": "lineshort",
-      "source_file": "src/config.ts",
-      "source_location": "L124"
-    },
-    {
-      "id": "src_pages_marcas_index",
-      "label": "marcas/index.astro",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "BrandMosaic.astro",
-      "file_type": "code",
-      "norm_label": "marcas/index.astro",
-      "source_file": "src/pages/marcas/index.astro",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_pages_marcas_index_brands",
-      "label": "brands",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "BrandMosaic.astro",
-      "file_type": "code",
-      "norm_label": "brands",
-      "source_file": "src/pages/marcas/index.astro",
-      "source_location": "L11"
-    },
-    {
-      "id": "src_pages_marcas_index_lineas",
-      "label": "lineas",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "BrandMosaic.astro",
-      "file_type": "code",
-      "norm_label": "lineas",
-      "source_file": "src/pages/marcas/index.astro",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_pages_marcas_slug",
-      "label": "marcas/[slug].astro",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "BrandMosaic.astro",
-      "file_type": "code",
-      "norm_label": "marcas/[slug].astro",
-      "source_file": "src/pages/marcas/[slug].astro",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_pages_marcas_slug_accent",
-      "label": "accent",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "BrandMosaic.astro",
-      "file_type": "code",
-      "norm_label": "accent",
-      "source_file": "src/pages/marcas/[slug].astro",
-      "source_location": "L36"
-    },
-    {
-      "id": "src_pages_marcas_slug_subs",
-      "label": "subs",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "BrandMosaic.astro",
-      "file_type": "code",
-      "norm_label": "subs",
-      "source_file": "src/pages/marcas/[slug].astro",
-      "source_location": "L38"
     },
     {
       "id": "tsconfig",
@@ -1012,7 +1244,7 @@
       "file_type": "code",
       "norm_label": "activos",
       "source_file": "src/components/BannerCarousel.astro",
-      "source_location": "L18"
+      "source_location": "L21"
     },
     {
       "id": "src_components_brandgrid",
@@ -1037,6 +1269,50 @@
       "source_location": "L10"
     },
     {
+      "id": "src_components_brandmosaic",
+      "label": "BrandMosaic.astro",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "brandmosaic.astro",
+      "source_file": "src/components/BrandMosaic.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_brandmosaic_coverde",
+      "label": "coverDe",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "coverde",
+      "source_file": "src/components/BrandMosaic.astro",
+      "source_location": "L16"
+    },
+    {
+      "id": "src_components_brandmosaic_todas",
+      "label": "todas",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "todas",
+      "source_file": "src/components/BrandMosaic.astro",
+      "source_location": "L21"
+    },
+    {
+      "id": "src_components_brandstrip",
+      "label": "BrandStrip.astro",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "brandstrip.astro",
+      "source_file": "src/components/BrandStrip.astro",
+      "source_location": "L1"
+    },
+    {
       "id": "src_components_button",
       "label": "Button.astro",
       "_origin": "ast",
@@ -1057,6 +1333,17 @@
       "norm_label": "external",
       "source_file": "src/components/Button.astro",
       "source_location": "L20"
+    },
+    {
+      "id": "src_components_ctablock",
+      "label": "CtaBlock.astro",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "ctablock.astro",
+      "source_file": "src/components/CtaBlock.astro",
+      "source_location": "L1"
     },
     {
       "id": "src_components_hero",
@@ -1103,6 +1390,28 @@
       "source_location": "L14"
     },
     {
+      "id": "src_components_productcard",
+      "label": "ProductCard.astro",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "productcard.astro",
+      "source_file": "src/components/ProductCard.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_productcard_accent",
+      "label": "accent",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "accent",
+      "source_file": "src/components/ProductCard.astro",
+      "source_location": "L16"
+    },
+    {
       "id": "src_components_statsbar",
       "label": "StatsBar.astro",
       "_origin": "ast",
@@ -1136,6 +1445,17 @@
       "source_location": "L110"
     },
     {
+      "id": "src_config_lineshort",
+      "label": "lineShort",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "lineshort",
+      "source_file": "src/config.ts",
+      "source_location": "L128"
+    },
+    {
       "id": "src_config_stats",
       "label": "stats",
       "_origin": "ast",
@@ -1156,6 +1476,50 @@
       "norm_label": "pages/index.astro",
       "source_file": "src/pages/index.astro",
       "source_location": "L1"
+    },
+    {
+      "id": "src_pages_lineas_de_negocio",
+      "label": "lineas-de-negocio.astro",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "lineas-de-negocio.astro",
+      "source_file": "src/pages/lineas-de-negocio.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_pages_marcas_index",
+      "label": "marcas/index.astro",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "marcas/index.astro",
+      "source_file": "src/pages/marcas/index.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_pages_marcas_index_brands",
+      "label": "brands",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "brands",
+      "source_file": "src/pages/marcas/index.astro",
+      "source_location": "L11"
+    },
+    {
+      "id": "src_pages_marcas_index_lineas",
+      "label": "lineas",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "astro:content",
+      "file_type": "code",
+      "norm_label": "lineas",
+      "source_file": "src/pages/marcas/index.astro",
+      "source_location": "L9"
     },
     {
       "id": "src_pages_nosotros",
@@ -1191,6 +1555,336 @@
       "source_location": "L17"
     },
     {
+      "id": "scripts_aplicar_ingredientes",
+      "label": "aplicar-ingredientes.mjs",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "aplicar-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "aplicar-ingredientes.mjs",
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_aplicar_ingredientes_datos",
+      "label": "datos",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "aplicar-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "datos",
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L26"
+    },
+    {
+      "id": "scripts_aplicar_ingredientes_dry",
+      "label": "dry",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "aplicar-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "dry",
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L24"
+    },
+    {
+      "id": "scripts_aplicar_ingredientes_duplicados",
+      "label": "duplicados",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "aplicar-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "duplicados",
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L33"
+    },
+    {
+      "id": "scripts_aplicar_ingredientes_omitidos",
+      "label": "omitidos",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "aplicar-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "omitidos",
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L32"
+    },
+    {
+      "id": "scripts_aplicar_ingredientes_raiz",
+      "label": "raiz",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "aplicar-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "raiz",
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L23"
+    },
+    {
+      "id": "scripts_ortografia",
+      "label": "ortografia.mjs",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "aplicar-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "ortografia.mjs",
+      "source_file": "scripts/ortografia.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_ortografia_correcciones",
+      "label": "CORRECCIONES",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "aplicar-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "correcciones",
+      "source_file": "scripts/ortografia.mjs",
+      "source_location": "L24"
+    },
+    {
+      "id": "scripts_ortografia_reglas",
+      "label": "REGLAS",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "aplicar-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "reglas",
+      "source_file": "scripts/ortografia.mjs",
+      "source_location": "L47"
+    },
+    {
+      "id": "scripts_marcas_color_y_foto",
+      "label": "marcas-color-y-foto.mjs",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "marcas-color-y-foto.mjs",
+      "file_type": "code",
+      "norm_label": "marcas-color-y-foto.mjs",
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_marcas_color_y_foto_dirfotos",
+      "label": "dirFotos",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "marcas-color-y-foto.mjs",
+      "file_type": "code",
+      "norm_label": "dirfotos",
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L31"
+    },
+    {
+      "id": "scripts_marcas_color_y_foto_dirmarcas",
+      "label": "dirMarcas",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "marcas-color-y-foto.mjs",
+      "file_type": "code",
+      "norm_label": "dirmarcas",
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L29"
+    },
+    {
+      "id": "scripts_marcas_color_y_foto_dirproductos",
+      "label": "dirProductos",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "marcas-color-y-foto.mjs",
+      "file_type": "code",
+      "norm_label": "dirproductos",
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L30"
+    },
+    {
+      "id": "scripts_marcas_color_y_foto_encargo",
+      "label": "ENCARGO",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "marcas-color-y-foto.mjs",
+      "file_type": "code",
+      "norm_label": "encargo",
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L35"
+    },
+    {
+      "id": "scripts_marcas_color_y_foto_filas",
+      "label": "filas",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "marcas-color-y-foto.mjs",
+      "file_type": "code",
+      "norm_label": "filas",
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L94"
+    },
+    {
+      "id": "scripts_marcas_color_y_foto_marcas",
+      "label": "marcas",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "marcas-color-y-foto.mjs",
+      "file_type": "code",
+      "norm_label": "marcas",
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L56"
+    },
+    {
+      "id": "scripts_marcas_color_y_foto_productos",
+      "label": "productos",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "marcas-color-y-foto.mjs",
+      "file_type": "code",
+      "norm_label": "productos",
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L57"
+    },
+    {
+      "id": "scripts_marcas_color_y_foto_raiz",
+      "label": "raiz",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "marcas-color-y-foto.mjs",
+      "file_type": "code",
+      "norm_label": "raiz",
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L28"
+    },
+    {
+      "id": "project_status",
+      "label": "PROJECT_STATUS.md",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "Districo \u2014 Estado vigente del proyecto",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "project_status.md",
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "project_status_decisiones_vigentes",
+      "label": "Decisiones vigentes",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "Districo \u2014 Estado vigente del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "decisiones vigentes",
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "project_status_districo_estado_vigente_del_proyecto",
+      "label": "Districo \u2014 Estado vigente del proyecto",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "Districo \u2014 Estado vigente del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "districo \u2014 estado vigente del proyecto",
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "project_status_documentos",
+      "label": "Documentos",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "Districo \u2014 Estado vigente del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "documentos",
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L58"
+    },
+    {
+      "id": "project_status_estado_actual",
+      "label": "Estado actual",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "Districo \u2014 Estado vigente del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "estado actual",
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L12"
+    },
+    {
+      "id": "project_status_pendientes_confirmados",
+      "label": "Pendientes confirmados",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "Districo \u2014 Estado vigente del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pendientes confirmados",
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L47"
+    },
+    {
+      "id": "project_status_producto_y_objetivo",
+      "label": "Producto y objetivo",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "Districo \u2014 Estado vigente del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "producto y objetivo",
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L5"
+    },
+    {
+      "id": "project_status_verificaci\u00f3n_obligatoria",
+      "label": "Verificaci\u00f3n obligatoria",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "Districo \u2014 Estado vigente del proyecto",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "verificacion obligatoria",
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L36"
+    },
+    {
+      "id": "agents",
+      "label": "AGENTS.md",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "AGENTS.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "agents.md",
+      "source_file": "AGENTS.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "agents_graphify",
+      "label": "graphify",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "AGENTS.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "graphify",
+      "source_file": "AGENTS.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "agents_proyecto_districo",
+      "label": "Proyecto Districo",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "AGENTS.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "proyecto districo",
+      "source_file": "AGENTS.md",
+      "source_location": "L14"
+    },
+    {
       "id": "astro_config",
       "label": "astro.config.mjs",
       "_origin": "ast",
@@ -1221,7 +1915,7 @@
       "file_type": "code",
       "norm_label": "dependencies",
       "source_file": "package.json",
-      "source_location": "L13"
+      "source_location": "L14"
     },
     {
       "id": "package_dependencies_astro",
@@ -1232,7 +1926,7 @@
       "file_type": "code",
       "norm_label": "astro",
       "source_file": "package.json",
-      "source_location": "L16"
+      "source_location": "L17"
     },
     {
       "id": "package_dependencies_astrojs_sitemap",
@@ -1243,7 +1937,7 @@
       "file_type": "code",
       "norm_label": "@astrojs/sitemap",
       "source_file": "package.json",
-      "source_location": "L14"
+      "source_location": "L15"
     },
     {
       "id": "package_dependencies_fontsource_variable_figtree",
@@ -1254,7 +1948,7 @@
       "file_type": "code",
       "norm_label": "@fontsource-variable/figtree",
       "source_file": "package.json",
-      "source_location": "L15"
+      "source_location": "L16"
     },
     {
       "id": "package_devdependencies",
@@ -1265,7 +1959,7 @@
       "file_type": "code",
       "norm_label": "devdependencies",
       "source_file": "package.json",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "package_devdependencies_astrojs_check",
@@ -1276,7 +1970,18 @@
       "file_type": "code",
       "norm_label": "@astrojs/check",
       "source_file": "package.json",
-      "source_location": "L19"
+      "source_location": "L20"
+    },
+    {
+      "id": "package_devdependencies_playwright_core",
+      "label": "playwright-core",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "playwright-core",
+      "source_file": "package.json",
+      "source_location": "L21"
     },
     {
       "id": "package_devdependencies_typescript",
@@ -1287,7 +1992,7 @@
       "file_type": "code",
       "norm_label": "typescript",
       "source_file": "package.json",
-      "source_location": "L20"
+      "source_location": "L22"
     },
     {
       "id": "package_name",
@@ -1345,6 +2050,17 @@
       "source_location": "L10"
     },
     {
+      "id": "package_scripts_check_overflow",
+      "label": "check:overflow",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "check:overflow",
+      "source_file": "package.json",
+      "source_location": "L12"
+    },
+    {
       "id": "package_scripts_dev",
       "label": "dev",
       "_origin": "ast",
@@ -1400,39 +2116,6 @@
       "source_location": "L4"
     },
     {
-      "id": "src_config_noindex",
-      "label": "NOINDEX",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "noindex",
-      "source_file": "src/config.ts",
-      "source_location": "L15"
-    },
-    {
-      "id": "src_pages_robots_txt",
-      "label": "robots.txt.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "robots.txt.ts",
-      "source_file": "src/pages/robots.txt.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "ref_astro",
-      "label": "astro",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "astro",
-      "source_file": "package.json",
-      "source_location": "L16"
-    },
-    {
       "id": "ref_astrojs_check",
       "label": "@astrojs/check",
       "_origin": "ast",
@@ -1441,7 +2124,7 @@
       "file_type": "concept",
       "norm_label": "@astrojs/check",
       "source_file": "package.json",
-      "source_location": "L19"
+      "source_location": "L20"
     },
     {
       "id": "ref_astrojs_sitemap",
@@ -1452,7 +2135,7 @@
       "file_type": "concept",
       "norm_label": "@astrojs/sitemap",
       "source_file": "package.json",
-      "source_location": "L14"
+      "source_location": "L15"
     },
     {
       "id": "ref_fontsource_variable_figtree",
@@ -1463,7 +2146,7 @@
       "file_type": "concept",
       "norm_label": "@fontsource-variable/figtree",
       "source_file": "package.json",
-      "source_location": "L15"
+      "source_location": "L16"
     },
     {
       "id": "ref_typescript",
@@ -1474,7 +2157,7 @@
       "file_type": "concept",
       "norm_label": "typescript",
       "source_file": "package.json",
-      "source_location": "L20"
+      "source_location": "L22"
     },
     {
       "id": "scripts_check_tablas",
@@ -1683,7 +2366,7 @@
       "file_type": "code",
       "norm_label": "banners",
       "source_file": "src/content.config.ts",
-      "source_location": "L110"
+      "source_location": "L133"
     },
     {
       "id": "src_content_config_brands",
@@ -1705,7 +2388,7 @@
       "file_type": "code",
       "norm_label": "collections",
       "source_file": "src/content.config.ts",
-      "source_location": "L132"
+      "source_location": "L155"
     },
     {
       "id": "src_content_config_lineas",
@@ -1727,7 +2410,7 @@
       "file_type": "code",
       "norm_label": "milestones",
       "source_file": "src/content.config.ts",
-      "source_location": "L86"
+      "source_location": "L109"
     },
     {
       "id": "src_content_config_products",
@@ -1738,14 +2421,201 @@
       "file_type": "code",
       "norm_label": "products",
       "source_file": "src/content.config.ts",
-      "source_location": "L54"
+      "source_location": "L63"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup",
+      "label": "cargar-toh-yowup.mjs",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "cargar-toh-yowup.mjs",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_dirimg",
+      "label": "dirImg",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "dirimg",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L13"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_dirlogos",
+      "label": "dirLogos",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "dirlogos",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L14"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_dirmarcas",
+      "label": "dirMarcas",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "dirmarcas",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L12"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_dirprod",
+      "label": "dirProd",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "dirprod",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L11"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_marcas",
+      "label": "marcas",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "marcas",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L251"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_modelos",
+      "label": "modelos",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "modelos",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L17"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_ordentalles",
+      "label": "ordenTalles",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "ordentalles",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L49"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_productos",
+      "label": "productos",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "productos",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L116"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_raiz",
+      "label": "raiz",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "raiz",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L10"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_rgba",
+      "label": "rgba",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "rgba",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L234"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_talle_es",
+      "label": "TALLE_ES",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "talle_es",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L51"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_tmptoh",
+      "label": "tmpToh",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "tmptoh",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L223"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_tmpyow",
+      "label": "tmpYow",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "tmpyow",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L246"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_toh",
+      "label": "TOH",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "toh",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L58"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_traduce",
+      "label": "TRADUCE",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "traduce",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L33"
+    },
+    {
+      "id": "scripts_cargar_toh_yowup_yowup",
+      "label": "YOWUP",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "cargar-toh-yowup.mjs",
+      "file_type": "code",
+      "norm_label": "yowup",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L149"
     },
     {
       "id": "scripts_gen_og",
       "label": "gen-og.mjs",
       "_origin": "ast",
       "community": 9,
-      "community_name": "gen-og.mjs",
+      "community_name": "cargar-toh-yowup.mjs",
       "file_type": "code",
       "norm_label": "gen-og.mjs",
       "source_file": "scripts/gen-og.mjs",
@@ -1756,7 +2626,7 @@
       "label": "fondo",
       "_origin": "ast",
       "community": 9,
-      "community_name": "gen-og.mjs",
+      "community_name": "cargar-toh-yowup.mjs",
       "file_type": "code",
       "norm_label": "fondo",
       "source_file": "scripts/gen-og.mjs",
@@ -1767,7 +2637,7 @@
       "label": "logoX",
       "_origin": "ast",
       "community": 9,
-      "community_name": "gen-og.mjs",
+      "community_name": "cargar-toh-yowup.mjs",
       "file_type": "code",
       "norm_label": "logox",
       "source_file": "scripts/gen-og.mjs",
@@ -1778,7 +2648,7 @@
       "label": "logoY",
       "_origin": "ast",
       "community": 9,
-      "community_name": "gen-og.mjs",
+      "community_name": "cargar-toh-yowup.mjs",
       "file_type": "code",
       "norm_label": "logoy",
       "source_file": "scripts/gen-og.mjs",
@@ -1789,7 +2659,7 @@
       "label": "root",
       "_origin": "ast",
       "community": 9,
-      "community_name": "gen-og.mjs",
+      "community_name": "cargar-toh-yowup.mjs",
       "file_type": "code",
       "norm_label": "root",
       "source_file": "scripts/gen-og.mjs",
@@ -1823,6 +2693,66 @@
       "norm_label": "boton de whatsapp flotante fijo",
       "source_file": "districo-brief-diseno.md",
       "source_location": "\u00a74 Motion, \u00a75",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_astro_assets_image",
+      "label": "Optimizaci\u00f3n de im\u00e1genes con astro:assets",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "optimizacion de imagenes con astro:assets",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a76",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_barra_de_stats",
+      "label": "Barra de stats (156 productos / 21 marcas / 4 l\u00edneas / 6.000m\u00b2 / ISO 9001)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "barra de stats (156 productos / 21 marcas / 4 lineas / 6.000m2 / iso 9001)",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a75 Home",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_bloque_marcas_destacadas",
+      "label": "Bloque de marcas destacadas en el home",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "bloque de marcas destacadas en el home",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a75 Home",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_bloques_de_color_full_bleed",
+      "label": "Bloques de color full-bleed por l\u00ednea de negocio",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "bloques de color full-bleed por linea de negocio",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74 Paleta",
       "source_url": null
     },
     {
@@ -1931,8 +2861,8 @@
       "source_url": null
     },
     {
-      "id": "src_assets_brands_leeme_campo_photo",
-      "label": "Campo photo del JSON de marca",
+      "id": "src_content_banners_leeme_banners_del_home",
+      "label": "Banners del home (colecci\u00f3n JSON)",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
@@ -1940,8 +2870,38 @@
       "community_name": "Colecci\u00f3n products (src/content/products)",
       "contributor": null,
       "file_type": "concept",
-      "norm_label": "campo photo del json de marca",
-      "source_file": "src/assets/brands/LEEME.md",
+      "norm_label": "banners del home (coleccion json)",
+      "source_file": "src/content/banners/LEEME.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "src_content_banners_leeme_especificacion_foto_banner",
+      "label": "Especificaci\u00f3n de foto de banner (2480x660, motivo a la derecha)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "especificacion de foto de banner (2480x660, motivo a la derecha)",
+      "source_file": "src/content/banners/LEEME.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "src_content_banners_leeme_regla_activacion_carrusel",
+      "label": "Regla de activaci\u00f3n del carrusel (active:false, umbral de 2 banners)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "regla de activacion del carrusel (active:false, umbral de 2 banners)",
+      "source_file": "src/content/banners/LEEME.md",
       "source_location": null,
       "source_url": null
     },
@@ -1976,6 +2936,21 @@
       "source_url": null
     },
     {
+      "id": "districo_brief_diseno_home_componentes",
+      "label": "Desglose de componentes del Home",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "desglose de componentes del home",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a75 Home",
+      "source_url": null
+    },
+    {
       "id": "districo_brief_diseno_sitemap_v1",
       "label": "Sitemap v1",
       "_origin": "semantic",
@@ -1988,21 +2963,6 @@
       "norm_label": "sitemap v1",
       "source_file": "districo-brief-diseno.md",
       "source_location": "\u00a72",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_cuello_botella_fotos_baja_resolucion",
-      "label": "Cuello de botella: fotos de producto en baja resoluci\u00f3n",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 3,
-      "community_name": "Colecci\u00f3n products (src/content/products)",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "cuello de botella: fotos de producto en baja resolucion",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a77",
       "source_url": null
     },
     {
@@ -2036,6 +2996,21 @@
       "source_url": null
     },
     {
+      "id": "districo_brief_diseno_reemplazo_banners_flyer",
+      "label": "Reemplazar banners tipo flyer por fotograf\u00eda editorial",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "reemplazar banners tipo flyer por fotografia editorial",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74 Fotograf\u00eda",
+      "source_url": null
+    },
+    {
       "id": "districo_brief_diseno_sitio_estatico_sin_ssr",
       "label": "Sitio 100% est\u00e1tico sin SSR",
       "_origin": "semantic",
@@ -2048,21 +3023,6 @@
       "norm_label": "sitio 100% estatico sin ssr",
       "source_file": "districo-brief-diseno.md",
       "source_location": "\u00a76",
-      "source_url": null
-    },
-    {
-      "id": "src_assets_brands_leeme_fallback_foto_de_categoria",
-      "label": "Fallback a la foto de la l\u00ednea de negocio (andamio temporal)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 3,
-      "community_name": "Colecci\u00f3n products (src/content/products)",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "fallback a la foto de la linea de negocio (andamio temporal)",
-      "source_file": "src/assets/brands/LEEME.md",
-      "source_location": null,
       "source_url": null
     },
     {
@@ -2096,63 +3056,18 @@
       "source_url": null
     },
     {
-      "id": "districo_brief_diseno_astro_assets_image",
-      "label": "Optimizaci\u00f3n de im\u00e1genes con astro:assets",
+      "id": "src_content_banners_leeme_velo_accent_contraste",
+      "label": "Velo de color accent con contraste 4.5:1",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
       "contributor": null,
-      "file_type": "concept",
-      "norm_label": "optimizacion de imagenes con astro:assets",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a76",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_barra_de_stats",
-      "label": "Barra de stats (156 productos / 21 marcas / 4 l\u00edneas / 6.000m\u00b2 / ISO 9001)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "barra de stats (156 productos / 21 marcas / 4 lineas / 6.000m2 / iso 9001)",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a75 Home",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_bloque_marcas_destacadas",
-      "label": "Bloque de marcas destacadas en el home",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "bloque de marcas destacadas en el home",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a75 Home",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_bloques_de_color_full_bleed",
-      "label": "Bloques de color full-bleed por l\u00ednea de negocio",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "bloques de color full-bleed por linea de negocio",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74 Paleta",
+      "file_type": "rationale",
+      "norm_label": "velo de color accent con contraste 4.5:1",
+      "source_file": "src/content/banners/LEEME.md",
+      "source_location": null,
       "source_url": null
     },
     {
@@ -2162,7 +3077,7 @@
       "author": null,
       "captured_at": null,
       "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
+      "community_name": "Sistema visual",
       "contributor": null,
       "file_type": "concept",
       "norm_label": "circulos/blobs y stickers de certificacion",
@@ -2177,7 +3092,7 @@
       "author": null,
       "captured_at": null,
       "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
+      "community_name": "Sistema visual",
       "contributor": null,
       "file_type": "concept",
       "norm_label": "fotografia de producto grande y protagonista",
@@ -2192,7 +3107,7 @@
       "author": null,
       "captured_at": null,
       "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
+      "community_name": "Sistema visual",
       "contributor": null,
       "file_type": "concept",
       "norm_label": "motion: fade-in + slide-up al scroll",
@@ -2207,7 +3122,7 @@
       "author": null,
       "captured_at": null,
       "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
+      "community_name": "Sistema visual",
       "contributor": null,
       "file_type": "concept",
       "norm_label": "referencia visual cantera",
@@ -2222,7 +3137,7 @@
       "author": null,
       "captured_at": null,
       "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
+      "community_name": "Sistema visual",
       "contributor": null,
       "file_type": "concept",
       "norm_label": "sistema visual",
@@ -2237,7 +3152,7 @@
       "author": null,
       "captured_at": null,
       "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
+      "community_name": "Sistema visual",
       "contributor": null,
       "file_type": "concept",
       "norm_label": "tipografia protagonista (titulares 60-90px, kicker + titulo + apoyo)",
@@ -2246,78 +3161,18 @@
       "source_url": null
     },
     {
-      "id": "src_assets_brands_leeme_convencion_foto_de_marca",
-      "label": "Convenci\u00f3n de foto de marca (slug.jpg, 4:5, lado corto \u2265640px)",
+      "id": "districo_brief_diseno_cuello_botella_fotos_baja_resolucion",
+      "label": "Cuello de botella: fotos de producto en baja resoluci\u00f3n",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
+      "community_name": "Sistema visual",
       "contributor": null,
-      "file_type": "concept",
-      "norm_label": "convencion de foto de marca (slug.jpg, 4:5, lado corto \u2265640px)",
-      "source_file": "src/assets/brands/LEEME.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "src_content_banners_leeme_banners_del_home",
-      "label": "Banners del home (colecci\u00f3n JSON)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "banners del home (coleccion json)",
-      "source_file": "src/content/banners/LEEME.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "src_content_banners_leeme_especificacion_foto_banner",
-      "label": "Especificaci\u00f3n de foto de banner (2480x660, motivo a la derecha)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "especificacion de foto de banner (2480x660, motivo a la derecha)",
-      "source_file": "src/content/banners/LEEME.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "src_content_banners_leeme_regla_activacion_carrusel",
-      "label": "Regla de activaci\u00f3n del carrusel (active:false, umbral de 2 banners)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "regla de activacion del carrusel (active:false, umbral de 2 banners)",
-      "source_file": "src/content/banners/LEEME.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_home_componentes",
-      "label": "Desglose de componentes del Home",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "desglose de componentes del home",
+      "file_type": "rationale",
+      "norm_label": "cuello de botella: fotos de producto en baja resolucion",
       "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a75 Home",
+      "source_location": "\u00a77",
       "source_url": null
     },
     {
@@ -2327,42 +3182,12 @@
       "author": null,
       "captured_at": null,
       "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
+      "community_name": "Sistema visual",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "paleta: teal petroleo + verde lima del logo actual",
       "source_file": "districo-brief-diseno.md",
       "source_location": "\u00a74 Paleta",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_reemplazo_banners_flyer",
-      "label": "Reemplazar banners tipo flyer por fotograf\u00eda editorial",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "reemplazar banners tipo flyer por fotografia editorial",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74 Fotograf\u00eda",
-      "source_url": null
-    },
-    {
-      "id": "src_content_banners_leeme_velo_accent_contraste",
-      "label": "Velo de color accent con contraste 4.5:1",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 5,
-      "community_name": "Banners del home (colecci\u00f3n JSON)",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "velo de color accent con contraste 4.5:1",
-      "source_file": "src/content/banners/LEEME.md",
-      "source_location": null,
       "source_url": null
     }
   ],
@@ -2380,6 +3205,18 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_ortografia_corregir",
+      "target": "scripts_ortografia_comovenia",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/ortografia.mjs",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_brandmosaic_todas",
       "target": "src_config_lineaccent",
       "relation": "calls",
@@ -2389,6 +3226,18 @@
       "context": "call",
       "source_file": "src/components/BrandMosaic.astro",
       "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_brandstrip_armarpuntos",
+      "target": "src_components_brandstrip_pintar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/BrandStrip.astro",
+      "source_location": "L164",
       "weight": 1.0
     },
     {
@@ -2477,6 +3326,18 @@
     },
     {
       "source": "src_pages_productos_index_apply",
+      "target": "src_pages_productos_index_pintartags",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/pages/productos/index.astro",
+      "source_location": "L262",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_productos_index_apply",
       "target": "src_pages_productos_index_toggle",
       "relation": "calls",
       "_origin": "ast",
@@ -2484,7 +3345,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L218",
+      "source_location": "L281",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_productos_index_medir",
+      "target": "src_pages_productos_index_setcompacto",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/pages/productos/index.astro",
+      "source_location": "L401",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_productos_index_quitar",
+      "target": "src_pages_productos_index_apply",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/pages/productos/index.astro",
+      "source_location": "L237",
       "weight": 1.0
     },
     {
@@ -2496,7 +3381,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L241",
+      "source_location": "L304",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_productos_index_setcompacto",
+      "target": "src_pages_productos_index_toggle",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/pages/productos/index.astro",
+      "source_location": "L392",
       "weight": 1.0
     },
     {
@@ -2508,7 +3405,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L260",
+      "source_location": "L323",
       "weight": 1.0
     },
     {
@@ -2532,7 +3429,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -2544,7 +3441,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -2556,7 +3453,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -2568,7 +3465,19 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "package",
+      "target": "ref_playwright_core",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "package.json",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -2580,7 +3489,19 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_aplicar_ingredientes",
+      "target": "scripts_ortografia_corregir",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -2641,6 +3562,18 @@
       "context": "import",
       "source_file": "src/components/BrandMosaic.astro",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_brandstrip",
+      "target": "src_config_lineaccent",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/BrandStrip.astro",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -3028,6 +3961,30 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_aplicar_ingredientes",
+      "target": "scripts_ortografia",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_overflow",
+      "target": "ref_playwright_core",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-overflow.mjs",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
       "source": "scripts_check_tablas",
       "target": "src_lib_tabla_tecnica",
       "relation": "imports_from",
@@ -3037,6 +3994,18 @@
       "context": "import",
       "source_file": "scripts/check-tablas.mjs",
       "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_scrape_ingredientes",
+      "target": "ref_playwright_core",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -3065,7 +4034,7 @@
     },
     {
       "source": "src_components_brandgrid",
-      "target": "src_components_brandmosaic",
+      "target": "src_components_brandstrip",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3097,6 +4066,18 @@
       "context": "import",
       "source_file": "src/components/BrandMosaic.astro",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_brandstrip",
+      "target": "src_config",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/BrandStrip.astro",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -3737,6 +4718,28 @@
       "weight": 1.0
     },
     {
+      "source": "agents",
+      "target": "agents_graphify",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "agents",
+      "target": "agents_proyecto_districo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
       "source": "package",
       "target": "package_dependencies",
       "relation": "contains",
@@ -3744,7 +4747,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -3755,7 +4758,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -3821,7 +4824,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -3832,7 +4835,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -3843,7 +4846,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -3854,7 +4857,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_playwright_core",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -3865,7 +4879,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -3888,6 +4902,17 @@
       "confidence_score": 1.0,
       "source_file": "package.json",
       "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "package_scripts",
+      "target": "package_scripts_check_overflow",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -3921,6 +4946,380 @@
       "confidence_score": 1.0,
       "source_file": "package.json",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "project_status",
+      "target": "project_status_districo_estado_vigente_del_proyecto",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "project_status_districo_estado_vigente_del_proyecto",
+      "target": "project_status_estado_actual",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "project_status_districo_estado_vigente_del_proyecto",
+      "target": "project_status_decisiones_vigentes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "project_status_districo_estado_vigente_del_proyecto",
+      "target": "project_status_verificaci\u00f3n_obligatoria",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "project_status_districo_estado_vigente_del_proyecto",
+      "target": "project_status_pendientes_confirmados",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "project_status_districo_estado_vigente_del_proyecto",
+      "target": "project_status_producto_y_objetivo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "project_status_districo_estado_vigente_del_proyecto",
+      "target": "project_status_documentos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_STATUS.md",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_aplicar_ingredientes",
+      "target": "scripts_aplicar_ingredientes_raiz",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_aplicar_ingredientes",
+      "target": "scripts_aplicar_ingredientes_dry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_aplicar_ingredientes",
+      "target": "scripts_aplicar_ingredientes_datos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_aplicar_ingredientes",
+      "target": "scripts_aplicar_ingredientes_esremision",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_aplicar_ingredientes",
+      "target": "scripts_aplicar_ingredientes_omitidos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_aplicar_ingredientes",
+      "target": "scripts_aplicar_ingredientes_duplicados",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/aplicar-ingredientes.mjs",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_raiz",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_dirprod",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_productos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_dirmarcas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_dirimg",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_dirlogos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_yowup",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_modelos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_bajar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_tmptoh",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L223",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_rgba",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L234",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_tmpyow",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L246",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_marcas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L251",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_traduce",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_limpiarcolores",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_ordentalles",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_talle_es",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_ordenar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_cargar_toh_yowup_toh",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_overflow",
+      "target": "scripts_check_overflow_anchos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-overflow.mjs",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_overflow",
+      "target": "scripts_check_overflow_rutas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-overflow.mjs",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -4089,6 +5488,259 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_marcas_color_y_foto",
+      "target": "scripts_marcas_color_y_foto_raiz",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_marcas_color_y_foto",
+      "target": "scripts_marcas_color_y_foto_dirmarcas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_marcas_color_y_foto",
+      "target": "scripts_marcas_color_y_foto_dirproductos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_marcas_color_y_foto",
+      "target": "scripts_marcas_color_y_foto_dirfotos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_marcas_color_y_foto",
+      "target": "scripts_marcas_color_y_foto_encargo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_marcas_color_y_foto",
+      "target": "scripts_marcas_color_y_foto_marcas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_marcas_color_y_foto",
+      "target": "scripts_marcas_color_y_foto_productos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_marcas_color_y_foto",
+      "target": "scripts_marcas_color_y_foto_colordeenvase",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_marcas_color_y_foto",
+      "target": "scripts_marcas_color_y_foto_luminancia",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_marcas_color_y_foto",
+      "target": "scripts_marcas_color_y_foto_filas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/marcas-color-y-foto.mjs",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ortografia",
+      "target": "scripts_ortografia_correcciones",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/ortografia.mjs",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ortografia",
+      "target": "scripts_ortografia_comovenia",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/ortografia.mjs",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ortografia",
+      "target": "scripts_ortografia_reglas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/ortografia.mjs",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ortografia",
+      "target": "scripts_ortografia_corregir",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/ortografia.mjs",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_scrape_ingredientes",
+      "target": "scripts_scrape_ingredientes_raiz",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_scrape_ingredientes",
+      "target": "scripts_scrape_ingredientes_salida",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_scrape_ingredientes",
+      "target": "scripts_scrape_ingredientes_args",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_scrape_ingredientes",
+      "target": "scripts_scrape_ingredientes_todos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_scrape_ingredientes",
+      "target": "scripts_scrape_ingredientes_dirproductos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_scrape_ingredientes",
+      "target": "scripts_scrape_ingredientes_productos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_scrape_ingredientes",
+      "target": "scripts_scrape_ingredientes_pendientes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_scrape_ingredientes",
+      "target": "scripts_scrape_ingredientes_leeringredientes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_scrape_ingredientes",
+      "target": "scripts_scrape_ingredientes_fallos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/scrape-ingredientes.mjs",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_aboutblock",
       "target": "src_components_aboutblock_puntos",
       "relation": "contains",
@@ -4107,7 +5759,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/BannerCarousel.astro",
-      "source_location": "L18",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -4141,6 +5793,28 @@
       "confidence_score": 1.0,
       "source_file": "src/components/BrandMosaic.astro",
       "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_brandstrip",
+      "target": "src_components_brandstrip_armarpuntos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/BrandStrip.astro",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_brandstrip",
+      "target": "src_components_brandstrip_pintar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/BrandStrip.astro",
+      "source_location": "L167",
       "weight": 1.0
     },
     {
@@ -4294,7 +5968,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L124",
+      "source_location": "L128",
       "weight": 1.0
     },
     {
@@ -4305,7 +5979,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L131",
+      "source_location": "L137",
       "weight": 1.0
     },
     {
@@ -4316,7 +5990,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L135",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -4464,13 +6138,24 @@
     },
     {
       "source": "src_content_config",
+      "target": "src_content_config_milestones",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/content.config.ts",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "src_content_config",
       "target": "src_content_config_banners",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/content.config.ts",
-      "source_location": "L110",
+      "source_location": "L133",
       "weight": 1.0
     },
     {
@@ -4481,7 +6166,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/content.config.ts",
-      "source_location": "L132",
+      "source_location": "L155",
       "weight": 1.0
     },
     {
@@ -4503,7 +6188,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/content.config.ts",
-      "source_location": "L54",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -4515,17 +6200,6 @@
       "confidence_score": 1.0,
       "source_file": "src/content.config.ts",
       "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_content_config",
-      "target": "src_content_config_milestones",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/content.config.ts",
-      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -4816,17 +6490,6 @@
     },
     {
       "source": "src_pages_productos_index",
-      "target": "src_pages_productos_index_apply",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/productos/index.astro",
-      "source_location": "L179",
-      "weight": 1.0
-    },
-    {
-      "source": "src_pages_productos_index",
       "target": "src_pages_productos_index_subs",
       "relation": "contains",
       "_origin": "ast",
@@ -4838,13 +6501,46 @@
     },
     {
       "source": "src_pages_productos_index",
+      "target": "src_pages_productos_index_pintartags",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/productos/index.astro",
+      "source_location": "L220",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_productos_index",
+      "target": "src_pages_productos_index_quitar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/productos/index.astro",
+      "source_location": "L232",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_productos_index",
+      "target": "src_pages_productos_index_apply",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/productos/index.astro",
+      "source_location": "L240",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_productos_index",
       "target": "src_pages_productos_index_reset",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L238",
+      "source_location": "L301",
       "weight": 1.0
     },
     {
@@ -4855,18 +6551,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L254",
+      "source_location": "L317",
       "weight": 1.0
     },
     {
       "source": "src_pages_productos_index",
-      "target": "src_pages_productos_index_visibility",
+      "target": "src_pages_productos_index_setcompacto",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L491",
+      "source_location": "L389",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_productos_index",
+      "target": "src_pages_productos_index_medir",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/productos/index.astro",
+      "source_location": "L398",
       "weight": 1.0
     },
     {
@@ -4900,6 +6607,17 @@
       "confidence_score": 1.0,
       "source_file": "src/pages/productos/[slug].astro",
       "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_productos_slug",
+      "target": "src_pages_productos_slug_for",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/productos/[slug].astro",
+      "source_location": "L427",
       "weight": 1.0
     },
     {
@@ -4945,6 +6663,15 @@
       "source_file": "tsconfig.json",
       "source_location": "L4",
       "weight": 1.0
+    },
+    {
+      "source": "scripts_check_overflow",
+      "target": "node_fs",
+      "relation": "dynamic_import",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-overflow.mjs"
     },
     {
       "source": "src_components_aboutblock",
@@ -5008,6 +6735,24 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/BrandMosaic.astro"
+    },
+    {
+      "source": "src_components_brandstrip",
+      "target": "astro_assets",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/BrandStrip.astro"
+    },
+    {
+      "source": "src_components_brandstrip",
+      "target": "astro_content",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/BrandStrip.astro"
     },
     {
       "source": "src_components_ctablock",
@@ -5244,6 +6989,18 @@
       "source_file": "src/pages/productos/[slug].astro"
     },
     {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "scripts_gen_og_p",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
       "source": "src_lib_tabla_tecnica_esencabezado",
       "target": "src_lib_tabla_tecnica_tienedigito",
       "relation": "indirect_call",
@@ -5253,6 +7010,18 @@
       "context": "argument",
       "source_file": "src/lib/tabla-tecnica.ts",
       "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_cargar_toh_yowup",
+      "target": "src_lib_tabla_tecnica_texto",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "collection",
+      "source_file": "scripts/cargar-toh-yowup.mjs",
+      "source_location": "L134",
       "weight": 1.0
     },
     {
@@ -5330,28 +7099,6 @@
       "confidence_score": 1.0,
       "source_file": "districo-brief-diseno.md",
       "source_location": "\u00a75 Home punto 4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_brandmosaic",
-      "target": "src_assets_brands_leeme_convencion_foto_de_marca",
-      "relation": "implements",
-      "_origin": "semantic",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/assets/brands/LEEME.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_brandmosaic",
-      "target": "src_assets_brands_leeme_fallback_foto_de_categoria",
-      "relation": "implements",
-      "_origin": "semantic",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/assets/brands/LEEME.md",
-      "source_location": null,
       "weight": 1.0
     },
     {
@@ -5619,28 +7366,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_assets_brands_leeme_campo_photo",
-      "target": "districo_brief_diseno_brands_collection",
-      "relation": "shares_data_with",
-      "_origin": "semantic",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/assets/brands/LEEME.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_brandmosaic",
-      "target": "src_assets_brands_leeme_campo_photo",
-      "relation": "shares_data_with",
-      "_origin": "semantic",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/assets/brands/LEEME.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
       "source": "districo_brief_diseno_astro_assets_image",
       "target": "src_content_banners_leeme_especificacion_foto_banner",
       "relation": "conceptually_related_to",
@@ -5648,17 +7373,6 @@
       "confidence": "INFERRED",
       "confidence_score": 0.75,
       "source_file": "src/content/banners/LEEME.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "districo_brief_diseno_cuello_botella_fotos_baja_resolucion",
-      "target": "src_assets_brands_leeme_fallback_foto_de_categoria",
-      "relation": "conceptually_related_to",
-      "_origin": "semantic",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "districo-brief-diseno.md",
       "source_location": null,
       "weight": 1.0
     },
@@ -5696,17 +7410,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_components_brandmosaic",
-      "target": "districo_brief_diseno_bloque_marcas_destacadas",
-      "relation": "implements",
-      "_origin": "semantic",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "src/assets/brands/LEEME.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
       "source": "districo_brief_diseno_astro_assets_image",
       "target": "districo_brief_diseno_fotografia_producto_grande",
       "relation": "rationale_for",
@@ -5740,28 +7443,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_content_banners_leeme_contenido_de_ejemplo",
-      "target": "src_assets_brands_leeme_fallback_foto_de_categoria",
-      "relation": "semantically_similar_to",
-      "_origin": "semantic",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "src/content/banners/LEEME.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "src_content_banners_leeme_especificacion_foto_banner",
-      "target": "src_assets_brands_leeme_convencion_foto_de_marca",
-      "relation": "semantically_similar_to",
-      "_origin": "semantic",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "src/content/banners/LEEME.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
       "source": "districo_brief_diseno_sitemap_v1",
       "target": "districo_brief_diseno_brands_collection",
       "relation": "references",
@@ -5781,17 +7462,6 @@
       "confidence_score": 0.95,
       "source_file": "districo-brief-diseno.md",
       "source_location": "\u00a72 /productos, /productos/[slug]",
-      "weight": 1.0
-    },
-    {
-      "source": "src_assets_brands_leeme_fallback_foto_de_categoria",
-      "target": "districo_brief_diseno_business_line",
-      "relation": "shares_data_with",
-      "_origin": "semantic",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "src/assets/brands/LEEME.md",
-      "source_location": null,
       "weight": 1.0
     }
   ],
@@ -5826,21 +7496,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "districo-brief-diseno.md"
-    },
-    {
-      "id": "andamio_de_contenido_provisorio",
-      "label": "Andamio de contenido e im\u00e1genes provisorio a reemplazar antes de la revisi\u00f3n con el cliente",
-      "nodes": [
-        "src_content_banners_leeme_contenido_de_ejemplo",
-        "src_assets_brands_leeme_fallback_foto_de_categoria",
-        "districo_brief_diseno_migrar_contenido_real",
-        "districo_brief_diseno_cuello_botella_fotos_baja_resolucion"
-      ],
-      "relation": "participate_in",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "src/content/banners/LEEME.md"
     }
   ],
-  "built_at_commit": "057b670925cb8439ee4b8c3094f6b59d9260354d"
+  "built_at_commit": "c514d9a5e6eebfbfcadd2867fc45a7101295da1b"
 }
