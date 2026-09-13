@@ -49,6 +49,8 @@ const ENCARGO = {
   '4-pets': 'Gato adulto — gris',
   procao: 'Perro en el baño, pelo mojado',
   stack: 'Sin animal: snacks sobre madera',
+  toh: 'Perro de paseo con pechera — plano medio',
+  yowup: 'Perro lamiendo un snack cremoso',
 };
 
 const marcas = readdirSync(dirMarcas).filter((f) => f.endsWith('.json'));

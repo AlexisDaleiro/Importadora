@@ -1,0 +1,13 @@
+{
+  "slug": "snacks-para-mascotas",
+  "name": "Snacks para mascotas",
+  "order": 6,
+  "accent": "snacks-mascotas",
+  "description": "Snacks líquidos funcionales para perros y gatos: yogures, kéfir, leche y caldo de huesos, sin lactosa ni azúcar añadido.",
+  "subcategories": [
+    { "name": "Perros", "slug": "perros" },
+    { "name": "Gatos", "slug": "gatos" }
+  ],
+  "cover": "../../assets/categories/snacks-para-mascotas.jpg",
+  "coverBackground": "#2E5E7E"
+}

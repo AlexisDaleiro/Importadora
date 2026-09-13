@@ -1,0 +1,28 @@
+{
+  "slug": "toh-arena-sanitaria-yucat",
+  "name": "TOH Arena sanitaria Yucat",
+  "brand": "toh",
+  "category": "arenas-sanitarias",
+  "subcategory": null,
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "Arena sanitaria biodegradable hecha con mandioca: aglomera en grumos firmes, controla el olor y se descarta sin el peso ni el polvo de las arenas minerales.",
+  "description": [
+    "Arena sanitaria biodegradable hecha con mandioca: aglomera en grumos firmes, controla el olor y se descarta sin el peso ni el polvo de las arenas minerales."
+  ],
+  "presentations": [],
+  "colors": [],
+  "benefits": [
+    "Biodegradable",
+    "De mandioca",
+    "4 kg",
+    "Aglomerante"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/toh-arena-sanitaria-yucat.webp",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://toh.com.br/products/kit-4-areias-yucat-higienicas-para-gatos-mandioca-biodegradavel-4kg"
+}

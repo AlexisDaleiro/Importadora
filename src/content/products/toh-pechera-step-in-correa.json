@@ -1,0 +1,36 @@
+{
+  "slug": "toh-pechera-step-in-correa",
+  "name": "TOH Pechera Step In + correa",
+  "brand": "toh",
+  "category": "accesorios",
+  "subcategory": "Pecheras",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "El perro apoya las patas y la pechera se cierra sobre el lomo: no hay que pasarla por la cabeza. Cómoda para perros a los que les molesta que les toquen las orejas o el hocico.",
+  "description": [
+    "El perro apoya las patas y la pechera se cierra sobre el lomo: no hay que pasarla por la cabeza. Cómoda para perros a los que les molesta que les toquen las orejas o el hocico."
+  ],
+  "presentations": [
+    "P",
+    "M",
+    "G"
+  ],
+  "colors": [
+    "Fiji",
+    "Negro",
+    "Coral",
+    "Marine"
+  ],
+  "benefits": [
+    "Se coloca desde abajo",
+    "Sin pasar por la cabeza",
+    "Incluye correa"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/toh-pechera-step-in-correa.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://toh.com.br/products/conjunto-peitoral-step-in-e-guia-fiji"
+}

@@ -74,6 +74,13 @@ const products = defineCollection({
       shortDescription: z.string().nullable().default(null),
       description: z.array(z.string()).default([]),
       presentations: z.array(z.string()).default([]),
+      /**
+       * Colores del mismo modelo. En la tienda de TOH cada color es un
+       * producto distinto; acá va uno solo por modelo y los colores son
+       * variantes, como los kilos de una bolsa de alimento. Vacío en todo lo
+       * que no tenga variantes de color.
+       */
+      colors: z.array(z.string()).default([]),
       benefits: z.array(z.string()).default([]),
       technicalSheet: z
         .array(z.object({ label: z.string(), content: z.string() }))

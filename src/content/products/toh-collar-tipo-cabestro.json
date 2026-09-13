@@ -1,0 +1,37 @@
+{
+  "slug": "toh-collar-tipo-cabestro",
+  "name": "TOH Collar tipo cabestro",
+  "brand": "toh",
+  "category": "accesorios",
+  "subcategory": "Collares",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Collar de cabestro que se ajusta al cerrarse y vuelve a aflojarse solo, sin quedar apretado. Sirve como apoyo de entrenamiento en perros que se escapan del collar común.",
+  "description": [
+    "Collar de cabestro que se ajusta al cerrarse y vuelve a aflojarse solo, sin quedar apretado. Sirve como apoyo de entrenamiento en perros que se escapan del collar común."
+  ],
+  "presentations": [
+    "P",
+    "M",
+    "G",
+    "GG"
+  ],
+  "colors": [
+    "Fiji",
+    "Negro",
+    "Azul",
+    "Lila",
+    "Maresia"
+  ],
+  "benefits": [
+    "Ajuste progresivo",
+    "Apoyo de entrenamiento"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/toh-collar-tipo-cabestro.webp",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://toh.com.br/products/coleira-cabresto-fiji"
+}

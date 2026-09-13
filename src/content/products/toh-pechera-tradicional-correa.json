@@ -1,0 +1,50 @@
+{
+  "slug": "toh-pechera-tradicional-correa",
+  "name": "TOH Pechera tradicional + correa",
+  "brand": "toh",
+  "category": "accesorios",
+  "subcategory": "Pecheras",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Pechera de corte tradicional, con apoyo amplio sobre el pecho y argolla metálica en el lomo. Es la opción más simple de colocar y la que mejor funciona en perros que recién empiezan a usar pechera.",
+  "description": [
+    "Pechera de corte tradicional, con apoyo amplio sobre el pecho y argolla metálica en el lomo. Es la opción más simple de colocar y la que mejor funciona en perros que recién empiezan a usar pechera."
+  ],
+  "presentations": [
+    "PP",
+    "P",
+    "M",
+    "G",
+    "GG"
+  ],
+  "colors": [
+    "Fiji",
+    "Negro",
+    "Azul",
+    "Noronha",
+    "Laguna",
+    "Alga",
+    "Marine",
+    "Florest",
+    "Coral",
+    "Bruma",
+    "Atacama",
+    "Alpaca",
+    "Swell",
+    "Lila",
+    "Eclipse",
+    "Maresia"
+  ],
+  "benefits": [
+    "Fácil de colocar",
+    "Argolla metálica",
+    "Incluye correa"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/toh-pechera-tradicional-correa.webp",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://toh.com.br/products/conjunto-peitoral-tradicional-e-guia-fiji"
+}

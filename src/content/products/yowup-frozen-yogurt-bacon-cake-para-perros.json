@@ -1,0 +1,28 @@
+{
+  "slug": "yowup-frozen-yogurt-bacon-cake-para-perros",
+  "name": "YOWUP Frozen Yogurt Bacon Cake para perros",
+  "brand": "yowup",
+  "category": "snacks-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Yogur helado con sabor a panceta, para los días de calor. Se sirve congelado y se come despacio, así que entretiene además de refrescar.",
+  "description": [
+    "Yogur helado con sabor a panceta, para los días de calor. Se sirve congelado y se come despacio, así que entretiene además de refrescar.",
+    "YowUp elabora en Galicia, España, snacks líquidos funcionales para perros y gatos: bajos en grasa, sin lactosa y sin azúcar añadido, con pre y postbióticos."
+  ],
+  "presentations": [],
+  "colors": [],
+  "benefits": [
+    "Para servir congelado",
+    "Sabor panceta",
+    "Sin azúcar añadido"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/yowup-frozen-yogurt-bacon-cake-para-perros.webp",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://yowup.com"
+}

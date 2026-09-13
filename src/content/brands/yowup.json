@@ -1,0 +1,13 @@
+{
+  "slug": "yowup",
+  "name": "YowUp",
+  "categories": [
+    "snacks-para-mascotas"
+  ],
+  "description": "Fabricante español de snacks líquidos funcionales para perros y gatos —yogur, kéfir, leche y caldo de huesos—, elaborados en Galicia sin lactosa ni azúcar añadido.",
+  "logo": "../../assets/logos/yowup.png",
+  "accent": "#9677B3",
+  "photo": "../../assets/brands/yowup.jpg",
+  "featured": false,
+  "externalUrl": "https://yowup.com"
+}

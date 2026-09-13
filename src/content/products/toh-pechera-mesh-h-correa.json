@@ -1,0 +1,49 @@
+{
+  "slug": "toh-pechera-mesh-h-correa",
+  "name": "TOH Pechera Mesh H + correa",
+  "brand": "toh",
+  "category": "accesorios",
+  "subcategory": "Pecheras",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Pechera en malla respirable con cierre en H, pensada para el paseo diario de perros que caminan mucho. Reparte la tensión sobre el pecho en lugar del cuello y viene con su correa a juego.",
+  "description": [
+    "Pechera en malla respirable con cierre en H, pensada para el paseo diario de perros que caminan mucho. Reparte la tensión sobre el pecho en lugar del cuello y viene con su correa a juego."
+  ],
+  "presentations": [
+    "PP",
+    "P",
+    "M",
+    "G"
+  ],
+  "colors": [
+    "Negro",
+    "Fiji",
+    "Azul",
+    "Maresia",
+    "Lila",
+    "Alga",
+    "Marine",
+    "Florest",
+    "Coral",
+    "Bruma",
+    "Eclipse",
+    "Atacama",
+    "Noronha",
+    "Alpaca",
+    "Swell"
+  ],
+  "benefits": [
+    "Malla respirable",
+    "Cierre en H",
+    "Incluye correa",
+    "Regulable"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/toh-pechera-mesh-h-correa.webp",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://toh.com.br/products/peitoral-mesh-h-black"
+}

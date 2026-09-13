@@ -1,0 +1,36 @@
+{
+  "slug": "toh-pechera-antitirones-correa",
+  "name": "TOH Pechera antitirones + correa",
+  "brand": "toh",
+  "category": "accesorios",
+  "subcategory": "Pecheras",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Con argolla delantera además de la del lomo: enganchando la correa adelante, el tirón del perro lo gira hacia quien lo pasea en vez de impulsarlo. Pensada para perros que arrastran.",
+  "description": [
+    "Con argolla delantera además de la del lomo: enganchando la correa adelante, el tirón del perro lo gira hacia quien lo pasea en vez de impulsarlo. Pensada para perros que arrastran."
+  ],
+  "presentations": [
+    "P",
+    "M",
+    "G"
+  ],
+  "colors": [
+    "Fiji",
+    "Negro",
+    "Azul",
+    "Lila"
+  ],
+  "benefits": [
+    "Argolla delantera",
+    "Reduce el tirón",
+    "Incluye correa"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/toh-pechera-antitirones-correa.webp",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://toh.com.br/products/conjunto-peitoral-antipuxao-e-guia-fiji"
+}

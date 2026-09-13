@@ -50,6 +50,14 @@ const subs = lineas
           </svg>
           Filtros<span class="btn-filtros__n" id="f-activos" hidden></span>
         </button>
+        {/* Etiquetas de lo aplicado. Las pinta el script desde el mismo
+            estado que filtra la grilla, así que no pueden desincronizarse:
+            cambiar un selector las redibuja. Solo se ven en escritorio; en
+            mobile el resumen sigue siendo el globito del botón "Filtros". */}
+        <div class="filters__tags" id="f-tags" role="group" aria-label="Filtros aplicados"></div>
+        <button class="linkish filters__clear" id="f-clear-all" data-reset type="button" hidden>
+          Limpiar todo
+        </button>
         <p class="filters__count" aria-live="polite">
           <strong id="f-count" data-count>{products.length}</strong> productos
         </p>
@@ -174,7 +182,60 @@ const subs = lineas
     const empty = document.getElementById('empty') as HTMLElement;
     const emptyFiltros = document.getElementById('empty-filtros') as HTMLElement;
 
+    const tags = document.getElementById('f-tags') as HTMLElement;
+    const limpiarTodo = document.getElementById('f-clear-all') as HTMLElement;
+
     const state = { linea: '', marca: '', sub: '', q: '' };
+
+    // ── Etiquetas de filtros aplicados ───────────────────────────────────
+    // Se redibujan enteras en cada apply(): son cuatro como mucho, y
+    // reconstruirlas es más barato de mantener que diffear cuál cambió.
+    // Quitar una toca SOLO su filtro; "Limpiar todo" sigue siendo otro botón.
+    const etiqueta = (clave: string, texto: string) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'tag';
+      b.dataset.quitar = clave;
+      b.setAttribute('aria-label', `Quitar filtro ${texto}`);
+      const span = document.createElement('span');
+      span.textContent = texto;
+      b.append(span);
+      const x = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      x.setAttribute('viewBox', '0 0 24 24');
+      x.setAttribute('width', '14');
+      x.setAttribute('height', '14');
+      x.setAttribute('fill', 'none');
+      x.setAttribute('stroke', 'currentColor');
+      x.setAttribute('stroke-width', '2.5');
+      x.setAttribute('stroke-linecap', 'round');
+      x.setAttribute('aria-hidden', 'true');
+      const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      p.setAttribute('d', 'M6 6l12 12M18 6L6 18');
+      x.append(p);
+      b.append(x);
+      b.addEventListener('click', () => quitar(clave));
+      return b;
+    };
+
+    function pintarTags() {
+      const puestas: [string, string][] = [];
+      if (state.linea) {
+        puestas.push(['linea', chips.find((c) => c.dataset.filterLinea === state.linea)?.textContent?.trim() ?? state.linea]);
+      }
+      if (state.marca) puestas.push(['marca', selMarca.selectedOptions[0]?.textContent ?? state.marca]);
+      if (state.sub) puestas.push(['sub', state.sub]);
+      if (state.q) puestas.push(['q', `“${inputQ.value.trim()}”`]);
+      tags.textContent = '';
+      for (const [clave, texto] of puestas) tags.append(etiqueta(clave, texto));
+    }
+
+    function quitar(clave: string) {
+      if (clave === 'linea') state.linea = '';
+      if (clave === 'marca') { state.marca = ''; selMarca.value = ''; }
+      if (clave === 'sub') { state.sub = ''; selSub.value = ''; }
+      if (clave === 'q') { state.q = ''; inputQ.value = ''; }
+      apply();
+    }
 
     function apply(push = true) {
       let shown = 0;
@@ -197,6 +258,8 @@ const subs = lineas
       activos.textContent = String(n);
       activos.hidden = n === 0;
       limpiar.hidden = n === 0;
+      limpiarTodo.hidden = n === 0;
+      pintarTags();
 
       if (shown === 0) {
         const puestos = [
@@ -294,7 +357,74 @@ const subs = lineas
     const mq = matchMedia('(max-width: 759px), (max-height: 480px)');
     mq.addEventListener('change', () => { if (!mq.matches) toggle(false); });
 
-    abrir.addEventListener('click', () => toggle(true));
+    // ── Barra compacta (solo escritorio) ─────────────────────────────────
+    // Al bajar, la barra colapsa a una línea: botón "Filtros", etiquetas,
+    // "Limpiar todo" y contador. El bloque de chips y selectores se pliega.
+    // El corte es el complemento exacto del panel de mobile, así que por
+    // debajo de 760px de ancho —o de 481px de alto— nada de esto existe.
+    const mqDesk = matchMedia('(min-width: 760px) and (min-height: 481px)');
+    const barra = document.querySelector('.filters') as HTMLElement;
+    // Histéresis: colapsa a 220px y no vuelve a expandirse hasta los 120px.
+    // Con un único umbral, quedarse quieto justo encima hacía parpadear la
+    // barra, porque colapsar mueve el contenido y el contenido mueve el
+    // scroll.
+    const COLAPSA = 220;
+    const EXPANDE = 120;
+    let compacto = false;
+    let fijada = false; // expandida a mano desde el botón "Filtros"
+    let fijadaY = 0;
+    let pedido = 0;
+    // Cuánto hay que bajar, desde donde se tocó "Filtros", para que la barra
+    // vuelva a plegarse.
+    const RECOLAPSA = 80;
+    // Ventana de calma después de expandir a mano. Al desplegarse aparecen
+    // ~120px por encima del viewport y el anclaje de scroll del navegador
+    // suma esa misma cantidad a scrollY para que el contenido no salte: ese
+    // salto se leía como "el usuario bajó" y volvía a plegar la barra en el
+    // acto. Mientras dura la ventana no se decide nada y se reapunta la
+    // referencia, así el umbral se mide desde donde quedó de verdad.
+    const CALMA_MS = 400;
+    let ignorarHasta = 0;
+
+    function setCompacto(on: boolean) {
+      if (compacto === on) return;
+      compacto = on;
+      barra.classList.toggle('is-compact', on);
+      // En escritorio el botón no abre un diálogo: dice si la barra está
+      // desplegada. En mobile lo maneja toggle().
+      if (mqDesk.matches) abrir.setAttribute('aria-expanded', String(!on));
+    }
+
+    function medir() {
+      pedido = 0;
+      const y = window.scrollY;
+      if (!mqDesk.matches) { setCompacto(false); return; }
+      // Volver a bajar cancela la expansión manual: es la única forma de
+      // recuperar el alto sin quitarle al usuario los selectores mientras
+      // los está usando.
+      if (fijada && performance.now() < ignorarHasta) { fijadaY = y; return; }
+      if (fijada && y > fijadaY + RECOLAPSA) fijada = false;
+      if (fijada) { setCompacto(false); return; }
+      setCompacto(compacto ? y > EXPANDE : y > COLAPSA);
+    }
+
+    // rAF y no un listener suelto: el handler solo marca que hay que medir y
+    // la lectura de scrollY ocurre una vez por frame.
+    addEventListener('scroll', () => { if (!pedido) pedido = requestAnimationFrame(medir); }, { passive: true });
+    mqDesk.addEventListener('change', medir);
+    medir();
+
+    abrir.addEventListener('click', () => {
+      if (mqDesk.matches) {
+        // El foco se queda en el botón: expandir no lo mueve a ningún lado.
+        fijada = true;
+        fijadaY = window.scrollY;
+        ignorarHasta = performance.now() + CALMA_MS;
+        setCompacto(false);
+        return;
+      }
+      toggle(true);
+    });
     scrim.addEventListener('click', () => toggle(false));
     document.getElementById('f-close')?.addEventListener('click', () => toggle(false));
     document.getElementById('f-ver')?.addEventListener('click', () => toggle(false));
@@ -364,7 +494,7 @@ const subs = lineas
 
   /* Desktop: el panel es un bloque más de la barra y de la barra compacta
      solo sobrevive el contador, que va al final como estaba. */
-  .filters__bar { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; order: 2; }
+  .filters__bar { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 0.75rem; order: 2; }
   .btn-filtros,
   .filters__scrim,
   .panel__head,
@@ -389,8 +519,42 @@ const subs = lineas
   .field select:focus-visible, .field input:focus-visible { outline: 2px solid var(--teal-600); outline-offset: 1px; }
   .field--search input { min-width: 14rem; }
 
-  .filters__count { font-size: var(--text-sm); color: var(--fg-muted); }
+  .filters__count { font-size: var(--text-sm); color: var(--fg-muted); margin-inline-start: auto; }
   .filters__count strong { color: var(--fg); font-size: var(--text-base); }
+
+  /* ── Etiquetas de filtros aplicados ──────────────────────────────────
+     Las crea el script, así que no llevan el atributo de scope de Astro y
+     las reglas tienen que ir en :global() colgando de #f-tags, que sí está
+     en la plantilla. */
+  .filters__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    /* min-width: 0 y wrap: con seis etiquetas largas esto no puede empujar
+       el ancho del documento. */
+    min-width: 0;
+  }
+  .filters__tags:empty { display: none; }
+  .filters__tags :global(.tag) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    /* 44px de alto de área táctil, aunque la píldora se vea más baja. */
+    min-height: 44px;
+    padding: 0.35rem 0.75rem;
+    border: var(--bd) solid var(--border);
+    border-radius: var(--radius-pill);
+    background: var(--white);
+    color: var(--fg);
+    font: inherit;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color var(--dur-fast) ease, color var(--dur-fast) ease;
+  }
+  .filters__tags :global(.tag:hover) { border-color: var(--teal-600); color: var(--teal-800); }
+  .filters__tags :global(.tag:focus-visible) { outline: 2px solid var(--teal-600); outline-offset: 1px; }
+  .filters__clear[hidden] { display: none; }
 
   .grid-wrap { padding-block: clamp(2rem, 4vw, 3.5rem) var(--section-y); }
 
@@ -450,6 +614,11 @@ const subs = lineas
       background: var(--bg-soft);
       border-bottom: 1px solid var(--border);
     }
+
+    /* Las etiquetas y "Limpiar todo" son de escritorio: en mobile la barra
+       compacta es solo el botón y el contador, como estaba. */
+    .filters__tags,
+    .filters__clear { display: none; }
 
     .btn-filtros {
       display: inline-flex;
@@ -568,6 +737,70 @@ const subs = lineas
     }
     .panel__foot .linkish { min-height: 44px; font-size: var(--text-sm); }
     .panel__ver { flex: 1; justify-content: center; min-height: 44px; }
+  }
+
+  /* ── Barra compacta en escritorio ───────────────────────────────────────
+     El corte es el complemento exacto del panel de mobile —(max-width: 759px),
+     (max-height: 480px)— así que las dos reglas nunca se pisan y por debajo
+     de él no cambia absolutamente nada.
+
+     Al bajar, .filters gana .is-compact: el bloque de chips y selectores se
+     pliega y queda una línea con el botón "Filtros", las etiquetas, "Limpiar
+     todo" y el contador. Se pliega con max-height y no con height porque el
+     alto real depende de cuántas líneas ocupen los chips.
+
+     Movimiento: categoría (b) de los tokens —el estado final es información,
+     la barra está plegada o no—, así que la duración es --dur-move, que bajo
+     prefers-reduced-motion vale 0s y el colapso pasa a ser instantáneo. */
+  @media (min-width: 760px) and (min-height: 481px) {
+    .filters {
+      transition: background var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+    }
+    .filters__panel {
+      overflow: hidden;
+      /* Techo holgado: es un máximo, no el alto real, y solo tiene que ser
+         mayor que el bloque más alto posible. */
+      max-height: 24rem;
+      transition: max-height var(--dur-move) var(--ease-out);
+    }
+    .filters.is-compact .filters__panel {
+      max-height: 0;
+    }
+    .filters.is-compact {
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+    /* El botón "Filtros" solo existe en la barra compacta: es lo que devuelve
+       los selectores, que si no quedan inalcanzables. */
+    .filters.is-compact .btn-filtros {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-height: 44px;
+      padding: 0.4rem 1rem;
+      border: var(--bd) solid var(--border);
+      border-radius: var(--radius-pill);
+      background: var(--white);
+      color: var(--fg);
+      font: inherit;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .filters.is-compact .btn-filtros:hover { border-color: var(--teal-600); }
+    .filters.is-compact .btn-filtros:focus-visible { outline: 2px solid var(--teal-600); outline-offset: 1px; }
+    .filters.is-compact .btn-filtros__n {
+      display: grid;
+      place-items: center;
+      min-width: 1.4rem;
+      height: 1.4rem;
+      padding-inline: 0.35rem;
+      border-radius: var(--radius-pill);
+      background: var(--teal-900);
+      color: var(--white);
+      font-size: var(--text-2xs);
+    }
+    .filters.is-compact .btn-filtros__n[hidden] { display: none; }
   }
 
   /* Dos tarjetas completas por pantalla: en una sola columna la tarjeta mide

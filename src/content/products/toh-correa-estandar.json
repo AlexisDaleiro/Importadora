@@ -1,0 +1,31 @@
+{
+  "slug": "toh-correa-estandar",
+  "name": "TOH Correa estándar",
+  "brand": "toh",
+  "category": "accesorios",
+  "subcategory": "Correas",
+  "species": [
+    "perros",
+    "gatos"
+  ],
+  "shortDescription": "La correa de todos los días: cinta resistente, mosquetón metálico y manija cosida. Combina con cualquiera de las pecheras y collares de la línea.",
+  "description": [
+    "La correa de todos los días: cinta resistente, mosquetón metálico y manija cosida. Combina con cualquiera de las pecheras y collares de la línea."
+  ],
+  "presentations": [],
+  "colors": [
+    "Eclipse",
+    "Atacama",
+    "Maresia"
+  ],
+  "benefits": [
+    "Mosquetón metálico",
+    "Manija cosida"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/toh-correa-estandar.webp",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://toh.com.br/products/guia-padrao-p-eclipse"
+}

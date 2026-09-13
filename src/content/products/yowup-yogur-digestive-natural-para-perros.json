@@ -1,0 +1,29 @@
+{
+  "slug": "yowup-yogur-digestive-natural-para-perros",
+  "name": "YOWUP Yogur Digestive natural para perros",
+  "brand": "yowup",
+  "category": "snacks-para-mascotas",
+  "subcategory": "Perros",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Yogur funcional para perros, sin lactosa ni azúcar añadido, con fermentos que acompañan la digestión. Se sirve solo o sobre el alimento de todos los días.",
+  "description": [
+    "Yogur funcional para perros, sin lactosa ni azúcar añadido, con fermentos que acompañan la digestión. Se sirve solo o sobre el alimento de todos los días.",
+    "YowUp elabora en Galicia, España, snacks líquidos funcionales para perros y gatos: bajos en grasa, sin lactosa y sin azúcar añadido, con pre y postbióticos."
+  ],
+  "presentations": [],
+  "colors": [],
+  "benefits": [
+    "Sin lactosa",
+    "Sin azúcar añadido",
+    "Bajo en grasa",
+    "Apoyo digestivo"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/yowup-yogur-digestive-natural-para-perros.webp",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://yowup.com"
+}

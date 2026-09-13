@@ -210,6 +210,15 @@ const ogProducto = gallery[0]
         </div>
       )}
 
+      {/* Mismo tratamiento que las presentaciones: son variantes del mismo
+          producto, no productos distintos. */}
+      {d.colors.length > 0 && (
+        <div class="sheet__pres">
+          <p class="sheet__pres-label">Colores</p>
+          <ul>{d.colors.map((c) => <li>{c}</li>)}</ul>
+        </div>
+      )}
+
       <div class="sheet__cta">
         <Button href={contactLink(consulta)} variant="primary" size="lg">Consultar por WhatsApp</Button>
         <Button href="tel:08001004" variant="outline" size="lg" aria-label={`Llamar al ${site.tollFree}`}>

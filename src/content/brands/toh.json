@@ -1,0 +1,13 @@
+{
+  "slug": "toh",
+  "name": "TOH",
+  "categories": [
+    "accesorios"
+  ],
+  "description": "Fabricante brasileño de accesorios para mascotas: pecheras, correas, collares, identificación con código QR y artículos de paseo y viaje.",
+  "logo": "../../assets/logos/toh.png",
+  "accent": "#E85B1D",
+  "photo": "../../assets/brands/toh.jpg",
+  "featured": false,
+  "externalUrl": "https://toh.com.br"
+}

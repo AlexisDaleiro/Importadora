@@ -1,0 +1,42 @@
+{
+  "slug": "toh-chapita-con-codigo-qr",
+  "name": "TOH Chapita con código QR",
+  "brand": "toh",
+  "category": "accesorios",
+  "subcategory": "Paseo y viaje",
+  "species": [
+    "perros",
+    "gatos"
+  ],
+  "shortDescription": "Chapa de identificación con código QR para sumar a cualquier collar. Los datos de contacto se editan online, así que no hay que grabar una chapa nueva al mudarse o cambiar de teléfono.",
+  "description": [
+    "Chapa de identificación con código QR para sumar a cualquier collar. Los datos de contacto se editan online, así que no hay que grabar una chapa nueva al mudarse o cambiar de teléfono."
+  ],
+  "presentations": [
+    "Pequeña",
+    "Mediana"
+  ],
+  "colors": [
+    "Alga",
+    "Coral",
+    "Marine",
+    "Florest",
+    "Bruma",
+    "Rosa",
+    "Verde Tiffany",
+    "Negro",
+    "Naranja",
+    "Beige"
+  ],
+  "benefits": [
+    "Código QR",
+    "Datos editables",
+    "Para cualquier collar"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/toh-chapita-con-codigo-qr.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://toh.com.br/products/pingente-qr-code-alga"
+}

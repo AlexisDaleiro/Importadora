@@ -1,0 +1,15 @@
+{
+  "slug": "accesorios",
+  "name": "Accesorios",
+  "order": 5,
+  "accent": "accesorios",
+  "description": "Pecheras, correas, collares y accesorios de paseo y viaje para perros y gatos, pensados para el uso diario y con repuestos disponibles.",
+  "subcategories": [
+    { "name": "Pecheras", "slug": "pecheras" },
+    { "name": "Correas", "slug": "correas" },
+    { "name": "Collares", "slug": "collares" },
+    { "name": "Paseo y viaje", "slug": "paseo-y-viaje" }
+  ],
+  "cover": "../../assets/categories/accesorios.jpg",
+  "coverBackground": "#E8620F"
+}

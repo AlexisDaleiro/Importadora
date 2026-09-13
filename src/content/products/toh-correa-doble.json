@@ -1,0 +1,32 @@
+{
+  "slug": "toh-correa-doble",
+  "name": "TOH Correa doble",
+  "brand": "toh",
+  "category": "accesorios",
+  "subcategory": "Correas",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Una sola manija con dos ramales para pasear dos perros a la vez. Los ramales giran sin enredarse entre sí.",
+  "description": [
+    "Una sola manija con dos ramales para pasear dos perros a la vez. Los ramales giran sin enredarse entre sí."
+  ],
+  "presentations": [],
+  "colors": [
+    "Fiji",
+    "Negro",
+    "Azul",
+    "Lila",
+    "Maresia"
+  ],
+  "benefits": [
+    "Dos perros a la vez",
+    "Ramales antienredo"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/toh-correa-doble.webp",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://toh.com.br/products/copia-de-guia-dupla-fiji"
+}

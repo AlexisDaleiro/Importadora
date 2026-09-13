@@ -1,0 +1,50 @@
+{
+  "slug": "toh-pechera-h-correa",
+  "name": "TOH Pechera H + correa",
+  "brand": "toh",
+  "category": "accesorios",
+  "subcategory": "Pecheras",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "El modelo clásico de la marca: pechera en H con cintas regulables en pecho y contorno, hebillas de seguridad y correa del mismo color. Se ajusta al perro sin apretar y no le marca el pelo.",
+  "description": [
+    "El modelo clásico de la marca: pechera en H con cintas regulables en pecho y contorno, hebillas de seguridad y correa del mismo color. Se ajusta al perro sin apretar y no le marca el pelo."
+  ],
+  "presentations": [
+    "PP",
+    "P",
+    "M",
+    "G"
+  ],
+  "colors": [
+    "Fiji",
+    "Negro",
+    "Azul",
+    "Oliva",
+    "Laguna",
+    "Alga",
+    "Marine",
+    "Florest",
+    "Coral",
+    "Bruma",
+    "Atacama",
+    "Alpaca",
+    "Swell",
+    "Lila",
+    "Noronha",
+    "Maresia",
+    "Eclipse"
+  ],
+  "benefits": [
+    "Regulable en dos puntos",
+    "Incluye correa",
+    "Hebillas de seguridad"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/toh-pechera-h-correa.webp",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://toh.com.br/products/conjunto-peitoral-h-e-guia-fiji"
+}

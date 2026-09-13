@@ -96,9 +96,11 @@
           --scroll-carousel). La transición sigue declarada pero no viaja, y si
           además animaba opacidad esa parte se conserva.
        b) Estado: el transform ES la información. La hamburguesa que se vuelve
-          X, o el header que se compacta. El recorrido tiene que quedar, así
-          que se anula la DURACIÓN con --dur-move, que pasa a 0s y hace el
-          cambio instantáneo.
+          X, el header que se compacta, o el plegado de la barra de filtros
+          del catálogo en escritorio, que es un max-height y no un transform
+          pero cae en la misma categoría: plegada o desplegada es un estado.
+          El recorrido tiene que quedar, así que se anula la DURACIÓN con
+          --dur-move, que pasa a 0s y hace el cambio instantáneo.
 
        c) Movimiento autónomo: arranca solo, sin que el usuario haga nada. El
           avance automático del carrusel de banners del home es el único caso.

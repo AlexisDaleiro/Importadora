@@ -118,6 +118,10 @@ export const lineAccents: Record<string, { color: string; text: string }> = {
   'arenas-sanitarias': { color: '#55684D', text: '#FFFFFF' },
   'cuidado-de-la-mascota': { color: '#3F6759', text: '#FFFFFF' },
   'snacks-para-consumo-humano': { color: '#FAC541', text: '#1F1A05' },
+  // Líneas nuevas: accesorios toma el naranja de TOH bajado de tono para que
+  // sostenga texto blanco, y snacks para mascotas un azul lácteo.
+  accesorios: { color: '#A8410B', text: '#FFFFFF' },
+  'snacks-para-mascotas': { color: '#2E5E7E', text: '#FFFFFF' },
 };
 
 /** Nombre corto para chips y tarjetas; el nombre completo no entra. */
@@ -126,6 +130,8 @@ export const lineShort: Record<string, string> = {
   'arenas-sanitarias': 'Arenas',
   'cuidado-de-la-mascota': 'Cuidado',
   'snacks-para-consumo-humano': 'Snacks',
+  accesorios: 'Accesorios',
+  'snacks-para-mascotas': 'Snacks mascotas',
 };
 
 export const lineAccent = (slug: string) =>

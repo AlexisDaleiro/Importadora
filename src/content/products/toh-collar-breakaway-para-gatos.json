@@ -1,0 +1,44 @@
+{
+  "slug": "toh-collar-breakaway-para-gatos",
+  "name": "TOH Collar Breakaway para gatos",
+  "brand": "toh",
+  "category": "accesorios",
+  "subcategory": "Collares",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "Collar para gatos con hebilla de liberación: si el gato queda enganchado en una rama o un mueble, el collar se abre solo. Liviano y con espacio para la chapa de identificación.",
+  "description": [
+    "Collar para gatos con hebilla de liberación: si el gato queda enganchado en una rama o un mueble, el collar se abre solo. Liviano y con espacio para la chapa de identificación."
+  ],
+  "presentations": [],
+  "colors": [
+    "Azul",
+    "Lila",
+    "Laguna",
+    "Fiji",
+    "Negro",
+    "Bruma",
+    "Alga",
+    "Marine",
+    "Florest",
+    "Coral",
+    "Atacama",
+    "Swell",
+    "Alpaca",
+    "Noronha",
+    "Maresia",
+    "Eclipse"
+  ],
+  "benefits": [
+    "Hebilla de liberación",
+    "Liviano",
+    "Admite chapa"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/toh-collar-breakaway-para-gatos.webp",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://toh.com.br/products/coleira-de-gato-azul"
+}

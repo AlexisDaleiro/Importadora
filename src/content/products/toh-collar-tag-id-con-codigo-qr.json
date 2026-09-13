@@ -1,0 +1,49 @@
+{
+  "slug": "toh-collar-tag-id-con-codigo-qr",
+  "name": "TOH Collar Tag ID con código QR",
+  "brand": "toh",
+  "category": "accesorios",
+  "subcategory": "Collares",
+  "species": [
+    "perros"
+  ],
+  "shortDescription": "Collar regulable con una chapa de identificación que lleva un código QR: al escanearlo con cualquier teléfono aparecen los datos de contacto del dueño, que se actualizan online sin cambiar la chapa.",
+  "description": [
+    "Collar regulable con una chapa de identificación que lleva un código QR: al escanearlo con cualquier teléfono aparecen los datos de contacto del dueño, que se actualizan online sin cambiar la chapa."
+  ],
+  "presentations": [
+    "PP",
+    "P",
+    "M",
+    "G"
+  ],
+  "colors": [
+    "Fiji",
+    "Azul",
+    "Noronha",
+    "Laguna",
+    "Alga",
+    "Marine",
+    "Florest",
+    "Coral",
+    "Bruma",
+    "Atacama",
+    "Alpaca",
+    "Swell",
+    "Lila",
+    "Maresia",
+    "Eclipse",
+    "Negro"
+  ],
+  "benefits": [
+    "Identificación con QR",
+    "Datos actualizables",
+    "Regulable"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/toh-collar-tag-id-con-codigo-qr.webp",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://toh.com.br/products/coleira-para-cachorro-tag-id-fiji"
+}
