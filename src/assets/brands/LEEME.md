@@ -3,29 +3,32 @@
 Las usa la cinta de paneles del home (`BrandStrip.astro`) y el mosaico de
 `/marcas` (`BrandMosaic.astro`).
 
-## Estado actual: TODAS SON PLACEHOLDER
+## Estado actual: fotos reales (banco libre)
 
-Los 18 archivos `.jpg` de esta carpeta los genera
-`node scripts/marcas-color-y-foto.mjs`. Son una placa con el color de la marca
-y el texto "FOTO PENDIENTE" encima, una distinta por marca. **No son diseño
-final y no se le muestran al cliente como tales**: están para que el carrusel
-se vea armado y para que se note de un vistazo qué falta.
+Los 18 archivos `.jpg` son fotos de stock de licencia comercial libre
+(Pexels), descargadas como asset local — no son las fotos de los fabricantes
+(Hercosul, Guabi, Total Alimentos, TOH, YowUp), que tienen derechos propios y
+todavía no hay acuerdo con el cliente para usarlas. Sirven de foto
+institucional del segmento (perro/gato/snack según la marca), no del producto
+ni del packaging real. Si el cliente provee fotografía propia de marca o
+mascota, esa reemplaza a esta.
+
+**NO volver a correr `scripts/marcas-color-y-foto.mjs` sin `SOLO_COLOR=1`**:
+regenera el placeholder "FOTO PENDIENTE" y pisa estas fotos.
 
 ## Cómo reemplazar una
 
-1. Guardar la foto real como `<slug>.jpg` en esta carpeta, pisando el
-   placeholder. El slug es el nombre del JSON en `src/content/brands/`.
+1. Guardar la foto real como `<slug>.jpg` en esta carpeta, pisando la
+   actual. El slug es el nombre del JSON en `src/content/brands/`.
 2. Nada más: el JSON de la marca ya apunta a ese archivo
    (`"photo": "../../assets/brands/<slug>.jpg"`).
-
-Si se vuelve a correr el script, **regenera el placeholder y pisa la foto
-real**. Con fotos reales cargadas, correrlo solo para colores:
-`SOLO_COLOR=1 node scripts/marcas-color-y-foto.mjs`.
+3. Recorte vertical 4:5, lado corto ≥ 1200px, sujeto en el tercio superior
+   (ver "Formato" abajo). Ninguna marca puede compartir foto con otra.
 
 ## Formato
 
-- JPG, recorte **vertical 4:5**, lado corto **≥ 880px** (el panel más grande
-  mide 220px de ancho y se sirve a 2x).
+- JPG, recorte **vertical 4:5** o cuadrado, lado corto **≥ 1200px** (cubre
+  pantallas de alta densidad; el panel más grande mide 220px y se sirve a 2x).
 - El motivo va en la **mitad superior**: el tercio de abajo se lo come el velo
   oscuro donde se apoya el nombre de la marca.
 - Encuadre cerrado: el panel es angosto (una columna), así que un plano general
@@ -35,34 +38,42 @@ real**. Con fotos reales cargadas, correrlo solo para colores:
 
 El criterio es el segmento, no el envase: alimento de perro → perro, alimento
 de gato → gato, arena sanitaria → gato, cuidado → perro en situación de baño,
-snacks para consumo humano → sin animal. Las razas y tamaños están variados a
-propósito: en la cinta los paneles se ven uno al lado del otro y dos fotos
-parecidas se notan enseguida.
+snacks para consumo humano → sin animal. Las razas, colores de pelaje y
+encuadres están variados a propósito: en la cinta los paneles se ven uno al
+lado del otro y dos fotos parecidas se notan enseguida.
 
-| Archivo | Marca | Foto que va |
+| Archivo | Marca | Foto |
 |---|---|---|
-| `biofresh.jpg` | Biofresh | Perro adulto grande — labrador |
-| `granplus.jpg` | Gran Plus | Perro adulto mediano — mestizo |
-| `guabi-natural.jpg` | Guabi Natural | Gato adulto — atigrado |
-| `primocao.jpg` | PrimoCão | Perro adulto pequeño — caniche |
-| `primogato.jpg` | PrimoGato | Gato adulto — naranja |
-| `three-orig.jpg` | Three Original (perro) | Perro adulto grande — pastor alemán |
-| `three-dogs.jpg` | Three Dogs | Perro cachorro — golden |
-| `three-cats.jpg` | Three Cats | Gato joven — siamés |
-| `three-cats-orig.jpg` | Three Cats Original | Gato adulto — negro |
-| `beny.jpg` | Beny | Perro adulto mediano — beagle |
-| `eco-cane.jpg` | Eco Cane | Gato sobre arena — blanco y gris |
-| `kets.jpg` | Kets | Gato en bandeja sanitaria |
-| `pipicat.jpg` | Pipicat | Gato joven en bandeja |
-| `4-pets.jpg` | 4 Pets | Gato adulto — gris |
-| `procao.jpg` | Procão | Perro en el baño, con el pelo mojado |
-| `stack.jpg` | Stack | Sin animal: snacks sobre madera o textura del producto |
-| `toh.jpg` | TOH | Perro con collar, correa o pechera |
-| `yowup.jpg` | YowUp | Perro o gato consumiendo un snack funcional |
+| `biofresh.jpg` | Biofresh | Golden retriever adulto, tirado en piso interior, luz natural |
+| `granplus.jpg` | Gran Plus | Perro mestizo, primer plano de cara |
+| `guabi-natural.jpg` | Guabi Natural | Border collie corriendo en campo verde |
+| `three-dogs.jpg` | Three Dogs | Tres golden retriever juntos al aire libre |
+| `primocao.jpg` | PrimoCão | Perro callejero corriendo, día soleado |
+| `beny.jpg` | Beny | Cachorro labrador, estudio fondo negro |
+| `three-cats.jpg` | Three Cats | Gato atigrado, retrato fondo oscuro |
+| `primogato.jpg` | PrimoGato | Gato naranja de pelo largo, junto a ventana |
+| `three-orig.jpg` | Three Dogs Original | Pastor alemán adulto, tirado al aire libre |
+| `three-cats-orig.jpg` | Three Cats Original | Gato negro, retrato |
+| `procao.jpg` | Procão | Perro pequeño en el baño, con jabón |
+| `4-pets.jpg` | 4 Pets | Gato naranja y blanco con gatito, junto a bandeja sanitaria |
+| `eco-cane.jpg` | Eco Cane | Gato blanco entre plantas, con otro gato atrás |
+| `kets.jpg` | Kets | Gato gris en caja de cartón |
+| `pipicat.jpg` | Pipicat | Gatitos de varios colores durmiendo en caja |
+| `stack.jpg` | Stack | Sin animal: snacks en potes sobre fondo rosa |
+| `toh.jpg` | TOH | Perro blanco lanudo con pechera de colores, correa |
+| `yowup.jpg` | YowUp | Perro de perfil, lengua afuera |
 
-Dos marcas de la misma especie no pueden compartir foto, ni siquiera parecida:
-hoy `BrandMosaic` caía en las 4 fotos de línea de negocio para las 16 marcas y
-se veía el mismo perro seis veces.
+Fuente: Pexels (banco libre, licencia comercial). Dos marcas de la misma
+especie no comparten foto ni escena parecida — quedó verificado a mano contra
+las 18 a la vez.
+
+## Coberturas de línea de negocio
+
+`src/assets/categories/accesorios.jpg` (línea 05) y
+`.../snacks-para-mascotas.jpg` (línea 06) son también fotos de stock reales,
+descargadas con el mismo criterio (representan la categoría, no una marca).
+Las usa `lineas-de-negocio.astro` y, como respaldo, `BrandMosaic`/`BrandStrip`
+cuando una marca no tiene foto propia.
 
 ## Logos
 
