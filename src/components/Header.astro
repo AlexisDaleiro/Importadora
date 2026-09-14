@@ -1,7 +1,6 @@
 ---
 import Logo from './Logo.astro';
 import Button from './Button.astro';
-import SocialLinks from './SocialLinks.astro';
 import { nav, site } from '../config';
 const path = Astro.url.pathname;
 const isActive = (href: string) => path === href || path.startsWith(href + '/');
@@ -13,14 +12,17 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
 
     <nav class="hdr__nav" aria-label="Principal">
       {nav.map((item) => (
-        <a href={item.href} class:list={['hdr__link', { 'is-active': isActive(item.href) }]}>
+        <a
+          href={item.href}
+          class:list={['hdr__link', { 'is-active': isActive(item.href) }]}
+          aria-current={isActive(item.href) ? 'page' : undefined}
+        >
           {item.label}
         </a>
       ))}
     </nav>
 
     <div class="hdr__cta">
-      <SocialLinks class="hdr__soc" />
       <Button href="tel:08001004" variant="primary">{site.tollFree}</Button>
     </div>
 
@@ -28,8 +30,6 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
       <summary aria-label="Abrir menú"><span></span><span></span><span></span></summary>
       <div class="hdr__panel">
         {nav.map((item) => <a href={item.href}>{item.label}</a>)}
-        {/* En la barra angosta las redes no entran: viven adentro del menú. */}
-        <SocialLinks class="hdr__panel-soc" />
       </div>
     </details>
   </div>
@@ -45,7 +45,10 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     const path = location.pathname;
     for (const a of document.querySelectorAll<HTMLAnchorElement>('.hdr__link')) {
       const href = a.getAttribute('href') ?? '';
-      a.classList.toggle('is-active', path === href || path.startsWith(href + '/'));
+      const activo = path === href || path.startsWith(href + '/');
+      a.classList.toggle('is-active', activo);
+      if (activo) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
     }
     document.querySelector('.hdr__mobile')?.removeAttribute('open');
   });
@@ -72,7 +75,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     gap: 2rem;
     min-height: 76px;
   }
-  /* [logo] ... [navegación] ... [redes][0800]: el auto de cada lado empuja los
+  /* [logo] ... [navegación] ... [0800]: el auto de cada lado empuja los
      extremos a los bordes y deja la navegación centrada en el sobrante. */
   .hdr__logo { margin-right: auto; }
   .hdr__nav { display: none; gap: 1.75rem; }
@@ -86,9 +89,6 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
   .hdr__link:hover { color: var(--brand-lime); }
   .hdr__link.is-active { color: var(--white); border-color: var(--brand-lime); }
   .hdr__cta { display: none; align-items: center; gap: 0.5rem; margin-left: auto; }
-  /* Las redes no suman alto: los 44px del área táctil son menores que los 76
-     del header, así que la barra mide exactamente lo mismo que antes. */
-  .hdr__soc { color: var(--white); }
   /* El botón se pinta acá y no con una variante nueva de Button.astro, para no
      tocar el lima del resto del sitio (--lime-500) desde el header. */
   .hdr__cta :global(.btn) { background: var(--brand-lime); color: #001A22; }
@@ -141,8 +141,6 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     letter-spacing: -0.03em;
     border-bottom: 1px solid rgb(255 255 255 / 0.14);
   }
-  .hdr__panel-soc { color: var(--white); margin-top: 0.5rem; }
-
   @media (min-width: 940px) {
     .hdr__nav, .hdr__cta { display: flex; }
     .hdr__mobile { display: none; }

@@ -90,9 +90,9 @@ const infra = [
   </section>
 
   <section class="mv" aria-label="Misión y visión">
-    <div class="mv__bloque mv__bloque--mision">
-      <div class="mv__inner" data-reveal>
-        <span class="kicker kicker--onDark">Nuestra misión</span>
+    <div class="container mv__inner">
+      <div class="mv__col" data-reveal>
+        <span class="kicker kicker--accent">Nuestra misión</span>
         <p>
           Desarrollar negocios sustentables comercializando productos de distribución masiva,
           trascendiendo y accionando a través de nuestros valores, comprometidos con el
@@ -101,9 +101,7 @@ const infra = [
           quienes nos relacionamos.
         </p>
       </div>
-    </div>
-    <div class="mv__bloque mv__bloque--vision">
-      <div class="mv__inner" data-reveal style="--reveal-delay:100ms">
+      <div class="mv__col" data-reveal style="--reveal-delay:100ms">
         <span class="kicker kicker--accent">Nuestra visión</span>
         <p>
           Ser referentes por nuestro modelo de gestión íntegro e innovador, que transforme
@@ -242,22 +240,15 @@ const infra = [
   .cultura__quote h2 em { color: var(--lime-500); font-style: normal; }
   .cultura__quote p { max-width: 48ch; margin-top: 1.25rem; color: rgb(255 255 255 / 0.68); }
   /* ── Misión y visión ──────────────────────────────────────────────────
-     Dos mitades enfrentadas a pantalla completa: el contraste de fondo es lo
-     que las separa, sin borde entre ellas. Van pegadas a la frase de cultura,
-     que también es teal, así que la franja lima de arriba marca dónde termina
-     una sección y empieza la otra. En mobile se apilan. */
-  .mv { display: grid; border-top: 4px solid var(--lime-500); }
-  .mv__bloque { display: grid; }
-  /* Padding lateral propio en vez de un .container por mitad: un container
-     dentro de cada bloque centraría su texto en la mitad y lo despegaría del
-     gutter con el que se alinea el resto de la página. */
-  .mv__inner { padding: var(--section-y-sm) var(--gutter); }
-  .mv__inner .kicker { display: block; margin-bottom: 1rem; }
-  .mv__inner p { font-size: var(--text-lg); max-width: 52ch; text-wrap: pretty; }
-  .mv__bloque--mision { background: var(--teal-800); color: var(--white); }
-  .mv__bloque--mision p { color: rgb(255 255 255 / 0.86); }
-  .mv__bloque--vision { background: var(--bg-soft); color: var(--fg); }
-  .mv__bloque--vision p { color: var(--fg-muted); }
+     Fondo claro único: el salto desde el teal de cultura ya separa las
+     secciones, sin línea. Columnas centradas en la fila para que la visión,
+     más corta, no quede colgada arriba; cada barra lima es un borde de su
+     propia columna, así mide el alto de su texto y no el de la fila. */
+  .mv { background: var(--bg-soft); color: var(--fg); padding-block: var(--section-y-sm); }
+  .mv__inner { display: grid; gap: clamp(2.5rem, 5vw, 4rem); align-items: center; }
+  .mv__col { border-left: 3px solid var(--lime-500); padding-left: clamp(1.25rem, 2.5vw, 2rem); }
+  .mv__col .kicker { display: block; margin-bottom: 1rem; }
+  .mv__col p { font-size: var(--text-lg); max-width: 52ch; text-wrap: pretty; color: var(--fg-muted); }
 
   /* ── Valores ──────────────────────────────────────────────────────────
      dt/dd en dos columnas: nombre a la izquierda con ancho fijo, definición a
@@ -353,7 +344,7 @@ const infra = [
 
   @media (min-width: 760px) {
     .galeria__grid { grid-template-columns: repeat(3, 1fr); }
-    .mv { grid-template-columns: 1fr 1fr; }
+    .mv__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     .trabaja__grid { grid-template-columns: repeat(3, 1fr); }
     /* Nombre a la izquierda con ancho fijo, definición a la derecha. */
     .valores__fila { grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 2rem; align-items: baseline; }

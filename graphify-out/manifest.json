@@ -78,15 +78,15 @@
     "semantic_hash": ""
   },
   "src/components/Footer.astro": {
-    "mtime": 1789338335.4946995,
-    "seen": 1789338876.405508,
-    "ast_hash": "5eefc2382c5d5ce4071fbcc2950c49a2",
+    "mtime": 1789357615.105019,
+    "seen": 1789357870.5064704,
+    "ast_hash": "7e2e712ffe7108806afa63089ee43537",
     "semantic_hash": ""
   },
   "src/components/Header.astro": {
-    "mtime": 1789102067.6441598,
-    "seen": 1789102349.814529,
-    "ast_hash": "cc910b8497a8200d1379bf7a103e9750",
+    "mtime": 1789357795.2902186,
+    "seen": 1789357870.5064704,
+    "ast_hash": "770d4dd8bdf04cb2c2db8c703a17cc8f",
     "semantic_hash": ""
   },
   "src/components/Hero.astro": {
@@ -126,9 +126,9 @@
     "semantic_hash": "cbf62f22d4dab63dd77c39f247ad08c6"
   },
   "src/config.ts": {
-    "mtime": 1789340679.5803545,
-    "seen": 1789341028.567604,
-    "ast_hash": "94cbdccb6177c91457791d74e48c80fc",
+    "mtime": 1789357608.0508602,
+    "seen": 1789357870.5064704,
+    "ast_hash": "6a6abbc2fa4c897afeacf99bd7de479f",
     "semantic_hash": ""
   },
   "src/content.config.ts": {
@@ -1218,9 +1218,9 @@
     "semantic_hash": "bd04f232b6177934913aaf62c117df1d"
   },
   "src/pages/nosotros.astro": {
-    "mtime": 1789340790.6039674,
-    "seen": 1789341028.567604,
-    "ast_hash": "b6364a3369029c0632a92e6b7564a5ef",
+    "mtime": 1789356876.5166025,
+    "seen": 1789357025.20633,
+    "ast_hash": "2feb6f62a9da3985bb519e76f6505ab8",
     "semantic_hash": ""
   },
   "src/pages/productos/[slug].astro": {
@@ -1266,8 +1266,8 @@
     "semantic_hash": ""
   },
   "src/components/SocialLinks.astro": {
-    "mtime": 1789102033.0645878,
-    "seen": 1789102349.814529,
+    "mtime": 1789357554.0324366,
+    "seen": 1789357870.5064704,
     "ast_hash": "bf0cdbc34d6e2bfd9c4d1d64788dcb54",
     "semantic_hash": ""
   },

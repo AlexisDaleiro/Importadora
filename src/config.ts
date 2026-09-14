@@ -92,9 +92,7 @@ export const nav = [
   // comercial, no letra chica. Con este nombre se lee como beneficio.
   { href: '/garantia', label: 'Garantía' },
   { href: '/nosotros', label: 'Nosotros' },
-  // Contacto NO está acá: se sacó de la barra para dejarle aire a la derecha,
-  // donde ahora conviven las redes y el botón del 0800. Sigue llegándose desde
-  // el footer y desde los CTA de todo el sitio.
+  { href: '/contacto', label: 'Contacto' },
 ];
 
 // Las dos únicas redes de Districo, verificadas en su sitio oficial. No hay
