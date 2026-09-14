@@ -18,9 +18,9 @@
     "semantic_hash": "c4bef0ef95e1d66ccc70748090296b18"
   },
   "scripts/cutout-lineas.mjs": {
-    "mtime": 1789100154.9057832,
-    "seen": 1789102349.814529,
-    "ast_hash": "35555dcdf23b94c9c7812e22dc06c6c9",
+    "mtime": 1789362821.2561493,
+    "seen": 1789362888.2725022,
+    "ast_hash": "14bd8cc2df1a73e14514013ce7350f48",
     "semantic_hash": ""
   },
   "scripts/gen-og.mjs": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "src/components/LineBlocks.astro": {
-    "mtime": 1789102294.8012924,
-    "seen": 1789102349.814529,
-    "ast_hash": "6621919760ff60140d2bf2e9562d7e4f",
+    "mtime": 1789362600.3613436,
+    "seen": 1789362888.2725022,
+    "ast_hash": "e57b34a5b25a50d7288e3bc005ecae02",
     "semantic_hash": ""
   },
   "src/components/Logo.astro": {
@@ -132,9 +132,9 @@
     "semantic_hash": ""
   },
   "src/content.config.ts": {
-    "mtime": 1789338322.2064977,
-    "seen": 1789338876.405508,
-    "ast_hash": "8c29b4798abcee0ff76e4f3afbcd2186",
+    "mtime": 1789361142.2314742,
+    "seen": 1789361287.5775735,
+    "ast_hash": "86fc199fd3aa33b3493558f906821ed8",
     "semantic_hash": ""
   },
   "src/content/brands/4-pets.json": {
@@ -209,28 +209,16 @@
     "ast_hash": "30582b216a92d6c3a153283ea8b27d2f",
     "semantic_hash": ""
   },
-  "src/content/brands/three-cats-orig.json": {
-    "mtime": 1789255869.8269298,
-    "seen": 1789267721.2326033,
-    "ast_hash": "4b6cf0c39ade3c7c6a93fe9bf357d10b",
-    "semantic_hash": ""
-  },
   "src/content/brands/three-cats.json": {
-    "mtime": 1789338328.4260757,
-    "seen": 1789338876.405508,
-    "ast_hash": "ac43087220f6e99fadda37224671ecfa",
+    "mtime": 1789360892.2776086,
+    "seen": 1789361287.5775735,
+    "ast_hash": "41525fef6db009a301f2f3bedfd32742",
     "semantic_hash": ""
   },
   "src/content/brands/three-dogs.json": {
     "mtime": 1789338328.367409,
     "seen": 1789338876.405508,
     "ast_hash": "19994b40430c7a39c9eb0cce8887db54",
-    "semantic_hash": ""
-  },
-  "src/content/brands/three-orig.json": {
-    "mtime": 1789255869.916877,
-    "seen": 1789267721.2326033,
-    "ast_hash": "123471a0aa60f001860731e3f358d503",
     "semantic_hash": ""
   },
   "src/content/lineas/alimento-para-mascotas.json": {
@@ -852,15 +840,15 @@
     "semantic_hash": ""
   },
   "src/content/products/pate-three-cats-adultos-sabor-de-pescado-pollo-y-carne.json": {
-    "mtime": 1789187840.4283462,
-    "seen": 1789267721.2326033,
-    "ast_hash": "82d151af9f0d8582f7cf9f7309505d56",
+    "mtime": 1789360957.9485476,
+    "seen": 1789361287.5775735,
+    "ast_hash": "bcd35e7484defbbea074b67ac775bd8d",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-cats-castrado-bola-de-pelos-sabor-pescado-blanco.json": {
-    "mtime": 1789187840.4294486,
-    "seen": 1789267721.2326033,
-    "ast_hash": "06c08369b7ad36fa57fbcbdc0672d015",
+    "mtime": 1789360957.9485476,
+    "seen": 1789361287.5775735,
+    "ast_hash": "faae341cf256310ae681ba267fd6755a",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-cats-castrados-sabor-pollo.json": {
@@ -870,33 +858,33 @@
     "semantic_hash": ""
   },
   "src/content/products/pate-three-cats-gatitos-sabor-pollo.json": {
-    "mtime": 1789187840.4304533,
-    "seen": 1789267721.2326033,
-    "ast_hash": "3ee5b37708f856bdc470c8f566ea0324",
+    "mtime": 1789360957.95565,
+    "seen": 1789361287.5775735,
+    "ast_hash": "8ecb72fe4551611078864ac333e1dc39",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-dogs-adulto-sabor-carne-y-zanahoria.json": {
-    "mtime": 1789187840.4304533,
-    "seen": 1789267721.2326033,
-    "ast_hash": "ece0819fce49a3ea0f5c377ff26c3212",
+    "mtime": 1789360957.932873,
+    "seen": 1789361287.5775735,
+    "ast_hash": "6cae0554e03418cc0391b3fcc19f5a64",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-dogs-cachorro-sabor-pollo.json": {
-    "mtime": 1789187840.4304533,
-    "seen": 1789267721.2326033,
-    "ast_hash": "a12cb7c49d005e83b3259b60ac9a8aa2",
+    "mtime": 1789360957.932873,
+    "seen": 1789361287.5775735,
+    "ast_hash": "5b92bfe57152083070ed2b45a52aafd7",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-dogs-light-sabor-pollo.json": {
-    "mtime": 1789187840.431457,
-    "seen": 1789267721.2326033,
-    "ast_hash": "d07532be5672b4c0480b04e7387fc467",
+    "mtime": 1789360957.932873,
+    "seen": 1789361287.5775735,
+    "ast_hash": "01becdaa4b472f32602071f8733a0cf6",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-dogs-senior-sabor-pollo.json": {
-    "mtime": 1789187840.431457,
-    "seen": 1789267721.2326033,
-    "ast_hash": "25a5453ca6931a5bc1cef44a6b31fc93",
+    "mtime": 1789360957.932873,
+    "seen": 1789361287.5775735,
+    "ast_hash": "c08f44bab90a6c3b565ec1624a8a30ba",
     "semantic_hash": ""
   },
   "src/content/products/perros-adultos-de-pequenas-razas-pollo-y-vegetales.json": {
@@ -972,39 +960,39 @@
     "semantic_hash": ""
   },
   "src/content/products/sachet-three-cats-adultos.json": {
-    "mtime": 1789187840.4344914,
-    "seen": 1789267721.2326033,
-    "ast_hash": "634feafed2383f10d89fcec62fa12be0",
+    "mtime": 1789360957.95565,
+    "seen": 1789361287.5775735,
+    "ast_hash": "5f553ac8906d1cd3f7ab8a04dcbc33a1",
     "semantic_hash": ""
   },
   "src/content/products/sachet-three-cats-castrados.json": {
-    "mtime": 1789187840.4354944,
-    "seen": 1789267721.2326033,
-    "ast_hash": "02b4f0a457f12a06ab82329971527c18",
+    "mtime": 1789360957.95565,
+    "seen": 1789361287.5775735,
+    "ast_hash": "bcc9c8e262a9f42726265996ed6c9b1a",
     "semantic_hash": ""
   },
   "src/content/products/sachet-three-cats-gatitos.json": {
-    "mtime": 1789187840.4354944,
-    "seen": 1789267721.2326033,
-    "ast_hash": "86bed573900d91a216784942638a2a95",
+    "mtime": 1789360957.95565,
+    "seen": 1789361287.5775735,
+    "ast_hash": "3cf490984831c17c2e83e80ca3b8e409",
     "semantic_hash": ""
   },
   "src/content/products/sachet-three-dogs-adulto-razas-medianas-y-grandes.json": {
-    "mtime": 1789189190.3871553,
-    "seen": 1789267721.2326033,
-    "ast_hash": "538517c6c5462f2109b77a3fd3a6a2a2",
+    "mtime": 1789360957.9485476,
+    "seen": 1789361287.5775735,
+    "ast_hash": "817cced1d62b7566b44dfbfa210d143e",
     "semantic_hash": ""
   },
   "src/content/products/sachet-three-dogs-adulto-razas-pequenas.json": {
-    "mtime": 1789187840.4364946,
-    "seen": 1789267721.2326033,
-    "ast_hash": "57963d0d3350ecff782d66baad908c42",
+    "mtime": 1789360957.9485476,
+    "seen": 1789361287.5775735,
+    "ast_hash": "4c20475bb5d76cf220fcfa036035da53",
     "semantic_hash": ""
   },
   "src/content/products/sachet-three-dogs-cachorros.json": {
-    "mtime": 1789187840.4364946,
-    "seen": 1789267721.2326033,
-    "ast_hash": "bbe10116f1db0dab80c8a24909a58dac",
+    "mtime": 1789360957.9485476,
+    "seen": 1789361287.5775735,
+    "ast_hash": "db756e4803bc2f5023005aad73e5e08a",
     "semantic_hash": ""
   },
   "src/content/products/shampoo-cachorros-procao.json": {
@@ -1068,111 +1056,111 @@
     "semantic_hash": "2a5717c2a548a037ac70d7ad146d4f92"
   },
   "src/content/products/three-cats-original-castrados-senior.json": {
-    "mtime": 1789187840.4375472,
-    "seen": 1789267721.2326033,
-    "ast_hash": "f7965cd6a9a8fa097decebd80e8f93e6",
+    "mtime": 1789361158.0729198,
+    "seen": 1789361287.5775735,
+    "ast_hash": "cc19b70f5ef0dd2f9cdbe9d57e550414",
     "semantic_hash": ""
   },
   "src/content/products/three-cats-premium-especial-original-adultos.json": {
-    "mtime": 1789189190.3906784,
-    "seen": 1789267721.2326033,
-    "ast_hash": "20e212179ab60f4dda80403f57e49497",
+    "mtime": 1789361158.0729198,
+    "seen": 1789361287.5775735,
+    "ast_hash": "d99d51b6fc33b05b617fa4d80401c913",
     "semantic_hash": ""
   },
   "src/content/products/three-cats-premium-especial-original-castrados.json": {
-    "mtime": 1789187840.4385488,
-    "seen": 1789267721.2326033,
-    "ast_hash": "2d2e1de446a4c4c201276e0abd483659",
+    "mtime": 1789361158.0729198,
+    "seen": 1789361287.5775735,
+    "ast_hash": "3d7bf5a80583885156001550912d8e9c",
     "semantic_hash": ""
   },
   "src/content/products/three-cats-super-premium-adultos-castrados-bolas-de-pelos-pollo.json": {
-    "mtime": 1789187840.4395487,
-    "seen": 1789267721.2326033,
-    "ast_hash": "528805a9ea4fddc47ed2a9ab0ea10a1b",
+    "mtime": 1789361158.0729198,
+    "seen": 1789361287.5775735,
+    "ast_hash": "fe0ecd33b45b50ddc61441d2bc6bdcea",
     "semantic_hash": ""
   },
   "src/content/products/three-cats-super-premium-adultos-salmon-pollo-y-carne.json": {
-    "mtime": 1789187840.4395487,
-    "seen": 1789267721.2326033,
-    "ast_hash": "11d2c367b9d895359c12bd096fce5e7c",
+    "mtime": 1789361158.0729198,
+    "seen": 1789361287.5775735,
+    "ast_hash": "94dc65a6ce5c33b33b6b6032c1e7067b",
     "semantic_hash": ""
   },
   "src/content/products/three-cats-super-premium-gatitos-pollo.json": {
-    "mtime": 1789187840.4405499,
-    "seen": 1789267721.2326033,
-    "ast_hash": "e019a765d187daa47193072ce08f9dac",
+    "mtime": 1789361158.0729198,
+    "seen": 1789361287.5775735,
+    "ast_hash": "a8d1fc5f6c28d8e39526871c85e526ba",
     "semantic_hash": ""
   },
   "src/content/products/three-cats-super-premium-gatos-castrados-6-meses-salmon.json": {
-    "mtime": 1789187840.4405499,
-    "seen": 1789267721.2326033,
-    "ast_hash": "8fe779cf310200fe11a44c610cf260ba",
+    "mtime": 1789361158.0729198,
+    "seen": 1789361287.5775735,
+    "ast_hash": "249909764be51d35ee888842669ccb22",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-adulto-super-premium-razas-medianas-y-grandes-carne-y-arroz.json": {
-    "mtime": 1789187840.4405499,
-    "seen": 1789267721.2326033,
-    "ast_hash": "0ec27d280920391c6dbbe6322571cc4e",
+    "mtime": 1789361158.0729198,
+    "seen": 1789361287.5775735,
+    "ast_hash": "6bc8c35c2d93ffe9b2ca291c1b41cbd3",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-original-perros-razas-medianas-y-grandes.json": {
-    "mtime": 1789187840.44155,
-    "seen": 1789267721.2326033,
-    "ast_hash": "7495561f8cf5d756acd1bf48527342b6",
+    "mtime": 1789361158.0729198,
+    "seen": 1789361287.5775735,
+    "ast_hash": "3c063281f5990aebb99ade5feb081f5a",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-original-perros-senior-razas-medianas-y-grandes.json": {
-    "mtime": 1789187840.44155,
-    "seen": 1789267721.2326033,
-    "ast_hash": "7028ab582dd6730b32437ea7cfab08d1",
+    "mtime": 1789361158.0729198,
+    "seen": 1789361287.5775735,
+    "ast_hash": "40607c09eed5a35522812af7b4b34e79",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-premium-especial-original-adultos-razas-pequenas-e-minis.json": {
-    "mtime": 1789187840.4425502,
-    "seen": 1789267721.2326033,
-    "ast_hash": "e756c3bac338078a7d0e39ce89f601c5",
+    "mtime": 1789361158.0729198,
+    "seen": 1789361287.5775735,
+    "ast_hash": "157f0d0c53ed05a55660c0d7cbd4f90c",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-premium-especial-original-cachorros-de-razas-medianas-y-grandes.json": {
-    "mtime": 1789187840.4425502,
-    "seen": 1789267721.2326033,
-    "ast_hash": "cb49c254ed6912954d7d3d07a6a8bd00",
+    "mtime": 1789361158.0729198,
+    "seen": 1789361287.5775735,
+    "ast_hash": "3f9b9ee278dcef6d7ff0c6e1f3db2b7c",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-premium-especial-original-cachorros-de-razas-pequenas-y-mini.json": {
-    "mtime": 1789187840.4425502,
-    "seen": 1789267721.2326033,
-    "ast_hash": "90f0471501102b8e5ddf6f09c0939972",
+    "mtime": 1789361158.0729198,
+    "seen": 1789361287.5775735,
+    "ast_hash": "f8f9cb173b6ff72dedcf008361e5c857",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-super-premium-adultos-razas-pequenas-y-mini-pollo-y-zanahoria.json": {
-    "mtime": 1789187840.443679,
-    "seen": 1789267721.2326033,
-    "ast_hash": "d6277355ad655a1fc1b5ccba4fa18257",
+    "mtime": 1789361158.0823636,
+    "seen": 1789361287.5775735,
+    "ast_hash": "acd1fea97709c62b2ba54ff581267dca",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-super-premium-cachorros-razas-medianas-y-grandes-pollo-y-arroz.json": {
-    "mtime": 1789187840.443679,
-    "seen": 1789267721.2326033,
-    "ast_hash": "228eb35b08bdbab04fd4f59fbd47cd98",
+    "mtime": 1789361158.0823636,
+    "seen": 1789361287.5775735,
+    "ast_hash": "4150937bc087e3d1ac0c8dfef883cc87",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-super-premium-cachorros-razas-pequenas-y-mini-pollo-y-arroz.json": {
-    "mtime": 1789187840.44468,
-    "seen": 1789267721.2326033,
-    "ast_hash": "25b198be1afbe4e7c374569249db612a",
+    "mtime": 1789361158.0823636,
+    "seen": 1789361287.5775735,
+    "ast_hash": "6d91339bc9e4ce2219c4b24c006c93b5",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-super-premium-light-pollo-y-papa-dulce.json": {
-    "mtime": 1789187840.44468,
-    "seen": 1789267721.2326033,
-    "ast_hash": "97ce784435d41d92300f1245ed2fdb63",
+    "mtime": 1789361158.08389,
+    "seen": 1789361287.5775735,
+    "ast_hash": "4e7f14026a9caf1a92799e25bc85b11d",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-super-premium-senior-7-pollo-y-te-verde.json": {
-    "mtime": 1789187840.4456804,
-    "seen": 1789267721.2326033,
-    "ast_hash": "59f3200b38fe9b8e6af67305721dcbce",
+    "mtime": 1789361158.084893,
+    "seen": 1789361287.5775735,
+    "ast_hash": "6996e7b6939efd3313b4691b8d45c1b3",
     "semantic_hash": ""
   },
   "src/layouts/Base.astro": {
@@ -1224,9 +1212,9 @@
     "semantic_hash": ""
   },
   "src/pages/productos/[slug].astro": {
-    "mtime": 1789338377.395192,
-    "seen": 1789338876.405508,
-    "ast_hash": "d536e9e2b2fddcbe967890ceb6dd47ab",
+    "mtime": 1789361148.6486914,
+    "seen": 1789361287.5775735,
+    "ast_hash": "28bcdb4bf8facdc54dd8e60303df9b75",
     "semantic_hash": ""
   },
   "src/pages/productos/index.astro": {
@@ -1313,12 +1301,6 @@
     "ast_hash": "0b59c676c83ec3cafefae2d7902b70b7",
     "semantic_hash": ""
   },
-  "src/content/banners/three-orig.json": {
-    "mtime": 1789098915.9554136,
-    "seen": 1789102349.814529,
-    "ast_hash": "e73f65427b1fbafecacb21eaadeaa15a",
-    "semantic_hash": ""
-  },
   ".codex/hooks.json": {
     "mtime": 1789267405.11383,
     "seen": 1789267721.2326033,
@@ -1392,9 +1374,9 @@
     "semantic_hash": ""
   },
   "src/content/products/toh-adaptador-de-cinturon-de-seguridad.json": {
-    "mtime": 1789261327.8447132,
-    "seen": 1789267721.2326033,
-    "ast_hash": "22f6015e09f26ac14092ab44e554b0ab",
+    "mtime": 1789362542.709036,
+    "seen": 1789362888.2725022,
+    "ast_hash": "16987e6442dcff3099fad03030e5a0cc",
     "semantic_hash": ""
   },
   "src/content/products/toh-arena-sanitaria-yucat.json": {
@@ -1404,15 +1386,15 @@
     "semantic_hash": ""
   },
   "src/content/products/toh-chapita-con-codigo-qr.json": {
-    "mtime": 1789261327.8434567,
-    "seen": 1789267721.2326033,
-    "ast_hash": "7a1d0b9dc070b1b74715842784135513",
+    "mtime": 1789362542.709036,
+    "seen": 1789362888.2725022,
+    "ast_hash": "a4635d429e9343ca576317c357410bab",
     "semantic_hash": ""
   },
   "src/content/products/toh-collar-breakaway-para-gatos.json": {
-    "mtime": 1789261327.8434567,
-    "seen": 1789267721.2326033,
-    "ast_hash": "dd13cec4d34a7970f08bffecedb3284a",
+    "mtime": 1789362542.709036,
+    "seen": 1789362888.2725022,
+    "ast_hash": "ffe05541230de98ce2be9ea2112e99ef",
     "semantic_hash": ""
   },
   "src/content/products/toh-collar-tag-id-con-codigo-qr.json": {
@@ -1428,9 +1410,9 @@
     "semantic_hash": ""
   },
   "src/content/products/toh-correa-de-soga-1-20-m.json": {
-    "mtime": 1789261327.8411236,
-    "seen": 1789267721.2326033,
-    "ast_hash": "bbc1d39550146b041a6260a58099c01b",
+    "mtime": 1789362542.709036,
+    "seen": 1789362888.2725022,
+    "ast_hash": "8f235f99f11c766a43cad9fa6ab47dff",
     "semantic_hash": ""
   },
   "src/content/products/toh-correa-de-soga-5-m.json": {
@@ -1452,9 +1434,9 @@
     "semantic_hash": ""
   },
   "src/content/products/toh-panos-higienicos-poopee-slim.json": {
-    "mtime": 1789261327.8447132,
-    "seen": 1789267721.2326033,
-    "ast_hash": "0f152e8104da79fbe84a29a5acfbceec",
+    "mtime": 1789362542.709036,
+    "seen": 1789362888.2725022,
+    "ast_hash": "2820f6740c8662758cded884f874caa0",
     "semantic_hash": ""
   },
   "src/content/products/toh-pechera-antitirones-correa.json": {
@@ -1476,9 +1458,9 @@
     "semantic_hash": ""
   },
   "src/content/products/toh-pechera-mesh-h-correa.json": {
-    "mtime": 1789261327.8381212,
-    "seen": 1789267721.2326033,
-    "ast_hash": "78995cda7ec08349ca6324f5979a9f33",
+    "mtime": 1789362542.709036,
+    "seen": 1789362888.2725022,
+    "ast_hash": "eae8118945716f104f9e4729d41c7886",
     "semantic_hash": ""
   },
   "src/content/products/toh-pechera-neocomfy-para-gatos-correa.json": {
@@ -1500,15 +1482,15 @@
     "semantic_hash": ""
   },
   "src/content/products/yowup-bone-broth-de-vacuno-para-perros.json": {
-    "mtime": 1789261327.8457954,
-    "seen": 1789267721.2326033,
-    "ast_hash": "3430a53d72fab7624000b56155694d7e",
+    "mtime": 1789362542.709036,
+    "seen": 1789362888.2725022,
+    "ast_hash": "38c94f5bb752f8442e80396dde4f5c7f",
     "semantic_hash": ""
   },
   "src/content/products/yowup-flora-plus-pato-y-calabaza-para-perros.json": {
-    "mtime": 1789261327.8457954,
-    "seen": 1789267721.2326033,
-    "ast_hash": "de9a0d24adaf192468b5779715ba48b9",
+    "mtime": 1789362542.709036,
+    "seen": 1789362888.2725022,
+    "ast_hash": "f0180f6dddd7096cd62b5e2ea4f355af",
     "semantic_hash": ""
   },
   "src/content/products/yowup-frozen-yogurt-bacon-cake-para-perros.json": {
@@ -1524,15 +1506,15 @@
     "semantic_hash": ""
   },
   "src/content/products/yowup-milk-hydration-natural-para-gatos.json": {
-    "mtime": 1789261327.84861,
-    "seen": 1789267721.2326033,
-    "ast_hash": "74c6b7e1c7e612a7fe5315b235681776",
+    "mtime": 1789362542.709036,
+    "seen": 1789362888.2725022,
+    "ast_hash": "cf49bc0ce760f468652686bc06b1d124",
     "semantic_hash": ""
   },
   "src/content/products/yowup-milky-licks-jamon-serrano-para-perros.json": {
-    "mtime": 1789261327.847298,
-    "seen": 1789267721.2326033,
-    "ast_hash": "5c664cae3f084c284113b33eb45ea827",
+    "mtime": 1789362542.709036,
+    "seen": 1789362888.2725022,
+    "ast_hash": "db8401bc68fcad4a42230a0cd46b65dd",
     "semantic_hash": ""
   },
   "src/content/products/yowup-petflurry-de-pavo-para-perros.json": {
@@ -1542,9 +1524,9 @@
     "semantic_hash": ""
   },
   "src/content/products/yowup-yogur-digestive-natural-para-perros.json": {
-    "mtime": 1789261327.8457954,
-    "seen": 1789267721.2326033,
-    "ast_hash": "3e156925e46ebb54a265d5966aa33a1d",
+    "mtime": 1789362542.709036,
+    "seen": 1789362888.2725022,
+    "ast_hash": "b8e1e6900e8ed0f802a6434c4ebab2f5",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -1587,6 +1569,12 @@
     "mtime": 1789340692.1421194,
     "seen": 1789341028.567604,
     "ast_hash": "18c974a635f9c82b56568e6e4f5f728a",
+    "semantic_hash": ""
+  },
+  "src/content/banners/three-dogs.json": {
+    "mtime": 1789360995.7461717,
+    "seen": 1789361287.5775735,
+    "ast_hash": "4d1bac88c019d2e6066e65f47ca1c05b",
     "semantic_hash": ""
   }
 }

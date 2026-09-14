@@ -76,6 +76,18 @@ const products = defineCollection({
       brand: reference('brands').nullable().default(null),
       category: reference('lineas'),
       subcategory: z.string().nullable().default(null),
+      /**
+       * Serie comercial DENTRO de la marca (ej. "Original", "Super Premium").
+       * Se llama `serie` y no `linea` a propósito: "línea" ya significa línea
+       * de negocio en todo el resto del sitio (`lineas`, `lineAccent()`,
+       * `category`), y una marca con dos líneas de producto (Original, Super
+       * Premium) es otra cosa. Existe porque Three Dogs y Three Cats venden
+       * más de una serie bajo el mismo nombre de marca, y esa distinción es
+       * información real para un comerciante aunque ya no viva en el nombre
+       * de la marca. Solo se completa donde el sitio de origen la nombraba
+       * así; null en todo lo demás (no es una subcategoría disfrazada).
+       */
+      serie: z.string().nullable().default(null),
       species: z.array(z.string()).default([]),
       shortDescription: z.string().nullable().default(null),
       description: z.array(z.string()).default([]),

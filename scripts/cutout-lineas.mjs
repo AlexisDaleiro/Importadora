@@ -39,6 +39,20 @@ async function cutout(file, destino) {
 
   const { width: w, height: h } = info;
   const px = Buffer.from(data);
+
+  // Las fotos de TOH no vienen sobre blanco sino sobre un gris de estudio
+  // (245) con sombra suave alrededor del producto: con el umbral de 232 esa
+  // sombra quedaba pegada como un halo claro. Si la esquina es gris se acepta
+  // como fondo todo gris claro NEUTRO; el color del producto corta el relleno
+  // igual. Las fotos sobre blanco no cambian. px[3]: una esquina transparente
+  // (YowUp) no tiene fondo que recortar.
+  const fondo = Math.min(px[0], px[1], px[2]);
+  const estudio = fondo < 250 && px[3] === 255;
+  const neutro = (d, i, min) => {
+    const lo = Math.min(d[i], d[i + 1], d[i + 2]);
+    return lo > min && Math.max(d[i], d[i + 1], d[i + 2]) - lo < 15;
+  };
+  const esFondo = estudio ? (d, i) => neutro(d, i, 190) : isWhite;
   const seen = new Uint8Array(w * h);
   const stack = [];
 
@@ -52,10 +66,36 @@ async function cutout(file, destino) {
     const p = y * w + x;
     if (seen[p]) continue;
     const i = p * 4;
-    if (!isWhite(px, i)) continue;
+    if (!esFondo(px, i)) continue;
     seen[p] = 1;
     px[i + 3] = 0;
     stack.push([x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]);
+  }
+
+  // Huecos: el fondo encerrado por el producto (el lazo de una correa, el
+  // interior de un collar) no toca el borde y el relleno no llega. Se borra
+  // cada mancha del color exacto del estudio que sea grande; las chicas se
+  // quedan, porque suelen ser brillos del metal o letras del envase.
+  if (estudio) {
+    const cerca = (i) => neutro(px, i, fondo - 10) && Math.max(px[i], px[i + 1], px[i + 2]) <= fondo + 6;
+    const minimo = w * h * 0.002;
+    for (let p0 = 0; p0 < w * h; p0++) {
+      if (seen[p0] || !cerca(p0 * 4)) continue;
+      const mancha = [];
+      const pila = [p0];
+      seen[p0] = 2;
+      while (pila.length) {
+        const p = pila.pop();
+        mancha.push(p);
+        const x = p % w;
+        for (const q of [x > 0 ? p - 1 : -1, x < w - 1 ? p + 1 : -1, p - w, p + w]) {
+          if (q < 0 || q >= w * h || seen[q] || !cerca(q * 4)) continue;
+          seen[q] = 2;
+          pila.push(q);
+        }
+      }
+      if (mancha.length > minimo) for (const p of mancha) px[p * 4 + 3] = 0;
+    }
   }
 
   // Recorte final por el contorno OPACO del producto. trim() no sirve acá:
@@ -79,7 +119,8 @@ async function cutout(file, destino) {
     .png({ compressionLevel: 9 })
     .toFile(OUT + destino);
 
-  const quitado = seen.reduce((n, v) => n + v, 0);
+  let quitado = 0;
+  for (let p = 0; p < w * h; p++) if (px[p * 4 + 3] === 0) quitado++;
   console.log(`${destino.padEnd(34)} fondo recortado: ${((100 * quitado) / (w * h)).toFixed(0)}%`);
 }
 

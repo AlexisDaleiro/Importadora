@@ -1,9 +1,10 @@
 {
   "slug": "three-cats-super-premium-gatitos-pollo",
   "name": "THREE CATS Original – Cachorro",
-  "brand": "three-cats-orig",
+  "brand": "three-cats",
   "category": "alimento-para-mascotas",
   "subcategory": "Gatos",
+  "serie": "Original",
   "species": [
     "gatos"
   ],

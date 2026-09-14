@@ -1,5 +1,5 @@
 {
-  "0": "Base.astro",
+  "0": "config.ts",
   "1": "scrape-ingredientes.mjs",
   "2": "package.json",
   "3": "Colección products (src/content/products)",
@@ -16,5 +16,5 @@
   "14": "marcas-color-y-foto.mjs",
   "15": "Districo — Estado vigente del proyecto",
   "16": "AGENTS.md",
-  "17": "config.ts"
+  "17": "lineAccent"
 }

@@ -19,31 +19,49 @@ const brandName = new Map((await getCollection('brands')).map((b) => [b.id, b.da
 // El count del relevamiento difiere del catálogo real: todo se cuenta acá,
 // tanto el total de la línea como el de cada subcategoría. Los números que
 // vienen en la colección quedaron viejos hace rato y no se usan.
-const blocks = await Promise.all(lineas.map(async (linea) => {
+// Una línea sin productos no tiene nada que mostrar ni adónde llevar: no se
+// dibuja, en vez de quedar un bloque con "Ver los 0 productos".
+const lineasConProductos = lineas.filter((l) => products.some((p) => p.data.category.id === l.id));
+
+const blocks = await Promise.all(lineasConProductos.map(async (linea) => {
   const ofLine = products.filter((p) => p.data.category.id === linea.id);
+  // El recorte con transparencia si existe; si no, la foto de catálogo tal cual.
+  // Con fondo blanco se ve peor, pero un bloque sin imagen se ve roto.
+  const foto = (p: (typeof ofLine)[number]) => recorte(p.id) ?? p.data.image;
 
   // Los que la colección marcó, en su orden. Si no hay ninguno marcado cae al
   // primer producto con foto de la línea, para que el bloque nunca quede sin
   // imagen. La fila de miniaturas la decide la cantidad, no la línea: con uno
   // solo no se dibuja, porque una fila de una miniatura se ve rota.
   const marcados = ofLine
-    .filter((p) => p.data.destacadoEnLinea !== undefined && recorte(p.id))
+    .filter((p) => p.data.destacadoEnLinea !== undefined && foto(p))
     .sort((a, b) => a.data.destacadoEnLinea! - b.data.destacadoEnLinea!);
-  const elegidos = marcados.length > 0 ? marcados : [ofLine.find((p) => recorte(p.id))].filter(Boolean);
+  let elegidos = marcados;
+  if (marcados.length === 0) {
+    elegidos = ofLine.filter(foto).slice(0, 1);
+    // Pasó con TOH y YowUp: se cargaron las marcas y nadie marcó destacados.
+    console.warn(`[LineBlocks] La línea "${linea.id}" no tiene productos con destacadoEnLinea; se muestra ${elegidos[0]?.id ?? 'ninguno'}.`);
+  }
 
   const items = await Promise.all(
-    elegidos.map(async (p) => ({
-      id: p!.id,
-      name: p!.data.name,
-      // La píldora dice la MARCA, no el producto: los nombres de producto
-      // cambian mucho de largo y la píldora saltaba de ancho en cada paso.
-      brand: p!.data.brand?.id ?? null,
-      brandName: p!.data.brand ? (brandName.get(p!.data.brand.id) ?? p!.data.brand.id) : null,
-      // La miniatura se genera chica de verdad: la grande escalada por CSS
-      // baja un archivo diez veces más pesado por cada punto de la fila.
-      thumb: await getImage({ src: recorte(p!.id)!, width: 96, height: 96, fit: 'contain', format: 'webp' }),
-      cutout: recorte(p!.id)!,
-    })),
+    elegidos.map(async (p) => {
+      const src = foto(p)!;
+      return {
+        id: p.id,
+        name: p.data.name,
+        // La píldora dice la MARCA, no el producto: los nombres de producto
+        // cambian mucho de largo y la píldora saltaba de ancho en cada paso.
+        brand: p.data.brand?.id ?? null,
+        brandName: p.data.brand ? (brandName.get(p.data.brand.id) ?? p.data.brand.id) : null,
+        // La miniatura se genera chica de verdad: la grande escalada por CSS
+        // baja un archivo diez veces más pesado por cada punto de la fila.
+        thumb: await getImage({ src, width: 96, height: 96, fit: 'contain', format: 'webp' }),
+        cutout: src,
+        // Pechera, collar, pack de snacks: objetos más anchos que altos. En la
+        // caja cuadrada quedaban como una franja finita; ver .line__img--ancha.
+        ancha: src.width / src.height > 1.2,
+      };
+    }),
   );
 
   return {
@@ -90,16 +108,18 @@ const blocks = await Promise.all(lineas.map(async (linea) => {
               <span class="line__ring" aria-hidden="true"></span>
               {/* Todos los productos se pintan de entrada, superpuestos: el
                   cambio es un cross-fade de opacidad y no hay una segunda
-                  descarga que haga parpadear el primer paso. alt vacío a
-                  propósito, la píldora de abajo dice el nombre. */}
+                  descarga que haga parpadear el primer paso. Cada foto lleva
+                  el nombre de su producto; las que no se ven salen del árbol
+                  de accesibilidad y el script las alterna al cambiar. */}
               {items.map((it, j) => (
                 <Image
                   src={it.cutout}
-                  alt=""
+                  alt={it.name}
                   widths={[360, 560, 800]}
                   sizes="(min-width: 940px) 38vw, 72vw"
                   loading={j === 0 ? 'eager' : 'lazy'}
-                  class:list={['line__img', { 'is-on': j === 0 }]}
+                  class:list={['line__img', { 'is-on': j === 0, 'line__img--ancha': it.ancha }]}
+                  aria-hidden={j === 0 ? undefined : 'true'}
                   data-j={j}
                 />
               ))}
@@ -139,7 +159,7 @@ const blocks = await Promise.all(lineas.map(async (linea) => {
                     aria-label={`Ver ${it.name}`}
                     aria-pressed={j === 0 ? 'true' : 'false'}
                   >
-                    <img src={it.thumb.src} alt="" width="48" height="48" loading="lazy" decoding="async" />
+                    <img src={it.thumb.src} alt={it.name} width="48" height="48" loading="lazy" decoding="async" />
                   </button>
                 ))}
               </div>
@@ -189,7 +209,11 @@ const blocks = await Promise.all(lineas.map(async (linea) => {
 
       const pintar = (j: number) => {
         activo = j;
-        imgs.forEach((el, k) => el.classList.toggle('is-on', k === j));
+        imgs.forEach((el, k) => {
+          el.classList.toggle('is-on', k === j);
+          // setAttribute y no toggleAttribute: aria-hidden="" no oculta nada.
+          if (k === j) el.removeAttribute('aria-hidden'); else el.setAttribute('aria-hidden', 'true');
+        });
         tags.forEach((el, k) => {
           const on = k === j;
           el.classList.toggle('is-on', on);
@@ -305,6 +329,11 @@ const blocks = await Promise.all(lineas.map(async (linea) => {
     transition: opacity var(--dur-base) var(--ease-out);
   }
   .line__img.is-on { opacity: 1; }
+  /* Mismo escenario y mismo object-fit para todos, pero un objeto apaisado
+     usa todo el ancho del círculo en vez del 84%: en la caja cuadrada un
+     collar 2.5:1 quedaba en un tercio del alto y el bloque parecía vacío.
+     Sigue dentro del escenario, así que no desborda en 390px. */
+  .line__img--ancha { left: 0; width: 100%; }
   /* Todas las píldoras ocupan la MISMA celda: la altura de la fila la fija la
      más alta y no hay salto al cambiar de producto. */
   .line__pills {

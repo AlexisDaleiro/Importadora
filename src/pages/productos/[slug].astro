@@ -191,6 +191,7 @@ const ogProducto = gallery[0]
       {brand && (
         <p class="sheet__brand">
           Marca <a href={`/marcas/${brand.id}`}>{brand.data.name}</a>
+          {d.serie && ` · Línea ${d.serie}`}
         </p>
       )}
 
