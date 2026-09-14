@@ -9,14 +9,40 @@ import fachada from '../assets/institutional/casa-matriz-fachada.jpg';
 import deposito from '../assets/institutional/deposito-estanterias.jpg';
 import carga from '../assets/institutional/operacion-carga-camion.jpg';
 import electrico from '../assets/institutional/vehiculo-electrico-carga.jpg';
+import gimnasio from '../assets/institutional/beneficio-gimnasio.jpg';
+import comedor from '../assets/institutional/beneficio-comedor.jpg';
+import lavanderia from '../assets/institutional/beneficio-lavanderia.jpg';
 import Button from '../components/Button.astro';
 import { centrosRegionales, cvMailto, sucursales } from '../config';
 import { valores } from '../data/valores';
 
+// Gimnasio y comedor son fotos de las instalaciones, del sitio oficial. El
+// sitio no tiene foto de la lavandería: esa es de Unsplash (Jeremy Sallee,
+// unsplash.com/photos/lgrM1t4rxWQ, licencia Unsplash, uso comercial libre).
+// `pos` es el object-position del recorte 3:2: la del gimnasio es vertical y
+// sin él se ve techo y piso en vez de las máquinas.
 const beneficios = [
-  { titulo: 'Gimnasio', texto: 'Gimnasio de última generación, de acceso gratuito para todos los colaboradores.' },
-  { titulo: 'Comedor', texto: 'Menús distintos cada día, elaborados con foco en el valor nutricional.' },
-  { titulo: 'Lavandería', texto: 'Servicio de lavado y secado de uniforme de trabajo y ropa de deporte.' },
+  {
+    titulo: 'Gimnasio',
+    texto: 'Gimnasio de última generación, de acceso gratuito para todos los colaboradores.',
+    foto: gimnasio,
+    alt: 'Gimnasio de Districo con racks de pesas, máquinas y el cartel de Districo Fitness',
+    pos: '50% 38%',
+  },
+  {
+    titulo: 'Comedor',
+    texto: 'Menús distintos cada día, elaborados con foco en el valor nutricional.',
+    foto: comedor,
+    alt: 'Comedor del personal con mesa larga, sillas naranjas y cocina al fondo',
+    pos: '50% 60%',
+  },
+  {
+    titulo: 'Lavandería',
+    texto: 'Servicio de lavado y secado de uniforme de trabajo y ropa de deporte.',
+    foto: lavanderia,
+    alt: 'Hilera de secadoras industriales de acero',
+    pos: '50% 50%',
+  },
 ];
 
 const hitos = (await getCollection('milestones')).sort((a, b) =>
@@ -149,8 +175,20 @@ const infra = [
       <ul class="trabaja__grid">
         {beneficios.map((b, i) => (
           <li data-reveal style={`--reveal-delay:${i * 70}ms`}>
-            <h3>{b.titulo}</h3>
-            <p>{b.texto}</p>
+            <Image
+              src={b.foto}
+              alt={b.alt}
+              width={720}
+              height={480}
+              widths={[360, 540, 720]}
+              sizes="(min-width: 1440px) 440px, (min-width: 940px) 30vw, (min-width: 600px) 46vw, 92vw"
+              loading="lazy"
+              style={`object-position:${b.pos}`}
+            />
+            <div class="trabaja__texto">
+              <h3>{b.titulo}</h3>
+              <p>{b.texto}</p>
+            </div>
           </li>
         ))}
       </ul>
@@ -281,20 +319,34 @@ const infra = [
   }
   .trabaja__head p { margin-top: 1.25rem; max-width: 58ch; color: rgb(255 255 255 / 0.72); }
   .trabaja__cuerpo { padding-block: var(--section-y-sm); }
+  /* grid-auto-rows 1fr y no solo el stretch de la fila: en tablet la tercera
+     tarjeta cae sola en otra fila y tiene que medir lo mismo que las dos de
+     arriba. */
   .trabaja__grid {
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
     list-style: none;
     padding: 0;
     margin: 0;
   }
   .trabaja__grid li {
-    padding: 1.5rem 1.35rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     border: var(--bd) solid var(--border);
     border-radius: var(--radius-lg);
     background: var(--bg-soft);
   }
+  .trabaja__grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+  .trabaja__texto { padding: 1.25rem 1.35rem 1.5rem; }
   .trabaja__grid h3 { font-size: var(--text-lg); letter-spacing: -0.025em; margin-bottom: 0.5rem; }
   .trabaja__grid p { color: var(--fg-muted); font-size: var(--text-sm); }
   .trabaja__cta {
@@ -345,13 +397,16 @@ const infra = [
   @media (min-width: 760px) {
     .galeria__grid { grid-template-columns: repeat(3, 1fr); }
     .mv__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-    .trabaja__grid { grid-template-columns: repeat(3, 1fr); }
     /* Nombre a la izquierda con ancho fijo, definición a la derecha. */
     .valores__fila { grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 2rem; align-items: baseline; }
     .cultura__inner { grid-template-columns: minmax(0, 1.35fr) minmax(15rem, 0.65fr); }
     .cultura__quote { padding-right: clamp(2rem, 6vw, 5rem); }
   }
+  @media (min-width: 600px) {
+    .trabaja__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
   @media (min-width: 940px) {
     .head__inner { grid-template-columns: 1.05fr 0.95fr; }
+    .trabaja__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   }
 </style>

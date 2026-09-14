@@ -681,6 +681,28 @@
       "source_location": "L1"
     },
     {
+      "id": "src_components_logo",
+      "label": "Logo.astro",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "code",
+      "norm_label": "logo.astro",
+      "source_file": "src/components/Logo.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_logo_alto",
+      "label": "ALTO",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "code",
+      "norm_label": "alto",
+      "source_file": "src/components/Logo.astro",
+      "source_location": "L23"
+    },
+    {
       "id": "src_components_sociallinks",
       "label": "SocialLinks.astro",
       "_origin": "ast",
@@ -1187,6 +1209,28 @@
       "source_location": "L40"
     },
     {
+      "id": "scripts_tmp_beneficios",
+      "label": "_tmp-beneficios.mjs",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "_tmp-beneficios.mjs",
+      "source_file": "scripts/_tmp-beneficios.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_tmp_peso",
+      "label": "_tmp-peso.mjs",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "_tmp-peso.mjs",
+      "source_file": "scripts/_tmp-peso.mjs",
+      "source_location": "L1"
+    },
+    {
       "id": "ref_playwright_core",
       "label": "playwright-core",
       "_origin": "ast",
@@ -1440,28 +1484,6 @@
       "source_location": "L24"
     },
     {
-      "id": "src_components_logo",
-      "label": "Logo.astro",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "nosotros.astro",
-      "file_type": "code",
-      "norm_label": "logo.astro",
-      "source_file": "src/components/Logo.astro",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_logo_alto",
-      "label": "ALTO",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "nosotros.astro",
-      "file_type": "code",
-      "norm_label": "alto",
-      "source_file": "src/components/Logo.astro",
-      "source_location": "L23"
-    },
-    {
       "id": "src_components_statsbar",
       "label": "StatsBar.astro",
       "_origin": "ast",
@@ -1569,7 +1591,7 @@
       "file_type": "code",
       "norm_label": "beneficios",
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L16"
+      "source_location": "L24"
     },
     {
       "id": "src_pages_nosotros_hitos",
@@ -1580,7 +1602,7 @@
       "file_type": "code",
       "norm_label": "hitos",
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L22"
+      "source_location": "L48"
     },
     {
       "id": "src_pages_nosotros_infra",
@@ -1591,7 +1613,7 @@
       "file_type": "code",
       "norm_label": "infra",
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L26"
+      "source_location": "L52"
     },
     {
       "id": "scripts_aplicar_ingredientes",
@@ -4066,7 +4088,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L13",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -4078,7 +4100,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L13",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -4090,7 +4112,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L13",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -4102,7 +4124,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L14",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -4259,6 +4281,30 @@
       "context": "import",
       "source_file": "scripts/scrape-ingredientes.mjs",
       "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_tmp_beneficios",
+      "target": "ref_playwright_core",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/_tmp-beneficios.mjs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_tmp_peso",
+      "target": "ref_playwright_core",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/_tmp-peso.mjs",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -4822,7 +4868,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L12",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -4834,7 +4880,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L13",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -4846,7 +4892,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L14",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -6921,7 +6967,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L16",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -6932,7 +6978,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L22",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -6943,7 +6989,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/nosotros.astro",
-      "source_location": "L26",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -7999,5 +8045,5 @@
       "source_file": "districo-brief-diseno.md"
     }
   ],
-  "built_at_commit": "ee8f8776f13c82c5db10193aa3e529f1cd2fb5ea"
+  "built_at_commit": "70c093a91b0b31ad9747cad6bba1e063250c2ce6"
 }

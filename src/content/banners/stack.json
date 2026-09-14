@@ -4,7 +4,7 @@
   "href": "/productos?marca=stack",
   "imageDesktop": "../../assets/banners/banner-stack-desktop.jpg",
   "imageMobile": "../../assets/banners/banner-stack-mobile.jpg",
-  "alt": "Banner de la marca STACK",
+  "alt": "Banner de la marca Stack",
   "order": 1,
   "active": true
 }

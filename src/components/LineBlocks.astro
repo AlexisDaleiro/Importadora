@@ -13,7 +13,7 @@ const recorte = (slug: string) => CUTOUTS[`../assets/lineas/${slug}.png`]?.defau
 
 const lineas = (await getCollection('lineas')).sort((a, b) => a.data.order - b.data.order);
 const products = await getCollection('products');
-// El nombre comercial de la marca, para la píldora: "Distribuimos BIOFRESH".
+// El nombre comercial de la marca, para la píldora: "Distribuimos Biofresh".
 const brandName = new Map((await getCollection('brands')).map((b) => [b.id, b.data.name]));
 
 // El count del relevamiento difiere del catálogo real: todo se cuenta acá,

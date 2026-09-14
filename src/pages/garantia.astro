@@ -43,7 +43,9 @@ const pasos = [
 >
   <section class="hero">
     <div class="container hero__inner">
-      <div class="sello" data-reveal aria-hidden="true">
+      {/* Sin aria-hidden: "100% satisfacción" es información. Va antes del
+          texto en el DOM para que el lector lo diga junto con el kicker. */}
+      <div class="sello" data-reveal>
         <strong>100%</strong>
         <span>Satisfacción</span>
       </div>
@@ -333,6 +335,32 @@ const pasos = [
     margin: 0;
   }
 
+  /* Mobile: apilado, el sello quedaba solo arriba ocupando alto propio. Pasa a
+     ser un sello estampado en la esquina del hero, fuera del flujo. A 44px
+     "SATISFACCIÓN" no entra legible (111px de ancho a 12px), así que se ve solo
+     la cifra y la palabra queda para lectores de pantalla. */
+  @media (max-width: 939.98px) {
+    /* --sello en el padre: lo leen el sello y el hueco del texto, que son hermanos. */
+    .hero__inner { position: relative; --sello: 44px; }
+    .sello {
+      position: absolute;
+      top: 0;
+      /* El gutter ya despega del borde; env() cubre el caso de que algún día
+         el viewport pase a viewport-fit=cover. */
+      right: max(var(--gutter), env(safe-area-inset-right));
+      width: var(--sello);
+      box-shadow: var(--shadow-sm, var(--shadow-md));
+    }
+    .sello strong { font-size: 0.875rem; }
+    .sello span {
+      position: absolute; width: 1px; height: 1px; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+    }
+    /* Hueco a la derecha solo para kicker y titular, que son los que pasan a
+       la altura del sello; margin y no padding para no comerse el 18ch. */
+    .hero__text .kicker,
+    .hero h1 { margin-right: calc(var(--sello) + 0.75rem); }
+  }
   @media (min-width: 760px) {
     .pasos__lista { grid-template-columns: repeat(3, 1fr); }
   }

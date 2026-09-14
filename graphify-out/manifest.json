@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "src/components/LineBlocks.astro": {
-    "mtime": 1789362600.3613436,
-    "seen": 1789362888.2725022,
-    "ast_hash": "e57b34a5b25a50d7288e3bc005ecae02",
+    "mtime": 1789426743.366284,
+    "seen": 1789428155.898293,
+    "ast_hash": "3443f93240eb1355fe054a533c4f6d5a",
     "semantic_hash": ""
   },
   "src/components/Logo.astro": {
@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "src/content/brands/biofresh.json": {
-    "mtime": 1789338328.2548413,
-    "seen": 1789338876.405508,
-    "ast_hash": "f45907f5257b0a6b8741226e3f27ce89",
+    "mtime": 1789426547.7124581,
+    "seen": 1789428155.898293,
+    "ast_hash": "8e6156e2729bdceeef7f16c1d1f17e02",
     "semantic_hash": ""
   },
   "src/content/brands/eco-cane.json": {
@@ -162,9 +162,9 @@
     "semantic_hash": ""
   },
   "src/content/brands/granplus.json": {
-    "mtime": 1789338328.485244,
-    "seen": 1789338876.405508,
-    "ast_hash": "0120b9e6643dd52fe4aa11db4640611e",
+    "mtime": 1789426549.110078,
+    "seen": 1789428155.898293,
+    "ast_hash": "4ccf0151ea8d25f14d212ea07f43af5d",
     "semantic_hash": ""
   },
   "src/content/brands/guabi-natural.json": {
@@ -204,9 +204,9 @@
     "semantic_hash": ""
   },
   "src/content/brands/stack.json": {
-    "mtime": 1789255869.7987952,
-    "seen": 1789267721.2326033,
-    "ast_hash": "30582b216a92d6c3a153283ea8b27d2f",
+    "mtime": 1789426546.3900886,
+    "seen": 1789428155.898293,
+    "ast_hash": "f53366ff871d20dc4b56555f4b3211c0",
     "semantic_hash": ""
   },
   "src/content/brands/three-cats.json": {
@@ -240,9 +240,9 @@
     "semantic_hash": ""
   },
   "src/content/lineas/snacks-para-consumo-humano.json": {
-    "mtime": 1789098711.2599356,
-    "seen": 1789102349.814529,
-    "ast_hash": "4bee8dbedad669883dbfd42c8afc925a",
+    "mtime": 1789426741.9534948,
+    "seen": 1789428155.898293,
+    "ast_hash": "30e1e9b6a3022576fbba1979c5a54aff",
     "semantic_hash": ""
   },
   "src/content/milestones/1960.json": {
@@ -1206,9 +1206,9 @@
     "semantic_hash": "bd04f232b6177934913aaf62c117df1d"
   },
   "src/pages/nosotros.astro": {
-    "mtime": 1789356876.5166025,
-    "seen": 1789357025.20633,
-    "ast_hash": "2feb6f62a9da3985bb519e76f6505ab8",
+    "mtime": 1789428068.2579422,
+    "seen": 1789428155.898293,
+    "ast_hash": "3b3a12694729f555cb937ea2f4466bb5",
     "semantic_hash": ""
   },
   "src/pages/productos/[slug].astro": {
@@ -1266,15 +1266,15 @@
     "semantic_hash": ""
   },
   "src/content/banners/biofresh.json": {
-    "mtime": 1789098915.9554136,
-    "seen": 1789102349.814529,
-    "ast_hash": "7cab0dfe53468fe6b319a54b8ab56220",
+    "mtime": 1789426551.6187947,
+    "seen": 1789428155.898293,
+    "ast_hash": "f1b8d90c3f0f6cda31daf62ea11cddce",
     "semantic_hash": ""
   },
   "src/content/banners/granplus.json": {
-    "mtime": 1789098915.9554136,
-    "seen": 1789102349.814529,
-    "ast_hash": "fd29986a90799c929b48ea33b99d0c1a",
+    "mtime": 1789426552.9990084,
+    "seen": 1789428155.898293,
+    "ast_hash": "d1d70d44ab03416e40db7006d5c4be82",
     "semantic_hash": ""
   },
   "src/content/banners/guabi-natural.json": {
@@ -1296,9 +1296,9 @@
     "semantic_hash": ""
   },
   "src/content/banners/stack.json": {
-    "mtime": 1789098915.9554136,
-    "seen": 1789102349.814529,
-    "ast_hash": "0b59c676c83ec3cafefae2d7902b70b7",
+    "mtime": 1789426550.347084,
+    "seen": 1789428155.898293,
+    "ast_hash": "12f4e639d4cfc910949c0fb69a771ec7",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -1554,9 +1554,9 @@
     "semantic_hash": ""
   },
   "src/pages/garantia.astro": {
-    "mtime": 1789339456.97231,
-    "seen": 1789339715.2158144,
-    "ast_hash": "f9eaa38d46a773293a96414f9d5b0bf4",
+    "mtime": 1789426834.847224,
+    "seen": 1789428155.898293,
+    "ast_hash": "e5ff6961476729f671af57f5bd238074",
     "semantic_hash": ""
   },
   "src/content/milestones/2017.json": {
@@ -1575,6 +1575,18 @@
     "mtime": 1789360995.7461717,
     "seen": 1789361287.5775735,
     "ast_hash": "4d1bac88c019d2e6066e65f47ca1c05b",
+    "semantic_hash": ""
+  },
+  "scripts/_tmp-beneficios.mjs": {
+    "mtime": 1789428078.503619,
+    "seen": 1789428155.8974733,
+    "ast_hash": "4befcf6927805042a292a1cfab8ab4a1",
+    "semantic_hash": ""
+  },
+  "scripts/_tmp-peso.mjs": {
+    "mtime": 1789427657.5438583,
+    "seen": 1789428155.8974733,
+    "ast_hash": "63ed25980478a9331f7e1794804ebdf0",
     "semantic_hash": ""
   }
 }
