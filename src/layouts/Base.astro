@@ -34,8 +34,10 @@ const ogImage = new URL(image, Astro.site);
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     {/* Fuera de buscadores mientras el sitio esté en Vercel.
+        "follow" a propósito: los asistentes de IA que sí pueden leer el sitio
+        (ver src/pages/robots.txt.ts) necesitan seguir los enlaces internos.
         Se apaga con NOINDEX = false en src/config.ts. */}
-    {NOINDEX && <meta name="robots" content="noindex, nofollow" />}
+    {NOINDEX && <meta name="robots" content="noindex, follow" />}
 
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={site.name} />

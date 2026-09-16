@@ -58,7 +58,14 @@ Después de cambios de código o contenido:
 - Sustituir la cifra de colaboradores, la historia destacada y las novedades demostrativas de
   `Nosotros` por datos, fotografías y testimonios aprobados por Districo.
 - Antes de entregar: cambiar credenciales de prueba de Formspree, confirmar WhatsApp y dominio,
-  desactivar `NOINDEX` y actualizar `site` en `astro.config.mjs`.
+  desactivar `NOINDEX` y actualizar `site` en `astro.config.mjs`. Eso revierte también el
+  bloqueo selectivo de rastreadores: `robots.txt` vuelve a permitir todo y desaparece el
+  `<meta name="robots">`.
+- TEMPORAL mientras el sitio viva en `importadora.vercel.app`: `robots.txt` bloquea a los
+  buscadores (Googlebot, Bingbot, Slurp, DuckDuckBot, Baiduspider, YandexBot) y permite a los
+  asistentes de IA (ChatGPT-User, OAI-SearchBot, Claude-User, ClaudeBot, PerplexityBot,
+  Google-Extended) para poder analizar el sitio. Cualquier otro bot sigue bloqueado por la
+  regla `User-agent: *`.
 - Definir precio, mantenimiento y responsable de altas futuras de productos.
 
 ## Documentos
