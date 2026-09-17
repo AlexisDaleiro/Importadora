@@ -1,6 +1,6 @@
 # Districo — Estado vigente del proyecto
 
-Actualizado: 2026-09-13.
+Actualizado: 2026-09-16.
 
 ## Producto y objetivo
 
@@ -24,6 +24,8 @@ superficies mediante formulario, teléfono o WhatsApp.
   colaboradores, Mariana Silva y las tres novedades son contenido ficticio de demostración.
 - Los 12 hitos de `Nosotros` se presentan en una línea de tiempo horizontal accesible, sin
   autoplay, con navegación táctil, por flechas y por teclado. Inicia en 1960.
+- La navegación usa precarga por intención, una entrada breve por opacidad y scroll nativo
+  suave. Los reveals liberan sus observers y el catálogo restaura filtros y posición al volver.
 
 ## Decisiones vigentes
 

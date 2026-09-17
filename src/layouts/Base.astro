@@ -81,8 +81,14 @@ const ogImage = new URL(image, Astro.site);
       // primera página y todo lo que se navegara después quedaría en
       // opacidad 0. astro:page-load también dispara en la carga inicial.
       let navegacionCliente = false;
+      let revelador: IntersectionObserver | null = null;
       document.addEventListener('astro:before-preparation', () => {
         navegacionCliente = true;
+      });
+
+      document.addEventListener('astro:before-swap', () => {
+        revelador?.disconnect();
+        revelador = null;
       });
 
       // Fade de entrada del contenido. Va sobre el <main> real y no sobre los
@@ -105,12 +111,13 @@ const ogImage = new URL(image, Astro.site);
       });
 
       document.addEventListener('astro:page-load', () => {
+        revelador?.disconnect();
+        revelador = null;
         let items = [...document.querySelectorAll('[data-reveal]:not(.is-visible)')];
 
         // En una navegación con el router, lo que ya está en pantalla no se
         // revela: la entrada de página acaba de traerlo. Encadenar los dos
-        // fades dejaría la mitad de arriba en blanco casi dos segundos, porque
-        // el reveal dura 0.7s y arrancaría recién al terminar el swap.
+        // fades dejaría una espera innecesaria antes de poder leer la página.
         if (navegacionCliente) {
           const yaVisibles = items.filter((el) => el.getBoundingClientRect().top < window.innerHeight);
           for (const el of yaVisibles) {
@@ -136,6 +143,7 @@ const ogImage = new URL(image, Astro.site);
             { rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
           );
           items.forEach((el) => io.observe(el));
+          revelador = io;
         } else {
           items.forEach((el) => el.classList.add('is-visible'));
         }

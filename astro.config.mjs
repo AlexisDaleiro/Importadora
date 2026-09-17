@@ -8,6 +8,12 @@ export default defineConfig({
   // Al pasar a dominio propio se cambia SOLO acá.
   site: 'https://importadora.vercel.app',
   output: 'static',
+  // Anticipa solo la navegación que el usuario señala con mouse o teclado.
+  // Evita descargar de antemano las 167 fichas visibles en el catálogo.
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover',
+  },
   build: { inlineStylesheets: 'auto' },
   image: { responsiveStyles: true },
   integrations: [sitemap()],

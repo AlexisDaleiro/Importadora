@@ -120,12 +120,12 @@
   --dur-fast: 0.2s;    /* hover de controles y tarjetas */
   --dur-base: 0.3s;    /* cross-fades: scrim, velos, mensajes de formulario */
   --dur-slow: 0.5s;    /* piezas grandes: la foto de un tile */
-  --dur-reveal: 0.7s;  /* entrada de sección */
+  --dur-reveal: 0.48s; /* entrada de sección */
   --dur-move: 0.2s;    /* categoría (b): 0s bajo reduce */
   /* Entrada de página al navegar. Familia SEGURA: es solo opacidad, así que
      no aparece en el bloque de reduce y se conserva idéntica en los dos
      modos. Único lugar donde se ajusta la duración. */
-  --dur-page-enter: 1s;
+  --dur-page-enter: 0.24s;
 
   /* Magnitudes de la categoría (a). Un solo desplazamiento de hover: había
      -2px en los botones, -3px en las tarjetas de marca y -4px en las de
@@ -134,7 +134,7 @@
   --move-press: 1px;
   --move-zoom: 1.08;
   --move-nudge: 4px;
-  --reveal-shift: 28px;
+  --reveal-shift: 16px;
   /* Recorrido del panel de filtros de /productos en mobile: entra desde
      abajo con --dur-base. Bajo reduce vale 0% y el panel aparece en su sitio,
      con el fundido del velo como único aviso. */
@@ -324,7 +324,13 @@ p { text-wrap: pretty; }
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
-[data-reveal].is-visible { opacity: 1; transform: none; }
+[data-reveal].is-visible { opacity: 1; transform: none; will-change: auto; }
+
+/* Los enlaces internos aterrizan debajo del encabezado fijo. */
+#main,
+main :is(section, article, h1, h2, h3)[id]:not([id^='hito-']) {
+  scroll-margin-top: calc(var(--hdr-h) + 0.75rem);
+}
 
 /* ── Entrada de página ────────────────────────────────────────────────
    Fade puro, una sola definición para todo el sitio, sin variantes por

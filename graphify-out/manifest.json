@@ -1,1592 +1,1580 @@
 {
   "astro.config.mjs": {
-    "mtime": 1788904898.343774,
-    "seen": 1789083822.7310963,
-    "ast_hash": "ea1dfca9ec8598105a002447c4362781",
-    "semantic_hash": "ea1dfca9ec8598105a002447c4362781"
+    "mtime": 1789609289.0590441,
+    "seen": 1789609621.3811374,
+    "ast_hash": "6e294b01e8305367090c14f887691ea4",
+    "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1789253375.9378538,
-    "seen": 1789267721.2326033,
+    "mtime": 1789521203.6226127,
+    "seen": 1789609621.3811374,
     "ast_hash": "938a65d74a389f5dbeb0a9ceefbcb0ee",
     "semantic_hash": ""
   },
   "scripts/check-tablas.mjs": {
-    "mtime": 1788923613.2338266,
-    "seen": 1789083822.7310963,
+    "mtime": 1789521203.6246178,
+    "seen": 1789609621.3811374,
     "ast_hash": "c4bef0ef95e1d66ccc70748090296b18",
     "semantic_hash": "c4bef0ef95e1d66ccc70748090296b18"
   },
   "scripts/cutout-lineas.mjs": {
-    "mtime": 1789362821.2561493,
-    "seen": 1789362888.2725022,
-    "ast_hash": "14bd8cc2df1a73e14514013ce7350f48",
+    "mtime": 1789521203.6246178,
+    "seen": 1789609621.3811374,
+    "ast_hash": "1fa3e4cf13ce42da295d99da3da79673",
     "semantic_hash": ""
   },
   "scripts/gen-og.mjs": {
-    "mtime": 1788905133.06457,
-    "seen": 1789083822.7310963,
+    "mtime": 1789521203.6246178,
+    "seen": 1789609621.3811374,
     "ast_hash": "a89d3256dfa5ca99a8ebf64b443627be",
     "semantic_hash": "a89d3256dfa5ca99a8ebf64b443627be"
   },
   "src/components/AboutBlock.astro": {
-    "mtime": 1789340653.9426904,
-    "seen": 1789341028.567604,
+    "mtime": 1789521204.5934026,
+    "seen": 1789609621.3811374,
     "ast_hash": "2cd6f8d4cf5a72aed94a2fa1a6a12ab7",
     "semantic_hash": ""
   },
   "src/components/Badge.astro": {
-    "mtime": 1789253358.651808,
-    "seen": 1789267721.2326033,
-    "ast_hash": "a189b2529e0cd2fabbca44970bddeb20",
+    "mtime": 1789521204.5934026,
+    "seen": 1789609621.3811374,
+    "ast_hash": "bc2651300552ebf33cdd256e6e800a95",
     "semantic_hash": ""
   },
   "src/components/BannerCarousel.astro": {
-    "mtime": 1789183501.215124,
-    "seen": 1789267721.2326033,
-    "ast_hash": "d30d97f8842c258ad2141e7019020744",
+    "mtime": 1789521204.5934026,
+    "seen": 1789609621.3811374,
+    "ast_hash": "01e54e53dce58f7ba404affcab074e7c",
     "semantic_hash": ""
   },
   "src/components/BrandCard.astro": {
-    "mtime": 1788994685.5905242,
-    "seen": 1789083822.7310963,
-    "ast_hash": "72b84fd649fc3da829f2b33ed671a6c9",
-    "semantic_hash": "72b84fd649fc3da829f2b33ed671a6c9"
+    "mtime": 1789521204.5971055,
+    "seen": 1789609621.3811374,
+    "ast_hash": "8743c05c9940eaef6991d2db8c30ca92",
+    "semantic_hash": ""
   },
   "src/components/BrandGrid.astro": {
-    "mtime": 1789257221.695696,
-    "seen": 1789267721.2326033,
-    "ast_hash": "1e72891b143d51c8787bd2d63597d340",
+    "mtime": 1789521204.5971055,
+    "seen": 1789609621.3811374,
+    "ast_hash": "4fffd284c73f9174e31cc4c5830e7caa",
     "semantic_hash": ""
   },
   "src/components/BrandMosaic.astro": {
-    "mtime": 1788997873.280874,
-    "seen": 1789083822.7310963,
+    "mtime": 1789521204.5971055,
+    "seen": 1789609621.3811374,
     "ast_hash": "0b887404c299913dbe5587c89effef5e",
     "semantic_hash": "0b887404c299913dbe5587c89effef5e"
   },
   "src/components/Button.astro": {
-    "mtime": 1788994685.63766,
-    "seen": 1789083822.7310963,
-    "ast_hash": "403598bfc4e07ad9976eafb1fcfb22c2",
-    "semantic_hash": "403598bfc4e07ad9976eafb1fcfb22c2"
+    "mtime": 1789521204.5994203,
+    "seen": 1789609621.3811374,
+    "ast_hash": "2b94afb58c08a7d9c89448631e55e6c0",
+    "semantic_hash": ""
   },
   "src/components/CtaBlock.astro": {
-    "mtime": 1789342463.3904226,
-    "seen": 1789342570.7778575,
+    "mtime": 1789521204.5998583,
+    "seen": 1789609621.3811374,
     "ast_hash": "1faef28cfedfd4062642b38bdc16cf84",
     "semantic_hash": ""
   },
   "src/components/Footer.astro": {
-    "mtime": 1789357615.105019,
-    "seen": 1789357870.5064704,
-    "ast_hash": "7e2e712ffe7108806afa63089ee43537",
+    "mtime": 1789521204.5998583,
+    "seen": 1789609621.3811374,
+    "ast_hash": "7f5a28b918824ffba884fbd489703991",
     "semantic_hash": ""
   },
   "src/components/Header.astro": {
-    "mtime": 1789357795.2902186,
-    "seen": 1789357870.5064704,
-    "ast_hash": "770d4dd8bdf04cb2c2db8c703a17cc8f",
+    "mtime": 1789604938.7676985,
+    "seen": 1789609621.3811374,
+    "ast_hash": "ef059f9f7841052c4b87f0ca164cca8d",
     "semantic_hash": ""
   },
   "src/components/Hero.astro": {
-    "mtime": 1789099327.8392792,
-    "seen": 1789102349.814529,
+    "mtime": 1789521204.5998583,
+    "seen": 1789609621.3811374,
     "ast_hash": "d60e65f58d8bd46c3b479a87126f651d",
     "semantic_hash": ""
   },
   "src/components/LineBlocks.astro": {
-    "mtime": 1789426743.366284,
-    "seen": 1789428155.898293,
-    "ast_hash": "3443f93240eb1355fe054a533c4f6d5a",
+    "mtime": 1789521204.5998583,
+    "seen": 1789609621.3811374,
+    "ast_hash": "33e3538dfd071fb6f51db2c806da1a4d",
     "semantic_hash": ""
   },
   "src/components/Logo.astro": {
-    "mtime": 1789102003.757474,
-    "seen": 1789102349.814529,
-    "ast_hash": "57d170413860c73aea9b86a445004eb0",
+    "mtime": 1789521204.5998583,
+    "seen": 1789609621.3811374,
+    "ast_hash": "d8c0cf12a742ecbe74e1f40fcf096dbf",
     "semantic_hash": ""
   },
   "src/components/ProductCard.astro": {
-    "mtime": 1789268993.540575,
-    "seen": 1789269138.196592,
-    "ast_hash": "26d23fe6d7d0059d3234f1b5a1199bb0",
+    "mtime": 1789604938.7676985,
+    "seen": 1789609621.3811374,
+    "ast_hash": "6db2ab892d1772f45ff2671ea96ebb04",
     "semantic_hash": ""
   },
   "src/components/StatsBar.astro": {
-    "mtime": 1789098649.1363332,
-    "seen": 1789102349.814529,
+    "mtime": 1789521204.6039758,
+    "seen": 1789609621.3811374,
     "ast_hash": "c5058c4be0fd4f531dd3dea856c42e35",
     "semantic_hash": ""
   },
   "src/components/WhatsAppFab.astro": {
-    "mtime": 1788997972.8514202,
-    "seen": 1789083822.7310963,
-    "ast_hash": "cbf62f22d4dab63dd77c39f247ad08c6",
-    "semantic_hash": "cbf62f22d4dab63dd77c39f247ad08c6"
+    "mtime": 1789521204.6039758,
+    "seen": 1789609621.3811374,
+    "ast_hash": "0618580650f30c0860ab740e531aa8e6",
+    "semantic_hash": ""
   },
   "src/config.ts": {
-    "mtime": 1789357608.0508602,
-    "seen": 1789357870.5064704,
-    "ast_hash": "6a6abbc2fa4c897afeacf99bd7de479f",
+    "mtime": 1789521204.6049817,
+    "seen": 1789609621.3811374,
+    "ast_hash": "07bb3be4962d922060ef5991232a4d22",
     "semantic_hash": ""
   },
   "src/content.config.ts": {
-    "mtime": 1789361142.2314742,
-    "seen": 1789361287.5775735,
+    "mtime": 1789521204.6049817,
+    "seen": 1789609621.3811374,
     "ast_hash": "86fc199fd3aa33b3493558f906821ed8",
     "semantic_hash": ""
   },
   "src/content/brands/4-pets.json": {
-    "mtime": 1789255869.4673991,
-    "seen": 1789267721.2326033,
-    "ast_hash": "516d8c30b155222f6e34c2336b37ac75",
+    "mtime": 1789521204.610532,
+    "seen": 1789609621.3811374,
+    "ast_hash": "fc7c51e46a77886dee6abb9f9439de5a",
     "semantic_hash": ""
   },
   "src/content/brands/beny.json": {
-    "mtime": 1789255869.5029898,
-    "seen": 1789267721.2326033,
-    "ast_hash": "76308fee0275cac3bdc1c3f3fcc19522",
+    "mtime": 1789521204.610532,
+    "seen": 1789609621.3811374,
+    "ast_hash": "e176dd7dce7243d1048c285f1caf27f1",
     "semantic_hash": ""
   },
   "src/content/brands/biofresh.json": {
-    "mtime": 1789426547.7124581,
-    "seen": 1789428155.898293,
+    "mtime": 1789521204.610532,
+    "seen": 1789609621.3811374,
     "ast_hash": "8e6156e2729bdceeef7f16c1d1f17e02",
     "semantic_hash": ""
   },
   "src/content/brands/eco-cane.json": {
-    "mtime": 1789255869.559119,
-    "seen": 1789267721.2326033,
-    "ast_hash": "88083c6b716725727f42670d75c2aee1",
+    "mtime": 1789521204.610532,
+    "seen": 1789609621.3811374,
+    "ast_hash": "56d19b04656ffde6bec8d384e7efe320",
     "semantic_hash": ""
   },
   "src/content/brands/granplus.json": {
-    "mtime": 1789426549.110078,
-    "seen": 1789428155.898293,
+    "mtime": 1789521204.610532,
+    "seen": 1789609621.3811374,
     "ast_hash": "4ccf0151ea8d25f14d212ea07f43af5d",
     "semantic_hash": ""
   },
   "src/content/brands/guabi-natural.json": {
-    "mtime": 1789338328.3093255,
-    "seen": 1789338876.405508,
+    "mtime": 1789521204.6133647,
+    "seen": 1789609621.3811374,
     "ast_hash": "d282ce49dc28266ceb6e01bb1807bef8",
     "semantic_hash": ""
   },
   "src/content/brands/kets.json": {
-    "mtime": 1789255869.6523037,
-    "seen": 1789267721.2326033,
-    "ast_hash": "713f1310a99288b190e30ad2252a0698",
+    "mtime": 1789521204.6133647,
+    "seen": 1789609621.3811374,
+    "ast_hash": "d9b3ad3ba317cfe4c6e29f8911479fd6",
     "semantic_hash": ""
   },
   "src/content/brands/pipicat.json": {
-    "mtime": 1789255869.6869113,
-    "seen": 1789267721.2326033,
-    "ast_hash": "35229381c8237b887ffa4418024e6199",
+    "mtime": 1789521204.6133647,
+    "seen": 1789609621.3811374,
+    "ast_hash": "26d28f4071b3f2f3aabdb30c2d1ab698",
     "semantic_hash": ""
   },
   "src/content/brands/primocao.json": {
-    "mtime": 1789255869.716642,
-    "seen": 1789267721.2326033,
-    "ast_hash": "6b5078a3a9188ef9a258266596083328",
+    "mtime": 1789521204.6133647,
+    "seen": 1789609621.3811374,
+    "ast_hash": "b85ee8a93e3022ce548c7ecbef25a406",
     "semantic_hash": ""
   },
   "src/content/brands/primogato.json": {
-    "mtime": 1789255869.7434635,
-    "seen": 1789267721.2326033,
-    "ast_hash": "f729881f8b519f031610d0319de5befe",
+    "mtime": 1789521204.6150956,
+    "seen": 1789609621.3811374,
+    "ast_hash": "61a7439b5565ab08d800d1528975728c",
     "semantic_hash": ""
   },
   "src/content/brands/procao.json": {
-    "mtime": 1789255869.7690287,
-    "seen": 1789267721.2326033,
-    "ast_hash": "1cc9c504b91cec7b87b459487cde48b4",
+    "mtime": 1789521204.6150956,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a1c9ece4d66123785b0b88b7a92580d5",
     "semantic_hash": ""
   },
   "src/content/brands/stack.json": {
-    "mtime": 1789426546.3900886,
-    "seen": 1789428155.898293,
-    "ast_hash": "f53366ff871d20dc4b56555f4b3211c0",
+    "mtime": 1789521204.6161027,
+    "seen": 1789609621.3811374,
+    "ast_hash": "48c96e1fb78d75ffa9a2b806a3974afb",
     "semantic_hash": ""
   },
   "src/content/brands/three-cats.json": {
-    "mtime": 1789360892.2776086,
-    "seen": 1789361287.5775735,
+    "mtime": 1789521204.6164787,
+    "seen": 1789609621.3811374,
     "ast_hash": "41525fef6db009a301f2f3bedfd32742",
     "semantic_hash": ""
   },
   "src/content/brands/three-dogs.json": {
-    "mtime": 1789338328.367409,
-    "seen": 1789338876.405508,
+    "mtime": 1789521204.6164787,
+    "seen": 1789609621.3811374,
     "ast_hash": "19994b40430c7a39c9eb0cce8887db54",
     "semantic_hash": ""
   },
   "src/content/lineas/alimento-para-mascotas.json": {
-    "mtime": 1789098711.2578838,
-    "seen": 1789102349.814529,
-    "ast_hash": "aec6c71887d671c0726bb0b71e866cb1",
+    "mtime": 1789521204.6164787,
+    "seen": 1789609621.3811374,
+    "ast_hash": "7fbe452d92cfa371e28921f2ad40e0c1",
     "semantic_hash": ""
   },
   "src/content/lineas/arenas-sanitarias.json": {
-    "mtime": 1789098711.2588916,
-    "seen": 1789102349.814529,
-    "ast_hash": "1ab65240bd178a442071c60aa0087243",
+    "mtime": 1789521204.6164787,
+    "seen": 1789609621.3811374,
+    "ast_hash": "fc5409c6aa2ff6723c16dd94861aa08c",
     "semantic_hash": ""
   },
   "src/content/lineas/cuidado-de-la-mascota.json": {
-    "mtime": 1789098717.0205114,
-    "seen": 1789102349.814529,
-    "ast_hash": "d3fab67bd96ccc120517348165d695b6",
+    "mtime": 1789521204.6164787,
+    "seen": 1789609621.3811374,
+    "ast_hash": "8a36c679bd39633c1dff4b1e4686b912",
     "semantic_hash": ""
   },
   "src/content/lineas/snacks-para-consumo-humano.json": {
-    "mtime": 1789426741.9534948,
-    "seen": 1789428155.898293,
-    "ast_hash": "30e1e9b6a3022576fbba1979c5a54aff",
+    "mtime": 1789521204.6164787,
+    "seen": 1789609621.3811374,
+    "ast_hash": "73bf458411371cd590aa844ebf1a4233",
     "semantic_hash": ""
   },
   "src/content/milestones/1960.json": {
-    "mtime": 1788839629.3395112,
-    "seen": 1789083822.7310963,
-    "ast_hash": "8d4bb79ad71a7cd5e2e407e1f95032bf",
-    "semantic_hash": "8d4bb79ad71a7cd5e2e407e1f95032bf"
+    "mtime": 1789521204.620638,
+    "seen": 1789609621.3811374,
+    "ast_hash": "44afcef86e49dd9a73e50b821e4bbe1e",
+    "semantic_hash": ""
   },
   "src/content/milestones/1990.json": {
-    "mtime": 1788839629.345768,
-    "seen": 1789083822.7310963,
-    "ast_hash": "c1b7ac72098f960b303dd93a03641f74",
-    "semantic_hash": "c1b7ac72098f960b303dd93a03641f74"
+    "mtime": 1789521204.6216483,
+    "seen": 1789609621.3811374,
+    "ast_hash": "f977a6a69e9441972a4cc952b831aafe",
+    "semantic_hash": ""
   },
   "src/content/milestones/1995.json": {
-    "mtime": 1788839629.351693,
-    "seen": 1789083822.7310963,
-    "ast_hash": "360bd92bc729c9207de116334151448b",
-    "semantic_hash": "360bd92bc729c9207de116334151448b"
+    "mtime": 1789521204.6216483,
+    "seen": 1789609621.3811374,
+    "ast_hash": "121d218fdc368db2d29d9423605428f6",
+    "semantic_hash": ""
   },
   "src/content/milestones/1997.json": {
-    "mtime": 1788839629.3572235,
-    "seen": 1789083822.7310963,
-    "ast_hash": "0a3d1e1dca0d4cd29afa8b4777ac9c91",
-    "semantic_hash": "0a3d1e1dca0d4cd29afa8b4777ac9c91"
+    "mtime": 1789521204.6216483,
+    "seen": 1789609621.3811374,
+    "ast_hash": "49718cf96eafd09af765d9b6ec005adc",
+    "semantic_hash": ""
   },
   "src/content/milestones/2004.json": {
-    "mtime": 1788839629.363343,
-    "seen": 1789083822.7310963,
-    "ast_hash": "5ef3b9362aa75b073d59fe2b0fe2d844",
-    "semantic_hash": "5ef3b9362aa75b073d59fe2b0fe2d844"
+    "mtime": 1789521204.6216483,
+    "seen": 1789609621.3811374,
+    "ast_hash": "2c55f599bef404eaaf2bcc2757ce4662",
+    "semantic_hash": ""
   },
   "src/content/milestones/2007.json": {
-    "mtime": 1788839629.3678882,
-    "seen": 1789083822.7310963,
-    "ast_hash": "db07a7b3b725ba66cc958668078f995d",
-    "semantic_hash": "db07a7b3b725ba66cc958668078f995d"
+    "mtime": 1789521204.6216483,
+    "seen": 1789609621.3811374,
+    "ast_hash": "b1166b9ba9f8e992adbddaa4da77881c",
+    "semantic_hash": ""
   },
   "src/content/milestones/2008.json": {
-    "mtime": 1788839629.3739562,
-    "seen": 1789083822.7310963,
-    "ast_hash": "70dc186f732899faac5a310354ae2d34",
-    "semantic_hash": "70dc186f732899faac5a310354ae2d34"
+    "mtime": 1789521204.6216483,
+    "seen": 1789609621.3811374,
+    "ast_hash": "5402017a975c8595739ae1925fd0720a",
+    "semantic_hash": ""
   },
   "src/content/milestones/2013.json": {
-    "mtime": 1788839629.3789797,
-    "seen": 1789083822.7310963,
-    "ast_hash": "be81c0907802e80a2dfd560fc98ddcab",
-    "semantic_hash": "be81c0907802e80a2dfd560fc98ddcab"
+    "mtime": 1789521204.6216483,
+    "seen": 1789609621.3811374,
+    "ast_hash": "14dc2ae849219290e0acfb71a09fc530",
+    "semantic_hash": ""
   },
   "src/content/milestones/2016.json": {
-    "mtime": 1788839629.3845756,
-    "seen": 1789083822.7310963,
-    "ast_hash": "dc663fb6b13262b63428670b7772b14f",
-    "semantic_hash": "dc663fb6b13262b63428670b7772b14f"
+    "mtime": 1789521204.6216483,
+    "seen": 1789609621.3811374,
+    "ast_hash": "d7c502bc62146627a3d2e4a9ede43e40",
+    "semantic_hash": ""
   },
   "src/content/milestones/2019.json": {
-    "mtime": 1788839629.3903463,
-    "seen": 1789083822.7310963,
-    "ast_hash": "4d21d0b753a8c0451ae60567e1078db7",
-    "semantic_hash": "4d21d0b753a8c0451ae60567e1078db7"
+    "mtime": 1789521204.6216483,
+    "seen": 1789609621.3811374,
+    "ast_hash": "5eec52f297808368a6695c5aca64e499",
+    "semantic_hash": ""
   },
   "src/content/milestones/2021.json": {
-    "mtime": 1788839629.396134,
-    "seen": 1789083822.7310963,
-    "ast_hash": "830c80ac9781c79dc41ae9ad9ded4a95",
-    "semantic_hash": "830c80ac9781c79dc41ae9ad9ded4a95"
+    "mtime": 1789521204.6216483,
+    "seen": 1789609621.3811374,
+    "ast_hash": "654d56b20a8c33c8ad53fa77a7f48ddc",
+    "semantic_hash": ""
   },
   "src/content/milestones/2022.json": {
-    "mtime": 1788839629.402081,
-    "seen": 1789083822.7310963,
-    "ast_hash": "6af8c4e89ed606bd454e69f94ac033d3",
-    "semantic_hash": "6af8c4e89ed606bd454e69f94ac033d3"
+    "mtime": 1789521204.6216483,
+    "seen": 1789609621.3811374,
+    "ast_hash": "7f26cc0d98f455bf56bdbacf91f66f00",
+    "semantic_hash": ""
   },
   "src/content/products/4pets-arena-sanitaria-para-gatos.json": {
-    "mtime": 1789100114.853651,
-    "seen": 1789102349.814529,
-    "ast_hash": "4da11ff41e3a1d29802353fd057e8ff2",
+    "mtime": 1789521204.6262116,
+    "seen": 1789609621.3811374,
+    "ast_hash": "890b7648d7c04aa261e21d544ead1722",
     "semantic_hash": ""
   },
   "src/content/products/acondicionador-procao.json": {
-    "mtime": 1788839628.616843,
-    "seen": 1789083822.7310963,
-    "ast_hash": "cbc58e63434894864049ddeb6e6639b2",
-    "semantic_hash": "cbc58e63434894864049ddeb6e6639b2"
+    "mtime": 1789521204.6272051,
+    "seen": 1789609621.3811374,
+    "ast_hash": "0662ced6972897da5594f40583772e78",
+    "semantic_hash": ""
   },
   "src/content/products/alfombra-de-entrenamiento-para-perros-tapet.json": {
-    "mtime": 1788839628.4598944,
-    "seen": 1789083822.7310963,
-    "ast_hash": "e13e112c248e548a96512379f80fad5d",
-    "semantic_hash": "e13e112c248e548a96512379f80fad5d"
+    "mtime": 1789521204.6272051,
+    "seen": 1789609621.3811374,
+    "ast_hash": "9fda283021a874d94668099b9c677755",
+    "semantic_hash": ""
   },
   "src/content/products/alfombra-de-entrenamiento-procao.json": {
-    "mtime": 1788839628.4614103,
-    "seen": 1789083822.7310963,
-    "ast_hash": "df6f399277ac69debfd0960b73c170c8",
-    "semantic_hash": "df6f399277ac69debfd0960b73c170c8"
+    "mtime": 1789521204.6272051,
+    "seen": 1789609621.3811374,
+    "ast_hash": "d1a44bcfab2c9247181d3ee2ae489a23",
+    "semantic_hash": ""
   },
   "src/content/products/bano-en-seco-procao.json": {
-    "mtime": 1788839628.5978456,
-    "seen": 1789083822.7310963,
-    "ast_hash": "6d3bf0a876fff7a696dfe25c658119f3",
-    "semantic_hash": "6d3bf0a876fff7a696dfe25c658119f3"
+    "mtime": 1789521204.6272051,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a0c97188bc65bfb58e8eef2e0ff04a5d",
+    "semantic_hash": ""
   },
   "src/content/products/beny-para-gatos-adultos-de-todas-las-razas.json": {
-    "mtime": 1788839629.082195,
-    "seen": 1789083822.7310963,
-    "ast_hash": "3d6043d93d7efdb09d2aebb8ae3b0de1",
-    "semantic_hash": "3d6043d93d7efdb09d2aebb8ae3b0de1"
+    "mtime": 1789521204.6272051,
+    "seen": 1789609621.3811374,
+    "ast_hash": "011a15263a93cb26b13f653bcdac48e4",
+    "semantic_hash": ""
   },
   "src/content/products/beny-para-perros-adultos-de-todas-las-razas.json": {
-    "mtime": 1788839629.0094385,
-    "seen": 1789083822.7310963,
-    "ast_hash": "88fbe363aa33eddd67e93d8c5eaf5ce6",
-    "semantic_hash": "88fbe363aa33eddd67e93d8c5eaf5ce6"
+    "mtime": 1789521204.6272051,
+    "seen": 1789609621.3811374,
+    "ast_hash": "27ef365471396e4e1ff2c8c988e163b5",
+    "semantic_hash": ""
   },
   "src/content/products/beny-para-perros-cachorro-de-todas-las-razas.json": {
-    "mtime": 1788839629.0026464,
-    "seen": 1789083822.7310963,
-    "ast_hash": "0bfe6922a49ee6c6fde08ee313b3a5d5",
-    "semantic_hash": "0bfe6922a49ee6c6fde08ee313b3a5d5"
+    "mtime": 1789521204.6272051,
+    "seen": 1789609621.3811374,
+    "ast_hash": "4e84ea50cf41d48f5d3a13fc9927a7b3",
+    "semantic_hash": ""
   },
   "src/content/products/biofresh-para-cachorros-razas-grandes-y-gigantes.json": {
-    "mtime": 1789267642.538507,
-    "seen": 1789267721.2326033,
-    "ast_hash": "a9d9b3e0efab7b5d662c85bb9a4c3c06",
+    "mtime": 1789521204.6272051,
+    "seen": 1789609621.3811374,
+    "ast_hash": "c7a369000387e55ceb84c0b6cbae4bc1",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-gatos-adultos.json": {
-    "mtime": 1789189190.3436172,
-    "seen": 1789267721.2326033,
-    "ast_hash": "0256987402ba9b28049d5bf44a8e57ee",
+    "mtime": 1789521204.6272051,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a98bd91001c63f5c0a213a846ff0dbed",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-gatos-cachorros.json": {
-    "mtime": 1789189190.3436172,
-    "seen": 1789267721.2326033,
-    "ast_hash": "4a634139439f807018dc3e0a9a06ee59",
+    "mtime": 1789521204.6272051,
+    "seen": 1789609621.3811374,
+    "ast_hash": "546a773df68c51249275df1b060a1184",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-gatos-castrados.json": {
-    "mtime": 1789189190.3436172,
-    "seen": 1789267721.2326033,
-    "ast_hash": "757b83d11c47770a5865a483b2434f2d",
+    "mtime": 1789521204.6272051,
+    "seen": 1789609621.3811374,
+    "ast_hash": "47bba3cb1d56d9d3fb74f448dcc5053c",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perro-adulto-light-razas-grandes-y-gigantes.json": {
-    "mtime": 1789189190.3436172,
-    "seen": 1789267721.2326033,
-    "ast_hash": "5cd8d2a13d6de17731f208a37afac53a",
+    "mtime": 1789521204.63176,
+    "seen": 1789609621.3811374,
+    "ast_hash": "3a057568748ada31840c69085888cb4c",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perros-adulto-de-razas-medianas-castrado.json": {
-    "mtime": 1789189190.3436172,
-    "seen": 1789267721.2326033,
-    "ast_hash": "5fbdf5925980377e65f772db90f9ccfe",
+    "mtime": 1789521204.63176,
+    "seen": 1789609621.3811374,
+    "ast_hash": "65194fdbc431e78fc07fbf91f44598dc",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perros-adultos-razas-grandes-y-gigantes.json": {
-    "mtime": 1789267643.772932,
-    "seen": 1789267721.2326033,
-    "ast_hash": "cbe33a153dd25ac67b50195f987ddd82",
+    "mtime": 1789521204.6327672,
+    "seen": 1789609621.3811374,
+    "ast_hash": "03b9f417ad5e3d17f48f2f11f624b9ec",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perros-adultos-razas-pequenas-y-mini-2.json": {
-    "mtime": 1789267598.4866405,
-    "seen": 1789267721.2326033,
-    "ast_hash": "0226c4f294849f9ef411bc216cc774ba",
+    "mtime": 1789521204.6327672,
+    "seen": 1789609621.3811374,
+    "ast_hash": "b2364a19252999f7bfa62c82942556cd",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perros-adultos-razas-pequenas-y-mini-light.json": {
-    "mtime": 1789189190.3436172,
-    "seen": 1789267721.2326033,
-    "ast_hash": "b70b69050b4da02dde65dcc2e39ac54d",
+    "mtime": 1789521204.6327672,
+    "seen": 1789609621.3811374,
+    "ast_hash": "42566b84fa5a283aa56441913402887e",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perros-adultos-razas-pequenas-y-mini.json": {
-    "mtime": 1789267645.2177663,
-    "seen": 1789267721.2326033,
-    "ast_hash": "d55511015874cbe30c4e8c6cfa4048a8",
+    "mtime": 1789521204.6327672,
+    "seen": 1789609621.3811374,
+    "ast_hash": "2072a4b2215ac4ada07764ecd9f86230",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perros-castrados-razas-grandes-y-gigantes.json": {
-    "mtime": 1788839628.7485282,
-    "seen": 1789083822.7310963,
-    "ast_hash": "21b9b68749594d1881e2ae35a99c9498",
-    "semantic_hash": "21b9b68749594d1881e2ae35a99c9498"
+    "mtime": 1789521204.6327672,
+    "seen": 1789609621.3811374,
+    "ast_hash": "96fbfac970dbb0c09a160579ea710b34",
+    "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perros-light-razas-medianas.json": {
-    "mtime": 1789187295.792655,
-    "seen": 1789267721.2326033,
-    "ast_hash": "5d6028c30c5689d333ef6bca3579a7bf",
+    "mtime": 1789521204.6327672,
+    "seen": 1789609621.3811374,
+    "ast_hash": "cd9637f598e1be13124e3daef93d05a4",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perros-razas-medianas-adulto.json": {
-    "mtime": 1789267993.0456576,
-    "seen": 1789268117.6994622,
-    "ast_hash": "d2d0673ebc9ca06b731278ae29720592",
+    "mtime": 1789521204.6327672,
+    "seen": 1789609621.3811374,
+    "ast_hash": "74fbd0b76fe3abe639a5066c2c52a28b",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perros-razas-medianas.json": {
-    "mtime": 1789267597.190949,
-    "seen": 1789267721.2326033,
-    "ast_hash": "f140d22d5b486a1fba9a77b0c36fdd2a",
+    "mtime": 1789521204.6327672,
+    "seen": 1789609621.3811374,
+    "ast_hash": "e2d813d97b80ea1e7135933ae152e6a3",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perros-razas-pequenas-y-mini-adulto-castrado.json": {
-    "mtime": 1789189190.3531282,
-    "seen": 1789267721.2326033,
-    "ast_hash": "2d79da61a0550ef6c98fed93b28d6f65",
+    "mtime": 1789521204.6372926,
+    "seen": 1789609621.3811374,
+    "ast_hash": "08bcd8273518bbc5ec36af0a77b65b7d",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perros-senior-razas-grandes-y-gigantes.json": {
-    "mtime": 1789267994.2451675,
-    "seen": 1789268117.6994622,
-    "ast_hash": "1d84199556ad453d4f1f8753a03a6f08",
+    "mtime": 1789521204.6372926,
+    "seen": 1789609621.3811374,
+    "ast_hash": "529b2442e443e022b4c91215a83390a4",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perros-senior-razas-medianas.json": {
-    "mtime": 1789189190.3531282,
-    "seen": 1789267721.2326033,
-    "ast_hash": "9dee7f712de441b2af55ccf66af393ab",
+    "mtime": 1789521204.638394,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a524becc0dd61ec6b03308cbbb569a9e",
     "semantic_hash": ""
   },
   "src/content/products/biofresh-para-perros-senior-razas-pequenas-y-mini.json": {
-    "mtime": 1789267995.6135354,
-    "seen": 1789268117.6994622,
-    "ast_hash": "3821a35c44e7cab3a5b7b6706e1098b9",
+    "mtime": 1789521204.638394,
+    "seen": 1789609621.3811374,
+    "ast_hash": "e2c6bf1646fce8d83ac723837ed3afc9",
     "semantic_hash": ""
   },
   "src/content/products/cachorros-todas-las-razas-carne-y-leche.json": {
-    "mtime": 1789187295.7965264,
-    "seen": 1789267721.2326033,
-    "ast_hash": "f06b89e2ed829650cf425b7e3aacf640",
+    "mtime": 1789521204.638394,
+    "seen": 1789609621.3811374,
+    "ast_hash": "78bfd6e885dd1f13b926b98d8bb635a3",
     "semantic_hash": ""
   },
   "src/content/products/castrados-pollo.json": {
-    "mtime": 1789189190.3531282,
-    "seen": 1789267721.2326033,
-    "ast_hash": "ceafcae16190f4daeff0dc52dd76e14e",
+    "mtime": 1789521204.638394,
+    "seen": 1789609621.3811374,
+    "ast_hash": "4d6bdabf91f67595e85da470bc7518c0",
     "semantic_hash": ""
   },
   "src/content/products/colonia-cachorros-procao.json": {
-    "mtime": 1788839628.575555,
-    "seen": 1789083822.7310963,
-    "ast_hash": "0796459583fc430f71e24357a0f5e41b",
-    "semantic_hash": "0796459583fc430f71e24357a0f5e41b"
+    "mtime": 1789521204.638394,
+    "seen": 1789609621.3811374,
+    "ast_hash": "2b8685df8701a281cd130a4305a5ab3d",
+    "semantic_hash": ""
   },
   "src/content/products/colonia-hembra-procao.json": {
-    "mtime": 1788839628.5871527,
-    "seen": 1789083822.7310963,
-    "ast_hash": "ef5b81b4c5979d70b1fe9f43e9eb7d91",
-    "semantic_hash": "ef5b81b4c5979d70b1fe9f43e9eb7d91"
+    "mtime": 1789521204.638394,
+    "seen": 1789609621.3811374,
+    "ast_hash": "fc7f710c17e39b9dea6b61e9dfa368d2",
+    "semantic_hash": ""
   },
   "src/content/products/colonia-macho-procao.json": {
-    "mtime": 1788909556.1862185,
-    "seen": 1789083822.7310963,
+    "mtime": 1789521204.638394,
+    "seen": 1789609621.3811374,
     "ast_hash": "8f040c099432060b16f78f46ef5e9784",
     "semantic_hash": "8f040c099432060b16f78f46ef5e9784"
   },
   "src/content/products/desinfectante-plus-citronela-procao.json": {
-    "mtime": 1788839628.5640323,
-    "seen": 1789083822.7310963,
-    "ast_hash": "5203e9b5a1c2dfaf24759751fcb12579",
-    "semantic_hash": "5203e9b5a1c2dfaf24759751fcb12579"
+    "mtime": 1789521204.638394,
+    "seen": 1789609621.3811374,
+    "ast_hash": "fe5ed023a901c91207762a22c0f0db1f",
+    "semantic_hash": ""
   },
   "src/content/products/eco-cane-cat-litter.json": {
-    "mtime": 1789100114.8587115,
-    "seen": 1789102349.814529,
-    "ast_hash": "7bc3e64aac850b86978ba96eac3194bc",
+    "mtime": 1789521204.6428485,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a46dd5da6a89a25c1dfa49300c8e02d8",
     "semantic_hash": ""
   },
   "src/content/products/gatitos-pollo-y-leche.json": {
-    "mtime": 1789189190.3531282,
-    "seen": 1789267721.2326033,
-    "ast_hash": "42740b1e01ca3faad1017b15078478c7",
+    "mtime": 1789521204.6428485,
+    "seen": 1789609621.3811374,
+    "ast_hash": "b7b5c5f830d3e7734c92ad5da330c84f",
     "semantic_hash": ""
   },
   "src/content/products/gatos-adultos-carne-pollo-y-pescado.json": {
-    "mtime": 1789189190.3531282,
-    "seen": 1789267721.2326033,
-    "ast_hash": "778a47575e14c7ce6a12f69963b5cf76",
+    "mtime": 1789521204.643855,
+    "seen": 1789609621.3811374,
+    "ast_hash": "30574d36fc6e506a417c655aa2b272a3",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-cachorros-sobre.json": {
-    "mtime": 1789187295.7978048,
-    "seen": 1789267721.2326033,
-    "ast_hash": "026df748a79a720451ccd84ac5e70ab7",
+    "mtime": 1789521204.643855,
+    "seen": 1789609621.3811374,
+    "ast_hash": "74226006b70e0860a4c9120d05d4cb64",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-choice-para-gatos-adulto.json": {
-    "mtime": 1789187295.7989655,
-    "seen": 1789267721.2326033,
-    "ast_hash": "67aac4cb1805e1a427351dc92e762708",
+    "mtime": 1789521204.643855,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a86c3a21117186f784cb17eaf1e884a9",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-gourmet-para-perros-adultos-razas-medianas-y-grandes.json": {
-    "mtime": 1789189190.3531282,
-    "seen": 1789267721.2326033,
-    "ast_hash": "c26d592cfb01fdb5c3f8e458b652f9a5",
+    "mtime": 1789521204.643855,
+    "seen": 1789609621.3811374,
+    "ast_hash": "7fa44220c58c4af8feb79b6c88b45bf5",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-gourmet-perro-adulto-razas-pequenas-y-mini.json": {
-    "mtime": 1789189190.3531282,
-    "seen": 1789267721.2326033,
-    "ast_hash": "a2a213c71c8d2833678a6651d2d7aada",
+    "mtime": 1789521204.645877,
+    "seen": 1789609621.3811374,
+    "ast_hash": "4aa3f7fc8ca3d361d52934e8d7433420",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-gatos-adulto-sobre.json": {
-    "mtime": 1789187295.7999637,
-    "seen": 1789267721.2326033,
-    "ast_hash": "b2c5e3d70bc3726fef167a6f013fbbe0",
+    "mtime": 1789521204.645877,
+    "seen": 1789609621.3811374,
+    "ast_hash": "30546ae15113a19a3552fc7db50dbf11",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-gatos-adulto.json": {
-    "mtime": 1789189190.3592997,
-    "seen": 1789267721.2326033,
-    "ast_hash": "15509ac82875532fac1f5238ef4d25bc",
+    "mtime": 1789521204.645877,
+    "seen": 1789609621.3811374,
+    "ast_hash": "e5c1544467cfcb0fe5b8bfc8509d2b7e",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-gatos-cachorro.json": {
-    "mtime": 1789187295.8014958,
-    "seen": 1789267721.2326033,
-    "ast_hash": "a1d1bfa4c91046aa174624110b803605",
+    "mtime": 1789521204.645877,
+    "seen": 1789609621.3811374,
+    "ast_hash": "f760d168fc0c126e68b132125c1429bb",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-gatos-cachorros.json": {
-    "mtime": 1789189190.3592997,
-    "seen": 1789267721.2326033,
-    "ast_hash": "cf258cb4f9019919148f111c9eea3a80",
+    "mtime": 1789521204.6478841,
+    "seen": 1789609621.3811374,
+    "ast_hash": "9cf621ba9165b0836c4dc6a25284bbbd",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-gatos-castrado-sobre.json": {
-    "mtime": 1789187295.8014958,
-    "seen": 1789267721.2326033,
-    "ast_hash": "185b9acf9b9afc98c1edfc56dfdbe33e",
+    "mtime": 1789521204.6484158,
+    "seen": 1789609621.3811374,
+    "ast_hash": "d838324c0fdd4760faa7b355ea22bade",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-gatos-castrados.json": {
-    "mtime": 1789189190.3592997,
-    "seen": 1789267721.2326033,
-    "ast_hash": "81808f74b1b5be0ccd8ce14b467755a9",
+    "mtime": 1789521204.6494226,
+    "seen": 1789609621.3811374,
+    "ast_hash": "f0954be9d709dc974d20f010e9aac4ee",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-gatos-senior-castrado.json": {
-    "mtime": 1789189190.3592997,
-    "seen": 1789267721.2326033,
-    "ast_hash": "c1456e28a38dc668941e6d0d0f18b88d",
+    "mtime": 1789521204.6498086,
+    "seen": 1789609621.3811374,
+    "ast_hash": "5f44965a138e7fdab80eb815501e5cc4",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-gatos-tracto-urinario-sobre.json": {
-    "mtime": 1789187295.8035123,
-    "seen": 1789267721.2326033,
-    "ast_hash": "9d73f6eb9b527b58cc80d556a2b8cbcb",
+    "mtime": 1789521204.6498086,
+    "seen": 1789609621.3811374,
+    "ast_hash": "3ba69a46f31d91935200233495a79d92",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-perros-adulto-sobre.json": {
-    "mtime": 1789187840.416223,
-    "seen": 1789267721.2326033,
-    "ast_hash": "733361e3d86c48c3fca5f488b702d2ff",
+    "mtime": 1789521204.6498086,
+    "seen": 1789609621.3811374,
+    "ast_hash": "d371156fa87686c87724b5c95704a187",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-perros-adultos-razas-medianas.json": {
-    "mtime": 1789189190.3592997,
-    "seen": 1789267721.2326033,
-    "ast_hash": "5163cac727efbf1dfc2b5b241666baa7",
+    "mtime": 1789521204.6498086,
+    "seen": 1789609621.3811374,
+    "ast_hash": "2622a853a6042f9d0b828f01266ae89e",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-perros-adultos-razas-pequenas-y-mini-light.json": {
-    "mtime": 1789189190.3592997,
-    "seen": 1789267721.2326033,
-    "ast_hash": "5fef2a1362b297f1c0a7aa6b2275a169",
+    "mtime": 1789521204.6498086,
+    "seen": 1789609621.3811374,
+    "ast_hash": "6bfed90f7b04bad74624b60e0477160f",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-perros-adultos-razas-pequenas-y-mini.json": {
-    "mtime": 1789189190.3592997,
-    "seen": 1789267721.2326033,
-    "ast_hash": "ed96eb12d1ef7603c1ca60432f273002",
+    "mtime": 1789521204.6498086,
+    "seen": 1789609621.3811374,
+    "ast_hash": "b1776704f276bdf6a0522ee404c09fd8",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-perros-cachorros-razas-medianas-y-grandes.json": {
-    "mtime": 1789189190.3592997,
-    "seen": 1789267721.2326033,
-    "ast_hash": "d0105280b1c20c217f458c6c7197fd6a",
+    "mtime": 1789521204.6498086,
+    "seen": 1789609621.3811374,
+    "ast_hash": "721083dc5a3e02f2cc7da249d8bbbbc4",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-perros-cachorros-razas-pequenas-y-mini.json": {
-    "mtime": 1789189190.3592997,
-    "seen": 1789267721.2326033,
-    "ast_hash": "84c1d865df1a656a7b7d73be1c46a635",
+    "mtime": 1789521204.6498086,
+    "seen": 1789609621.3811374,
+    "ast_hash": "d31775e0d5f4b6a20e1d8dc6d43fbe68",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-perros-razas-medianas-y-grandes-senior.json": {
-    "mtime": 1789189190.3592997,
-    "seen": 1789267721.2326033,
-    "ast_hash": "deb2571b6243c620e782d27d9e1f1182",
+    "mtime": 1789521204.65397,
+    "seen": 1789609621.3811374,
+    "ast_hash": "9a348c12656b6a92b8bd6b6342ef8ed2",
     "semantic_hash": ""
   },
   "src/content/products/gran-plus-para-perros-razas-pequenas-y-mini-senior.json": {
-    "mtime": 1789189190.3673697,
-    "seen": 1789267721.2326033,
-    "ast_hash": "6eda64ac8e1d258bfd93dbfb91ae6d3a",
+    "mtime": 1789521204.65397,
+    "seen": 1789609621.3811374,
+    "ast_hash": "49f4af23e2773b2e34d0816911a8e33d",
     "semantic_hash": ""
   },
   "src/content/products/guabi-natural-para-gatos-adulto-castrado-grain-free.json": {
-    "mtime": 1789187840.4203598,
-    "seen": 1789267721.2326033,
-    "ast_hash": "159d25342dd1ada862e836408f832114",
+    "mtime": 1789521204.6548982,
+    "seen": 1789609621.3811374,
+    "ast_hash": "5096ef43a0010465d67bf12141f8a2da",
     "semantic_hash": ""
   },
   "src/content/products/guabi-natural-para-gatos-adultos-sobre-2.json": {
-    "mtime": 1789187840.4213603,
-    "seen": 1789267721.2326033,
-    "ast_hash": "76be497574439b7989f31d4342ab80a0",
+    "mtime": 1789521204.6548982,
+    "seen": 1789609621.3811374,
+    "ast_hash": "9fc8bf11178ba2c62f6d193be5d5c57d",
     "semantic_hash": ""
   },
   "src/content/products/guabi-natural-para-gatos-adultos.json": {
-    "mtime": 1789187840.4203598,
-    "seen": 1789267721.2326033,
-    "ast_hash": "027af0a12700095f3995c133cc884314",
+    "mtime": 1789521204.6548982,
+    "seen": 1789609621.3811374,
+    "ast_hash": "178773d8d478f387172b2f265dd32cdd",
     "semantic_hash": ""
   },
   "src/content/products/guabi-natural-para-gatos-cachorro.json": {
-    "mtime": 1789187840.422361,
-    "seen": 1789267721.2326033,
-    "ast_hash": "8b691ddd6472346d5962bcd6a8230cdb",
+    "mtime": 1789521204.6548982,
+    "seen": 1789609621.3811374,
+    "ast_hash": "78fc7a35953606174b9e2868b3b1ffc4",
     "semantic_hash": ""
   },
   "src/content/products/guabi-natural-para-gatos-castrados.json": {
-    "mtime": 1789187840.4228294,
-    "seen": 1789267721.2326033,
-    "ast_hash": "4459961d0eb9f4a1efc122da723c8461",
+    "mtime": 1789521204.6548982,
+    "seen": 1789609621.3811374,
+    "ast_hash": "5b5561cde2c3931c6920af1aedbad1f8",
     "semantic_hash": ""
   },
   "src/content/products/guabi-natural-para-gatos-senior-castrado.json": {
-    "mtime": 1789187840.4228294,
-    "seen": 1789267721.2326033,
-    "ast_hash": "6513cd8100fd9b158aac98549734772f",
+    "mtime": 1789521204.6548982,
+    "seen": 1789609621.3811374,
+    "ast_hash": "e260236bf74f5302e9bda0a8db1d01df",
     "semantic_hash": ""
   },
   "src/content/products/guabi-natural-para-gatos-sobre-grain-free.json": {
-    "mtime": 1789187840.4238331,
-    "seen": 1789267721.2326033,
-    "ast_hash": "7089445608657ac10462908da716518b",
+    "mtime": 1789521204.6548982,
+    "seen": 1789609621.3811374,
+    "ast_hash": "5a3b9f914762b1006200625b118c320f",
     "semantic_hash": ""
   },
   "src/content/products/guabi-natural-para-perros-adultos-sachet.json": {
-    "mtime": 1789187840.4238331,
-    "seen": 1789267721.2326033,
-    "ast_hash": "1425cd42691ae9305dbb365e84cad949",
+    "mtime": 1789521204.6590762,
+    "seen": 1789609621.3811374,
+    "ast_hash": "4dea7ee2fe42b09ef143b90b9a0135f1",
     "semantic_hash": ""
   },
   "src/content/products/guabi-natural-para-perros-razas-medianas-grain-free.json": {
-    "mtime": 1789187840.4238331,
-    "seen": 1789267721.2326033,
-    "ast_hash": "fe53d0d2309865135d8f6820431bfd0f",
+    "mtime": 1789521204.6595387,
+    "seen": 1789609621.3811374,
+    "ast_hash": "b23b64518c70ae4e22c702332e18e858",
     "semantic_hash": ""
   },
   "src/content/products/guabi-natural-para-perros-razas-pequenas-y-mini-grain-free.json": {
-    "mtime": 1789187840.4238331,
-    "seen": 1789267721.2326033,
-    "ast_hash": "0d9af417d4d17cf7abd32008e61fc177",
+    "mtime": 1789521204.6595387,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a34d0caf7da9e1ba962f7b2ee2bb422b",
     "semantic_hash": ""
   },
   "src/content/products/guabi-natural-para-perros-sachet-grain-free.json": {
-    "mtime": 1789187840.4238331,
-    "seen": 1789267721.2326033,
-    "ast_hash": "9181fed22cec417d27eb22a9d9121946",
+    "mtime": 1789521204.6609344,
+    "seen": 1789609621.3811374,
+    "ast_hash": "9918a43759f9dedeb66e6494a287528b",
     "semantic_hash": ""
   },
   "src/content/products/kets-arena-sanitaria-para-gatos.json": {
-    "mtime": 1789100114.8639333,
-    "seen": 1789102349.814529,
-    "ast_hash": "3302a6e6e085245632b5bf4c3866b732",
+    "mtime": 1789521204.6609344,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a370ed2f790facaa293e5dd6072fd816",
     "semantic_hash": ""
   },
   "src/content/products/mani-tostado-c-sal.json": {
-    "mtime": 1788909556.1912735,
-    "seen": 1789083822.7310963,
+    "mtime": 1789521204.6609344,
+    "seen": 1789609621.3811374,
     "ast_hash": "3c76818972cf0094c70ae6d173d53e37",
     "semantic_hash": "3c76818972cf0094c70ae6d173d53e37"
   },
   "src/content/products/mega-pack.json": {
-    "mtime": 1789100114.865033,
-    "seen": 1789102349.814529,
-    "ast_hash": "a6924ec03629ea52db92d4538163e1d4",
+    "mtime": 1789521204.6609344,
+    "seen": 1789609621.3811374,
+    "ast_hash": "14aa660caed42e7962be9ac37036eb32",
     "semantic_hash": ""
   },
   "src/content/products/original-adultos-de-pequenas-razas-carne-y-arroz.json": {
-    "mtime": 1789187840.4238331,
-    "seen": 1789267721.2326033,
-    "ast_hash": "a9183c57820a7144aaf22a1a20985328",
+    "mtime": 1789521204.6609344,
+    "seen": 1789609621.3811374,
+    "ast_hash": "8810a2aa1bcc4700c2923347e244a8ee",
     "semantic_hash": ""
   },
   "src/content/products/original-adultos-razas-medianas-y-grandes-carne-y-pollo.json": {
-    "mtime": 1789188193.8849018,
-    "seen": 1789267721.2326033,
-    "ast_hash": "f6933e38abdbca4fb75158664c0c58ca",
+    "mtime": 1789521204.6609344,
+    "seen": 1789609621.3811374,
+    "ast_hash": "6a71063c6b282200882bc8771294b742",
     "semantic_hash": ""
   },
   "src/content/products/original-gatos-adultos-carne-y-pollo.json": {
-    "mtime": 1789189190.370437,
-    "seen": 1789267721.2326033,
-    "ast_hash": "7b253feb7150ef8c04fd8508da4c4b8f",
+    "mtime": 1789521204.6609344,
+    "seen": 1789609621.3811374,
+    "ast_hash": "e6906fcc5979ebac52d4408343676b90",
     "semantic_hash": ""
   },
   "src/content/products/palito-sabor-cebolla.json": {
-    "mtime": 1788839628.6541152,
-    "seen": 1789083822.7310963,
-    "ast_hash": "759ca07604a91296fad2b08afd4e3eb1",
-    "semantic_hash": "759ca07604a91296fad2b08afd4e3eb1"
+    "mtime": 1789521204.6609344,
+    "seen": 1789609621.3811374,
+    "ast_hash": "2276207555930ac9706c5e9c71bf95a8",
+    "semantic_hash": ""
   },
   "src/content/products/palitos-sabor-jamon.json": {
-    "mtime": 1788839628.6663182,
-    "seen": 1789083822.7310963,
-    "ast_hash": "64074a0e89ecd17dcddefa1c8532a217",
-    "semantic_hash": "64074a0e89ecd17dcddefa1c8532a217"
+    "mtime": 1789521204.6609344,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a4b4ccb2bdb5d6ca802f3c7b1c8abd86",
+    "semantic_hash": ""
   },
   "src/content/products/palitos-sabor-queso.json": {
-    "mtime": 1788909556.1942983,
-    "seen": 1789083822.7310963,
+    "mtime": 1789521204.6650941,
+    "seen": 1789609621.3811374,
     "ast_hash": "0fbb61b20df8df4f433ebbcf86744f95",
     "semantic_hash": "0fbb61b20df8df4f433ebbcf86744f95"
   },
   "src/content/products/pancetitas.json": {
-    "mtime": 1788839629.2294168,
-    "seen": 1789083822.7310963,
-    "ast_hash": "1ba3168cd759ab18182160fc0a0cada2",
-    "semantic_hash": "1ba3168cd759ab18182160fc0a0cada2"
+    "mtime": 1789521204.6650941,
+    "seen": 1789609621.3811374,
+    "ast_hash": "c0a390ecb95787dae2d906664c6c7e7d",
+    "semantic_hash": ""
   },
   "src/content/products/papa-acanalada.json": {
-    "mtime": 1788839629.2390857,
-    "seen": 1789083822.7310963,
-    "ast_hash": "2bfad24854dc4ef6d855db27595688e0",
-    "semantic_hash": "2bfad24854dc4ef6d855db27595688e0"
+    "mtime": 1789521204.6661026,
+    "seen": 1789609621.3811374,
+    "ast_hash": "2186c040a36227f60d3700586d5c824b",
+    "semantic_hash": ""
   },
   "src/content/products/papa-rustica.json": {
-    "mtime": 1788839629.243703,
-    "seen": 1789083822.7310963,
-    "ast_hash": "6ac3ca311ff2de39c1c6d11f6f6bec84",
-    "semantic_hash": "6ac3ca311ff2de39c1c6d11f6f6bec84"
+    "mtime": 1789521204.6661026,
+    "seen": 1789609621.3811374,
+    "ast_hash": "9727a9b876270801624263f454794389",
+    "semantic_hash": ""
   },
   "src/content/products/papas-pay.json": {
-    "mtime": 1788839629.2339008,
-    "seen": 1789083822.7310963,
-    "ast_hash": "6637467a7b5b75783e70feab0409d8e9",
-    "semantic_hash": "6637467a7b5b75783e70feab0409d8e9"
+    "mtime": 1789521204.6661026,
+    "seen": 1789609621.3811374,
+    "ast_hash": "302fc38e39e7517822051ce5be40c622",
+    "semantic_hash": ""
   },
   "src/content/products/papas-sabor-barbacoa.json": {
-    "mtime": 1788839629.2447064,
-    "seen": 1789083822.7310963,
-    "ast_hash": "20239e894b94b243a295c8338710c775",
-    "semantic_hash": "20239e894b94b243a295c8338710c775"
+    "mtime": 1789521204.6661026,
+    "seen": 1789609621.3811374,
+    "ast_hash": "6d13625adb4f646216f3c0c9282edaee",
+    "semantic_hash": ""
   },
   "src/content/products/papas-sabor-cebolla.json": {
-    "mtime": 1788839629.251338,
-    "seen": 1789083822.7310963,
-    "ast_hash": "f538c52ee01d302285be9b8bce597aa4",
-    "semantic_hash": "f538c52ee01d302285be9b8bce597aa4"
+    "mtime": 1789521204.6661026,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a6f55f927c700568dba490273735ac02",
+    "semantic_hash": ""
   },
   "src/content/products/papas-sabor-original.json": {
-    "mtime": 1788909556.1958015,
-    "seen": 1789083822.7310963,
+    "mtime": 1789521204.6661026,
+    "seen": 1789609621.3811374,
     "ast_hash": "4c6860a7a8b2411fd422a3c590cd8698",
     "semantic_hash": "4c6860a7a8b2411fd422a3c590cd8698"
   },
   "src/content/products/papas-sabor-queso.json": {
-    "mtime": 1788839629.2558517,
-    "seen": 1789083822.7310963,
-    "ast_hash": "4ebc254fed3812f4edd04da4617151d0",
-    "semantic_hash": "4ebc254fed3812f4edd04da4617151d0"
+    "mtime": 1789521204.6661026,
+    "seen": 1789609621.3811374,
+    "ast_hash": "074d31d7cd3ea5e0cbc02c477a2416e1",
+    "semantic_hash": ""
   },
   "src/content/products/pate-para-gatos-adultos-primogato.json": {
-    "mtime": 1789189190.3749344,
-    "seen": 1789267721.2326033,
-    "ast_hash": "7178f874280c632bc30d2d56365010cd",
+    "mtime": 1789521204.6661026,
+    "seen": 1789609621.3811374,
+    "ast_hash": "315847fc334e960d882cf84db801a962",
     "semantic_hash": ""
   },
   "src/content/products/pate-para-gatos-cachorros-primogato.json": {
-    "mtime": 1789187840.4238331,
-    "seen": 1789267721.2326033,
-    "ast_hash": "6041a6408357c7d2e0cc9351173c5ae9",
+    "mtime": 1789521204.6661026,
+    "seen": 1789609621.3811374,
+    "ast_hash": "5c2c4faf375f7887c8d154ad38ae0cdb",
     "semantic_hash": ""
   },
   "src/content/products/pate-para-perros-adultos-primocao.json": {
-    "mtime": 1789189190.3749344,
-    "seen": 1789267721.2326033,
-    "ast_hash": "438b86ad141ad9c7752491f2b6ea7019",
+    "mtime": 1789521204.6661026,
+    "seen": 1789609621.3811374,
+    "ast_hash": "874d08d3395088a6cbdb1c1759466d62",
     "semantic_hash": ""
   },
   "src/content/products/pate-para-perros-cachorros-primocao.json": {
-    "mtime": 1789189190.3749344,
-    "seen": 1789267721.2326033,
-    "ast_hash": "68cb9f58971b90e78c223c36441bbf26",
+    "mtime": 1789521204.6661026,
+    "seen": 1789609621.3811374,
+    "ast_hash": "6c1a72d87bb1f43fdd53c1872b224b1b",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-cats-adultos-sabor-de-pescado-pollo-y-carne.json": {
-    "mtime": 1789360957.9485476,
-    "seen": 1789361287.5775735,
-    "ast_hash": "bcd35e7484defbbea074b67ac775bd8d",
+    "mtime": 1789521204.670648,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a34585375947e8157880d934e9d4a8a4",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-cats-castrado-bola-de-pelos-sabor-pescado-blanco.json": {
-    "mtime": 1789360957.9485476,
-    "seen": 1789361287.5775735,
-    "ast_hash": "faae341cf256310ae681ba267fd6755a",
+    "mtime": 1789521204.670648,
+    "seen": 1789609621.3811374,
+    "ast_hash": "8fe70197313d4dc2988db6514a84db8a",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-cats-castrados-sabor-pollo.json": {
-    "mtime": 1789187840.4294486,
-    "seen": 1789267721.2326033,
-    "ast_hash": "5f7cf82068b7a0b49b2823500d94246b",
+    "mtime": 1789521204.671981,
+    "seen": 1789609621.3811374,
+    "ast_hash": "8a96c4a7bf24e4186a2e437d76acdc1d",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-cats-gatitos-sabor-pollo.json": {
-    "mtime": 1789360957.95565,
-    "seen": 1789361287.5775735,
-    "ast_hash": "8ecb72fe4551611078864ac333e1dc39",
+    "mtime": 1789521204.671981,
+    "seen": 1789609621.3811374,
+    "ast_hash": "ce0584c330e57fa0f971520a95bb7e37",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-dogs-adulto-sabor-carne-y-zanahoria.json": {
-    "mtime": 1789360957.932873,
-    "seen": 1789361287.5775735,
-    "ast_hash": "6cae0554e03418cc0391b3fcc19f5a64",
+    "mtime": 1789521204.671981,
+    "seen": 1789609621.3811374,
+    "ast_hash": "632373e9c299d507b815dda77da373f7",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-dogs-cachorro-sabor-pollo.json": {
-    "mtime": 1789360957.932873,
-    "seen": 1789361287.5775735,
-    "ast_hash": "5b92bfe57152083070ed2b45a52aafd7",
+    "mtime": 1789521204.671981,
+    "seen": 1789609621.3811374,
+    "ast_hash": "bafc473e8486ba8868f18f6c59e629a9",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-dogs-light-sabor-pollo.json": {
-    "mtime": 1789360957.932873,
-    "seen": 1789361287.5775735,
-    "ast_hash": "01becdaa4b472f32602071f8733a0cf6",
+    "mtime": 1789521204.671981,
+    "seen": 1789609621.3811374,
+    "ast_hash": "38ba50a0d8396564cdb8feda0d4af840",
     "semantic_hash": ""
   },
   "src/content/products/pate-three-dogs-senior-sabor-pollo.json": {
-    "mtime": 1789360957.932873,
-    "seen": 1789361287.5775735,
-    "ast_hash": "c08f44bab90a6c3b565ec1624a8a30ba",
+    "mtime": 1789521204.671981,
+    "seen": 1789609621.3811374,
+    "ast_hash": "457e3cf43f665c355bcb9b18169ac387",
     "semantic_hash": ""
   },
   "src/content/products/perros-adultos-de-pequenas-razas-pollo-y-vegetales.json": {
-    "mtime": 1789187840.43246,
-    "seen": 1789267721.2326033,
-    "ast_hash": "a8f040fe059a21110e93513c667e0529",
+    "mtime": 1789521204.671981,
+    "seen": 1789609621.3811374,
+    "ast_hash": "3dd52fe6d57bcaead01da7d77fa006bd",
     "semantic_hash": ""
   },
   "src/content/products/perros-adultos-razas-medianas-y-grandes-carne-y-vegetales.json": {
-    "mtime": 1789187840.43246,
-    "seen": 1789267721.2326033,
-    "ast_hash": "2fe4753810a2437a04236c02b9ff945c",
+    "mtime": 1789521204.671981,
+    "seen": 1789609621.3811374,
+    "ast_hash": "80adc4b996cc78832b13f7e7c01b88c9",
     "semantic_hash": ""
   },
   "src/content/products/pipicat-campestre.json": {
-    "mtime": 1788839628.4962564,
-    "seen": 1789083822.7310963,
-    "ast_hash": "72c575206b093b29dbe635d7c3034b03",
-    "semantic_hash": "72c575206b093b29dbe635d7c3034b03"
+    "mtime": 1789521204.6762002,
+    "seen": 1789609621.3811374,
+    "ast_hash": "13abd58d7b9cc657df20f15f07412b82",
+    "semantic_hash": ""
   },
   "src/content/products/pipicat-classic.json": {
-    "mtime": 1789100114.870509,
-    "seen": 1789102349.817277,
-    "ast_hash": "7553b148f976efe89667d78b7195d051",
+    "mtime": 1789521204.6762002,
+    "seen": 1789609621.3811374,
+    "ast_hash": "8ec7d2b086ab34338b0d59895ce9e6bf",
     "semantic_hash": ""
   },
   "src/content/products/pipicat-floral.json": {
-    "mtime": 1788839628.501881,
-    "seen": 1789083822.7310963,
-    "ast_hash": "5a7f32619977119fb9cd860bb7625f47",
-    "semantic_hash": "5a7f32619977119fb9cd860bb7625f47"
+    "mtime": 1789521204.6772087,
+    "seen": 1789609621.3811374,
+    "ast_hash": "aa9a7b129dc58e64867e09209d8f3b99",
+    "semantic_hash": ""
   },
   "src/content/products/pipicat-multi-cat.json": {
-    "mtime": 1788839628.4852905,
-    "seen": 1789083822.7310963,
-    "ast_hash": "fe4dc5f80a5150325554ce19b377c5df",
-    "semantic_hash": "fe4dc5f80a5150325554ce19b377c5df"
+    "mtime": 1789521204.6772087,
+    "seen": 1789609621.3811374,
+    "ast_hash": "1e430eba3855e19635b71884282170c3",
+    "semantic_hash": ""
   },
   "src/content/products/pipicat-ultra-dry.json": {
-    "mtime": 1788839628.5205715,
-    "seen": 1789083822.7310963,
-    "ast_hash": "7f8a0720f18190352b8c41220e60b5a8",
-    "semantic_hash": "7f8a0720f18190352b8c41220e60b5a8"
+    "mtime": 1789521204.6772087,
+    "seen": 1789609621.3811374,
+    "ast_hash": "5f30e1e91e9f1db8a4a1913b9aba6351",
+    "semantic_hash": ""
   },
   "src/content/products/primocao-original.json": {
-    "mtime": 1788839628.9718418,
-    "seen": 1789083822.7310963,
-    "ast_hash": "6c5b480c07e17c47c9be3c89148cafba",
-    "semantic_hash": "6c5b480c07e17c47c9be3c89148cafba"
+    "mtime": 1789521204.6772087,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a283ab4e22464bfafd8763355c17e221",
+    "semantic_hash": ""
   },
   "src/content/products/sachet-para-gatos-adultos-primogato.json": {
-    "mtime": 1789189190.3749344,
-    "seen": 1789267721.2326033,
-    "ast_hash": "273aa2003477d4ee54337332bd7053db",
+    "mtime": 1789521204.6772087,
+    "seen": 1789609621.3811374,
+    "ast_hash": "f4479d171051bc924441c1acb24f9691",
     "semantic_hash": ""
   },
   "src/content/products/sachet-para-gatos-cachorro.json": {
-    "mtime": 1789187840.433472,
-    "seen": 1789267721.2326033,
-    "ast_hash": "f520bebbd5b062da8a4eb057344702ee",
+    "mtime": 1789521204.6772087,
+    "seen": 1789609621.3811374,
+    "ast_hash": "cf9887521de5e1190fa07ad05fc009dc",
     "semantic_hash": ""
   },
   "src/content/products/sachet-para-perros-adultos-primocao.json": {
-    "mtime": 1789189190.38551,
-    "seen": 1789267721.2326033,
-    "ast_hash": "5429d7fcd52fdda4af9d76f02ccd89bc",
+    "mtime": 1789521204.6772087,
+    "seen": 1789609621.3811374,
+    "ast_hash": "eb5a0ce8798978f9efd90ba3cc7b7803",
     "semantic_hash": ""
   },
   "src/content/products/sachet-para-perros-cachorros-primocao.json": {
-    "mtime": 1789187840.4344914,
-    "seen": 1789267721.2326033,
-    "ast_hash": "98b8ec0c01071f6cb3556996a2fed05c",
+    "mtime": 1789521204.6772087,
+    "seen": 1789609621.3811374,
+    "ast_hash": "b2189fa91be4e3348ee9c9cdc274548d",
     "semantic_hash": ""
   },
   "src/content/products/sachet-three-cats-adultos.json": {
-    "mtime": 1789360957.95565,
-    "seen": 1789361287.5775735,
-    "ast_hash": "5f553ac8906d1cd3f7ab8a04dcbc33a1",
+    "mtime": 1789521204.6817443,
+    "seen": 1789609621.3811374,
+    "ast_hash": "b123c9f0410a60ca53ff01888e0803ac",
     "semantic_hash": ""
   },
   "src/content/products/sachet-three-cats-castrados.json": {
-    "mtime": 1789360957.95565,
-    "seen": 1789361287.5775735,
-    "ast_hash": "bcc9c8e262a9f42726265996ed6c9b1a",
+    "mtime": 1789521204.6817443,
+    "seen": 1789609621.3811374,
+    "ast_hash": "557f648f4bef3b4ec33016a0b00bb364",
     "semantic_hash": ""
   },
   "src/content/products/sachet-three-cats-gatitos.json": {
-    "mtime": 1789360957.95565,
-    "seen": 1789361287.5775735,
-    "ast_hash": "3cf490984831c17c2e83e80ca3b8e409",
+    "mtime": 1789521204.683108,
+    "seen": 1789609621.3811374,
+    "ast_hash": "b0cc06bc309c2f1252d631a73f4f33eb",
     "semantic_hash": ""
   },
   "src/content/products/sachet-three-dogs-adulto-razas-medianas-y-grandes.json": {
-    "mtime": 1789360957.9485476,
-    "seen": 1789361287.5775735,
-    "ast_hash": "817cced1d62b7566b44dfbfa210d143e",
+    "mtime": 1789521204.683108,
+    "seen": 1789609621.3811374,
+    "ast_hash": "fe50b37d6b24da41e326674e4b6718d3",
     "semantic_hash": ""
   },
   "src/content/products/sachet-three-dogs-adulto-razas-pequenas.json": {
-    "mtime": 1789360957.9485476,
-    "seen": 1789361287.5775735,
-    "ast_hash": "4c20475bb5d76cf220fcfa036035da53",
+    "mtime": 1789521204.683108,
+    "seen": 1789609621.3811374,
+    "ast_hash": "cb2bc7906a8cb6ddbe142fac5af2a584",
     "semantic_hash": ""
   },
   "src/content/products/sachet-three-dogs-cachorros.json": {
-    "mtime": 1789360957.9485476,
-    "seen": 1789361287.5775735,
-    "ast_hash": "db756e4803bc2f5023005aad73e5e08a",
+    "mtime": 1789521204.683108,
+    "seen": 1789609621.3811374,
+    "ast_hash": "73576bf734c97894511489d13cdb8eed",
     "semantic_hash": ""
   },
   "src/content/products/shampoo-cachorros-procao.json": {
-    "mtime": 1788839628.6285808,
-    "seen": 1789083822.7310963,
-    "ast_hash": "8dd7b2a9f0899426773dd6deb137b8bb",
-    "semantic_hash": "8dd7b2a9f0899426773dd6deb137b8bb"
+    "mtime": 1789521204.683108,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a33c8988a186559204dfe1d805c76d26",
+    "semantic_hash": ""
   },
   "src/content/products/shampoo-citronela-procao.json": {
-    "mtime": 1788909556.1993003,
-    "seen": 1789083822.7310963,
+    "mtime": 1789521204.683108,
+    "seen": 1789609621.3811374,
     "ast_hash": "c13957f3482abc3b8b2c2f5427f3df7b",
     "semantic_hash": "c13957f3482abc3b8b2c2f5427f3df7b"
   },
   "src/content/products/shampoo-neutralizador-de-olores.json": {
-    "mtime": 1788839628.6039648,
-    "seen": 1789083822.7310963,
-    "ast_hash": "c4c770b8f45dc23f8d3352de59ce6528",
-    "semantic_hash": "c4c770b8f45dc23f8d3352de59ce6528"
+    "mtime": 1789521204.6857848,
+    "seen": 1789609621.3811374,
+    "ast_hash": "f5a4453621aa1f708b6e154ff7cef6dc",
+    "semantic_hash": ""
   },
   "src/content/products/shampoo-neutro-procao.json": {
-    "mtime": 1789100114.8725264,
-    "seen": 1789102349.817277,
-    "ast_hash": "400bea0f67e75baf38133005096dbe53",
+    "mtime": 1789521204.6857848,
+    "seen": 1789609621.3811374,
+    "ast_hash": "7ea9cac3c75321346df2cab1d8eae975",
     "semantic_hash": ""
   },
   "src/content/products/shampoo-pelos-claros-procao.json": {
-    "mtime": 1788839628.635497,
-    "seen": 1789083822.7310963,
-    "ast_hash": "9fb343d25cf4ccca3fbe0bd12d3ac8c2",
-    "semantic_hash": "9fb343d25cf4ccca3fbe0bd12d3ac8c2"
+    "mtime": 1789521204.6857848,
+    "seen": 1789609621.3811374,
+    "ast_hash": "45e6fa8a32118163cc76a21d38871e32",
+    "semantic_hash": ""
   },
   "src/content/products/shampoo-pelos-negros.json": {
-    "mtime": 1788839628.6275237,
-    "seen": 1789083822.7310963,
-    "ast_hash": "b12acc8417f205afd4532ff183191e03",
-    "semantic_hash": "b12acc8417f205afd4532ff183191e03"
+    "mtime": 1789521204.687314,
+    "seen": 1789609621.3811374,
+    "ast_hash": "3496c2ffb3815114f1d43bb97c5487c0",
+    "semantic_hash": ""
   },
   "src/content/products/shampoo-y-acondicionador-hierba-de-santa-maria-procao.json": {
-    "mtime": 1788839628.648235,
-    "seen": 1789083822.7310963,
-    "ast_hash": "51da656790e2d245f91dd244c6d9c325",
-    "semantic_hash": "51da656790e2d245f91dd244c6d9c325"
+    "mtime": 1789521204.6883223,
+    "seen": 1789609621.3811374,
+    "ast_hash": "b15229c7a547e5f2c5e5fc0e3c9b4995",
+    "semantic_hash": ""
   },
   "src/content/products/shampoo-y-acondicionador-procao.json": {
-    "mtime": 1788839629.2727993,
-    "seen": 1789083822.7310963,
-    "ast_hash": "cc5a1995ec7ef7201ac1d5077a6216db",
-    "semantic_hash": "cc5a1995ec7ef7201ac1d5077a6216db"
+    "mtime": 1789521204.6886852,
+    "seen": 1789609621.3811374,
+    "ast_hash": "2cb6474dafe0c4eea1a677018e3bdbdc",
+    "semantic_hash": ""
   },
   "src/content/products/snack-para-perros-distintos-sabores.json": {
-    "mtime": 1789187840.4375472,
-    "seen": 1789267721.2326033,
-    "ast_hash": "e0f3865ec29d3b6b17583f09ac615fbd",
+    "mtime": 1789521204.6886852,
+    "seen": 1789609621.3811374,
+    "ast_hash": "4ef460662ca9e9e2b9f3971baf2d528f",
     "semantic_hash": ""
   },
   "src/content/products/super-pack.json": {
-    "mtime": 1788909556.2018335,
-    "seen": 1789083822.7310963,
+    "mtime": 1789521204.6886852,
+    "seen": 1789609621.3811374,
     "ast_hash": "2a5717c2a548a037ac70d7ad146d4f92",
     "semantic_hash": "2a5717c2a548a037ac70d7ad146d4f92"
   },
   "src/content/products/three-cats-original-castrados-senior.json": {
-    "mtime": 1789361158.0729198,
-    "seen": 1789361287.5775735,
-    "ast_hash": "cc19b70f5ef0dd2f9cdbe9d57e550414",
+    "mtime": 1789521204.6906912,
+    "seen": 1789609621.3811374,
+    "ast_hash": "19284138d69a59668eb8f54cdc89cee1",
     "semantic_hash": ""
   },
   "src/content/products/three-cats-premium-especial-original-adultos.json": {
-    "mtime": 1789361158.0729198,
-    "seen": 1789361287.5775735,
-    "ast_hash": "d99d51b6fc33b05b617fa4d80401c913",
+    "mtime": 1789521204.6906912,
+    "seen": 1789609621.3811374,
+    "ast_hash": "5b9145564c9a6a4bc6ac5d2f25a1b9a8",
     "semantic_hash": ""
   },
   "src/content/products/three-cats-premium-especial-original-castrados.json": {
-    "mtime": 1789361158.0729198,
-    "seen": 1789361287.5775735,
-    "ast_hash": "3d7bf5a80583885156001550912d8e9c",
+    "mtime": 1789521204.6906912,
+    "seen": 1789609621.3811374,
+    "ast_hash": "b90c7760d7b042edf6efc76e0a0f2f5d",
     "semantic_hash": ""
   },
   "src/content/products/three-cats-super-premium-adultos-castrados-bolas-de-pelos-pollo.json": {
-    "mtime": 1789361158.0729198,
-    "seen": 1789361287.5775735,
-    "ast_hash": "fe0ecd33b45b50ddc61441d2bc6bdcea",
+    "mtime": 1789521204.6906912,
+    "seen": 1789609621.3811374,
+    "ast_hash": "6b808836b2060738acc64bd2b009969c",
     "semantic_hash": ""
   },
   "src/content/products/three-cats-super-premium-adultos-salmon-pollo-y-carne.json": {
-    "mtime": 1789361158.0729198,
-    "seen": 1789361287.5775735,
-    "ast_hash": "94dc65a6ce5c33b33b6b6032c1e7067b",
+    "mtime": 1789521204.6926959,
+    "seen": 1789609621.3811374,
+    "ast_hash": "32607efa487cbffa0d15db3c9d02d888",
     "semantic_hash": ""
   },
   "src/content/products/three-cats-super-premium-gatitos-pollo.json": {
-    "mtime": 1789361158.0729198,
-    "seen": 1789361287.5775735,
-    "ast_hash": "a8d1fc5f6c28d8e39526871c85e526ba",
+    "mtime": 1789521204.693882,
+    "seen": 1789609621.3811374,
+    "ast_hash": "86a1390cbad8d9f0561e6ee63d02cf22",
     "semantic_hash": ""
   },
   "src/content/products/three-cats-super-premium-gatos-castrados-6-meses-salmon.json": {
-    "mtime": 1789361158.0729198,
-    "seen": 1789361287.5775735,
-    "ast_hash": "249909764be51d35ee888842669ccb22",
+    "mtime": 1789521204.6941962,
+    "seen": 1789609621.3811374,
+    "ast_hash": "593b62b49fde5d0bfeb43c1daaf954cf",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-adulto-super-premium-razas-medianas-y-grandes-carne-y-arroz.json": {
-    "mtime": 1789361158.0729198,
-    "seen": 1789361287.5775735,
-    "ast_hash": "6bc8c35c2d93ffe9b2ca291c1b41cbd3",
+    "mtime": 1789521204.6941962,
+    "seen": 1789609621.3811374,
+    "ast_hash": "972700e7c9731cca03b4d8be8cd5a0cf",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-original-perros-razas-medianas-y-grandes.json": {
-    "mtime": 1789361158.0729198,
-    "seen": 1789361287.5775735,
-    "ast_hash": "3c063281f5990aebb99ade5feb081f5a",
+    "mtime": 1789521204.6941962,
+    "seen": 1789609621.3811374,
+    "ast_hash": "9b89d08e35dd9f2a2965f0fddde55739",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-original-perros-senior-razas-medianas-y-grandes.json": {
-    "mtime": 1789361158.0729198,
-    "seen": 1789361287.5775735,
-    "ast_hash": "40607c09eed5a35522812af7b4b34e79",
+    "mtime": 1789521204.6941962,
+    "seen": 1789609621.3811374,
+    "ast_hash": "c97cd568535dbe7d213625fea68ac94c",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-premium-especial-original-adultos-razas-pequenas-e-minis.json": {
-    "mtime": 1789361158.0729198,
-    "seen": 1789361287.5775735,
-    "ast_hash": "157f0d0c53ed05a55660c0d7cbd4f90c",
+    "mtime": 1789521204.6941962,
+    "seen": 1789609621.3811374,
+    "ast_hash": "f719f1ec060f59a8a83f387b4deeae5e",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-premium-especial-original-cachorros-de-razas-medianas-y-grandes.json": {
-    "mtime": 1789361158.0729198,
-    "seen": 1789361287.5775735,
-    "ast_hash": "3f9b9ee278dcef6d7ff0c6e1f3db2b7c",
+    "mtime": 1789521204.6941962,
+    "seen": 1789609621.3811374,
+    "ast_hash": "9b6a282e918f7155d84b547e4504bbf8",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-premium-especial-original-cachorros-de-razas-pequenas-y-mini.json": {
-    "mtime": 1789361158.0729198,
-    "seen": 1789361287.5775735,
-    "ast_hash": "f8f9cb173b6ff72dedcf008361e5c857",
+    "mtime": 1789521204.6941962,
+    "seen": 1789609621.3811374,
+    "ast_hash": "25bb3e427571b430fed406c1d61792a2",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-super-premium-adultos-razas-pequenas-y-mini-pollo-y-zanahoria.json": {
-    "mtime": 1789361158.0823636,
-    "seen": 1789361287.5775735,
-    "ast_hash": "acd1fea97709c62b2ba54ff581267dca",
+    "mtime": 1789521204.6941962,
+    "seen": 1789609621.3811374,
+    "ast_hash": "c50f8abc780f8768c0e1292903136b94",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-super-premium-cachorros-razas-medianas-y-grandes-pollo-y-arroz.json": {
-    "mtime": 1789361158.0823636,
-    "seen": 1789361287.5775735,
-    "ast_hash": "4150937bc087e3d1ac0c8dfef883cc87",
+    "mtime": 1789521204.6984017,
+    "seen": 1789609621.3811374,
+    "ast_hash": "4677908a6ae61a3f6393c3b2e0201101",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-super-premium-cachorros-razas-pequenas-y-mini-pollo-y-arroz.json": {
-    "mtime": 1789361158.0823636,
-    "seen": 1789361287.5775735,
-    "ast_hash": "6d91339bc9e4ce2219c4b24c006c93b5",
+    "mtime": 1789521204.6984017,
+    "seen": 1789609621.3811374,
+    "ast_hash": "f08302852a28545aaa6bff032d30171e",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-super-premium-light-pollo-y-papa-dulce.json": {
-    "mtime": 1789361158.08389,
-    "seen": 1789361287.5775735,
-    "ast_hash": "4e7f14026a9caf1a92799e25bc85b11d",
+    "mtime": 1789521204.6993873,
+    "seen": 1789609621.3811374,
+    "ast_hash": "ddca184c9b7a3001fd1da9902ac91434",
     "semantic_hash": ""
   },
   "src/content/products/three-dogs-super-premium-senior-7-pollo-y-te-verde.json": {
-    "mtime": 1789361158.084893,
-    "seen": 1789361287.5775735,
-    "ast_hash": "6996e7b6939efd3313b4691b8d45c1b3",
+    "mtime": 1789521204.6993873,
+    "seen": 1789609621.3811374,
+    "ast_hash": "9105b599ce3d1237ab3171e9b0e3c564",
     "semantic_hash": ""
   },
   "src/layouts/Base.astro": {
-    "mtime": 1788998690.6290052,
-    "seen": 1789083822.7310963,
-    "ast_hash": "0872a1f3d0b49f7924d7c5b8c2576e58",
-    "semantic_hash": "0872a1f3d0b49f7924d7c5b8c2576e58"
+    "mtime": 1789609292.0813072,
+    "seen": 1789609621.3811374,
+    "ast_hash": "0975d7a945ccff496bb95bbc6b490d30",
+    "semantic_hash": ""
   },
   "src/lib/tabla-tecnica.ts": {
-    "mtime": 1789267595.8745682,
-    "seen": 1789267721.2326033,
-    "ast_hash": "6ec48ac746cd46687954a9285a0c4ed4",
+    "mtime": 1789521204.7105267,
+    "seen": 1789609621.3811374,
+    "ast_hash": "e79052e500f6bfdfbf836e5214dfaf69",
     "semantic_hash": ""
   },
   "src/pages/contacto.astro": {
-    "mtime": 1788924321.0985367,
-    "seen": 1789083822.7310963,
-    "ast_hash": "0f1e22279865b7acb4075b6c3e2ee856",
-    "semantic_hash": "0f1e22279865b7acb4075b6c3e2ee856"
+    "mtime": 1789521204.7105267,
+    "seen": 1789609621.3811374,
+    "ast_hash": "2537ea615621833aaffa61007182ce04",
+    "semantic_hash": ""
   },
   "src/pages/index.astro": {
-    "mtime": 1789098658.4704149,
-    "seen": 1789102349.817277,
+    "mtime": 1789521204.71507,
+    "seen": 1789609621.3811374,
     "ast_hash": "030f0666991f8955762a7c70b1334697",
     "semantic_hash": ""
   },
   "src/pages/lineas-de-negocio.astro": {
-    "mtime": 1789340653.9426904,
-    "seen": 1789341028.567604,
+    "mtime": 1789521204.71507,
+    "seen": 1789609621.3811374,
     "ast_hash": "90e4193efab3f2deac88c12c6a684a32",
     "semantic_hash": ""
   },
   "src/pages/marcas/[slug].astro": {
-    "mtime": 1788924358.804049,
-    "seen": 1789083822.7310963,
+    "mtime": 1789521204.7160556,
+    "seen": 1789609621.3811374,
     "ast_hash": "db56c20671f16052fa2826b49e117c43",
     "semantic_hash": "db56c20671f16052fa2826b49e117c43"
   },
   "src/pages/marcas/index.astro": {
-    "mtime": 1788998003.2109962,
-    "seen": 1789083822.7310963,
+    "mtime": 1789521204.7160556,
+    "seen": 1789609621.3811374,
     "ast_hash": "bd04f232b6177934913aaf62c117df1d",
     "semantic_hash": "bd04f232b6177934913aaf62c117df1d"
   },
   "src/pages/nosotros.astro": {
-    "mtime": 1789428068.2579422,
-    "seen": 1789428155.898293,
+    "mtime": 1789521204.7160556,
+    "seen": 1789609621.3811374,
     "ast_hash": "3b3a12694729f555cb937ea2f4466bb5",
     "semantic_hash": ""
   },
   "src/pages/productos/[slug].astro": {
-    "mtime": 1789361148.6486914,
-    "seen": 1789361287.5775735,
+    "mtime": 1789604938.769816,
+    "seen": 1789609621.3811374,
     "ast_hash": "28bcdb4bf8facdc54dd8e60303df9b75",
     "semantic_hash": ""
   },
   "src/pages/productos/index.astro": {
-    "mtime": 1789267591.6808565,
-    "seen": 1789267721.2326033,
-    "ast_hash": "c39c76fb734094d968fc0f6473cb0774",
+    "mtime": 1789609334.5223458,
+    "seen": 1789609621.3811374,
+    "ast_hash": "ec16709252ce275b1a60090c25d7f0a9",
     "semantic_hash": ""
   },
   "src/pages/robots.txt.ts": {
-    "mtime": 1788905198.4407,
-    "seen": 1789083822.7310963,
-    "ast_hash": "87337713d9ad8b44535ad03a343ada32",
-    "semantic_hash": "87337713d9ad8b44535ad03a343ada32"
+    "mtime": 1789521204.7160556,
+    "seen": 1789609621.3811374,
+    "ast_hash": "1edb01a5b66da780abf129baa2466445",
+    "semantic_hash": ""
   },
   "tsconfig.json": {
-    "mtime": 1788832936.5688367,
-    "seen": 1789083822.7310963,
-    "ast_hash": "1d3613ac08bdda17e2b82251613dbc21",
-    "semantic_hash": "1d3613ac08bdda17e2b82251613dbc21"
+    "mtime": 1789521204.7160556,
+    "seen": 1789609621.3811374,
+    "ast_hash": "c00462f26cfa157b3b5e5eff01a34df2",
+    "semantic_hash": ""
   },
   "districo-brief-diseno.md": {
-    "mtime": 1789267599.8869882,
-    "seen": 1789267721.2326033,
-    "ast_hash": "529eeee77296ca84bd07edc1247ca72c",
+    "mtime": 1789521203.5707607,
+    "seen": 1789609621.3811374,
+    "ast_hash": "f85261deadb4087422a89012707152b8",
     "semantic_hash": ""
   },
   "src/content/banners/LEEME.md": {
-    "mtime": 1789267618.6148617,
-    "seen": 1789267721.2326033,
-    "ast_hash": "47ccf7ef4e185623081daa2788ad86e7",
+    "mtime": 1789521204.6049817,
+    "seen": 1789609621.3811374,
+    "ast_hash": "58c618cb38d845c6d1f52a6092ac44e1",
     "semantic_hash": ""
   },
   "public/favicon.svg": {
-    "mtime": 1788833310.527674,
-    "seen": 1789093200.7127163,
-    "ast_hash": "c26783659fee4a0ccba0582eb0c6646d",
+    "mtime": 1789521203.6226127,
+    "seen": 1789609621.3811374,
+    "ast_hash": "f70f2e986b087243258d594e3cdeacf6",
     "semantic_hash": ""
   },
   "src/components/SocialLinks.astro": {
-    "mtime": 1789357554.0324366,
-    "seen": 1789357870.5064704,
-    "ast_hash": "bf0cdbc34d6e2bfd9c4d1d64788dcb54",
+    "mtime": 1789521204.6039758,
+    "seen": 1789609621.3811374,
+    "ast_hash": "51f6c59f79195f1e24da1e1b6b5132d5",
     "semantic_hash": ""
   },
   "src/content/banners/beny.json": {
-    "mtime": 1789098915.9712853,
-    "seen": 1789102349.814529,
-    "ast_hash": "02630570bed8e92f4e795cd914860bd3",
+    "mtime": 1789521204.607225,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a491784ef0ca8310476d61cec4d836fd",
     "semantic_hash": ""
   },
   "src/content/banners/biofresh.json": {
-    "mtime": 1789426551.6187947,
-    "seen": 1789428155.898293,
-    "ast_hash": "f1b8d90c3f0f6cda31daf62ea11cddce",
+    "mtime": 1789521204.607225,
+    "seen": 1789609621.3811374,
+    "ast_hash": "45a611c02a679f5836b7f6d87d6d89e9",
     "semantic_hash": ""
   },
   "src/content/banners/granplus.json": {
-    "mtime": 1789426552.9990084,
-    "seen": 1789428155.898293,
-    "ast_hash": "d1d70d44ab03416e40db7006d5c4be82",
+    "mtime": 1789521204.607225,
+    "seen": 1789609621.3811374,
+    "ast_hash": "9048b8cc1e603202ac8ea451d6687918",
     "semantic_hash": ""
   },
   "src/content/banners/guabi-natural.json": {
-    "mtime": 1789098915.9554136,
-    "seen": 1789102349.814529,
-    "ast_hash": "94f944a13d71a32305a64998b8b9b39c",
+    "mtime": 1789521204.607225,
+    "seen": 1789609621.3811374,
+    "ast_hash": "6d3505547714569bd0132e414bc86a40",
     "semantic_hash": ""
   },
   "src/content/banners/primocao.json": {
-    "mtime": 1789098915.9554136,
-    "seen": 1789102349.814529,
-    "ast_hash": "264c5afe0cd6b34af20e2caa9e848558",
+    "mtime": 1789521204.6092312,
+    "seen": 1789609621.3811374,
+    "ast_hash": "96526a66f4f5b78c98b499493ed73e24",
     "semantic_hash": ""
   },
   "src/content/banners/procao.json": {
-    "mtime": 1789098915.9712853,
-    "seen": 1789102349.814529,
-    "ast_hash": "0dd6b19a5b223f798676360760752140",
+    "mtime": 1789521204.6092312,
+    "seen": 1789609621.3811374,
+    "ast_hash": "52ed5e8ec42b87cb6754f0d0f6139ed6",
     "semantic_hash": ""
   },
   "src/content/banners/stack.json": {
-    "mtime": 1789426550.347084,
-    "seen": 1789428155.898293,
-    "ast_hash": "12f4e639d4cfc910949c0fb69a771ec7",
+    "mtime": 1789521204.6092312,
+    "seen": 1789609621.3811374,
+    "ast_hash": "9452c0c011b7be4dd69df6f7b93f8fdf",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
-    "mtime": 1789267405.11383,
-    "seen": 1789267721.2326033,
+    "mtime": 1789521203.5707607,
+    "seen": 1789609621.3811374,
     "ast_hash": "9e0ce9a0fd4297d8feacc13a76778511",
     "semantic_hash": ""
   },
   "scripts/aplicar-ingredientes.mjs": {
-    "mtime": 1789189182.8252735,
-    "seen": 1789267721.2326033,
-    "ast_hash": "bdfd54633b4bc59490391b736178411f",
+    "mtime": 1789521203.6246178,
+    "seen": 1789609621.3811374,
+    "ast_hash": "465455415f8147267b1e3764a45684ad",
     "semantic_hash": ""
   },
   "scripts/cargar-toh-yowup.mjs": {
-    "mtime": 1789261701.9882016,
-    "seen": 1789267721.2326033,
+    "mtime": 1789521203.6246178,
+    "seen": 1789609621.3811374,
     "ast_hash": "06b7aab0a7024b48db83b16dfb25eef5",
     "semantic_hash": ""
   },
   "scripts/check-overflow.mjs": {
-    "mtime": 1789338449.8806725,
-    "seen": 1789338876.405508,
-    "ast_hash": "a7d741b074bcbccf9859e43617b353cf",
+    "mtime": 1789521203.6246178,
+    "seen": 1789609621.3811374,
+    "ast_hash": "1bdc7917d26bc6f32dda302c0e597576",
     "semantic_hash": ""
   },
   "scripts/marcas-color-y-foto.mjs": {
-    "mtime": 1789261335.3699527,
-    "seen": 1789267721.2326033,
-    "ast_hash": "fd8d7dbaf225708f4962e2030549f63b",
+    "mtime": 1789521203.6246178,
+    "seen": 1789609621.3811374,
+    "ast_hash": "85db3bc2a1ab843f1ae4f3c91350ce53",
     "semantic_hash": ""
   },
   "scripts/ortografia.mjs": {
-    "mtime": 1789189163.9613595,
-    "seen": 1789267721.2326033,
-    "ast_hash": "efd4f55c0db24dcc735c751de98251f4",
+    "mtime": 1789521203.6246178,
+    "seen": 1789609621.3811374,
+    "ast_hash": "46759b59d6ef98ae599bb652d1158025",
     "semantic_hash": ""
   },
   "scripts/scrape-ingredientes.mjs": {
-    "mtime": 1789188125.7036438,
-    "seen": 1789267721.2326033,
-    "ast_hash": "b4e759d3b9cafe8fe32f3b43d6878e8f",
+    "mtime": 1789521203.6246178,
+    "seen": 1789609621.3811374,
+    "ast_hash": "acc062bdf327b891551827aad6508627",
     "semantic_hash": ""
   },
   "src/components/BrandStrip.astro": {
-    "mtime": 1789257422.943784,
-    "seen": 1789267721.2326033,
-    "ast_hash": "4761a874a33db068b6524bdbec904d8d",
+    "mtime": 1789521204.5984135,
+    "seen": 1789609621.3811374,
+    "ast_hash": "c1de6a07901eb24649daf34cb18404a5",
     "semantic_hash": ""
   },
   "src/content/brands/toh.json": {
-    "mtime": 1789261374.4202282,
-    "seen": 1789267721.2326033,
-    "ast_hash": "d91469f6083e79404c149de8a8814315",
+    "mtime": 1789521204.6164787,
+    "seen": 1789609621.3811374,
+    "ast_hash": "145f7e770e9a95a555f660c32b236b47",
     "semantic_hash": ""
   },
   "src/content/brands/yowup.json": {
-    "mtime": 1789261374.4225318,
-    "seen": 1789267721.2326033,
-    "ast_hash": "1a383079813122a74b382a47385b8eb8",
+    "mtime": 1789521204.6164787,
+    "seen": 1789609621.3811374,
+    "ast_hash": "ed6aecffc56791e188e8665651484d8a",
     "semantic_hash": ""
   },
   "src/content/lineas/accesorios.json": {
-    "mtime": 1789261129.347186,
-    "seen": 1789267721.2326033,
-    "ast_hash": "832ff9fb77b431459f223dd9d2d43750",
+    "mtime": 1789521204.6164787,
+    "seen": 1789609621.3811374,
+    "ast_hash": "eebe48b2c1a106103d02e0282ce64aa2",
     "semantic_hash": ""
   },
   "src/content/lineas/snacks-para-mascotas.json": {
-    "mtime": 1789261129.3662958,
-    "seen": 1789267721.2326033,
-    "ast_hash": "ef9e0044dde4caf4fbd40418c4b8a54c",
+    "mtime": 1789521204.620638,
+    "seen": 1789609621.3811374,
+    "ast_hash": "cf5ac258bd310c339ffb403dd0f7fee9",
     "semantic_hash": ""
   },
   "src/content/products/toh-adaptador-de-cinturon-de-seguridad.json": {
-    "mtime": 1789362542.709036,
-    "seen": 1789362888.2725022,
-    "ast_hash": "16987e6442dcff3099fad03030e5a0cc",
+    "mtime": 1789521204.6993873,
+    "seen": 1789609621.3811374,
+    "ast_hash": "c0eabe6224c6ab8de6c6dd16bffad334",
     "semantic_hash": ""
   },
   "src/content/products/toh-arena-sanitaria-yucat.json": {
-    "mtime": 1789261327.8447132,
-    "seen": 1789267721.2326033,
-    "ast_hash": "8dfa6981051457b54627c3b308b6d86e",
+    "mtime": 1789521204.6993873,
+    "seen": 1789609621.3811374,
+    "ast_hash": "bb9b35bfa44339325d335f972c3eac6c",
     "semantic_hash": ""
   },
   "src/content/products/toh-chapita-con-codigo-qr.json": {
-    "mtime": 1789362542.709036,
-    "seen": 1789362888.2725022,
-    "ast_hash": "a4635d429e9343ca576317c357410bab",
+    "mtime": 1789521204.6993873,
+    "seen": 1789609621.3811374,
+    "ast_hash": "1965e1a0172b50b7518621ffa9a8abc0",
     "semantic_hash": ""
   },
   "src/content/products/toh-collar-breakaway-para-gatos.json": {
-    "mtime": 1789362542.709036,
-    "seen": 1789362888.2725022,
-    "ast_hash": "ffe05541230de98ce2be9ea2112e99ef",
+    "mtime": 1789521204.6993873,
+    "seen": 1789609621.3811374,
+    "ast_hash": "954428260c9a7f2af6deafae2fe6d252",
     "semantic_hash": ""
   },
   "src/content/products/toh-collar-tag-id-con-codigo-qr.json": {
-    "mtime": 1789261327.8421235,
-    "seen": 1789267721.2326033,
-    "ast_hash": "8d4ffdb54b59135cc793441dc51db764",
+    "mtime": 1789521204.6993873,
+    "seen": 1789609621.3811374,
+    "ast_hash": "182915d16f34c01133b2d5d65821653f",
     "semantic_hash": ""
   },
   "src/content/products/toh-collar-tipo-cabestro.json": {
-    "mtime": 1789261327.8434567,
-    "seen": 1789267721.2326033,
-    "ast_hash": "110353cf8b3a540dab0a42175a7acb62",
+    "mtime": 1789521204.6993873,
+    "seen": 1789609621.3811374,
+    "ast_hash": "256f3c29e5536eb47ef052b4c11a5ec5",
     "semantic_hash": ""
   },
   "src/content/products/toh-correa-de-soga-1-20-m.json": {
-    "mtime": 1789362542.709036,
-    "seen": 1789362888.2725022,
-    "ast_hash": "8f235f99f11c766a43cad9fa6ab47dff",
+    "mtime": 1789521204.6993873,
+    "seen": 1789609621.3811374,
+    "ast_hash": "77c7fd4533ed5fd52480b3766b05590b",
     "semantic_hash": ""
   },
   "src/content/products/toh-correa-de-soga-5-m.json": {
-    "mtime": 1789261327.8421235,
-    "seen": 1789267721.2326033,
-    "ast_hash": "d84cb060245ef41995e6ea4c3cf09408",
+    "mtime": 1789521204.6993873,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a777bf754e0321ee8b451cd6ac4268fb",
     "semantic_hash": ""
   },
   "src/content/products/toh-correa-doble.json": {
-    "mtime": 1789261327.8421235,
-    "seen": 1789267721.2326033,
-    "ast_hash": "6f46fb3ece7dd8c73cb6069cefe015da",
+    "mtime": 1789521204.6993873,
+    "seen": 1789609621.3811374,
+    "ast_hash": "2913e4e0a678eb80d5a68aac4a84c9ac",
     "semantic_hash": ""
   },
   "src/content/products/toh-correa-estandar.json": {
-    "mtime": 1789261327.8411236,
-    "seen": 1789267721.2326033,
-    "ast_hash": "c7f7733c641703f1cc53e76dcc951812",
+    "mtime": 1789521204.7040012,
+    "seen": 1789609621.3811374,
+    "ast_hash": "4aba5313f7b479c920a024772f09dedc",
     "semantic_hash": ""
   },
   "src/content/products/toh-panos-higienicos-poopee-slim.json": {
-    "mtime": 1789362542.709036,
-    "seen": 1789362888.2725022,
-    "ast_hash": "2820f6740c8662758cded884f874caa0",
+    "mtime": 1789521204.7040012,
+    "seen": 1789609621.3811374,
+    "ast_hash": "eb915b4e0f6cf510b2cc0e35fb4f1bb0",
     "semantic_hash": ""
   },
   "src/content/products/toh-pechera-antitirones-correa.json": {
-    "mtime": 1789261327.8401234,
-    "seen": 1789267721.2326033,
-    "ast_hash": "bdcb180b1bd1ba5dfcaecc963db9dff1",
+    "mtime": 1789521204.705011,
+    "seen": 1789609621.3811374,
+    "ast_hash": "4ee13eb1605129a07ce31d03083dcb3f",
     "semantic_hash": ""
   },
   "src/content/products/toh-pechera-h-correa.json": {
-    "mtime": 1789261327.8381212,
-    "seen": 1789267721.2326033,
-    "ast_hash": "0ce1402635b5cd6d888cf32094fd8ce8",
+    "mtime": 1789521204.705011,
+    "seen": 1789609621.3811374,
+    "ast_hash": "ffbe9fc6d94aacb00406175395b25b04",
     "semantic_hash": ""
   },
   "src/content/products/toh-pechera-h-para-gatos-correa.json": {
-    "mtime": 1789261327.8401234,
-    "seen": 1789267721.2326033,
-    "ast_hash": "e0adf6be25f9b0c6a4c7a8f9c73c1318",
+    "mtime": 1789521204.705011,
+    "seen": 1789609621.3811374,
+    "ast_hash": "45208be3e8d8d1ccc4df9bb2ec79345e",
     "semantic_hash": ""
   },
   "src/content/products/toh-pechera-mesh-h-correa.json": {
-    "mtime": 1789362542.709036,
-    "seen": 1789362888.2725022,
-    "ast_hash": "eae8118945716f104f9e4729d41c7886",
+    "mtime": 1789521204.705011,
+    "seen": 1789609621.3811374,
+    "ast_hash": "f087e0312aa6a17f4ec571a13e4243d3",
     "semantic_hash": ""
   },
   "src/content/products/toh-pechera-neocomfy-para-gatos-correa.json": {
-    "mtime": 1789261327.8401234,
-    "seen": 1789267721.2326033,
-    "ast_hash": "cb391f7333bffb43b7452a9d5dbbb9c6",
+    "mtime": 1789521204.705011,
+    "seen": 1789609621.3811374,
+    "ast_hash": "26172c696771f6bdd41373501e751fb2",
     "semantic_hash": ""
   },
   "src/content/products/toh-pechera-step-in-correa.json": {
-    "mtime": 1789261327.8391223,
-    "seen": 1789267721.2326033,
-    "ast_hash": "59aecc0e2e28fe076c25ac4a8a86f4d6",
+    "mtime": 1789521204.705011,
+    "seen": 1789609621.3811374,
+    "ast_hash": "af2dbf3757b861364815536d472fcf25",
     "semantic_hash": ""
   },
   "src/content/products/toh-pechera-tradicional-correa.json": {
-    "mtime": 1789261327.8391223,
-    "seen": 1789267721.2326033,
-    "ast_hash": "19fd604833d13884fff2af9669229856",
+    "mtime": 1789521204.705011,
+    "seen": 1789609621.3811374,
+    "ast_hash": "99d0f95a21fd1fe4aa2d424bf0eca981",
     "semantic_hash": ""
   },
   "src/content/products/yowup-bone-broth-de-vacuno-para-perros.json": {
-    "mtime": 1789362542.709036,
-    "seen": 1789362888.2725022,
-    "ast_hash": "38c94f5bb752f8442e80396dde4f5c7f",
+    "mtime": 1789521204.705011,
+    "seen": 1789609621.3811374,
+    "ast_hash": "d0e3bc4a4d83e1288bae73f51f839aed",
     "semantic_hash": ""
   },
   "src/content/products/yowup-flora-plus-pato-y-calabaza-para-perros.json": {
-    "mtime": 1789362542.709036,
-    "seen": 1789362888.2725022,
-    "ast_hash": "f0180f6dddd7096cd62b5e2ea4f355af",
+    "mtime": 1789521204.705011,
+    "seen": 1789609621.3811374,
+    "ast_hash": "d43cf35b04d1fd5bbdd091a0ed8ac213",
     "semantic_hash": ""
   },
   "src/content/products/yowup-frozen-yogurt-bacon-cake-para-perros.json": {
-    "mtime": 1789261327.847298,
-    "seen": 1789267721.2326033,
-    "ast_hash": "060eb4f7694efe6fd749f9b7678f0808",
+    "mtime": 1789521204.705011,
+    "seen": 1789609621.3811374,
+    "ast_hash": "023095551d622e3d4cb4863ec0561161",
     "semantic_hash": ""
   },
   "src/content/products/yowup-immune-system-de-pavo-para-perros.json": {
-    "mtime": 1789261327.847298,
-    "seen": 1789267721.2326033,
-    "ast_hash": "dbc05d764149cd506aa76f9966ba0ca1",
+    "mtime": 1789521204.7095191,
+    "seen": 1789609621.3811374,
+    "ast_hash": "eb8e9a076be5b9f289b9ae4a277e7ec0",
     "semantic_hash": ""
   },
   "src/content/products/yowup-milk-hydration-natural-para-gatos.json": {
-    "mtime": 1789362542.709036,
-    "seen": 1789362888.2725022,
-    "ast_hash": "cf49bc0ce760f468652686bc06b1d124",
+    "mtime": 1789521204.7095191,
+    "seen": 1789609621.3811374,
+    "ast_hash": "409ac9d1bffb226260f3f9d709da26ed",
     "semantic_hash": ""
   },
   "src/content/products/yowup-milky-licks-jamon-serrano-para-perros.json": {
-    "mtime": 1789362542.709036,
-    "seen": 1789362888.2725022,
-    "ast_hash": "db8401bc68fcad4a42230a0cd46b65dd",
+    "mtime": 1789521204.7105267,
+    "seen": 1789609621.3811374,
+    "ast_hash": "214183c970db564cce2865ca9f791ba0",
     "semantic_hash": ""
   },
   "src/content/products/yowup-petflurry-de-pavo-para-perros.json": {
-    "mtime": 1789261327.8457954,
-    "seen": 1789267721.2326033,
-    "ast_hash": "808deb4c359a360239bdd4fbc5ac09fa",
+    "mtime": 1789521204.7105267,
+    "seen": 1789609621.3811374,
+    "ast_hash": "a96732a0342606fa0dde4eee2cdd010d",
     "semantic_hash": ""
   },
   "src/content/products/yowup-yogur-digestive-natural-para-perros.json": {
-    "mtime": 1789362542.709036,
-    "seen": 1789362888.2725022,
-    "ast_hash": "b8e1e6900e8ed0f802a6434c4ebab2f5",
+    "mtime": 1789521204.7105267,
+    "seen": 1789609621.3811374,
+    "ast_hash": "02bd3fc989baffa023605b5a4f3d9d9c",
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1789267602.4154696,
-    "seen": 1789267721.2326033,
-    "ast_hash": "236bf64ef5d9f6f22eaf7ba4e19d896d",
+    "mtime": 1789521203.5707607,
+    "seen": 1789609621.3811374,
+    "ast_hash": "d348692a49106beb59812ee43971c498",
     "semantic_hash": ""
   },
   "PROJECT_STATUS.md": {
-    "mtime": 1789275936.7350464,
-    "seen": 1789276061.7248535,
-    "ast_hash": "3f309e86d2c1cdf1c86e38e8cdde4538",
+    "mtime": 1789609601.1556506,
+    "seen": 1789609621.3811374,
+    "ast_hash": "72032820c2340a1d895b89ff1dd6d55d",
     "semantic_hash": ""
   },
   "src/components/MilestoneTimeline.astro": {
-    "mtime": 1789275935.1447248,
-    "seen": 1789276061.7248535,
-    "ast_hash": "17e489b593153534988cee1c45cf0640",
+    "mtime": 1789521204.5998583,
+    "seen": 1789609621.3811374,
+    "ast_hash": "84539d9ba3e44b6f1d31a6a6094aaba2",
     "semantic_hash": ""
   },
   "src/components/Accordion.astro": {
-    "mtime": 1789338349.0567186,
-    "seen": 1789338876.405508,
-    "ast_hash": "c2a360da7a6b8e9137f8ac4a23b2e8e4",
+    "mtime": 1789521204.5934026,
+    "seen": 1789609621.3811374,
+    "ast_hash": "b922a87eba877934edc675c966865381",
     "semantic_hash": ""
   },
   "src/pages/garantia.astro": {
-    "mtime": 1789426834.847224,
-    "seen": 1789428155.898293,
-    "ast_hash": "e5ff6961476729f671af57f5bd238074",
+    "mtime": 1789521204.7105267,
+    "seen": 1789609621.3811374,
+    "ast_hash": "94a968bfa49fd70d11f9ed3f24de0b92",
     "semantic_hash": ""
   },
   "src/content/milestones/2017.json": {
-    "mtime": 1789340638.1600804,
-    "seen": 1789341028.567604,
-    "ast_hash": "3dde02aa4f236602f8168f3b34e8f44f",
+    "mtime": 1789521204.6216483,
+    "seen": 1789609621.3811374,
+    "ast_hash": "2ad39a9c4e5ee261a7ca7d4bcd9363cd",
     "semantic_hash": ""
   },
   "src/data/valores.ts": {
-    "mtime": 1789340692.1421194,
-    "seen": 1789341028.567604,
-    "ast_hash": "18c974a635f9c82b56568e6e4f5f728a",
+    "mtime": 1789521204.7105267,
+    "seen": 1789609621.3811374,
+    "ast_hash": "156043a31e5c42e4f80bde14df36c13c",
     "semantic_hash": ""
   },
   "src/content/banners/three-dogs.json": {
-    "mtime": 1789360995.7461717,
-    "seen": 1789361287.5775735,
-    "ast_hash": "4d1bac88c019d2e6066e65f47ca1c05b",
-    "semantic_hash": ""
-  },
-  "scripts/_tmp-beneficios.mjs": {
-    "mtime": 1789428078.503619,
-    "seen": 1789428155.8974733,
-    "ast_hash": "4befcf6927805042a292a1cfab8ab4a1",
-    "semantic_hash": ""
-  },
-  "scripts/_tmp-peso.mjs": {
-    "mtime": 1789427657.5438583,
-    "seen": 1789428155.8974733,
-    "ast_hash": "63ed25980478a9331f7e1794804ebdf0",
+    "mtime": 1789521204.610532,
+    "seen": 1789609621.3811374,
+    "ast_hash": "dbd31f6e7966f9f7fbecfe5354a442d6",
     "semantic_hash": ""
   }
 }
