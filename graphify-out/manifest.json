@@ -1164,9 +1164,9 @@
     "semantic_hash": ""
   },
   "src/layouts/Base.astro": {
-    "mtime": 1789609292.0813072,
-    "seen": 1789609621.3811374,
-    "ast_hash": "0975d7a945ccff496bb95bbc6b490d30",
+    "mtime": 1789613796.436278,
+    "seen": 1789613862.6239529,
+    "ast_hash": "1c656c059542dff2e0c58e03656aba87",
     "semantic_hash": ""
   },
   "src/lib/tabla-tecnica.ts": {
@@ -1536,9 +1536,9 @@
     "semantic_hash": ""
   },
   "PROJECT_STATUS.md": {
-    "mtime": 1789611784.4782016,
-    "seen": 1789611839.4543917,
-    "ast_hash": "a2f064a50afccb829c2bbd641a53e94a",
+    "mtime": 1789613588.6782758,
+    "seen": 1789613862.6239529,
+    "ast_hash": "d5d735b24a011443e8cb8c7d76ce7a27",
     "semantic_hash": ""
   },
   "src/components/MilestoneTimeline.astro": {

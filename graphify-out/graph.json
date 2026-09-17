@@ -1805,7 +1805,7 @@
       "node_kind": "heading",
       "norm_label": "decisiones vigentes",
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L33"
+      "source_location": "L34"
     },
     {
       "id": "project_status_districo_estado_vigente_del_proyecto",
@@ -1829,7 +1829,7 @@
       "node_kind": "heading",
       "norm_label": "documentos",
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L76"
+      "source_location": "L77"
     },
     {
       "id": "project_status_estado_actual",
@@ -1853,7 +1853,7 @@
       "node_kind": "heading",
       "norm_label": "pendientes confirmados",
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L56"
+      "source_location": "L57"
     },
     {
       "id": "project_status_producto_y_objetivo",
@@ -1877,7 +1877,7 @@
       "node_kind": "heading",
       "norm_label": "verificacion obligatoria",
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L45"
+      "source_location": "L46"
     },
     {
       "id": "agents",
@@ -5383,7 +5383,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -5394,7 +5394,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -5416,7 +5416,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L56",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
@@ -5427,7 +5427,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L76",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -8169,5 +8169,5 @@
       "source_file": "districo-brief-diseno.md"
     }
   ],
-  "built_at_commit": "117eed81636402c581128dbbe9a54c664d71fe60"
+  "built_at_commit": "5366e4f8a41a457dba9d45f031f70f9df29b2e84"
 }

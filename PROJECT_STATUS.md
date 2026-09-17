@@ -27,8 +27,9 @@ superficies mediante formulario, teléfono o WhatsApp.
 - Los 13 hitos de `Nosotros` se presentan en una línea de tiempo accesible, sin autoplay,
   con navegación táctil, por flechas y por teclado. En escritorio se sustituye directamente
   la tarjeta visible; en móvil se mantiene el desplazamiento horizontal. Inicia en 1960.
-- La navegación usa precarga por intención, una entrada breve por opacidad y scroll nativo
-  suave. Los reveals liberan sus observers y el catálogo restaura filtros y posición al volver.
+- La navegación usa precarga por intención y un cross-fade seguro sobre el contenido real:
+  salida de 120 ms una vez preparada la ruta y entrada de 240 ms, sin capas que bloqueen clics.
+  Los reveals liberan sus observers y el catálogo restaura filtros y posición al volver.
 
 ## Decisiones vigentes
 

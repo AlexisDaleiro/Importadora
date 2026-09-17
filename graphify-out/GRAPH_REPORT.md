@@ -1,7 +1,7 @@
 # Graph Report - Importadora  (2026-09-16)
 
 ## Corpus Check
-- 262 files · ~94,380 words
+- 262 files · ~94,662 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 3 file(s) not represented in the graph (top: (none) 2, .css 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `117eed81`
+- Built from commit: `5366e4f8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
