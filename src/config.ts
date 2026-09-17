@@ -145,9 +145,6 @@ export const sucursales = [
   },
 ];
 
-/** Centros regionales declarados por la empresa. */
-export const centrosRegionales = ['Maldonado', 'Ciudad de la Costa', 'Colonia', 'Salto'];
-
 // Un color de acento por línea de negocio, para los bloques full-bleed.
 // alimento: color institucional del logo. snacks: amarillo real de la portada
 // de la categoría en el sitio oficial. arenas y cuidado: acentos ya validados

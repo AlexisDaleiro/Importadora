@@ -15,6 +15,8 @@ superficies mediante formulario, teléfono o WhatsApp.
 - 167 productos, 18 marcas y 6 líneas de negocio.
 - 8 banners aprobados para la versión de demostración.
 - Formularios general y B2B operativos mediante credenciales de prueba de Formspree.
+- Districo tiene únicamente dos sedes físicas: Casa Matriz en Montevideo y sucursal en
+  Maldonado. La cobertura nacional no debe presentarse como sucursales o centros regionales.
 - `noindex` activo mientras el sitio use `importadora.vercel.app`.
 - Open Graph configurado en `public/og.png`.
 - Imágenes actuales aceptadas para esta etapa aunque varias sean de resolución limitada.
@@ -22,8 +24,9 @@ superficies mediante formulario, teléfono o WhatsApp.
   una presentación final al cliente.
 - La página `Nosotros` incluye una maqueta de cultura, equipo y novedades. La cifra de 150
   colaboradores, Mariana Silva y las tres novedades son contenido ficticio de demostración.
-- Los 12 hitos de `Nosotros` se presentan en una línea de tiempo horizontal accesible, sin
-  autoplay, con navegación táctil, por flechas y por teclado. Inicia en 1960.
+- Los 13 hitos de `Nosotros` se presentan en una línea de tiempo accesible, sin autoplay,
+  con navegación táctil, por flechas y por teclado. En escritorio se sustituye directamente
+  la tarjeta visible; en móvil se mantiene el desplazamiento horizontal. Inicia en 1960.
 - La navegación usa precarga por intención, una entrada breve por opacidad y scroll nativo
   suave. Los reveals liberan sus observers y el catálogo restaura filtros y posición al volver.
 

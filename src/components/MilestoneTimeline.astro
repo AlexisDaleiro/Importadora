@@ -102,6 +102,7 @@ const { hitos } = Astro.props;
 
     const ac = new AbortController();
     const on = { signal: ac.signal };
+    const escritorio = matchMedia('(min-width: 760px)');
     let activo = 0;
     let reposo = 0;
 
@@ -122,7 +123,15 @@ const { hitos } = Astro.props;
 
     function centrarAnio(i: number) {
       const tab = tabs[i];
-      const left = tab.offsetLeft - (guiaTimeline.clientWidth - tab.offsetWidth) / 2;
+      // offsetLeft pertenece al <li> posicionado, así que en todos los enlaces
+      // daba casi cero. Medimos contra la guía para que también se desplace al
+      // activar los últimos años (2021 y 2022).
+      const cajaTab = tab.getBoundingClientRect();
+      const cajaGuia = guiaTimeline.getBoundingClientRect();
+      const left = guiaTimeline.scrollLeft
+        + cajaTab.left
+        - cajaGuia.left
+        - (guiaTimeline.clientWidth - cajaTab.width) / 2;
       guiaTimeline.scrollTo({ left: Math.max(0, left), behavior: 'auto' });
     }
 
@@ -140,7 +149,7 @@ const { hitos } = Astro.props;
 
     function irA(i: number, moverFoco = false) {
       const destino = Math.min(Math.max(i, 0), tabs.length - 1);
-      pistaTimeline.scrollTo({ left: destino * ancho(), behavior: 'auto' });
+      pistaTimeline.scrollTo({ left: escritorio.matches ? 0 : destino * ancho(), behavior: 'auto' });
       pintar(destino);
       if (moverFoco) tabs[destino].focus({ preventScroll: true });
     }
@@ -167,6 +176,7 @@ const { hitos } = Astro.props;
     });
 
     pistaTimeline.addEventListener('scroll', () => {
+      if (escritorio.matches) return;
       window.clearTimeout(reposo);
       reposo = window.setTimeout(() => {
         const paso = ancho();
@@ -175,10 +185,15 @@ const { hitos } = Astro.props;
     }, { ...on, passive: true });
 
     const ro = new ResizeObserver(() => {
-      pistaTimeline.scrollTo({ left: activo * ancho(), behavior: 'instant' });
+      pistaTimeline.scrollTo({ left: escritorio.matches ? 0 : activo * ancho(), behavior: 'instant' });
       centrarAnio(activo);
     });
     ro.observe(pistaTimeline);
+
+    escritorio.addEventListener('change', () => {
+      pistaTimeline.scrollTo({ left: escritorio.matches ? 0 : activo * ancho(), behavior: 'instant' });
+      pintar(activo);
+    }, on);
 
     pintar(0, false);
     pistaTimeline.scrollTo({ left: 0, behavior: 'instant' });
@@ -338,10 +353,27 @@ const { hitos } = Astro.props;
   @media (min-width: 760px) {
     .timeline__nav { gap: 1rem; }
     .timeline__years li { flex-basis: 7rem; }
+
+    /* En escritorio las flechas sustituyen la tarjeta visible directamente.
+       No dependemos de desplazar una pista oculta, que podía quedar detenida
+       por el scroll-snap y hacer que el cambio pareciera no funcionar. Sin JS
+       esta regla no aplica y todos los hitos siguen accesibles en horizontal. */
+    .timeline.is-enhanced .timeline__panels {
+      overflow: hidden;
+      scroll-snap-type: none;
+    }
+    .timeline.is-enhanced .timeline__panel[aria-hidden='true'] { display: none; }
+    .timeline.is-enhanced .timeline__panel[aria-hidden='false'] {
+      animation: timeline-panel-in var(--dur-base) var(--ease-out) both;
+    }
     .timeline__panel {
       grid-template-columns: minmax(8rem, 0.32fr) minmax(0, 1fr);
       align-items: center;
       gap: clamp(2rem, 5vw, 4.5rem);
     }
+  }
+
+  @keyframes timeline-panel-in {
+    from { opacity: 0; }
   }
 </style>

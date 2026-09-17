@@ -30,9 +30,9 @@
     "semantic_hash": "a89d3256dfa5ca99a8ebf64b443627be"
   },
   "src/components/AboutBlock.astro": {
-    "mtime": 1789521204.5934026,
-    "seen": 1789609621.3811374,
-    "ast_hash": "2cd6f8d4cf5a72aed94a2fa1a6a12ab7",
+    "mtime": 1789611284.4490132,
+    "seen": 1789611424.4305005,
+    "ast_hash": "3b82757fd3b9b2daa036ba8d105ab9e4",
     "semantic_hash": ""
   },
   "src/components/Badge.astro": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "src/components/LineBlocks.astro": {
-    "mtime": 1789521204.5998583,
-    "seen": 1789609621.3811374,
-    "ast_hash": "33e3538dfd071fb6f51db2c806da1a4d",
+    "mtime": 1789611015.1943984,
+    "seen": 1789611128.756204,
+    "ast_hash": "233ff3f6ac5830e53f1f46e857e78702",
     "semantic_hash": ""
   },
   "src/components/Logo.astro": {
@@ -126,9 +126,9 @@
     "semantic_hash": ""
   },
   "src/config.ts": {
-    "mtime": 1789521204.6049817,
-    "seen": 1789609621.3811374,
-    "ast_hash": "07bb3be4962d922060ef5991232a4d22",
+    "mtime": 1789611283.0535822,
+    "seen": 1789611424.4305005,
+    "ast_hash": "f8b0b7f01b6e4590b4272472622e2065",
     "semantic_hash": ""
   },
   "src/content.config.ts": {
@@ -282,9 +282,9 @@
     "semantic_hash": ""
   },
   "src/content/milestones/2008.json": {
-    "mtime": 1789521204.6216483,
-    "seen": 1789609621.3811374,
-    "ast_hash": "5402017a975c8595739ae1925fd0720a",
+    "mtime": 1789611287.2052722,
+    "seen": 1789611424.4305005,
+    "ast_hash": "62f516de858c3b3a2ceaed7b6fc600f9",
     "semantic_hash": ""
   },
   "src/content/milestones/2013.json": {
@@ -1206,9 +1206,9 @@
     "semantic_hash": "bd04f232b6177934913aaf62c117df1d"
   },
   "src/pages/nosotros.astro": {
-    "mtime": 1789521204.7160556,
-    "seen": 1789609621.3811374,
-    "ast_hash": "3b3a12694729f555cb937ea2f4466bb5",
+    "mtime": 1789611285.8747156,
+    "seen": 1789611424.4305005,
+    "ast_hash": "daa2d4829779e150d5ba8f58878a6bad",
     "semantic_hash": ""
   },
   "src/pages/productos/[slug].astro": {
@@ -1536,15 +1536,15 @@
     "semantic_hash": ""
   },
   "PROJECT_STATUS.md": {
-    "mtime": 1789609601.1556506,
-    "seen": 1789609621.3811374,
-    "ast_hash": "72032820c2340a1d895b89ff1dd6d55d",
+    "mtime": 1789611784.4782016,
+    "seen": 1789611839.4543917,
+    "ast_hash": "a2f064a50afccb829c2bbd641a53e94a",
     "semantic_hash": ""
   },
   "src/components/MilestoneTimeline.astro": {
-    "mtime": 1789521204.5998583,
-    "seen": 1789609621.3811374,
-    "ast_hash": "84539d9ba3e44b6f1d31a6a6094aaba2",
+    "mtime": 1789611946.2234356,
+    "seen": 1789612037.046321,
+    "ast_hash": "f117c9ea63a7f311bfa2a08a54067c47",
     "semantic_hash": ""
   },
   "src/components/Accordion.astro": {

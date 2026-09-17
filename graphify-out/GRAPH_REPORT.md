@@ -1,17 +1,17 @@
 # Graph Report - Importadora  (2026-09-16)
 
 ## Corpus Check
-- 262 files · ~94,197 words
+- 262 files · ~94,380 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 3 file(s) not represented in the graph (top: (none) 2, .css 1)
 
 ## Summary
-- 294 nodes · 422 edges · 17 communities (15 shown, 2 thin omitted)
+- 293 nodes · 418 edges · 19 communities (17 shown, 2 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 16 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `549f0337`
+- Built from commit: `117eed81`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -21,18 +21,20 @@
 - package.json
 - Colección products (src/content/products)
 - tabla-tecnica.ts
-- MilestoneTimeline.astro
+- BrandStrip.astro
 - productos/index.astro
 - cutout-lineas.mjs
 - content.config.ts
 - cargar-toh-yowup.mjs
 - tsconfig.json
 - Referencia Sadenir (botón WhatsApp flotante)
-- nosotros.astro
+- astro:content
 - aplicar-ingredientes.mjs
 - marcas-color-y-foto.mjs
 - Districo — Estado vigente del proyecto
 - AGENTS.md
+- lineAccent
+- Sistema visual
 
 ## God Nodes (most connected - your core abstractions)
 1. `lineAccent()` - 12 edges
@@ -65,11 +67,11 @@
 - **Pipeline de catálogo estático (colecciones → rutas → filtro → imágenes)** — districo_brief_diseno_products_collection, districo_brief_diseno_getstaticpaths_productos, districo_brief_diseno_filtro_catalogo_isla, districo_brief_diseno_astro_assets_image, districo_brief_diseno_sitio_estatico_sin_ssr [EXTRACTED 1.00]
 - **Lenguaje visual bold inspirado en Cantera** — districo_brief_diseno_referencia_cantera, districo_brief_diseno_bloques_de_color_full_bleed, districo_brief_diseno_tipografia_protagonista, districo_brief_diseno_fotografia_producto_grande, districo_brief_diseno_elementos_decorativos, districo_brief_diseno_motion_fade_slide_up [EXTRACTED 1.00]
 
-## Communities (17 total, 2 thin omitted)
+## Communities (19 total, 2 thin omitted)
 
 ### Community 0 - "config.ts"
-Cohesion: 0.05
-Nodes (38): coverDe, todas, coverDe, luminancia(), marcas, ALTO, accent, string (+30 more)
+Cohesion: 0.07
+Nodes (27): ALTO, string, href, contactLink(), CV_ASUNTO, CV_EMAIL, FORMSPREE_ID, FORMSPREE_ID_B2B (+19 more)
 
 ### Community 1 - "scrape-ingredientes.mjs"
 Cohesion: 0.13
@@ -77,19 +79,19 @@ Nodes (11): playwright-core, ANCHOS, RUTAS, args, dirProductos, fallos, pendient
 
 ### Community 2 - "package.json"
 Cohesion: 0.06
-Nodes (28): dependencies, astro, @astrojs/sitemap, @fontsource-variable/figtree, devDependencies, @astrojs/check, playwright-core, typescript (+20 more)
+Nodes (27): dependencies, astro, @astrojs/sitemap, @fontsource-variable/figtree, devDependencies, @astrojs/check, playwright-core, typescript (+19 more)
 
 ### Community 3 - "Colección products (src/content/products)"
-Cohesion: 0.07
-Nodes (33): Optimización de imágenes con astro:assets, Barra de stats (156 productos / 21 marcas / 4 líneas / 6.000m² / ISO 9001), Bloque de marcas destacadas en el home, Bloques de color full-bleed por línea de negocio, Colección brands (src/content/brands), Brief de diseño y contenido Districo, Línea de negocio (mascotas | cuidado | snacks), Cuello de botella: fotos de producto en baja resolución (+25 more)
+Cohesion: 0.10
+Nodes (25): Optimización de imágenes con astro:assets, Barra de stats (156 productos / 21 marcas / 4 líneas / 6.000m² / ISO 9001), Bloque de marcas destacadas en el home, Bloques de color full-bleed por línea de negocio, Colección brands (src/content/brands), Brief de diseño y contenido Districo, Línea de negocio (mascotas | cuidado | snacks), Districo S.A. (+17 more)
 
 ### Community 4 - "tabla-tecnica.ts"
 Cohesion: 0.23
 Nodes (12): DIR, fallos, construirTabla(), desanidar(), esEncabezado(), GLOSARIO, matriz(), normalizarTecnica() (+4 more)
 
-### Community 5 - "MilestoneTimeline.astro"
-Cohesion: 0.38
-Nodes (6): armarPuntos(), limpiar(), pintar(), centrarAnio(), irA(), pintar()
+### Community 5 - "BrandStrip.astro"
+Cohesion: 0.27
+Nodes (9): armarPuntos(), coverDe, limpiar(), luminancia(), marcas, pintar(), centrarAnio(), irA() (+1 more)
 
 ### Community 6 - "productos/index.astro"
 Cohesion: 0.24
@@ -111,9 +113,9 @@ Nodes (21): dirImg, dirLogos, dirMarcas, dirProd, marcas, modelos, ordenTalles, 
 Cohesion: 0.40
 Nodes (4): astro/tsconfigs/strict, exclude, extends, include
 
-### Community 12 - "nosotros.astro"
+### Community 12 - "astro:content"
 Cohesion: 0.11
-Nodes (16): puntos, activos, brands, external, brandName, lineas, lineasConProductos, filas (+8 more)
+Nodes (15): puntos, activos, brands, external, brandName, lineas, lineasConProductos, filas (+7 more)
 
 ### Community 13 - "aplicar-ingredientes.mjs"
 Cohesion: 0.20
@@ -126,6 +128,14 @@ Nodes (8): dirFotos, dirMarcas, dirProductos, ENCARGO, filas, marcas, productos,
 ### Community 15 - "Districo — Estado vigente del proyecto"
 Cohesion: 0.25
 Nodes (7): Decisiones vigentes, Districo — Estado vigente del proyecto, Documentos, Estado actual, Pendientes confirmados, Producto y objetivo, Verificación obligatoria
+
+### Community 17 - "lineAccent"
+Cohesion: 0.15
+Nodes (9): coverDe, todas, accent, lineAccent(), lineShort, brands, lineas, accent (+1 more)
+
+### Community 18 - "Sistema visual"
+Cohesion: 0.25
+Nodes (8): Cuello de botella: fotos de producto en baja resolución, Círculos/blobs y stickers de certificación, Fotografía de producto grande y protagonista, Motion: fade-in + slide-up al scroll, Paleta: teal petróleo + verde lima del logo actual, Referencia visual Cantera, Sistema visual, Tipografía protagonista (titulares 60-90px, kicker + título + apoyo)
 
 ## Ambiguous Edges - Review These
 - `Banners del home (colección JSON)` → `Desglose de componentes del Home`  [AMBIGUOUS]
@@ -148,8 +158,8 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `name`, `type`, `version` to the rest of the system?**
   _144 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `config.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.05201266395296246 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07030527289546716 - nodes in this community are weakly interconnected._
 - **Should `scrape-ingredientes.mjs` be split into smaller, more focused modules?**
   _Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
