@@ -245,6 +245,10 @@ const carrusel = slides.length >= 2;
     transition: width var(--dur-fast) var(--ease-out), background-color var(--dur-fast) ease;
   }
   .bnr__punto[aria-current] > span { width: 26px; background: var(--teal-800); }
+  /* El punto inactivo no daba ninguna señal de ser pulsable. Se alarga a mitad
+     de camino del activo, así el gesto se lee antes del clic. */
+  .bnr__punto:hover:not([aria-current]) > span,
+  .bnr__punto:focus-visible:not([aria-current]) > span { width: 16px; background: var(--teal-600); }
 
   /* Flechas: solo desktop, superpuestas sobre el slide activo. */
   .bnr__flecha { display: none; }
@@ -299,9 +303,12 @@ const carrusel = slides.length >= 2;
       background: rgb(255 255 255 / 0.9);
       color: var(--teal-950);
       cursor: pointer;
-      transition: background-color var(--dur-fast) ease;
+      /* El translate del centrado vertical ya ocupa `translate`, así que el
+         crecimiento va por `scale`, que es una propiedad aparte. */
+      transition: background-color var(--dur-fast) ease, scale var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) ease;
     }
-    .bnr__flecha:hover { background: var(--white); }
+    .bnr__flecha:hover { background: var(--white); scale: 1.1; box-shadow: var(--shadow-md); }
+    .bnr__flecha:active { scale: 0.96; box-shadow: none; }
     /* Sin asomo, el borde del slide es el borde del stage: las flechas se
        apoyan directamente sobre el arte. */
     .bnr__flecha--prev { inset-inline-start: 0.75rem; }

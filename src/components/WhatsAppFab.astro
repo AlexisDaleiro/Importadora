@@ -33,7 +33,10 @@ const href = contactLink(WHATSAPP_MENSAJE);
     background: #25D366; /* verde oficial de WhatsApp */
     color: #fff;
     box-shadow: 0 12px 28px -10px rgb(4 25 29 / 0.6);
-    transition: transform var(--dur-fast) ease;
+    transition: transform var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
   }
-  .wa:hover { transform: scale(1.08); }
+  /* La sombra crece con el botón: si crece solo el círculo parece que se
+     acerca la cámara y no que se levanta el botón. */
+  .wa:hover { transform: scale(1.08); box-shadow: 0 18px 36px -10px rgb(4 25 29 / 0.7); }
+  .wa:active { transform: scale(0.98); box-shadow: 0 8px 20px -10px rgb(4 25 29 / 0.6); }
 </style>

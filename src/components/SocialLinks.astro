@@ -43,9 +43,10 @@ const PATHS: Record<string, string> = {
     /* Atenuados a propósito: al lado del botón del 0800, que es el canal de
        venta, no pueden pesar lo mismo. */
     opacity: 0.68;
-    transition: opacity var(--dur-fast) ease;
+    transition: opacity var(--dur-fast) ease, scale var(--dur-fast) var(--ease-out);
   }
   .soc a:hover,
-  .soc a:focus-visible { opacity: 1; }
+  .soc a:focus-visible { opacity: 1; scale: 1.12; }
+  .soc a:active { scale: 0.96; }
   .soc a:focus-visible { outline: 2px solid currentColor; outline-offset: -6px; border-radius: 50%; }
 </style>

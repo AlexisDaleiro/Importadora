@@ -189,7 +189,15 @@ p { text-wrap: pretty; }
   font-size: var(--text-sm);
   color: var(--fg-muted);
 }
-.crumbs a:hover { color: var(--teal-600); text-decoration: underline; }
+/* El subrayado existe siempre en transparente y solo cambia de color: así
+   aparece con la misma duración que el texto y no salta de golpe. */
+.crumbs a {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+  transition: color var(--dur-fast) ease, text-decoration-color var(--dur-fast) ease;
+}
+.crumbs a:hover { color: var(--teal-600); text-decoration-color: currentColor; }
 
 /* Barra de filtros pegada debajo del header, que también es sticky. */
 .filters {

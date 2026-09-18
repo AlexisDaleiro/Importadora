@@ -50,8 +50,18 @@ import { contactLink, site } from '../config';
     gap: 0.75rem;
   }
   .cta__actions :global(.btn) { width: 100%; justify-content: center; max-width: 22rem; }
-  .cta__mail { color: var(--lime-500); font-weight: 600; text-decoration: none; }
-  .cta__mail:hover { text-decoration: underline; }
+  /* El subrayado está siempre, transparente: si aparece recién en el hover el
+     salto es seco y en algunos tipos corre la línea de base. */
+  .cta__mail {
+    color: var(--lime-500);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color var(--dur-fast) ease;
+  }
+  .cta__mail:hover { text-decoration-color: currentColor; }
 
   @media (min-width: 940px) {
     .cta__inner { grid-template-columns: 1.1fr 0.9fr; gap: 3rem; }

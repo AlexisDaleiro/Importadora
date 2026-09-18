@@ -176,9 +176,13 @@ import { contactLink, formspreeUrl, site, sucursales } from '../config';
     border: var(--bd) solid var(--border);
     border-radius: var(--radius);
     padding: 0.7rem 0.9rem;
+    transition: border-color var(--dur-fast) ease;
   }
   .field textarea { resize: vertical; }
-  .field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--teal-600); outline-offset: 1px; }
+  /* El campo reaccionaba solo al foco de teclado: pasando el mouse por el
+     formulario nada se movía y no se leía como editable. */
+  .field input:hover, .field textarea:hover { border-color: var(--gray-400); }
+  .field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--teal-600); outline-offset: 1px; border-color: var(--teal-600); }
 
   .form__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; padding-top: 0.5rem; }
   .form__note { font-size: var(--text-sm); color: var(--fg-muted); max-width: 34ch; }
