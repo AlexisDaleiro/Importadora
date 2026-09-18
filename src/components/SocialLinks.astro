@@ -33,7 +33,10 @@ const PATHS: Record<string, string> = {
 </ul>
 
 <style>
-  .soc { display: flex; gap: 0.1rem; list-style: none; margin: 0; padding: 0; }
+  /* Los enlaces miden 44x44 y con 0.1rem quedaban pegados: las áreas táctiles
+     se tocaban entre sí y errar de red era cuestión de milímetros. El mínimo
+     recomendado entre dos blancos táctiles es 8px. */
+  .soc { display: flex; gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
   .soc a {
     display: grid;
     place-items: center;
@@ -46,7 +49,14 @@ const PATHS: Record<string, string> = {
     transition: opacity var(--dur-fast) ease, scale var(--dur-fast) var(--ease-out);
   }
   .soc a:hover,
-  .soc a:focus-visible { opacity: 1; scale: 1.12; }
+  .soc a:focus-visible { opacity: 1; }
   .soc a:active { scale: 0.96; }
+  /* El crecimiento solo donde hay puntero: en un teléfono el :hover queda
+     pegado después del toque y el icono se quedaba agrandado hasta el
+     siguiente toque en otro lado. El :active sí sirve en touch y queda fuera. */
+  @media (hover: hover) {
+    .soc a:hover,
+    .soc a:focus-visible { scale: 1.12; }
+  }
   .soc a:focus-visible { outline: 2px solid currentColor; outline-offset: -6px; border-radius: 50%; }
 </style>

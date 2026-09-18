@@ -126,7 +126,14 @@ const consulta = `Hola, quisiera consultar por los productos de ${brand.data.nam
     margin-bottom: 0.5rem;
     /* El amarillo de snacks no contrasta sobre el gris claro: se oscurece. */
     color: color-mix(in srgb, var(--accent) 72%, var(--teal-950));
+    /* Es un enlace al catálogo y no se distinguía de un rótulo. El subrayado
+       está siempre en transparente, así aparecer no corre el texto. */
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.3em;
+    transition: text-decoration-color var(--dur-fast) ease;
   }
+  .head__linea:hover { text-decoration-color: currentColor; }
   .head__subs { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; margin-top: 1.25rem; }
   .head__subs a {
     display: inline-block;
@@ -137,6 +144,7 @@ const consulta = `Hola, quisiera consultar por los productos de ${brand.data.nam
     font-size: var(--text-sm);
     font-weight: 700;
     color: var(--fg-muted);
+    transition: border-color var(--dur-fast) ease, color var(--dur-fast) ease;
   }
   .head__subs a:hover { border-color: var(--teal-700); color: var(--teal-800); }
   .head__actions { margin-top: 1.5rem; }

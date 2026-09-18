@@ -1,0 +1,14 @@
+{
+  "slug": "lopets",
+  "name": "LoPets",
+  "categories": [
+    "snacks-para-mascotas"
+  ],
+  "description": "Marca colombiana de Logus Representaciones SAS: snacks naturales deshidratados, alimentos húmedos, panadería y productos de aseo para mascotas. Los deshidratados salen de su fábrica propia en Colombia; los húmedos se maquilan en Tailandia y el aseo en China.",
+  "logo": "../../assets/logos/lopets.png",
+  "accent": "#E03858",
+  "photo": "../../assets/brands/lopets.jpg",
+  "featured": false,
+  "garantia": false,
+  "externalUrl": "https://lopetsfoods.com"
+}

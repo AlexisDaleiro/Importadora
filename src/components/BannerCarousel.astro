@@ -307,11 +307,19 @@ const carrusel = slides.length >= 2;
          crecimiento va por `scale`, que es una propiedad aparte. */
       transition: background-color var(--dur-fast) ease, scale var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) ease;
     }
-    .bnr__flecha:hover { background: var(--white); scale: 1.1; box-shadow: var(--shadow-md); }
+    .bnr__flecha:hover { background: var(--white); }
     .bnr__flecha:active { scale: 0.96; box-shadow: none; }
     /* Sin asomo, el borde del slide es el borde del stage: las flechas se
        apoyan directamente sobre el arte. */
     .bnr__flecha--prev { inset-inline-start: 0.75rem; }
     .bnr__flecha--next { inset-inline-end: 0.75rem; }
+  }
+
+  /* Una tablet apaisada o un portátil táctil entran en los 940px de arriba,
+     y ahí el :hover queda pegado después del toque: la flecha se quedaría
+     agrandada. El crecimiento pide puntero; el cambio de fondo no molesta y
+     queda en el bloque de arriba. */
+  @media (min-width: 940px) and (hover: hover) {
+    .bnr__flecha:hover { scale: 1.1; box-shadow: var(--shadow-md); }
   }
 </style>

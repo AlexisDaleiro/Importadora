@@ -1,0 +1,30 @@
+{
+  "slug": "lopets-creamy-snack-verdel",
+  "name": "LoPets Creamy Snack de verdel para gatos",
+  "brand": "lopets",
+  "category": "snacks-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "Snack cremoso de verdel en sachet, para dar a mano o sobre el alimento. Una textura líquida que la mayoría de los gatos acepta de entrada, incluso los más selectivos.",
+  "description": [
+    "Snack cremoso de verdel en sachet, para dar a mano o sobre el alimento. Una textura líquida que la mayoría de los gatos acepta de entrada, incluso los más selectivos.",
+    "LoPets es una marca colombiana de Logus Representaciones SAS, con fábrica propia en Colombia para sus deshidratados y maquila en Tailandia para los alimentos húmedos."
+  ],
+  "presentations": [
+    "60 g"
+  ],
+  "colors": [],
+  "benefits": [
+    "Con vitamina E y taurina",
+    "Snack cremoso en sachet"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/lopets-creamy-snack-verdel.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://lopetsfoods.com",
+  "destacadoEnLinea": 2
+}

@@ -71,6 +71,15 @@ const accent = lineAccent(category.id);
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
   }
+  /* Tocando en un teléfono no había ninguna respuesta entre el toque y la
+     ficha: el :hover no existe ahí y la tarjeta quedaba muda. El :active sí
+     se dispara en touch, y el elemento activado es el <a> de adentro, así que
+     la tarjeta lo recibe por la cadena de activación. La tarjeta se apoya:
+     vuelve a su sitio y la sombra baja de golpe a la chica. */
+  .card:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+  }
   .card[hidden] { display: none; }
 
   .card__link {

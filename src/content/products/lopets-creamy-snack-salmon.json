@@ -1,0 +1,29 @@
+{
+  "slug": "lopets-creamy-snack-salmon",
+  "name": "LoPets Creamy Snack de salmón para gatos",
+  "brand": "lopets",
+  "category": "snacks-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "Snack cremoso de salmón en sachet, pensado como premio de todos los días o como estímulo para que un gato desganado se acerque al plato.",
+  "description": [
+    "Snack cremoso de salmón en sachet, pensado como premio de todos los días o como estímulo para que un gato desganado se acerque al plato.",
+    "LoPets es una marca colombiana de Logus Representaciones SAS, con fábrica propia en Colombia para sus deshidratados y maquila en Tailandia para los alimentos húmedos."
+  ],
+  "presentations": [
+    "60 g"
+  ],
+  "colors": [],
+  "benefits": [
+    "Con vitamina E y taurina",
+    "Snack cremoso en sachet"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/lopets-creamy-snack-salmon.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://lopetsfoods.com"
+}

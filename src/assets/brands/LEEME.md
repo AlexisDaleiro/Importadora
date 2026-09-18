@@ -5,7 +5,7 @@ Las usa la cinta de paneles del home (`BrandStrip.astro`) y el mosaico de
 
 ## Estado actual: fotos reales (banco libre)
 
-Los 18 archivos `.jpg` son fotos de stock de licencia comercial libre
+Los 17 archivos `.jpg` son fotos de stock de licencia comercial libre
 (Pexels), descargadas como asset local — no son las fotos de los fabricantes
 (Hercosul, Guabi, Total Alimentos, TOH, YowUp), que tienen derechos propios y
 todavía no hay acuerdo con el cliente para usarlas. Sirven de foto
@@ -56,16 +56,15 @@ lado del otro y dos fotos parecidas se notan enseguida.
 | `three-cats-orig.jpg` | Three Cats Original | Gato negro, retrato |
 | `procao.jpg` | Procão | Perro pequeño en el baño, con jabón |
 | `4-pets.jpg` | 4 Pets | Gato naranja y blanco con gatito, junto a bandeja sanitaria |
-| `eco-cane.jpg` | Eco Cane | Gato blanco entre plantas, con otro gato atrás |
-| `kets.jpg` | Kets | Gato gris en caja de cartón |
 | `pipicat.jpg` | Pipicat | Gatitos de varios colores durmiendo en caja |
 | `stack.jpg` | Stack | Sin animal: snacks en potes sobre fondo rosa |
 | `toh.jpg` | TOH | Perro blanco lanudo con pechera de colores, correa |
 | `yowup.jpg` | YowUp | Perro de perfil, lengua afuera |
+| `lopets.jpg` | LoPets | Gato crema punto rojo, medio perfil, fondo rosado |
 
 Fuente: Pexels (banco libre, licencia comercial). Dos marcas de la misma
 especie no comparten foto ni escena parecida — quedó verificado a mano contra
-las 18 a la vez.
+las 17 a la vez.
 
 ## Coberturas de línea de negocio
 
@@ -77,8 +76,8 @@ cuando una marca no tiene foto propia.
 
 ## Logos
 
-La mayoría de las marcas no tiene logotipo en el repositorio, así que los
-paneles muestran el **nombre en texto blanco**. Al
+Solo TOH, YowUp y LoPets tienen logotipo en el repositorio, los tres en
+versión blanca; el resto de los paneles muestra el **nombre en texto blanco**. Al
 cargar un logo —versión blanca o monocroma, PNG o SVG con fondo transparente,
 en `src/assets/logos/<slug>.png`, apuntado desde `"logo"`— el panel lo usa solo
 y el nombre queda igual en el DOM como texto accesible.

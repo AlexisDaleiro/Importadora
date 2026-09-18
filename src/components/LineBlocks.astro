@@ -369,10 +369,17 @@ const blocks = await Promise.all(lineasConProductos.map(async (linea) => {
     border: 2px solid transparent;
     background: color-mix(in srgb, var(--line-fg) 13%, transparent);
     opacity: 0.55;
-    transition: opacity var(--dur-base) var(--ease-out), border-color var(--dur-base) ease;
+    transition: opacity var(--dur-base) var(--ease-out), border-color var(--dur-base) ease, scale var(--dur-fast) var(--ease-out);
   }
   .line__thumb.is-on > img { opacity: 1; border-color: var(--lime-500); }
   .line__thumb:hover > img { opacity: 0.85; }
+  .line__thumb:active > img { scale: 0.96; }
+  /* Con 36px la opacidad sola casi no se lee: el crecimiento dice cuál está
+     bajo el cursor antes que el cambio de tono. Pide puntero porque en touch
+     el :hover queda pegado y la miniatura se quedaba agrandada. */
+  @media (hover: hover) {
+    .line__thumb:hover > img { scale: 1.1; }
+  }
   /* El foco tiene que verse sobre el fondo de color del bloque, no sobre blanco. */
   .line__thumb:focus-visible { outline: 2px solid var(--line-fg); outline-offset: 2px; border-radius: var(--radius-sm); }
 

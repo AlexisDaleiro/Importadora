@@ -108,8 +108,12 @@ const total = products.length;
     font-weight: 700;
     text-decoration: none;
     color: inherit;
+    transition: background-color var(--dur-fast) ease, border-color var(--dur-fast) ease;
   }
-  .linea__subs a:hover { background: color-mix(in srgb, currentColor 12%, transparent); }
+  .linea__subs a:hover {
+    background: color-mix(in srgb, currentColor 12%, transparent);
+    border-color: currentColor;
+  }
   .linea__subs span { opacity: 0.6; }
 
   .linea__img {

@@ -1,0 +1,29 @@
+{
+  "slug": "lopets-creamy-snack-mariscos",
+  "name": "LoPets Creamy Snack de mariscos para gatos",
+  "brand": "lopets",
+  "category": "snacks-para-mascotas",
+  "subcategory": "Gatos",
+  "species": [
+    "gatos"
+  ],
+  "shortDescription": "Snack cremoso con sabor a mariscos en sachet, para sumar variedad a la rutina de premios sin salir del pescado.",
+  "description": [
+    "Snack cremoso con sabor a mariscos en sachet, para sumar variedad a la rutina de premios sin salir del pescado.",
+    "LoPets es una marca colombiana de Logus Representaciones SAS, con fábrica propia en Colombia para sus deshidratados y maquila en Tailandia para los alimentos húmedos."
+  ],
+  "presentations": [
+    "60 g"
+  ],
+  "colors": [],
+  "benefits": [
+    "Con vitamina E y taurina",
+    "Snack cremoso en sachet"
+  ],
+  "technicalSheet": [],
+  "composition": null,
+  "image": "../../assets/products/lopets-creamy-snack-mariscos.png",
+  "gallery": [],
+  "featured": false,
+  "sourceUrl": "https://lopetsfoods.com"
+}

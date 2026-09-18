@@ -43,14 +43,13 @@ const ENCARGO = {
   'three-cats': 'Gato joven — siamés',
   'three-cats-orig': 'Gato adulto — negro',
   beny: 'Perro adulto mediano — beagle',
-  'eco-cane': 'Gato sobre arena — blanco y gris',
-  kets: 'Gato en bandeja sanitaria',
   pipicat: 'Gato joven en bandeja',
   '4-pets': 'Gato adulto — gris',
   procao: 'Perro en el baño, pelo mojado',
   stack: 'Sin animal: snacks sobre madera',
   toh: 'Perro de paseo con pechera — plano medio',
   yowup: 'Perro lamiendo un snack cremoso',
+  lopets: 'Gato adulto — crema punto rojo, medio perfil',
 };
 
 const marcas = readdirSync(dirMarcas).filter((f) => f.endsWith('.json'));
