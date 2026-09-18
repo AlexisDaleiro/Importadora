@@ -13,7 +13,7 @@ import gimnasio from '../assets/institutional/beneficio-gimnasio.jpg';
 import comedor from '../assets/institutional/beneficio-comedor.jpg';
 import lavanderia from '../assets/institutional/beneficio-lavanderia.jpg';
 import Button from '../components/Button.astro';
-import { cvMailto, sucursales } from '../config';
+import { centrosRegionales, cvMailto, sucursales } from '../config';
 import { valores } from '../data/valores';
 
 // Gimnasio y comedor son fotos de las instalaciones, del sitio oficial. El
@@ -51,7 +51,7 @@ const hitos = (await getCollection('milestones')).sort((a, b) =>
 
 const infra = [
   { titulo: 'Casa Matriz', dato: '10.000 m²', texto: 'Predio propio en Montevideo con 1.600 m² de depósito, certificado ISO 9001 desde 2019.' },
-  { titulo: 'Sucursal Maldonado', dato: '700 m²', texto: 'Sede propia desde la que se atiende el este del país.' },
+  { titulo: 'Sucursal Maldonado', dato: '700 m²', texto: 'Local propio que abastece al este del país junto a los centros regionales.' },
   { titulo: 'Energía solar', dato: '120 Kw/h', texto: '3 plantas fotovoltaicas propias alimentan la operación.' },
   { titulo: 'Flota eléctrica', dato: '2021', texto: 'Vehículos 100% eléctricos y estaciones de carga propias.' },
 ];
@@ -215,7 +215,7 @@ const infra = [
         ))}
       </ul>
       <p class="infra__foot" data-reveal>
-        {sucursales.length} sedes físicas: Casa Matriz en Montevideo y sucursal en Maldonado. La distribución alcanza todo Uruguay.
+        Centros regionales en {centrosRegionales.join(', ')}, más las {sucursales.length} sedes propias.
       </p>
     </div>
   </section>

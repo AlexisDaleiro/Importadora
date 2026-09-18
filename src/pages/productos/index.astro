@@ -155,28 +155,16 @@ const subs = lineas
 </Base>
 
 <script>
-  let desmontarCatalogo: (() => void) | undefined;
-
-  document.addEventListener('astro:before-swap', () => {
-    desmontarCatalogo?.();
-    desmontarCatalogo = undefined;
-  });
-
   // Con el ClientRouter este modulo se evalua una sola vez en toda la sesion:
   // sin esto los listeners quedarian atados al DOM de la primera pagina y la
   // isla dejaria de funcionar al navegar y volver. astro:page-load tambien
   // dispara en la carga inicial.
   document.addEventListener('astro:page-load', () => {
-    desmontarCatalogo?.();
-    desmontarCatalogo = undefined;
     // El listener queda vivo toda la sesion, asi que corre tambien en las
     // paginas que no son esta. Sin este corte revienta con un null al
     // navegar a cualquier otra. #f-count solo existe en el catalogo, y
     // distingue de /marcas, que tambien usa un #grid.
     if (!document.getElementById('f-count')) return;
-
-    const controlador = new AbortController();
-    const conLimpieza = { signal: controlador.signal };
 
     // Filtrado en el cliente sin framework: todos los productos ya están en el HTML
     // y solo se alternan con el atributo hidden. Cero hidratación, cero dependencias.
@@ -225,7 +213,7 @@ const subs = lineas
       p.setAttribute('d', 'M6 6l12 12M18 6L6 18');
       x.append(p);
       b.append(x);
-      b.addEventListener('click', () => quitar(clave), conLimpieza);
+      b.addEventListener('click', () => quitar(clave));
       return b;
     };
 
@@ -299,23 +287,23 @@ const subs = lineas
         if (state.sub) p.set('sub', state.sub);
         if (state.q) p.set('q', state.q);
         const qs = p.toString();
-        history.replaceState(history.state, '', qs ? `?${qs}` : location.pathname);
+        history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
       }
     }
 
     for (const chip of chips) {
-      chip.addEventListener('click', () => { state.linea = chip.dataset.filterLinea ?? ''; apply(); }, conLimpieza);
+      chip.addEventListener('click', () => { state.linea = chip.dataset.filterLinea ?? ''; apply(); });
     }
-    selMarca.addEventListener('change', () => { state.marca = selMarca.value; apply(); }, conLimpieza);
-    selSub.addEventListener('change', () => { state.sub = selSub.value; apply(); }, conLimpieza);
-    inputQ.addEventListener('input', () => { state.q = inputQ.value.trim().toLowerCase(); apply(); }, conLimpieza);
+    selMarca.addEventListener('change', () => { state.marca = selMarca.value; apply(); });
+    selSub.addEventListener('change', () => { state.sub = selSub.value; apply(); });
+    inputQ.addEventListener('input', () => { state.q = inputQ.value.trim().toLowerCase(); apply(); });
 
     function reset() {
       state.linea = state.marca = state.sub = state.q = '';
       selMarca.value = ''; selSub.value = ''; inputQ.value = '';
       apply();
     }
-    for (const b of document.querySelectorAll('[data-reset]')) b.addEventListener('click', reset, conLimpieza);
+    for (const b of document.querySelectorAll('[data-reset]')) b.addEventListener('click', reset);
 
     // ── Panel inferior (solo mobile) ──────────────────────────────────────
     // El mismo panel que en desktop es un bloque de la barra sticky. Acá solo
@@ -367,7 +355,7 @@ const subs = lineas
     // fondo se quedaba bloqueado y el foco atrapado en un dialogo que ya no
     // existe.
     const mq = matchMedia('(max-width: 759px), (max-height: 480px)');
-    mq.addEventListener('change', () => { if (!mq.matches) toggle(false); }, conLimpieza);
+    mq.addEventListener('change', () => { if (!mq.matches) toggle(false); });
 
     // ── Barra compacta (solo escritorio) ─────────────────────────────────
     // Al bajar, la barra colapsa a una línea: botón "Filtros", etiquetas,
@@ -422,8 +410,8 @@ const subs = lineas
 
     // rAF y no un listener suelto: el handler solo marca que hay que medir y
     // la lectura de scrollY ocurre una vez por frame.
-    addEventListener('scroll', () => { if (!pedido) pedido = requestAnimationFrame(medir); }, { passive: true, signal: controlador.signal });
-    mqDesk.addEventListener('change', medir, conLimpieza);
+    addEventListener('scroll', () => { if (!pedido) pedido = requestAnimationFrame(medir); }, { passive: true });
+    mqDesk.addEventListener('change', medir);
     medir();
 
     abrir.addEventListener('click', () => {
@@ -436,10 +424,10 @@ const subs = lineas
         return;
       }
       toggle(true);
-    }, conLimpieza);
-    scrim.addEventListener('click', () => toggle(false), conLimpieza);
-    document.getElementById('f-close')?.addEventListener('click', () => toggle(false), conLimpieza);
-    document.getElementById('f-ver')?.addEventListener('click', () => toggle(false), conLimpieza);
+    });
+    scrim.addEventListener('click', () => toggle(false));
+    document.getElementById('f-close')?.addEventListener('click', () => toggle(false));
+    document.getElementById('f-ver')?.addEventListener('click', () => toggle(false));
 
     document.addEventListener('keydown', (e) => {
       if (!abierto) return;
@@ -452,7 +440,7 @@ const subs = lineas
       const ultimo = f[f.length - 1];
       if (e.shiftKey && document.activeElement === primero) { ultimo.focus(); e.preventDefault(); }
       else if (!e.shiftKey && document.activeElement === ultimo) { primero.focus(); e.preventDefault(); }
-    }, conLimpieza);
+    });
 
     // Arrastrar hacia abajo para cerrar, desde la cabecera del panel.
     const head = document.getElementById('f-head') as HTMLElement;
@@ -462,11 +450,11 @@ const subs = lineas
       y0 = e.clientY;
       head.setPointerCapture(e.pointerId);
       panel.style.transition = 'none';
-    }, conLimpieza);
+    });
     head.addEventListener('pointermove', (e) => {
       if (!y0) return;
       panel.style.transform = `translateY(${Math.max(0, e.clientY - y0)}px)`;
-    }, conLimpieza);
+    });
     const soltar = (e: PointerEvent) => {
       if (!y0) return;
       const dy = e.clientY - y0;
@@ -475,8 +463,8 @@ const subs = lineas
       panel.style.transform = '';
       if (e.type === 'pointerup' && dy > 80) toggle(false);
     };
-    head.addEventListener('pointerup', soltar, conLimpieza);
-    head.addEventListener('pointercancel', soltar, conLimpieza);
+    head.addEventListener('pointerup', soltar);
+    head.addEventListener('pointercancel', soltar);
 
     // Estado inicial desde la URL: los tiles de marca enlazan con ?marca= y los
     // bloques de línea del home con ?linea=.
@@ -492,31 +480,6 @@ const subs = lineas
     selSub.value = state.sub;
     inputQ.value = state.q;
     apply(false);
-
-    // Guardamos la posición exacta de este estado del catálogo antes de salir.
-    // Al volver con Atrás, se restaura después de aplicar los filtros de la URL.
-    document.addEventListener('astro:before-preparation', () => {
-      history.replaceState({ ...history.state, districoCatalogScroll: window.scrollY }, '');
-    }, conLimpieza);
-
-    const scrollGuardado = history.state?.districoCatalogScroll;
-    if (typeof scrollGuardado === 'number' && scrollGuardado > 0) {
-      requestAnimationFrame(() => {
-        const raiz = document.documentElement;
-        const comportamiento = raiz.style.scrollBehavior;
-        raiz.style.scrollBehavior = 'auto';
-        window.scrollTo(0, scrollGuardado);
-        raiz.style.scrollBehavior = comportamiento;
-      });
-    }
-
-    desmontarCatalogo = () => {
-      controlador.abort();
-      if (pedido) cancelAnimationFrame(pedido);
-      document.body.classList.remove('f-open');
-      panel.style.transition = '';
-      panel.style.transform = '';
-    };
   });
 </script>
 

@@ -44,7 +44,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "valor",
       "source_file": "src/data/valores.ts",
@@ -72,7 +72,7 @@
       "file_type": "code",
       "norm_label": "contactlink()",
       "source_file": "src/config.ts",
-      "source_location": "L177"
+      "source_location": "L173"
     },
     {
       "id": "src_config_formspreeb2blisto",
@@ -84,7 +84,7 @@
       "file_type": "code",
       "norm_label": "formspreeb2blisto()",
       "source_file": "src/config.ts",
-      "source_location": "L47"
+      "source_location": "L40"
     },
     {
       "id": "src_pages_contacto_fallo",
@@ -123,6 +123,18 @@
       "source_location": "L12"
     },
     {
+      "id": "src_pages_robots_txt_get",
+      "label": "GET()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "code",
+      "norm_label": "get()",
+      "source_file": "src/pages/robots.txt.ts",
+      "source_location": "L6"
+    },
+    {
       "id": "scripts_scrape_ingredientes_leeringredientes",
       "label": "leerIngredientes()",
       "_callable": true,
@@ -135,12 +147,36 @@
       "source_location": "L64"
     },
     {
+      "id": "src_components_brandstrip_armarpuntos",
+      "label": "armarPuntos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "armarpuntos()",
+      "source_file": "src/components/BrandStrip.astro",
+      "source_location": "L148"
+    },
+    {
+      "id": "src_components_brandstrip_pintar",
+      "label": "pintar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "pintar()",
+      "source_file": "src/components/BrandStrip.astro",
+      "source_location": "L167"
+    },
+    {
       "id": "src_components_lineblocks_recorte",
       "label": "recorte()",
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "recorte()",
       "source_file": "src/components/LineBlocks.astro",
@@ -152,11 +188,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "cvmailto()",
       "source_file": "src/config.ts",
-      "source_location": "L69"
+      "source_location": "L62"
     },
     {
       "id": "scripts_aplicar_ingredientes_esremision",
@@ -240,7 +276,7 @@
       "file_type": "code",
       "norm_label": "lineaccent()",
       "source_file": "src/config.ts",
-      "source_location": "L173"
+      "source_location": "L169"
     },
     {
       "id": "src_pages_marcas_index_apply",
@@ -265,30 +301,6 @@
       "norm_label": "getstaticpaths()",
       "source_file": "src/pages/marcas/[slug].astro",
       "source_location": "L9"
-    },
-    {
-      "id": "src_pages_robots_txt_get",
-      "label": "GET()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "src/pages/robots.txt.ts",
-      "source_location": "L29"
-    },
-    {
-      "id": "src_pages_robots_txt_grupo",
-      "label": "grupo()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "grupo()",
-      "source_file": "src/pages/robots.txt.ts",
-      "source_location": "L12"
     },
     {
       "id": "scripts_check_tablas_plano",
@@ -411,64 +423,16 @@
       "source_location": "L36"
     },
     {
-      "id": "src_components_brandstrip_armarpuntos",
-      "label": "armarPuntos()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "BrandStrip.astro",
-      "file_type": "code",
-      "norm_label": "armarpuntos()",
-      "source_file": "src/components/BrandStrip.astro",
-      "source_location": "L148"
-    },
-    {
-      "id": "src_components_brandstrip_limpiar",
-      "label": "limpiar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "BrandStrip.astro",
-      "file_type": "code",
-      "norm_label": "limpiar()",
-      "source_file": "src/components/BrandStrip.astro",
-      "source_location": "L121"
-    },
-    {
-      "id": "src_components_brandstrip_luminancia",
-      "label": "luminancia()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "BrandStrip.astro",
-      "file_type": "code",
-      "norm_label": "luminancia()",
-      "source_file": "src/components/BrandStrip.astro",
-      "source_location": "L29"
-    },
-    {
-      "id": "src_components_brandstrip_pintar",
-      "label": "pintar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "BrandStrip.astro",
-      "file_type": "code",
-      "norm_label": "pintar()",
-      "source_file": "src/components/BrandStrip.astro",
-      "source_location": "L167"
-    },
-    {
       "id": "src_components_milestonetimeline_centraranio",
       "label": "centrarAnio()",
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "BrandStrip.astro",
+      "community_name": "MilestoneTimeline.astro",
       "file_type": "code",
       "norm_label": "centraranio()",
       "source_file": "src/components/MilestoneTimeline.astro",
-      "source_location": "L124"
+      "source_location": "L123"
     },
     {
       "id": "src_components_milestonetimeline_ira",
@@ -476,11 +440,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "BrandStrip.astro",
+      "community_name": "MilestoneTimeline.astro",
       "file_type": "code",
       "norm_label": "ira()",
       "source_file": "src/components/MilestoneTimeline.astro",
-      "source_location": "L150"
+      "source_location": "L141"
     },
     {
       "id": "src_components_milestonetimeline_pintar",
@@ -488,11 +452,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "BrandStrip.astro",
+      "community_name": "MilestoneTimeline.astro",
       "file_type": "code",
       "norm_label": "pintar()",
       "source_file": "src/components/MilestoneTimeline.astro",
-      "source_location": "L138"
+      "source_location": "L129"
     },
     {
       "id": "src_pages_productos_index_apply",
@@ -504,7 +468,7 @@
       "file_type": "code",
       "norm_label": "apply()",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L252"
+      "source_location": "L240"
     },
     {
       "id": "src_pages_productos_index_medir",
@@ -516,7 +480,7 @@
       "file_type": "code",
       "norm_label": "medir()",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L410"
+      "source_location": "L398"
     },
     {
       "id": "src_pages_productos_index_pintartags",
@@ -528,7 +492,7 @@
       "file_type": "code",
       "norm_label": "pintartags()",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L232"
+      "source_location": "L220"
     },
     {
       "id": "src_pages_productos_index_quitar",
@@ -540,7 +504,7 @@
       "file_type": "code",
       "norm_label": "quitar()",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L244"
+      "source_location": "L232"
     },
     {
       "id": "src_pages_productos_index_reset",
@@ -552,7 +516,7 @@
       "file_type": "code",
       "norm_label": "reset()",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L313"
+      "source_location": "L301"
     },
     {
       "id": "src_pages_productos_index_setcompacto",
@@ -564,7 +528,7 @@
       "file_type": "code",
       "norm_label": "setcompacto()",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L401"
+      "source_location": "L389"
     },
     {
       "id": "src_pages_productos_index_toggle",
@@ -576,7 +540,7 @@
       "file_type": "code",
       "norm_label": "toggle()",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L329"
+      "source_location": "L317"
     },
     {
       "id": "scripts_cutout_lineas_cutout",
@@ -695,17 +659,6 @@
       "source_location": "L1"
     },
     {
-      "id": "src_components_ctablock",
-      "label": "CtaBlock.astro",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "config.ts",
-      "file_type": "code",
-      "norm_label": "ctablock.astro",
-      "source_file": "src/components/CtaBlock.astro",
-      "source_location": "L1"
-    },
-    {
       "id": "src_components_footer",
       "label": "Footer.astro",
       "_origin": "ast",
@@ -813,7 +766,7 @@
       "file_type": "code",
       "norm_label": "cv_asunto",
       "source_file": "src/config.ts",
-      "source_location": "L68"
+      "source_location": "L61"
     },
     {
       "id": "src_config_cv_email",
@@ -824,7 +777,7 @@
       "file_type": "code",
       "norm_label": "cv_email",
       "source_file": "src/config.ts",
-      "source_location": "L67"
+      "source_location": "L60"
     },
     {
       "id": "src_config_formspree_id",
@@ -835,7 +788,7 @@
       "file_type": "code",
       "norm_label": "formspree_id",
       "source_file": "src/config.ts",
-      "source_location": "L42"
+      "source_location": "L35"
     },
     {
       "id": "src_config_formspree_id_b2b",
@@ -846,7 +799,7 @@
       "file_type": "code",
       "norm_label": "formspree_id_b2b",
       "source_file": "src/config.ts",
-      "source_location": "L43"
+      "source_location": "L36"
     },
     {
       "id": "src_config_formspreeb2burl",
@@ -857,7 +810,7 @@
       "file_type": "code",
       "norm_label": "formspreeb2burl",
       "source_file": "src/config.ts",
-      "source_location": "L46"
+      "source_location": "L39"
     },
     {
       "id": "src_config_formspreeurl",
@@ -868,7 +821,7 @@
       "file_type": "code",
       "norm_label": "formspreeurl",
       "source_file": "src/config.ts",
-      "source_location": "L45"
+      "source_location": "L38"
     },
     {
       "id": "src_config_garantia_form_url",
@@ -879,7 +832,7 @@
       "file_type": "code",
       "norm_label": "garantia_form_url",
       "source_file": "src/config.ts",
-      "source_location": "L57"
+      "source_location": "L50"
     },
     {
       "id": "src_config_lineaccents",
@@ -890,7 +843,7 @@
       "file_type": "code",
       "norm_label": "lineaccents",
       "source_file": "src/config.ts",
-      "source_location": "L152"
+      "source_location": "L148"
     },
     {
       "id": "src_config_nav",
@@ -901,7 +854,7 @@
       "file_type": "code",
       "norm_label": "nav",
       "source_file": "src/config.ts",
-      "source_location": "L89"
+      "source_location": "L82"
     },
     {
       "id": "src_config_noindex",
@@ -912,7 +865,7 @@
       "file_type": "code",
       "norm_label": "noindex",
       "source_file": "src/config.ts",
-      "source_location": "L22"
+      "source_location": "L15"
     },
     {
       "id": "src_config_site",
@@ -923,7 +876,7 @@
       "file_type": "code",
       "norm_label": "site",
       "source_file": "src/config.ts",
-      "source_location": "L75"
+      "source_location": "L68"
     },
     {
       "id": "src_config_social",
@@ -934,7 +887,7 @@
       "file_type": "code",
       "norm_label": "social",
       "source_file": "src/config.ts",
-      "source_location": "L107"
+      "source_location": "L100"
     },
     {
       "id": "src_config_sucursales",
@@ -945,7 +898,7 @@
       "file_type": "code",
       "norm_label": "sucursales",
       "source_file": "src/config.ts",
-      "source_location": "L129"
+      "source_location": "L122"
     },
     {
       "id": "src_config_whatsapp_mensaje",
@@ -956,7 +909,7 @@
       "file_type": "code",
       "norm_label": "whatsapp_mensaje",
       "source_file": "src/config.ts",
-      "source_location": "L73"
+      "source_location": "L66"
     },
     {
       "id": "src_config_whatsapp_number",
@@ -967,7 +920,7 @@
       "file_type": "code",
       "norm_label": "whatsapp_number",
       "source_file": "src/config.ts",
-      "source_location": "L30"
+      "source_location": "L23"
     },
     {
       "id": "src_layouts_base",
@@ -1080,17 +1033,6 @@
       "source_location": "L24"
     },
     {
-      "id": "src_pages_lineas_de_negocio",
-      "label": "lineas-de-negocio.astro",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "config.ts",
-      "file_type": "code",
-      "norm_label": "lineas-de-negocio.astro",
-      "source_file": "src/pages/lineas-de-negocio.astro",
-      "source_location": "L1"
-    },
-    {
       "id": "src_pages_productos_slug",
       "label": "productos/[slug].astro",
       "_origin": "ast",
@@ -1100,6 +1042,28 @@
       "norm_label": "productos/[slug].astro",
       "source_file": "src/pages/productos/[slug].astro",
       "source_location": "L1"
+    },
+    {
+      "id": "src_pages_robots_txt",
+      "label": "robots.txt.ts",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "code",
+      "norm_label": "robots.txt.ts",
+      "source_file": "src/pages/robots.txt.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "ref_astro",
+      "label": "astro",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "config.ts",
+      "file_type": "concept",
+      "norm_label": "astro",
+      "source_file": "package.json",
+      "source_location": "L17"
     },
     {
       "id": "node_fs",
@@ -1245,6 +1209,28 @@
       "source_location": "L40"
     },
     {
+      "id": "scripts_tmp_beneficios",
+      "label": "_tmp-beneficios.mjs",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "_tmp-beneficios.mjs",
+      "source_file": "scripts/_tmp-beneficios.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_tmp_peso",
+      "label": "_tmp-peso.mjs",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "scrape-ingredientes.mjs",
+      "file_type": "code",
+      "norm_label": "_tmp-peso.mjs",
+      "source_file": "scripts/_tmp-peso.mjs",
+      "source_location": "L1"
+    },
+    {
       "id": "ref_playwright_core",
       "label": "playwright-core",
       "_origin": "ast",
@@ -1315,7 +1301,7 @@
       "label": "astro:assets",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "confidence": "EXTRACTED",
       "file_type": "code",
       "norm_label": "astro:assets",
@@ -1326,7 +1312,7 @@
       "label": "astro:content",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "confidence": "EXTRACTED",
       "file_type": "code",
       "norm_label": "astro:content",
@@ -1337,7 +1323,7 @@
       "label": "AboutBlock.astro",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "aboutblock.astro",
       "source_file": "src/components/AboutBlock.astro",
@@ -1348,18 +1334,18 @@
       "label": "puntos",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "puntos",
       "source_file": "src/components/AboutBlock.astro",
-      "source_location": "L7"
+      "source_location": "L8"
     },
     {
       "id": "src_components_bannercarousel",
       "label": "BannerCarousel.astro",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "bannercarousel.astro",
       "source_file": "src/components/BannerCarousel.astro",
@@ -1370,7 +1356,7 @@
       "label": "activos",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "activos",
       "source_file": "src/components/BannerCarousel.astro",
@@ -1381,7 +1367,7 @@
       "label": "BrandGrid.astro",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "brandgrid.astro",
       "source_file": "src/components/BrandGrid.astro",
@@ -1392,18 +1378,29 @@
       "label": "brands",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "brands",
       "source_file": "src/components/BrandGrid.astro",
       "source_location": "L10"
     },
     {
+      "id": "src_components_brandstrip",
+      "label": "BrandStrip.astro",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "brandstrip.astro",
+      "source_file": "src/components/BrandStrip.astro",
+      "source_location": "L1"
+    },
+    {
       "id": "src_components_button",
       "label": "Button.astro",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "button.astro",
       "source_file": "src/components/Button.astro",
@@ -1414,18 +1411,29 @@
       "label": "external",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "external",
       "source_file": "src/components/Button.astro",
       "source_location": "L20"
     },
     {
+      "id": "src_components_ctablock",
+      "label": "CtaBlock.astro",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "ctablock.astro",
+      "source_file": "src/components/CtaBlock.astro",
+      "source_location": "L1"
+    },
+    {
       "id": "src_components_hero",
       "label": "Hero.astro",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "hero.astro",
       "source_file": "src/components/Hero.astro",
@@ -1436,7 +1444,7 @@
       "label": "LineBlocks.astro",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "lineblocks.astro",
       "source_file": "src/components/LineBlocks.astro",
@@ -1447,7 +1455,7 @@
       "label": "brandName",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "brandname",
       "source_file": "src/components/LineBlocks.astro",
@@ -1458,7 +1466,7 @@
       "label": "lineas",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "lineas",
       "source_file": "src/components/LineBlocks.astro",
@@ -1469,7 +1477,7 @@
       "label": "lineasConProductos",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "lineasconproductos",
       "source_file": "src/components/LineBlocks.astro",
@@ -1480,7 +1488,7 @@
       "label": "StatsBar.astro",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "statsbar.astro",
       "source_file": "src/components/StatsBar.astro",
@@ -1491,29 +1499,40 @@
       "label": "filas",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "filas",
       "source_file": "src/components/StatsBar.astro",
       "source_location": "L7"
     },
     {
+      "id": "src_config_centrosregionales",
+      "label": "centrosRegionales",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "centrosregionales",
+      "source_file": "src/config.ts",
+      "source_location": "L142"
+    },
+    {
       "id": "src_config_stats",
       "label": "stats",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "stats",
       "source_file": "src/config.ts",
-      "source_location": "L120"
+      "source_location": "L113"
     },
     {
       "id": "src_data_valores",
       "label": "valores.ts",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "valores.ts",
       "source_file": "src/data/valores.ts",
@@ -1524,7 +1543,7 @@
       "label": "valores",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "valores",
       "source_file": "src/data/valores.ts",
@@ -1535,10 +1554,21 @@
       "label": "pages/index.astro",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "pages/index.astro",
       "source_file": "src/pages/index.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_pages_lineas_de_negocio",
+      "label": "lineas-de-negocio.astro",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "nosotros.astro",
+      "file_type": "code",
+      "norm_label": "lineas-de-negocio.astro",
+      "source_file": "src/pages/lineas-de-negocio.astro",
       "source_location": "L1"
     },
     {
@@ -1546,7 +1576,7 @@
       "label": "nosotros.astro",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "nosotros.astro",
       "source_file": "src/pages/nosotros.astro",
@@ -1557,7 +1587,7 @@
       "label": "beneficios",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "beneficios",
       "source_file": "src/pages/nosotros.astro",
@@ -1568,7 +1598,7 @@
       "label": "hitos",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "hitos",
       "source_file": "src/pages/nosotros.astro",
@@ -1579,7 +1609,7 @@
       "label": "infra",
       "_origin": "ast",
       "community": 12,
-      "community_name": "astro:content",
+      "community_name": "nosotros.astro",
       "file_type": "code",
       "norm_label": "infra",
       "source_file": "src/pages/nosotros.astro",
@@ -1805,7 +1835,7 @@
       "node_kind": "heading",
       "norm_label": "decisiones vigentes",
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L34"
+      "source_location": "L28"
     },
     {
       "id": "project_status_districo_estado_vigente_del_proyecto",
@@ -1829,7 +1859,7 @@
       "node_kind": "heading",
       "norm_label": "documentos",
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L77"
+      "source_location": "L64"
     },
     {
       "id": "project_status_estado_actual",
@@ -1853,7 +1883,7 @@
       "node_kind": "heading",
       "norm_label": "pendientes confirmados",
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L57"
+      "source_location": "L51"
     },
     {
       "id": "project_status_producto_y_objetivo",
@@ -1877,7 +1907,7 @@
       "node_kind": "heading",
       "norm_label": "verificacion obligatoria",
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L46"
+      "source_location": "L40"
     },
     {
       "id": "agents",
@@ -1990,7 +2020,7 @@
       "file_type": "code",
       "norm_label": "lineshort",
       "source_file": "src/config.ts",
-      "source_location": "L164"
+      "source_location": "L160"
     },
     {
       "id": "src_pages_marcas_index",
@@ -2290,61 +2320,6 @@
       "source_location": "L4"
     },
     {
-      "id": "src_pages_robots_txt",
-      "label": "robots.txt.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "robots.txt.ts",
-      "source_file": "src/pages/robots.txt.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_pages_robots_txt_asistentes",
-      "label": "ASISTENTES",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "asistentes",
-      "source_file": "src/pages/robots.txt.ts",
-      "source_location": "L10"
-    },
-    {
-      "id": "src_pages_robots_txt_bloqueoselectivo",
-      "label": "bloqueoSelectivo",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "bloqueoselectivo",
-      "source_file": "src/pages/robots.txt.ts",
-      "source_location": "L17"
-    },
-    {
-      "id": "src_pages_robots_txt_buscadores",
-      "label": "BUSCADORES",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "buscadores",
-      "source_file": "src/pages/robots.txt.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "ref_astro",
-      "label": "astro",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "astro",
-      "source_file": "package.json",
-      "source_location": "L17"
-    },
-    {
       "id": "ref_astrojs_check",
       "label": "@astrojs/check",
       "_origin": "ast",
@@ -2444,44 +2419,11 @@
       "source_location": "L21"
     },
     {
-      "id": "src_components_brandstrip",
-      "label": "BrandStrip.astro",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "BrandStrip.astro",
-      "file_type": "code",
-      "norm_label": "brandstrip.astro",
-      "source_file": "src/components/BrandStrip.astro",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_brandstrip_coverde",
-      "label": "coverDe",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "BrandStrip.astro",
-      "file_type": "code",
-      "norm_label": "coverde",
-      "source_file": "src/components/BrandStrip.astro",
-      "source_location": "L24"
-    },
-    {
-      "id": "src_components_brandstrip_marcas",
-      "label": "marcas",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "BrandStrip.astro",
-      "file_type": "code",
-      "norm_label": "marcas",
-      "source_file": "src/components/BrandStrip.astro",
-      "source_location": "L38"
-    },
-    {
       "id": "src_components_milestonetimeline",
       "label": "MilestoneTimeline.astro",
       "_origin": "ast",
       "community": 5,
-      "community_name": "BrandStrip.astro",
+      "community_name": "MilestoneTimeline.astro",
       "file_type": "code",
       "norm_label": "milestonetimeline.astro",
       "source_file": "src/components/MilestoneTimeline.astro",
@@ -2969,126 +2911,6 @@
       "source_url": null
     },
     {
-      "id": "districo_brief_diseno_elementos_decorativos",
-      "label": "C\u00edrculos/blobs y stickers de certificaci\u00f3n",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 18,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "circulos/blobs y stickers de certificacion",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74 Elementos decorativos",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_fotografia_producto_grande",
-      "label": "Fotograf\u00eda de producto grande y protagonista",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 18,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "fotografia de producto grande y protagonista",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74 Fotograf\u00eda",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_motion_fade_slide_up",
-      "label": "Motion: fade-in + slide-up al scroll",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 18,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "motion: fade-in + slide-up al scroll",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74 Motion",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_referencia_cantera",
-      "label": "Referencia visual Cantera",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 18,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "referencia visual cantera",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a71, \u00a74",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_sistema_visual",
-      "label": "Sistema visual",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 18,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "sistema visual",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_tipografia_protagonista",
-      "label": "Tipograf\u00eda protagonista (titulares 60-90px, kicker + t\u00edtulo + apoyo)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 18,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "tipografia protagonista (titulares 60-90px, kicker + titulo + apoyo)",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74 Tipograf\u00eda",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_cuello_botella_fotos_baja_resolucion",
-      "label": "Cuello de botella: fotos de producto en baja resoluci\u00f3n",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 18,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "cuello de botella: fotos de producto en baja resolucion",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a77",
-      "source_url": null
-    },
-    {
-      "id": "districo_brief_diseno_paleta_identidad_actual",
-      "label": "Paleta: teal petr\u00f3leo + verde lima del logo actual",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 18,
-      "community_name": "Sistema visual",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "paleta: teal petroleo + verde lima del logo actual",
-      "source_file": "districo-brief-diseno.md",
-      "source_location": "\u00a74 Paleta",
-      "source_url": null
-    },
-    {
       "id": "districo_brief_diseno_astro_assets_image",
       "label": "Optimizaci\u00f3n de im\u00e1genes con astro:assets",
       "_origin": "semantic",
@@ -3179,6 +3001,21 @@
       "source_url": null
     },
     {
+      "id": "districo_brief_diseno_elementos_decorativos",
+      "label": "C\u00edrculos/blobs y stickers de certificaci\u00f3n",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "circulos/blobs y stickers de certificacion",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74 Elementos decorativos",
+      "source_url": null
+    },
+    {
       "id": "districo_brief_diseno_ficha_producto_cta_whatsapp",
       "label": "Ficha de producto con CTA \"Consultar disponibilidad\" prellenado",
       "_origin": "semantic",
@@ -3206,6 +3043,21 @@
       "norm_label": "filtro de catalogo como isla client-side",
       "source_file": "districo-brief-diseno.md",
       "source_location": "\u00a73, \u00a76",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_fotografia_producto_grande",
+      "label": "Fotograf\u00eda de producto grande y protagonista",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "fotografia de producto grande y protagonista",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74 Fotograf\u00eda",
       "source_url": null
     },
     {
@@ -3239,6 +3091,21 @@
       "source_url": null
     },
     {
+      "id": "districo_brief_diseno_motion_fade_slide_up",
+      "label": "Motion: fade-in + slide-up al scroll",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "motion: fade-in + slide-up al scroll",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74 Motion",
+      "source_url": null
+    },
+    {
       "id": "districo_brief_diseno_products_collection",
       "label": "Colecci\u00f3n products (src/content/products)",
       "_origin": "semantic",
@@ -3251,6 +3118,51 @@
       "norm_label": "coleccion products (src/content/products)",
       "source_file": "districo-brief-diseno.md",
       "source_location": "\u00a73",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_referencia_cantera",
+      "label": "Referencia visual Cantera",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "referencia visual cantera",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a71, \u00a74",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_sistema_visual",
+      "label": "Sistema visual",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "sistema visual",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_tipografia_protagonista",
+      "label": "Tipograf\u00eda protagonista (titulares 60-90px, kicker + t\u00edtulo + apoyo)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "tipografia protagonista (titulares 60-90px, kicker + titulo + apoyo)",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74 Tipograf\u00eda",
       "source_url": null
     },
     {
@@ -3359,6 +3271,21 @@
       "source_url": null
     },
     {
+      "id": "districo_brief_diseno_cuello_botella_fotos_baja_resolucion",
+      "label": "Cuello de botella: fotos de producto en baja resoluci\u00f3n",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "cuello de botella: fotos de producto en baja resolucion",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a77",
+      "source_url": null
+    },
+    {
       "id": "districo_brief_diseno_migrar_contenido_real",
       "label": "Migrar contenido textual real del sitio actual",
       "_origin": "semantic",
@@ -3386,6 +3313,21 @@
       "norm_label": "objetivo: conversion a contacto comercial, no venta online",
       "source_file": "districo-brief-diseno.md",
       "source_location": "\u00a71",
+      "source_url": null
+    },
+    {
+      "id": "districo_brief_diseno_paleta_identidad_actual",
+      "label": "Paleta: teal petr\u00f3leo + verde lima del logo actual",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Colecci\u00f3n products (src/content/products)",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "paleta: teal petroleo + verde lima del logo actual",
+      "source_file": "districo-brief-diseno.md",
+      "source_location": "\u00a74 Paleta",
       "source_url": null
     },
     {
@@ -3502,30 +3444,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_components_brandstrip_marcas",
-      "target": "src_config_lineaccent",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/components/BrandStrip.astro",
-      "source_location": "L41",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_brandstrip_marcas",
-      "target": "src_components_brandstrip_luminancia",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/components/BrandStrip.astro",
-      "source_location": "L48",
-      "weight": 1.0
-    },
-    {
       "source": "src_components_milestonetimeline_ira",
       "target": "src_components_milestonetimeline_pintar",
       "relation": "calls",
@@ -3534,7 +3452,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/MilestoneTimeline.astro",
-      "source_location": "L153",
+      "source_location": "L144",
       "weight": 1.0
     },
     {
@@ -3546,7 +3464,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/MilestoneTimeline.astro",
-      "source_location": "L147",
+      "source_location": "L138",
       "weight": 1.0
     },
     {
@@ -3642,7 +3560,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L274",
+      "source_location": "L262",
       "weight": 1.0
     },
     {
@@ -3654,7 +3572,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L293",
+      "source_location": "L281",
       "weight": 1.0
     },
     {
@@ -3666,7 +3584,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L413",
+      "source_location": "L401",
       "weight": 1.0
     },
     {
@@ -3678,7 +3596,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L249",
+      "source_location": "L237",
       "weight": 1.0
     },
     {
@@ -3690,7 +3608,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L316",
+      "source_location": "L304",
       "weight": 1.0
     },
     {
@@ -3702,7 +3620,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L404",
+      "source_location": "L392",
       "weight": 1.0
     },
     {
@@ -3714,7 +3632,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L335",
+      "source_location": "L323",
       "weight": 1.0
     },
     {
@@ -3835,6 +3753,18 @@
       "context": "import",
       "source_file": "scripts/check-tablas.mjs",
       "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_aboutblock",
+      "target": "src_config_centrosregionales",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/AboutBlock.astro",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -4151,6 +4081,18 @@
     },
     {
       "source": "src_pages_nosotros",
+      "target": "src_config_centrosregionales",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/pages/nosotros.astro",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_nosotros",
       "target": "src_config_cvmailto",
       "relation": "imports",
       "_origin": "ast",
@@ -4342,6 +4284,30 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_tmp_beneficios",
+      "target": "ref_playwright_core",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/_tmp-beneficios.mjs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_tmp_peso",
+      "target": "ref_playwright_core",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/_tmp-peso.mjs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_aboutblock",
       "target": "src_components_button",
       "relation": "imports_from",
@@ -4351,6 +4317,18 @@
       "context": "import",
       "source_file": "src/components/AboutBlock.astro",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_aboutblock",
+      "target": "src_config",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/AboutBlock.astro",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -5383,7 +5361,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L34",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -5394,7 +5372,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L46",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -5416,7 +5394,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L57",
+      "source_location": "L51",
       "weight": 1.0
     },
     {
@@ -5427,7 +5405,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATUS.md",
-      "source_location": "L77",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -6153,7 +6131,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/AboutBlock.astro",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -6220,39 +6198,6 @@
       "confidence_score": 1.0,
       "source_file": "src/components/BrandStrip.astro",
       "source_location": "L167",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_brandstrip",
-      "target": "src_components_brandstrip_coverde",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/BrandStrip.astro",
-      "source_location": "L24",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_brandstrip",
-      "target": "src_components_brandstrip_luminancia",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/BrandStrip.astro",
-      "source_location": "L29",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_brandstrip",
-      "target": "src_components_brandstrip_marcas",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/BrandStrip.astro",
-      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -6340,7 +6285,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/MilestoneTimeline.astro",
-      "source_location": "L124",
+      "source_location": "L123",
       "weight": 1.0
     },
     {
@@ -6351,7 +6296,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/MilestoneTimeline.astro",
-      "source_location": "L138",
+      "source_location": "L129",
       "weight": 1.0
     },
     {
@@ -6362,7 +6307,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/MilestoneTimeline.astro",
-      "source_location": "L150",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -6428,7 +6373,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L107",
+      "source_location": "L100",
       "weight": 1.0
     },
     {
@@ -6439,7 +6384,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L120",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -6450,7 +6395,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L129",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config",
+      "target": "src_config_centrosregionales",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/config.ts",
+      "source_location": "L142",
       "weight": 1.0
     },
     {
@@ -6461,40 +6417,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L152",
-      "weight": 1.0
-    },
-    {
-      "source": "src_config",
-      "target": "src_config_lineshort",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/config.ts",
-      "source_location": "L164",
-      "weight": 1.0
-    },
-    {
-      "source": "src_config",
-      "target": "src_config_lineaccent",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/config.ts",
-      "source_location": "L173",
-      "weight": 1.0
-    },
-    {
-      "source": "src_config",
-      "target": "src_config_contactlink",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/config.ts",
-      "source_location": "L177",
+      "source_location": "L148",
       "weight": 1.0
     },
     {
@@ -6505,7 +6428,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L22",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config",
+      "target": "src_config_lineshort",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/config.ts",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config",
+      "target": "src_config_lineaccent",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/config.ts",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config",
+      "target": "src_config_contactlink",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/config.ts",
+      "source_location": "L173",
       "weight": 1.0
     },
     {
@@ -6516,7 +6472,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L30",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -6527,7 +6483,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L42",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -6538,7 +6494,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L43",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -6549,7 +6505,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L45",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -6560,7 +6516,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L46",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -6571,7 +6527,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L47",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -6582,7 +6538,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L57",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -6593,7 +6549,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L67",
+      "source_location": "L60",
       "weight": 1.0
     },
     {
@@ -6604,7 +6560,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L68",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -6615,7 +6571,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L69",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -6626,7 +6582,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L73",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -6637,7 +6593,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L75",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -6648,7 +6604,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/config.ts",
-      "source_location": "L89",
+      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -7077,7 +7033,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L232",
+      "source_location": "L220",
       "weight": 1.0
     },
     {
@@ -7088,7 +7044,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L244",
+      "source_location": "L232",
       "weight": 1.0
     },
     {
@@ -7099,7 +7055,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L252",
+      "source_location": "L240",
       "weight": 1.0
     },
     {
@@ -7110,7 +7066,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L313",
+      "source_location": "L301",
       "weight": 1.0
     },
     {
@@ -7121,7 +7077,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L329",
+      "source_location": "L317",
       "weight": 1.0
     },
     {
@@ -7132,7 +7088,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L401",
+      "source_location": "L389",
       "weight": 1.0
     },
     {
@@ -7143,7 +7099,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/productos/index.astro",
-      "source_location": "L410",
+      "source_location": "L398",
       "weight": 1.0
     },
     {
@@ -7192,57 +7148,13 @@
     },
     {
       "source": "src_pages_robots_txt",
-      "target": "src_pages_robots_txt_asistentes",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/robots.txt.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "src_pages_robots_txt",
-      "target": "src_pages_robots_txt_grupo",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/robots.txt.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_pages_robots_txt",
-      "target": "src_pages_robots_txt_bloqueoselectivo",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/robots.txt.ts",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_pages_robots_txt",
       "target": "src_pages_robots_txt_get",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/robots.txt.ts",
-      "source_location": "L29",
-      "weight": 1.0
-    },
-    {
-      "source": "src_pages_robots_txt",
-      "target": "src_pages_robots_txt_buscadores",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/robots.txt.ts",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -7621,42 +7533,6 @@
       "context": "argument",
       "source_file": "scripts/cargar-toh-yowup.mjs",
       "source_location": "L215",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_brandstrip",
-      "target": "src_components_brandstrip_limpiar",
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "argument",
-      "source_file": "src/components/BrandStrip.astro",
-      "source_location": "L122",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_lineblocks",
-      "target": "src_components_brandstrip_limpiar",
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "argument",
-      "source_file": "src/components/LineBlocks.astro",
-      "source_location": "L183",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_milestonetimeline",
-      "target": "src_components_brandstrip_limpiar",
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "argument",
-      "source_file": "src/components/MilestoneTimeline.astro",
-      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -8169,5 +8045,5 @@
       "source_file": "districo-brief-diseno.md"
     }
   ],
-  "built_at_commit": "5366e4f8a41a457dba9d45f031f70f9df29b2e84"
+  "built_at_commit": "70c093a91b0b31ad9747cad6bba1e063250c2ce6"
 }

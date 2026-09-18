@@ -120,13 +120,12 @@
   --dur-fast: 0.2s;    /* hover de controles y tarjetas */
   --dur-base: 0.3s;    /* cross-fades: scrim, velos, mensajes de formulario */
   --dur-slow: 0.5s;    /* piezas grandes: la foto de un tile */
-  --dur-reveal: 0.48s; /* entrada de sección */
+  --dur-reveal: 0.7s;  /* entrada de sección */
   --dur-move: 0.2s;    /* categoría (b): 0s bajo reduce */
-  /* Entrada y salida de página al navegar. Familia SEGURA: usan solamente
-     opacidad, así que se conservan también bajo reduced motion. La salida es
-     deliberadamente más breve para que la interfaz nunca se sienta retenida. */
-  --dur-page-exit: 0.12s;
-  --dur-page-enter: 0.24s;
+  /* Entrada de página al navegar. Familia SEGURA: es solo opacidad, así que
+     no aparece en el bloque de reduce y se conserva idéntica en los dos
+     modos. Único lugar donde se ajusta la duración. */
+  --dur-page-enter: 1s;
 
   /* Magnitudes de la categoría (a). Un solo desplazamiento de hover: había
      -2px en los botones, -3px en las tarjetas de marca y -4px en las de
@@ -135,7 +134,7 @@
   --move-press: 1px;
   --move-zoom: 1.08;
   --move-nudge: 4px;
-  --reveal-shift: 16px;
+  --reveal-shift: 28px;
   /* Recorrido del panel de filtros de /productos en mobile: entra desde
      abajo con --dur-base. Bajo reduce vale 0% y el panel aparece en su sitio,
      con el fundido del velo como único aviso. */
@@ -325,18 +324,11 @@ p { text-wrap: pretty; }
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
-[data-reveal].is-visible { opacity: 1; transform: none; will-change: auto; }
+[data-reveal].is-visible { opacity: 1; transform: none; }
 
-/* Los enlaces internos aterrizan debajo del encabezado fijo. */
-#main,
-main :is(section, article, h1, h2, h3)[id]:not([id^='hito-']) {
-  scroll-margin-top: calc(var(--hdr-h) + 0.75rem);
-}
-
-/* ── Transición entre páginas ─────────────────────────────────────────
-   Cross-fade asimétrico para todo el sitio: la página lista para salir baja
-   rápido a cero y la nueva entra con algo más de aire. Solo opacidad: nada de
-   transform, escala ni escalonado.
+/* ── Entrada de página ────────────────────────────────────────────────
+   Fade puro, una sola definición para todo el sitio, sin variantes por
+   sección. Solo opacidad: nada de transform, escala ni escalonado.
 
    Corre sobre el <main> real y NO sobre los pseudo-elementos de View
    Transitions, que era donde estaba antes. Esa capa es una captura estática
@@ -350,12 +342,10 @@ main :is(section, article, h1, h2, h3)[id]:not([id^='hito-']) {
    alcanza, y el fade se conserva en los dos modos sin necesidad de pisar
    nada con !important.
 
-   Las clases las pone el script del layout alrededor de la carga y el swap.
-   Si el JavaScript no corre, ninguna aparece y el <main> queda naturalmente
-   en opacidad 1: el contenido nunca puede quedar atrapado en cero. */
-.page-exit { animation: page-out var(--dur-page-exit) ease-in both; }
+   La clase la pone el script del layout en astro:page-load. Si el JavaScript
+   no corre, la clase no aparece y el <main> se ve en opacidad 1: el contenido
+   nunca queda atrapado en 0. */
 .page-enter { animation: page-in var(--dur-page-enter) var(--ease-out) both; }
-@keyframes page-out { to { opacity: 0; } }
 @keyframes page-in { from { opacity: 0; } }
 
 /* ── prefers-reduced-motion ──────────────────────────────────────────────

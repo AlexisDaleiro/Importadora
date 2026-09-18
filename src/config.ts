@@ -3,22 +3,15 @@
 // (districo.com.uy). Lo que no está confirmado queda en null y los componentes
 // lo omiten — no se rellena con datos inventados.
 
-/* ─────────────────────────────────────────────────────────────────────────
-   INDEXACIÓN EN BUSCADORES  —  CONFIGURACIÓN TEMPORAL
+/* ──────────────────────────────────────────────────────────────────────────
+   INDEXACIÓN EN BUSCADORES
    Mientras el sitio viva en importadora.vercel.app tiene que estar fuera de
    Google, para no competir con districo.com.uy ni indexar una URL provisoria.
-   Pero sí queremos que los asistentes de IA puedan leerlo para analizarlo, así
-   que el bloqueo es selectivo, no total.
-   NOINDEX = true →
-     • <meta name="robots"> en todas las páginas (src/layouts/Base.astro)
-     • robots.txt que bloquea buscadores y permite asistentes de IA
-       (src/pages/robots.txt.ts)
-   AL PASAR A DOMINIO PROPIO (revierte todo esto de un solo cambio):
-     1. NOINDEX = false acá  → desaparece el meta robots y robots.txt pasa a
-        "Allow: /" para todos, con el sitemap.
-     2. Cambiar `site` en astro.config.mjs al dominio definitivo.
-   No hay que tocar nada más.
-   ───────────────────────────────────────────────────────────────────────── */
+   NOINDEX = true  → <meta name="robots" content="noindex, nofollow"> en todas
+   las páginas + robots.txt con Disallow.
+   AL PASAR A DOMINIO PROPIO: poner NOINDEX = false acá y cambiar `site` en
+   astro.config.mjs. No hay que tocar nada más.
+   ────────────────────────────────────────────────────────────────────────── */
 export const NOINDEX = true;
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -144,6 +137,9 @@ export const sucursales = [
     mapa: 'https://www.google.com/maps?q=Antonio+Lusich+esq+Vicenza+Maldonado&output=embed',
   },
 ];
+
+/** Centros regionales declarados por la empresa. */
+export const centrosRegionales = ['Maldonado', 'Ciudad de la Costa', 'Colonia', 'Salto'];
 
 // Un color de acento por línea de negocio, para los bloques full-bleed.
 // alimento: color institucional del logo. snacks: amarillo real de la portada
