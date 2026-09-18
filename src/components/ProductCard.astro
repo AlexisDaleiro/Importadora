@@ -99,7 +99,13 @@ const accent = lineAccent(category.id);
     width: calc(100% - 2.5rem);
     height: calc(100% - 2.5rem);
     object-fit: contain;
+    transition: transform var(--dur-base) var(--ease-out);
   }
+  /* El acercamiento vive dentro de .card__media, que recorta: la foto nunca
+     invade el título. Si la transición no corre, la foto queda en su tamaño
+     normal, que es el estado por defecto. */
+  .card:hover .card__img,
+  .card:focus-within .card__img { transform: scale(1.06); }
   .card__noimg { width: 60%; aspect-ratio: 1; border-radius: 50%; background: var(--gray-100); }
 
   .card__body { display: grid; gap: 0.4rem; padding: 1rem 1.1rem 1.25rem; align-content: start; }

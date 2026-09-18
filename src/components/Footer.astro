@@ -62,7 +62,19 @@ import { nav, site, sucursales } from '../config';
     font-weight: 700;
   }
   .ftr__nav { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
-  .ftr__nav a:hover, .ftr__col a:hover, .ftr__legal a:hover { color: var(--lime-500); }
+  /* El subrayado existe siempre, transparente: así solo cambia de color y no
+     mueve el texto al aparecer. */
+  .ftr__nav a, .ftr__col a, .ftr__legal a {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+    transition: color var(--dur-fast) ease, text-decoration-color var(--dur-fast) ease;
+  }
+  .ftr__nav a:hover, .ftr__col a:hover, .ftr__legal a:hover {
+    color: var(--lime-500);
+    text-decoration-color: var(--lime-500);
+  }
   .ftr__col p { font-size: var(--text-sm); margin-bottom: 0.4rem; }
   .ftr__legal {
     display: flex;

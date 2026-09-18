@@ -80,14 +80,29 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
   .hdr__logo { margin-right: auto; }
   .hdr__nav { display: none; gap: 1.75rem; }
   .hdr__link {
+    position: relative;
     font-size: var(--text-sm);
     font-weight: 600;
     color: var(--white);
     padding-block: 0.25rem;
-    border-bottom: 2px solid transparent;
+  }
+  /* Un solo subrayado para el hover y para la página actual: reemplaza al
+     border-bottom transparente, que no podía crecer desde el centro. En la
+     página actual arranca ya extendido, así que si la transición no corre el
+     indicador se ve igual. */
+  .hdr__link::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--brand-lime);
+    transform: scaleX(0);
+    transition: transform var(--dur-fast) var(--ease-out);
   }
   .hdr__link:hover { color: var(--brand-lime); }
-  .hdr__link.is-active { color: var(--white); border-color: var(--brand-lime); }
+  .hdr__link:hover::after,
+  .hdr__link.is-active::after { transform: scaleX(1); }
   .hdr__cta { display: none; align-items: center; gap: 0.5rem; margin-left: auto; }
   /* El botón se pinta acá y no con una variante nueva de Button.astro, para no
      tocar el lima del resto del sitio (--lime-500) desde el header. */

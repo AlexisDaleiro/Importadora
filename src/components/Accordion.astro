@@ -34,17 +34,34 @@ const { label, open = false, class: className = '' } = Astro.props;
     border-radius: var(--radius);
     margin-top: 0.75rem;
     background: var(--bg-soft);
+    /* Necesario para que block-size pueda interpolar hacia `auto` en la
+       apertura de abajo. Se declara acá y no en :root para que solo alcance
+       al acordeón. */
+    interpolate-size: allow-keywords;
   }
+  /* Apertura y cierre del panel, en CSS y sin JS. Los navegadores que no
+     soportan ::details-content descartan las dos reglas y se quedan con el
+     <details> nativo: abre de golpe, que es el comportamiento de hoy. En
+     ningún caso el contenido queda oculto esperando una animación. */
+  .acc::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition: block-size var(--dur-base) var(--ease-out),
+                content-visibility var(--dur-base) allow-discrete;
+  }
+  .acc[open]::details-content { block-size: auto; }
   .acc summary {
     cursor: pointer;
     padding: 0.9rem 1.1rem;
     font-weight: 700;
     list-style: none;
+    transition: color var(--dur-fast) ease;
     /* Sin esto, abrir y cerrar rápido cuenta como doble clic y el navegador
        selecciona el texto del título. */
     user-select: none;
     -webkit-user-select: none;
   }
+  .acc summary:hover { color: var(--teal-600); }
   .acc summary::-webkit-details-marker { display: none; }
   .acc summary::after { content: '+'; float: right; font-size: 1.25rem; line-height: 1; }
   .acc[open] summary::after { content: '−'; }

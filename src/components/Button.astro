@@ -42,10 +42,12 @@ const external = href?.startsWith('http');
     letter-spacing: -0.01em;
     cursor: pointer;
     text-align: center;
-    transition: transform var(--dur-fast) ease, background-color var(--dur-fast) ease, color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+    transition: transform var(--dur-fast) ease, background-color var(--dur-fast) ease, color var(--dur-fast) ease, border-color var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
   }
-  .btn:hover { transform: translateY(-3px); }
-  .btn:active { transform: translateY(0); }
+  /* La sombra acompaña al levantamiento: sin ella los 3px no se leen como
+     elevación, solo como un salto. */
+  .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .btn:active { transform: translateY(0); box-shadow: none; }
 
   .btn--md { padding: 0.75rem 1.5rem; font-size: var(--text-sm); }
   .btn--lg { padding: 1rem 2rem; font-size: var(--text-base); }
@@ -75,5 +77,5 @@ const external = href?.startsWith('http');
   .btn--accent:hover { background: color-mix(in srgb, var(--accent-fg) 88%, var(--accent)); }
 
   /* Enviando…: lo tenían duplicado /contacto y el formulario B2B de la ficha. */
-  .btn[disabled] { opacity: 0.6; cursor: progress; transform: none; }
+  .btn[disabled] { opacity: 0.6; cursor: progress; transform: none; box-shadow: none; }
 </style>
