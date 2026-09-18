@@ -12,7 +12,7 @@ interface Props {
 const { hitos } = Astro.props;
 ---
 
-<div class="timeline" data-timeline data-reveal>
+<div class="timeline" data-timeline>
   <div class="timeline__nav">
     <button
       class="timeline__arrow"
@@ -83,6 +83,7 @@ const { hitos } = Astro.props;
   document.addEventListener('astro:before-swap', limpiar);
 
   document.addEventListener('astro:page-load', () => {
+   try {
     limpiar();
 
     const raiz = document.querySelector<HTMLElement>('[data-timeline]');
@@ -184,12 +185,6 @@ const { hitos } = Astro.props;
       }, 100);
     }, { ...on, passive: true });
 
-    const ro = new ResizeObserver(() => {
-      pistaTimeline.scrollTo({ left: escritorio.matches ? 0 : activo * ancho(), behavior: 'instant' });
-      centrarAnio(activo);
-    });
-    ro.observe(pistaTimeline);
-
     escritorio.addEventListener('change', () => {
       pistaTimeline.scrollTo({ left: escritorio.matches ? 0 : activo * ancho(), behavior: 'instant' });
       pintar(activo);
@@ -199,9 +194,11 @@ const { hitos } = Astro.props;
     pistaTimeline.scrollTo({ left: 0, behavior: 'instant' });
     desmontar = () => {
       window.clearTimeout(reposo);
-      ro.disconnect();
       ac.abort();
     };
+   } catch (error) {
+    console.error('[MilestoneTimeline]', error);
+   }
   });
 </script>
 
@@ -229,7 +226,7 @@ const { hitos } = Astro.props;
     border-color: var(--teal-800);
     background: var(--teal-800);
     color: var(--white);
-    transform: translateY(var(--move-lift));
+    transform: translateY(-3px);
   }
   .timeline__arrow:disabled { opacity: 0.35; cursor: default; }
 
@@ -239,7 +236,7 @@ const { hitos } = Astro.props;
     min-width: 0;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
-    scroll-behavior: var(--scroll-carousel);
+    scroll-behavior: smooth;
     scroll-snap-type: x proximity;
     scrollbar-width: none;
     list-style: none;
@@ -296,7 +293,7 @@ const { hitos } = Astro.props;
   .timeline__year[aria-selected='true'] span {
     background: var(--lime-500);
     box-shadow: 0 0 0 3px var(--teal-800);
-    scale: var(--move-zoom);
+    scale: 1.08;
   }
 
   .timeline__panels {
@@ -305,7 +302,7 @@ const { hitos } = Astro.props;
     margin-top: 1.25rem;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
-    scroll-behavior: var(--scroll-carousel);
+    scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     list-style: none;
@@ -363,17 +360,10 @@ const { hitos } = Astro.props;
       scroll-snap-type: none;
     }
     .timeline.is-enhanced .timeline__panel[aria-hidden='true'] { display: none; }
-    .timeline.is-enhanced .timeline__panel[aria-hidden='false'] {
-      animation: timeline-panel-in var(--dur-base) var(--ease-out) both;
-    }
     .timeline__panel {
       grid-template-columns: minmax(8rem, 0.32fr) minmax(0, 1fr);
       align-items: center;
       gap: clamp(2rem, 5vw, 4.5rem);
     }
-  }
-
-  @keyframes timeline-panel-in {
-    from { opacity: 0; }
   }
 </style>

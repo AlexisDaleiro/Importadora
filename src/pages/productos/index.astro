@@ -709,9 +709,9 @@ const subs = lineas
       background: var(--bg);
       border-radius: var(--radius-lg) var(--radius-lg) 0 0;
       box-shadow: var(--shadow-lg);
-      /* --sheet-shift vale 0% bajo prefers-reduced-motion: el panel aparece
+      /* El panel entra desde abajo; bajo prefers-reduced-motion aparece
          en su sitio y lo único que queda es el fundido del fondo. */
-      transform: translateY(var(--sheet-shift));
+      transform: translateY(101%);
       visibility: hidden;
       transition: transform var(--dur-base) var(--ease-out), visibility var(--dur-base);
     }
@@ -786,9 +786,8 @@ const subs = lineas
      todo" y el contador. Se pliega con max-height y no con height porque el
      alto real depende de cuántas líneas ocupen los chips.
 
-     Movimiento: categoría (b) de los tokens —el estado final es información,
-     la barra está plegada o no—, así que la duración es --dur-move, que bajo
-     prefers-reduced-motion vale 0s y el colapso pasa a ser instantáneo. */
+     El estado final es información —la barra está plegada o no—, así que el
+     recorrido se conserva siempre. */
   @media (min-width: 760px) and (min-height: 481px) {
     .filters {
       transition: background var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
@@ -798,7 +797,7 @@ const subs = lineas
       /* Techo holgado: es un máximo, no el alto real, y solo tiene que ser
          mayor que el bloque más alto posible. */
       max-height: 24rem;
-      transition: max-height var(--dur-move) var(--ease-out);
+      transition: max-height var(--dur-fast) var(--ease-out);
     }
     .filters.is-compact .filters__panel {
       max-height: 0;

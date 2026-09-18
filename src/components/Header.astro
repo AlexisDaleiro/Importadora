@@ -112,7 +112,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + '/');
     height: 2px;
     background: var(--white);
     border-radius: 2px;
-    transition: transform var(--dur-move) ease, opacity var(--dur-move) ease;
+    transition: transform var(--dur-fast) ease, opacity var(--dur-fast) ease;
   }
   .hdr__mobile[open] summary span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hdr__mobile[open] summary span:nth-child(2) { opacity: 0; }

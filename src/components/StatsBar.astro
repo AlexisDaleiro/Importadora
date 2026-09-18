@@ -13,8 +13,8 @@ const filas = [
 
 <section class="stats">
   <div class="container stats__inner">
-    {filas.map((s, i) => (
-      <div class="stats__item" data-reveal style={`--reveal-delay:${i * 70}ms`}>
+    {filas.map((s) => (
+      <div class="stats__item">
         <span class="stats__value">{s.value}</span>
         <span class="stats__label">{s.label}</span>
       </div>

@@ -18,7 +18,7 @@ const brands = (await getCollection('brands'))
 
 <section class="brands section">
   <div class="container">
-    <header class="brands__head" data-reveal>
+    <header class="brands__head">
       <div>
         <span class="kicker kicker--accent">Representaciones</span>
         <h2 class="title-lg">Las {brands.length} marcas que distribuimos</h2>
@@ -38,7 +38,7 @@ const brands = (await getCollection('brands'))
   <BrandStrip />
 
   <div class="container">
-    <div class="actions brands__cta" data-reveal>
+    <div class="actions brands__cta">
       <Button href="/marcas" variant="primary" size="lg">Ver las {brands.length} marcas</Button>
       <Button href="/productos" variant="outline" size="lg">Ver el catálogo completo</Button>
     </div>

@@ -63,7 +63,7 @@ const infra = [
 >
   <section class="head">
     <div class="container head__inner">
-      <div data-reveal>
+      <div>
         <span class="kicker kicker--accent">Nosotros</span>
         <h1 class="title-xl">Una empresa uruguaya con 30 años de ruta</h1>
         <p class="lead">
@@ -73,7 +73,7 @@ const infra = [
           mascotas, arenas sanitarias, cuidado animal y snacks.
         </p>
       </div>
-      <div class="head__media" data-reveal style="--reveal-delay:120ms">
+      <div class="head__media">
         <span class="blob head__blob" aria-hidden="true"></span>
         <Image
           src={fachada}
@@ -91,7 +91,7 @@ const infra = [
 
   <section class="hitos section">
     <div class="container">
-      <header data-reveal>
+      <header>
         <span class="kicker kicker--accent">Historia</span>
         <h2 class="title-lg">Los hitos de la empresa</h2>
       </header>
@@ -105,7 +105,7 @@ const infra = [
 
   <section class="cultura" aria-labelledby="cultura-title">
     <div class="container cultura__inner">
-      <div class="cultura__quote" data-reveal>
+      <div class="cultura__quote">
         <span class="kicker kicker--onDark">Nuestra cultura</span>
         <h2 id="cultura-title">
           Nadie es más importante que <em>todos nosotros juntos.</em>
@@ -117,7 +117,7 @@ const infra = [
 
   <section class="mv" aria-label="Misión y visión">
     <div class="container mv__inner">
-      <div class="mv__col" data-reveal>
+      <div class="mv__col">
         <span class="kicker kicker--accent">Nuestra misión</span>
         <p>
           Desarrollar negocios sustentables comercializando productos de distribución masiva,
@@ -127,7 +127,7 @@ const infra = [
           quienes nos relacionamos.
         </p>
       </div>
-      <div class="mv__col" data-reveal style="--reveal-delay:100ms">
+      <div class="mv__col">
         <span class="kicker kicker--accent">Nuestra visión</span>
         <p>
           Ser referentes por nuestro modelo de gestión íntegro e innovador, que transforme
@@ -139,7 +139,7 @@ const infra = [
 
   <section class="valores section" aria-labelledby="valores-title">
     <div class="container">
-      <header data-reveal>
+      <header>
         <span class="kicker kicker--accent">Nuestros valores</span>
         <h2 id="valores-title" class="title-lg">Nueve acuerdos sobre cómo trabajamos</h2>
       </header>
@@ -147,8 +147,8 @@ const infra = [
           grilla ocupa demasiado alto y obliga a recortar las definiciones, que
           son texto institucional y van completas. */}
       <dl class="valores__lista">
-        {valores.map((v, i) => (
-          <div class="valores__fila" data-reveal style={`--reveal-delay:${Math.min(i, 5) * 60}ms`}>
+        {valores.map((v) => (
+          <div class="valores__fila">
             <dt>{v.nombre}</dt>
             <dd>{v.definicion}</dd>
           </div>
@@ -159,7 +159,7 @@ const infra = [
 
   <section class="trabaja" aria-labelledby="trabaja-title">
     <div class="trabaja__head">
-      <div class="container" data-reveal>
+      <div class="container">
         <span class="kicker kicker--onDark">Trabajá con nosotros</span>
         <h2 id="trabaja-title">
           Ninguna empresa puede ser mejor que las personas que trabajan en ella
@@ -173,8 +173,8 @@ const infra = [
 
     <div class="container trabaja__cuerpo">
       <ul class="trabaja__grid">
-        {beneficios.map((b, i) => (
-          <li data-reveal style={`--reveal-delay:${i * 70}ms`}>
+        {beneficios.map((b) => (
+          <li>
             <Image
               src={b.foto}
               alt={b.alt}
@@ -192,7 +192,7 @@ const infra = [
           </li>
         ))}
       </ul>
-      <div class="trabaja__cta" data-reveal>
+      <div class="trabaja__cta">
         <Button href={cvMailto()} variant="primary" size="lg">Enviar mi CV</Button>
         <p>Casa Matriz en Montevideo y sucursal propia en Maldonado.</p>
       </div>
@@ -201,20 +201,20 @@ const infra = [
 
   <section class="infra">
     <div class="container">
-      <header data-reveal>
+      <header>
         <span class="kicker kicker--onDark">Infraestructura</span>
         <h2 class="title-lg">La operación</h2>
       </header>
       <ul class="infra__grid">
-        {infra.map((item, i) => (
-          <li data-reveal style={`--reveal-delay:${i * 70}ms`}>
+        {infra.map((item) => (
+          <li>
             <strong>{item.dato}</strong>
             <h3>{item.titulo}</h3>
             <p>{item.texto}</p>
           </li>
         ))}
       </ul>
-      <p class="infra__foot" data-reveal>
+      <p class="infra__foot">
         {sucursales.length} sedes físicas: Casa Matriz en Montevideo y sucursal en Maldonado. La distribución alcanza todo Uruguay.
       </p>
     </div>
@@ -227,8 +227,8 @@ const infra = [
           { src: deposito, alt: 'Estanterías del depósito de Districo' },
           { src: carga, alt: 'Carga de mercadería en camión' },
           { src: electrico, alt: 'Vehículo eléctrico de reparto cargando' },
-        ].map((foto, i) => (
-          <li data-reveal style={`--reveal-delay:${i * 80}ms`}>
+        ].map((foto) => (
+          <li>
             <Image src={foto.src} alt={foto.alt} widths={[420, 700]} sizes="(min-width: 760px) 33vw, 92vw" loading="lazy" />
           </li>
         ))}

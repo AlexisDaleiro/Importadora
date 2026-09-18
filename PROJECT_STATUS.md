@@ -1,6 +1,6 @@
 # Districo — Estado vigente del proyecto
 
-Actualizado: 2026-09-16.
+Actualizado: 2026-09-17.
 
 ## Producto y objetivo
 
@@ -27,18 +27,23 @@ superficies mediante formulario, teléfono o WhatsApp.
 - Los 13 hitos de `Nosotros` se presentan en una línea de tiempo accesible, sin autoplay,
   con navegación táctil, por flechas y por teclado. En escritorio se sustituye directamente
   la tarjeta visible; en móvil se mantiene el desplazamiento horizontal. Inicia en 1960.
-- La navegación usa precarga por intención y un cross-fade seguro sobre el contenido real:
-  salida de 120 ms una vez preparada la ruta y entrada de 240 ms, sin capas que bloqueen clics.
-  Los reveals liberan sus observers y el catálogo restaura filtros y posición al volver.
+- El sitio no tiene animaciones de entrada. El contenido es visible por defecto y nada queda
+  esperando que un script lo active. La navegación usa precarga por intención y la transición
+  nativa del `ClientRouter` de Astro, sin personalizaciones. El catálogo restaura filtros y
+  posición al volver.
 
 ## Decisiones vigentes
 
 - Mantener Astro sin SSR ni framework de interfaz adicional.
 - Conservar teal `#204F5F`, lima `#B1CA00` y acentos por línea/marca.
 - Mantener el teléfono 0800 1004 en la navegación.
-- Banner contenido, con laterales visibles y autoplay; las piezas ya incluyen su texto.
-- Carrusel de marcas sin autoplay porque cada panel es interactivo.
-- Animar solamente `transform` y `opacity`; reduced-motion elimina movimiento y conserva fades.
+- Banner contenido, sin autoplay; las piezas ya incluyen su texto.
+- Ningún carrusel avanza solo: banners, marcas y productos por línea se manejan a mano.
+- Los carruseles se dimensionan con CSS (`flex-basis`, porcentajes, `scroll-snap`). El JS solo
+  atiende puntos y flechas, y va aislado en su propio `try/catch`.
+- El único movimiento es la respuesta a una acción del usuario (hover, focus, active) más la
+  transición nativa del `ClientRouter`; reduced-motion apaga el scroll suave y esas
+  transiciones.
 - No ocultar overflow horizontal globalmente: identificar y corregir el elemento responsable.
 - No inventar datos institucionales ni de productos. Los problemas presentes en la fuente se
   corrigen solo cuando son erratas inequívocas; las dudas se confirman con Districo.

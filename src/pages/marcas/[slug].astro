@@ -54,7 +54,7 @@ const consulta = `Hola, quisiera consultar por los productos de ${brand.data.nam
 
   <section class="head" style={`--accent:${accent.color};--accent-fg:${accent.text}`}>
     <div class="container head__inner">
-      <div data-reveal>
+      <div>
         {linea && (
           <a class="kicker head__linea" href={`/productos?linea=${linea.id}`}>{linea.data.name}</a>
         )}
@@ -84,7 +84,7 @@ const consulta = `Hola, quisiera consultar por los productos de ${brand.data.nam
         </div>
       </div>
 
-      <p class="head__count" data-reveal style="--reveal-delay:100ms">
+      <p class="head__count">
         <strong>{products.length}</strong>
         <span>{products.length === 1 ? 'producto' : 'productos'}</span>
       </p>
@@ -93,7 +93,7 @@ const consulta = `Hola, quisiera consultar por los productos de ${brand.data.nam
 
   <section class="listado section">
     <div class="container">
-      <h2 class="title-lg" data-reveal>Productos {brand.data.name}</h2>
+      <h2 class="title-lg">Productos {brand.data.name}</h2>
       <ul class="card-grid">
         {products.map((p, i) => (
           <li><ProductCard product={p} brandName={brand.data.name} priority={i < 8} /></li>
@@ -105,7 +105,7 @@ const consulta = `Hola, quisiera consultar por los productos de ${brand.data.nam
   {siblings.length > 0 && (
     <section class="vecinas section">
       <div class="container">
-        <h2 class="title-lg" data-reveal>Otras marcas de la línea</h2>
+        <h2 class="title-lg">Otras marcas de la línea</h2>
         <ul class="brand-grid">
           {siblings.map((s) => (
             <li><BrandCard id={s.id} name={s.name} linea={s.linea} count={s.count} /></li>

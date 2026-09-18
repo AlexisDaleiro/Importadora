@@ -20,7 +20,7 @@ import { contactLink, formspreeUrl, site, sucursales } from '../config';
   </section>
 
   <section class="wrap container">
-    <form class="form" id="form" data-reveal>
+    <form class="form" id="form">
       {/* Honeypot: campo invisible que los humanos nunca completan. Formspree
           descarta el envío si viene lleno. */}
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true" />
@@ -71,7 +71,7 @@ import { contactLink, formspreeUrl, site, sucursales } from '../config';
       <p class="form__msg form__msg--error" id="form-error" role="alert" hidden></p>
     </form>
 
-    <aside class="side" data-reveal style="--reveal-delay:110ms">
+    <aside class="side">
       <div class="side__box">
         <h2>Directo</h2>
         <p><a class="side__big" href="tel:08001004">{site.tollFree}</a></p>
@@ -86,10 +86,10 @@ import { contactLink, formspreeUrl, site, sucursales } from '../config';
 
   <section class="sedes section">
     <div class="container">
-      <h2 class="title-lg" data-reveal>Nuestras sedes</h2>
+      <h2 class="title-lg">Nuestras sedes</h2>
       <ul class="sedes__grid">
-        {sucursales.map((s, i) => (
-          <li data-reveal style={`--reveal-delay:${i * 80}ms`}>
+        {sucursales.map((s) => (
+          <li>
             <div class="sede__info">
               <h3>{s.nombre}</h3>
               <p class="sede__sup">{s.superficie}</p>

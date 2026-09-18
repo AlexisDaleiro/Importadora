@@ -137,7 +137,7 @@ const ogProducto = gallery[0]
     class:list={['sheet', 'container', gallery.length < 2 && 'sheet--sinGaleria']}
     style={`--accent:${accent.color}`}
   >
-    <div class="sheet__media" data-reveal>
+    <div class="sheet__media">
       <span class="sheet__ring" aria-hidden="true"></span>
       {grandes[0] && (
         /* <img> crudo y no <Image>: el JS de las miniaturas reemplaza src y
@@ -185,7 +185,7 @@ const ogProducto = gallery[0]
       )}
     </div>
 
-    <div class="sheet__info" data-reveal style="--reveal-delay:100ms">
+    <div class="sheet__info">
       <span class="kicker" style={`color:${accent.color}`}>{linea.data.name}</span>
       <h1 class="title-lg">{d.name}</h1>
       {brand && (
@@ -251,14 +251,14 @@ const ogProducto = gallery[0]
       ]}
     >
       {d.description.length > 0 && (
-        <div class="detail__text" data-reveal>
+        <div class="detail__text">
           <h2 class="title-lg">Descripción</h2>
           {d.description.map((p) => <p>{p}</p>)}
         </div>
       )}
 
       {tecnicos.length > 0 && (
-        <div class="detail__tech" data-reveal>
+        <div class="detail__tech">
           <h2 class="title-lg">Información técnica</h2>
           {tecnicos.map((block) => (
             <Accordion label={block.label}>
@@ -371,10 +371,10 @@ const ogProducto = gallery[0]
   {related.length > 0 && (
     <section class="related section">
       <div class="container">
-        <h2 class="title-lg" data-reveal>También distribuimos</h2>
+        <h2 class="title-lg">También distribuimos</h2>
         <ul class="card-grid">
           {related.map((p) => (
-            <li data-reveal>
+            <li>
               <ProductCard
                 product={p}
                 brandName={p.data.brand ? nombreMarca.get(p.data.brand.id) : undefined}
@@ -634,7 +634,7 @@ const ogProducto = gallery[0]
       grid-template-columns: none;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      scroll-behavior: var(--scroll-carousel);
+      scroll-behavior: smooth;
       /* La cinta desborda hacia la derecha SOLO sobre el padding del
          contenedor: se come el gutter con margen negativo y lo devuelve como
          padding propio, así la primera tarjeta sigue alineada con el título y

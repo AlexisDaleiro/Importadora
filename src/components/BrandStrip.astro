@@ -6,9 +6,8 @@
  * la marca y el nombre abajo. Se desliza con scroll-snap nativo; el JS solo
  * agrega las flechas, los puntos y el estado de página.
  *
- * NO tiene avance automático, y es a propósito: cada panel es un enlace, y un
- * blanco que se mueve solo hace fallar el clic. Además el home ya tiene el
- * carrusel de banners rotando y los productos rotando en las líneas.
+ * NO tiene avance automático: en este sitio nada se mueve solo. Cada panel es
+ * un enlace, y un blanco que se mueve solo hace fallar el clic.
  *
  * LOGOS: hoy ninguna marca tiene logotipo en el repositorio, así que los 16
  * paneles muestran el nombre en texto blanco. Cuando llegue el archivo se
@@ -54,7 +53,7 @@ const marcas = (await getCollection('brands'))
   .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'es'));
 ---
 
-<div class="strip" data-strip data-reveal>
+<div class="strip" data-strip>
   <div class="strip__stage">
     <ul class="strip__track" id="strip-track" tabindex="0" aria-label="Marcas que distribuye Districo">
       {marcas.map((m, i) => (
@@ -114,92 +113,84 @@ const marcas = (await getCollection('brands'))
 </div>
 
 <script>
-  // Mismo patrón que el resto de las islas del sitio: con el ClientRouter el
-  // módulo se evalúa una sola vez por sesión, así que cada instancia guarda
-  // cómo desarmarse y se desarma antes de la siguiente.
+  // Solo flechas, puntos y estado de página. Los anchos de panel y cuántos
+  // entran los fija el CSS con --visibles: acá no se calcula ni se escribe
+  // ningún estilo de layout, y no hay ResizeObserver ni temporizadores. Sin
+  // este script la cinta se sigue deslizando con el dedo.
+  //
+  // try/catch: un fallo acá no puede cortar la ejecución de los scripts de
+  // los otros componentes.
   let desmontar: (() => void) | null = null;
   const limpiar = () => { desmontar?.(); desmontar = null; };
   document.addEventListener('astro:before-swap', limpiar);
 
   document.addEventListener('astro:page-load', () => {
-    limpiar();
+    try {
+      limpiar();
 
-    const track = document.getElementById('strip-track');
-    if (!track) return;
-    const raizOpt = track.closest<HTMLElement>('[data-strip]');
-    const puntosOpt = raizOpt?.querySelector<HTMLElement>('[data-strip-puntos]');
-    if (!raizOpt || !puntosOpt) return;
-    // Copias no nulas: las funciones de abajo se declaran antes del uso y ahí
-    // TypeScript ya no conserva el estrechamiento de la guarda.
-    const raiz = raizOpt;
-    const puntos = puntosOpt;
+      const track = document.getElementById('strip-track');
+      const raiz = track?.closest<HTMLElement>('[data-strip]');
+      const puntos = raiz?.querySelector<HTMLElement>('[data-strip-puntos]');
+      if (!track || !raiz || !puntos) return;
 
-    const flechas = [...raiz.querySelectorAll<HTMLButtonElement>('[data-strip-paso]')];
-    const ac = new AbortController();
-    const on = { signal: ac.signal };
+      const flechas = [...raiz.querySelectorAll<HTMLButtonElement>('[data-strip-paso]')];
+      const ac = new AbortController();
+      const on = { signal: ac.signal };
+      desmontar = () => ac.abort();
 
-    const paginas = () => Math.max(1, Math.round(track.scrollWidth / track.clientWidth));
-    const actual = () => Math.round(track.scrollLeft / track.clientWidth);
+      const paginas = () => Math.max(1, Math.round(track.scrollWidth / track.clientWidth));
+      const actual = () => Math.round(track.scrollLeft / track.clientWidth);
+      const irA = (i: number) => {
+        track.scrollTo({ left: Math.max(0, i) * track.clientWidth, behavior: 'smooth' });
+      };
 
-    // Los puntos se rehacen cuando cambia la cantidad de páginas, no en cada
-    // scroll: entre 390px y desktop pasan de 6 a 2 y volver a armarlos en
-    // cada evento haría parpadear el foco.
-    let dibujadas = 0;
-    function armarPuntos() {
-      const n = paginas();
-      raiz.classList.toggle('strip--navegable', n > 1);
-      for (const f of flechas) f.hidden = n <= 1;
-      if (n === dibujadas) return;
-      dibujadas = n;
-      puntos.textContent = '';
-      for (let i = 0; i < n; i++) {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'strip__punto';
-        b.setAttribute('aria-label', `Página ${i + 1} de ${n}`);
-        b.append(document.createElement('span'));
-        b.addEventListener('click', () => irA(i), on);
-        puntos.append(b);
+      // Cuántas páginas hay depende de cuántos paneles entren, y eso cambia con
+      // el ancho de la ventana. Se recalcula al cargar y al desplazar, que es
+      // cuando se mira: no hay observer de tamaño escuchando en segundo plano.
+      let dibujadas = 0;
+      const sincronizar = () => {
+        const n = paginas();
+        for (const f of flechas) f.hidden = n <= 1;
+        if (n !== dibujadas) {
+          dibujadas = n;
+          puntos.textContent = '';
+          for (let i = 0; i < n; i++) {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'strip__punto';
+            b.setAttribute('aria-label', `Página ${i + 1} de ${n}`);
+            b.append(document.createElement('span'));
+            b.addEventListener('click', () => irA(i), on);
+            puntos.append(b);
+          }
+        }
+        const i = actual();
+        [...puntos.children].forEach((b, j) => {
+          if (j === i) b.setAttribute('aria-current', 'true');
+          else b.removeAttribute('aria-current');
+        });
+        // Extremos: la flecha que no lleva a ningún lado se apaga en vez de
+        // desaparecer, así la fila no se mueve.
+        flechas[0].disabled = i <= 0;
+        flechas[1].disabled = i >= n - 1;
+      };
+
+      for (const f of flechas) {
+        f.addEventListener('click', () => irA(actual() + Number(f.dataset.stripPaso)), on);
       }
-      pintar();
+      track.addEventListener('scroll', sincronizar, { ...on, passive: true });
+      // El track es foco propio: con las flechas del teclado se pasa de página
+      // sin tener que tabular panel por panel.
+      track.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        irA(actual() + (e.key === 'ArrowRight' ? 1 : -1));
+      }, on);
+
+      sincronizar();
+    } catch (error) {
+      console.error('[BrandStrip]', error);
     }
-
-    function pintar() {
-      const i = actual();
-      const n = dibujadas;
-      [...puntos.children].forEach((b, j) => {
-        if (j === i) b.setAttribute('aria-current', 'true');
-        else b.removeAttribute('aria-current');
-      });
-      // Extremos: la flecha que no lleva a ningún lado se apaga en vez de
-      // desaparecer, así la fila no se mueve.
-      flechas[0].disabled = i <= 0;
-      flechas[1].disabled = i >= n - 1;
-    }
-
-    // behavior 'auto' respeta el scroll-behavior del CSS, que bajo
-    // prefers-reduced-motion pasa a instantáneo por el token --scroll-carousel.
-    const irA = (i: number) => {
-      track.scrollTo({ left: Math.max(0, i) * track.clientWidth, behavior: 'auto' });
-    };
-
-    for (const f of flechas) {
-      f.addEventListener('click', () => irA(actual() + Number(f.dataset.stripPaso)), on);
-    }
-    track.addEventListener('scroll', pintar, { ...on, passive: true });
-    // El track es foco propio: con las flechas del teclado se pasa de página
-    // sin tener que tabular panel por panel.
-    track.addEventListener('keydown', (e) => {
-      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-      e.preventDefault();
-      irA(actual() + (e.key === 'ArrowRight' ? 1 : -1));
-    }, on);
-
-    const ro = new ResizeObserver(armarPuntos);
-    ro.observe(track);
-    armarPuntos();
-
-    desmontar = () => { ac.abort(); ro.disconnect(); };
   });
 </script>
 
@@ -233,7 +224,7 @@ const marcas = (await getCollection('brands'))
     list-style: none;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-behavior: var(--scroll-carousel);
+    scroll-behavior: smooth;
     scrollbar-width: none;
   }
   .strip__track::-webkit-scrollbar { display: none; }
@@ -268,12 +259,11 @@ const marcas = (await getCollection('brands'))
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Categoría (a) del sistema de movimiento: bajo reduce --move-zoom vale 1
-       y el zoom no viaja; el aclarado del velo, que es opacidad, queda. */
+    /* Micro-movimiento de hover sobre algo que ya está en pantalla. */
     transition: scale var(--dur-slow) var(--ease-out);
   }
   .panel:hover .panel__img,
-  .panel:focus-visible .panel__img { scale: var(--move-zoom); }
+  .panel:focus-visible .panel__img { scale: 1.08; }
 
   /* Velo: color de la marca arriba, negro abajo. El pie oscuro no es
      decoración, es lo que sostiene el contraste del nombre blanco sobre

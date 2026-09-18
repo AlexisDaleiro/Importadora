@@ -45,12 +45,12 @@ const pasos = [
     <div class="container hero__inner">
       {/* Sin aria-hidden: "100% satisfacción" es información. Va antes del
           texto en el DOM para que el lector lo diga junto con el kicker. */}
-      <div class="sello" data-reveal>
+      <div class="sello">
         <strong>100%</strong>
         <span>Satisfacción</span>
       </div>
 
-      <div class="hero__text" data-reveal style="--reveal-delay:100ms">
+      <div class="hero__text">
         <span class="kicker kicker--onDark">Garantía de palatabilidad</span>
         {/* Sin .title-xl: el titular de esta página escala también con el alto
             del viewport, porque de él depende que los tres pasos entren en la
@@ -65,7 +65,7 @@ const pasos = [
   </section>
 
   <section class="marcas">
-    <div class="container marcas__inner" data-reveal>
+    <div class="container marcas__inner">
       <h2 class="kicker kicker--accent">Marcas incluidas</h2>
       <ul class="marcas__lista">
         {marcas.map((m) => (
@@ -79,10 +79,10 @@ const pasos = [
 
   <section class="pasos">
     <div class="container">
-      <h2 class="title-lg" data-reveal>Cómo se hace el cambio</h2>
+      <h2 class="title-lg">Cómo se hace el cambio</h2>
       <ol class="pasos__lista">
         {pasos.map((p, i) => (
-          <li class="paso" data-reveal style={`--reveal-delay:${i * 90}ms`}>
+          <li class="paso">
             <span class="paso__n" aria-hidden="true">{i + 1}</span>
             <h3 class="paso__titulo">{p.titulo}</h3>
             <p class="paso__texto">{p.texto}</p>
@@ -96,7 +96,7 @@ const pasos = [
     {/* El ancho de lectura va en un div propio y no como max-width del
         .container: el container se centra solo, así que limitarlo ahí despega
         el acordeón del borde izquierdo del resto de la página. */}
-    <div class="container"><div class="detalle__inner" data-reveal>
+    <div class="container"><div class="detalle__inner">
       <Accordion label="Alcance y condiciones completas">
         <h3>Alcance</h3>
         <p>
@@ -144,7 +144,7 @@ const pasos = [
   </section>
 
   <section class="cta">
-    <div class="container cta__inner" data-reveal>
+    <div class="container cta__inner">
       {/* El destino del formulario online vive en GARANTIA_FORM_URL (src/config.ts)
           y hoy está en null porque el sitio oficial no lo publica. Mientras tanto
           el CTA lleva a un canal que sí existe, en vez de a un enlace inventado. */}

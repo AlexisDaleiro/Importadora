@@ -28,8 +28,12 @@ Reglas de trabajo:
   es contradictoria, documentar la duda en vez de adivinar.
 - Antes de implementar cambios visuales importantes, presentar opciones y costos cuando el usuario
   todavía no haya elegido una dirección.
-- Mantener accesibilidad, foco visible, áreas táctiles de 44x44, reduced-motion selectivo y ausencia
-  de overflow horizontal real; nunca enmascararlo con `overflow-x: hidden`.
+- Mantener accesibilidad, foco visible, áreas táctiles de 44x44 y ausencia de overflow horizontal
+  real; nunca enmascararlo con `overflow-x: hidden`.
+- El contenido es visible por defecto, siempre. Una animación puede mejorar cómo aparece algo,
+  nunca decidir si aparece: ningún elemento queda invisible o desplazado esperando que algo lo
+  active, y ningún script de layout puede dejar el contenido inutilizable si falla. El layout vive
+  en CSS; el JS de un componente se limita a la interacción y va aislado en su `try/catch`.
 - No agregar dependencias de producción sin justificar el costo de mantenimiento.
 - Al finalizar cambios, ejecutar las verificaciones indicadas en `PROJECT_STATUS.md` y actualizar
   Graphify.

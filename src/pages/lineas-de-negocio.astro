@@ -42,7 +42,7 @@ const total = products.length;
     return (
       <section class="linea" style={`--bg:${accent.color};--fg:${accent.text}`}>
         <div class="container linea__inner" data-flip={i % 2 === 1}>
-          <div class="linea__text" data-reveal>
+          <div class="linea__text">
             <span class="kicker linea__kicker">Línea 0{linea.data.order}</span>
             <h2 class="title-lg">{linea.data.name}</h2>
             <p class="linea__desc">{linea.data.description}</p>
@@ -66,7 +66,7 @@ const total = products.length;
             </div>
           </div>
 
-          <div class="linea__media" data-reveal style="--reveal-delay:110ms">
+          <div class="linea__media">
             {/* alt vacío a propósito: la foto es decorativa y el <h2> de al
                 lado ya dice el nombre de la línea. */}
             <Image

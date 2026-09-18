@@ -38,7 +38,7 @@ const carrusel = slides.length >= 2;
 
 {slides.length > 0 && (
   <section
-    class:list={['bnr', { 'bnr--solo': !carrusel }]}
+    class="bnr"
     aria-label="Novedades de Districo"
     aria-roledescription={carrusel ? 'carrusel' : undefined}
   >
@@ -46,12 +46,7 @@ const carrusel = slides.length >= 2;
       <div class="bnr__stage">
         <div class="bnr__track" id="bnr-track" tabindex={carrusel ? 0 : undefined}>
           {slides.map((s, i) => (
-            <a
-              class="bnr__slide"
-              href={s.data.href}
-              aria-label={s.data.alt}
-              tabindex={carrusel && i > 0 ? -1 : undefined}
-            >
+            <a class="bnr__slide" href={s.data.href} aria-label={s.data.alt}>
               {/* El enlace envuelve la pieza entera: no hay texto propio que
                   pueda recibir el clic por su cuenta. La vertical y la
                   apaisada son artes distintos, no dos recortes de la misma
@@ -110,218 +105,70 @@ const carrusel = slides.length >= 2;
 )}
 
 <script>
-  // Intervalo del avance automatico. Es la unica perilla del autoplay: de aca
-  // sale tanto el temporizador como la duracion del relleno de los puntos,
-  // que viaja al CSS como --bnr-auto. Probado entre 4000 y 5000 ms.
-  const AUTOPLAY_MS = 4500;
-
-  // Con el ClientRouter el modulo se evalua una sola vez por sesion, asi que
-  // el listener corre tambien en paginas donde el carrusel no existe, y cada
-  // vuelta al home montaria un temporizador y un juego de listeners sobre los
-  // de la visita anterior: el banner empezaria a rotar cada vez mas rapido.
-  // Toda instancia guarda como desarmarse y se desarma antes de la siguiente.
+  // Solo puntos y flechas. El desplazamiento es el scroll nativo del track con
+  // scroll-snap, y los anchos salen del CSS: acá no se calcula ni se escribe
+  // ningún estilo de layout. Sin autoplay, sin temporizadores y sin
+  // ResizeObserver. Si este script no corre, el carrusel se sigue deslizando
+  // con el dedo y muestra el primer banner.
+  //
+  // Todo va dentro de un try/catch: un fallo acá no puede cortar la ejecución
+  // de los scripts de los otros componentes.
   let desmontar: (() => void) | null = null;
   const limpiar = () => { desmontar?.(); desmontar = null; };
   document.addEventListener('astro:before-swap', limpiar);
 
   document.addEventListener('astro:page-load', () => {
-    limpiar();
+    try {
+      limpiar();
 
-    const track = document.getElementById('bnr-track');
-    if (!track) return;
-    const seccion = track.closest<HTMLElement>('.bnr');
-    if (!seccion) return;
+      const track = document.getElementById('bnr-track');
+      const seccion = track?.closest<HTMLElement>('.bnr');
+      if (!track || !seccion) return;
 
-    const reales = [...track.querySelectorAll<HTMLAnchorElement>('.bnr__slide')];
-    if (reales.length < 2) return; // banner fijo: no hay nada que manejar
+      const slides = [...track.querySelectorAll<HTMLAnchorElement>('.bnr__slide')];
+      const puntos = [...seccion.querySelectorAll<HTMLButtonElement>('[data-bnr-ir]')];
+      if (slides.length < 2 || puntos.length === 0) return; // banner fijo
 
-    const puntos = [...seccion.querySelectorAll<HTMLButtonElement>('[data-bnr-ir]')];
-    const N = reales.length;
+      const ac = new AbortController();
+      const on = { signal: ac.signal };
+      desmontar = () => ac.abort();
 
-    // Un solo AbortController para todos los listeners de esta instancia: el
-    // desmontaje es un abort y no una lista de removeEventListener que se
-    // desincroniza en cuanto se agrega un listener mas.
-    const ac = new AbortController();
-    const on = { signal: ac.signal };
-    seccion.style.setProperty('--bnr-auto', `${AUTOPLAY_MS}ms`);
+      // Lectura, no cálculo: la distancia entre dos slides la fija el CSS y
+      // acá solo se consulta para saber adónde desplazar el scroll.
+      const paso = () => slides[1].offsetLeft - slides[0].offsetLeft;
+      const actual = () => {
+        const d = paso();
+        return d > 0 ? Math.min(slides.length - 1, Math.max(0, Math.round(track.scrollLeft / d))) : 0;
+      };
 
-    // ── Cinta infinita ───────────────────────────────────────────────────
-    // El track es scroll nativo, asi que los slides estan fisicamente en
-    // fila y el primero no tiene nada a su izquierda: pasar del ultimo al
-    // primero seria un rebobinado. Se clona el ultimo al principio y el
-    // primero al final, siempre dos clones sea cual sea la cantidad de
-    // banners, calculados desde la coleccion y nunca escritos a mano. La
-    // fila queda [N] [1] [2] ... [N] [1]: el usuario nunca ve un extremo, y al
-    // aterrizar sobre un clon se reposiciona al gemelo real de golpe,
-    // invisible porque lo pintado es identico. Los clones viven dentro del
-    // track, que recorta en su borde, asi que nunca asoman fuera de la
-    // ventana del carrusel.
-    const clonar = (s: HTMLAnchorElement) => {
-      const c = s.cloneNode(true) as HTMLAnchorElement;
-      c.setAttribute('aria-hidden', 'true');
-      c.tabIndex = -1;
-      return c;
-    };
-    track.prepend(clonar(reales[N - 1]));
-    track.append(clonar(reales[0]));
+      const pintar = () => {
+        const i = actual();
+        puntos.forEach((b, j) => {
+          if (j === i) b.setAttribute('aria-current', 'true');
+          else b.removeAttribute('aria-current');
+        });
+      };
 
-    // Posicion fisica (0 .. N+1) contra indice logico (0 .. N-1), que es el
-    // que ven los puntos y el aria de los slides.
-    const fisicos = [...track.querySelectorAll<HTMLAnchorElement>('.bnr__slide')];
-    fisicos.forEach((s, j) => { s.dataset.p = String(j); });
-    const logico = (p: number) => (((p - 1) % N) + N) % N;
+      const irA = (i: number) => {
+        const destino = Math.min(slides.length - 1, Math.max(0, i));
+        track.scrollTo({ left: destino * paso(), behavior: 'smooth' });
+      };
 
-    let pos = 1;      // arranca en el primer slide real, no en el clon
-    let activo = 0;   // indice logico pintado
-
-    // Distancia entre dos slides, gap incluido. Se lee del DOM en vez de
-    // recalcularla con los tokens: asi sigue valiendo en los dos breakpoints
-    // y despues de cualquier cambio de CSS.
-    const paso = () => fisicos[1].offsetLeft - fisicos[0].offsetLeft;
-
-    function pintar(p: number) {
-      pos = p;
-      activo = logico(p);
-      fisicos.forEach((s, j) => {
-        s.classList.toggle('is-on', j === p);
-        // Los slides que no estan a la vista salen del recorrido del
-        // tabulador, y los clones no entran nunca.
-        if (j === p && j > 0 && j <= N) s.removeAttribute('tabindex');
-        else s.tabIndex = -1;
-      });
-      puntos.forEach((b, j) => {
-        if (j === activo) b.setAttribute('aria-current', 'true');
-        else b.removeAttribute('aria-current');
-      });
-    }
-
-    // Reposicionamiento invisible sobre el gemelo real. No hace falta
-    // silenciar al vigia del scroll: pintar() deja 'pos' en el destino antes
-    // de que llegue el evento, asi que el vigia se encuentra ya sincronizado
-    // y se va por su propia guarda.
-    const teletransportar = (p: number) => {
-      track.scrollTo({ left: p * paso(), behavior: 'instant' });
-      pintar(p);
-    };
-
-    // Todo movimiento pasa por aca y siempre es suave: un paso cae en la
-    // posicion vecina (clon incluido) y un clic en un punto cruza los slides
-    // que haga falta. behavior 'auto' respeta el scroll-behavior del CSS,
-    // que bajo prefers-reduced-motion pasa a instantaneo por token.
-    const irPos = (p: number) => {
-      track.scrollTo({ left: p * paso(), behavior: 'auto' });
-      pintar(p);
-      // Navegar a mano no apaga el autoplay: reinicia la cuenta desde aca, asi
-      // un toque accidental no lo deja detenido para siempre.
-      arrancar();
-    };
-    // El indice da la vuelta en los dos sentidos: es lo que hace infinito
-    // tanto al autoplay como a las flechas. Cuando el paso se saldria de los
-    // slides reales, primero nos paramos de golpe en el clon del extremo
-    // opuesto —invisible, porque pinta lo mismo que el slide donde estabamos—
-    // y recien desde ahi corre el paso suave. Asi el banner entra por el
-    // borde que corresponde en vez de rebobinar, y el salto nunca cae en
-    // medio de una animacion.
-    const avanzar = (d: number) => {
-      if (pos + d > N) teletransportar(0);
-      else if (pos + d < 1) teletransportar(N + 1);
-      irPos(pos + d);
-    };
-    const irA = (n: number) => irPos((((n % N) + N) % N) + 1);
-
-    // Red de seguridad del deslizamiento tactil, que es el unico camino que
-    // puede dejar el track en reposo sobre un clon. Fin de scroll sin
-    // depender de 'scrollend', que Safari solo trae desde 18.2: si no llego
-    // un scroll nuevo en 140ms, el track quedo quieto.
-    let reposo = 0;
-    const alQuedarQuieto = () => {
-      if (pos === 0) teletransportar(N);
-      else if (pos === N + 1) teletransportar(1);
-    };
-
-    // ── Avance automatico ────────────────────────────────────────────────
-    // Un temporizador y un conjunto de motivos de pausa: mientras haya al
-    // menos un motivo el intervalo no corre. Van por nombre para que dos
-    // causas simultaneas (mouse encima y pestana en segundo plano) no se
-    // pisen entre si al soltarse una sola.
-    const mq = matchMedia('(prefers-reduced-motion: reduce)');
-    const motivos = new Set<string>();
-    let timer = 0;
-
-    const detener = () => { clearInterval(timer); timer = 0; };
-    function arrancar() {
-      detener();
-      if (mq.matches || motivos.size > 0) return;
-      timer = window.setInterval(() => avanzar(1), AUTOPLAY_MS);
-    }
-    const sincronizar = () => {
-      // .bnr--auto enciende el relleno de los puntos. Sin autoplay el punto
-      // activo vuelve a ser una pildora llena y quieta.
-      seccion.classList.toggle('bnr--auto', !mq.matches);
-      seccion.classList.toggle('bnr--pausa', motivos.size > 0);
-      arrancar();
-    };
-    const pausar = (m: string) => { motivos.add(m); sincronizar(); };
-    const seguir = (m: string) => { motivos.delete(m); sincronizar(); };
-
-    // Deslizar en mobile tambien es navegar a mano, asi que reinicia la
-    // cuenta. El scroll que dispara el propio autoplay no entra: pintar() ya
-    // movio 'activo' antes de que el scroll suave termine.
-    track.addEventListener('scroll', () => {
-      clearTimeout(reposo);
-      reposo = window.setTimeout(alQuedarQuieto, 140);
-      const d = paso();
-      if (d <= 0) return;
-      const p = Math.round(track.scrollLeft / d);
-      if (p === pos) return;
-      pintar(p);
-      arrancar();
-    }, on);
-
-    seccion.addEventListener('mouseenter', () => pausar('mouse'), on);
-    seccion.addEventListener('mouseleave', () => seguir('mouse'), on);
-    // Alguien navegando con Tab no puede perseguir un slide que se mueve.
-    seccion.addEventListener('focusin', () => pausar('foco'), on);
-    seccion.addEventListener('focusout', () => seguir('foco'), on);
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) pausar('pestana'); else seguir('pestana');
-    }, on);
-    // El usuario puede cambiar la preferencia con la pagina abierta.
-    mq.addEventListener('change', sincronizar, on);
-
-    // Fuera de pantalla no hay nada que mirar: el intervalo se suelta.
-    const io = new IntersectionObserver(
-      ([e]) => (e.isIntersecting ? seguir('fuera') : pausar('fuera')),
-      { threshold: 0.35 },
-    );
-    io.observe(seccion);
-
-    desmontar = () => { detener(); clearTimeout(reposo); io.disconnect(); ac.abort(); };
-
-    for (const b of puntos) b.addEventListener('click', () => irA(Number(b.dataset.bnrIr)), on);
-    for (const f of seccion.querySelectorAll<HTMLButtonElement>('[data-bnr-paso]')) {
-      f.addEventListener('click', () => avanzar(Number(f.dataset.bnrPaso)), on);
-    }
-
-    // Un clic en un slide asomado lo centra en vez de navegar: el enlace solo
-    // dispara cuando el slide ya es el activo. Se centra por posicion fisica,
-    // asi un clic sobre un clon va al clon y desde ahi se reacomoda solo.
-    for (const s of fisicos) {
-      s.addEventListener('click', (e) => {
-        const p = Number(s.dataset.p);
-        if (p !== pos) { e.preventDefault(); irPos(p); }
+      track.addEventListener('scroll', pintar, { ...on, passive: true });
+      for (const b of puntos) b.addEventListener('click', () => irA(Number(b.dataset.bnrIr)), on);
+      for (const f of seccion.querySelectorAll<HTMLButtonElement>('[data-bnr-paso]')) {
+        f.addEventListener('click', () => irA(actual() + Number(f.dataset.bnrPaso)), on);
+      }
+      track.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        irA(actual() + (e.key === 'ArrowRight' ? 1 : -1));
       }, on);
+
+      pintar();
+    } catch (error) {
+      console.error('[BannerCarousel]', error);
     }
-
-    track.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') { e.preventDefault(); avanzar(1); }
-      else if (e.key === 'ArrowLeft') { e.preventDefault(); avanzar(-1); }
-    }, on);
-
-    // El primer slide real es el segundo de la fila: hay que correrse antes
-    // de que se vea el clon de la izquierda.
-    teletransportar(1);
-    sincronizar();
   });
 </script>
 
@@ -345,9 +192,7 @@ const carrusel = slides.length >= 2;
     gap: var(--gap);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    /* El token pasa a 'auto' bajo prefers-reduced-motion: el cambio de slide
-       es instantaneo y lo unico que queda es el cross-fade de los vecinos. */
-    scroll-behavior: var(--scroll-carousel);
+    scroll-behavior: smooth;
     scrollbar-width: none;
   }
   .bnr__track::-webkit-scrollbar { display: none; }
@@ -362,14 +207,7 @@ const carrusel = slides.length >= 2;
     border-radius: var(--radius-lg);
     overflow: hidden;
     background: var(--gray-100);
-    /* Familia SEGURA: el slide entrante se aclara y el saliente se apaga
-       mientras cruzan la ventana. Ya no hay vecinos asomados que atenuar, pero
-       la opacidad sigue siendo lo que suaviza el cambio a mitad de recorrido. */
-    opacity: 0.55;
-    transition: opacity var(--dur-base) var(--ease-out);
   }
-  .bnr__slide.is-on,
-  .bnr--solo .bnr__slide { opacity: 1; }
 
   /* contain y no cover: la relacion del slide ya es la de la pieza, asi que
      no hay nada que recortar, y si alguna vez entra un arte con otra
@@ -407,33 +245,6 @@ const carrusel = slides.length >= 2;
     transition: width var(--dur-fast) var(--ease-out), background-color var(--dur-fast) ease;
   }
   .bnr__punto[aria-current] > span { width: 26px; background: var(--teal-800); }
-
-  /* Progreso del intervalo. Solo existe con el autoplay encendido: es lo que
-     avisa que el slide va a cambiar solo. La pildora activa pasa a ser el
-     canal gris y este relleno la recorre en --bnr-auto, que lo escribe el JS
-     desde AUTOPLAY_MS para no tener el intervalo definido en dos lugares.
-     Se rearma sola en cada slide porque solo aplica al punto con
-     aria-current, y ese atributo se mueve en cada paso. */
-  .bnr--auto .bnr__punto[aria-current] > span { background: var(--gray-300); }
-  .bnr__punto > span::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: var(--teal-800);
-    transform-origin: left center;
-    scale: 0 1;
-  }
-  .bnr--auto .bnr__punto[aria-current] > span::after {
-    animation: bnr-relleno var(--bnr-auto, 4500ms) linear forwards;
-  }
-  .bnr--auto.bnr--pausa .bnr__punto[aria-current] > span::after {
-    animation-play-state: paused;
-  }
-  @keyframes bnr-relleno {
-    from { scale: 0 1; }
-    to { scale: 1 1; }
-  }
 
   /* Flechas: solo desktop, superpuestas sobre el slide activo. */
   .bnr__flecha { display: none; }
@@ -495,6 +306,5 @@ const carrusel = slides.length >= 2;
        apoyan directamente sobre el arte. */
     .bnr__flecha--prev { inset-inline-start: 0.75rem; }
     .bnr__flecha--next { inset-inline-end: 0.75rem; }
-    .bnr--solo .bnr__flecha { display: none; }
   }
 </style>
