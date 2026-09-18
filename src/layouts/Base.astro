@@ -34,8 +34,10 @@ const ogImage = new URL(image, Astro.site);
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     {/* Fuera de buscadores mientras el sitio esté en Vercel.
+        "follow" a propósito: los asistentes de IA que sí pueden leer el sitio
+        (ver src/pages/robots.txt.ts) necesitan seguir los enlaces internos.
         Se apaga con NOINDEX = false en src/config.ts. */}
-    {NOINDEX && <meta name="robots" content="noindex, nofollow" />}
+    {NOINDEX && <meta name="robots" content="noindex, follow" />}
 
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={site.name} />
@@ -79,8 +81,63 @@ const ogImage = new URL(image, Astro.site);
       // primera página y todo lo que se navegara después quedaría en
       // opacidad 0. astro:page-load también dispara en la carga inicial.
       let navegacionCliente = false;
-      document.addEventListener('astro:before-preparation', () => {
+      let revelador: IntersectionObserver | null = null;
+      let salidaActual: Animation | null = null;
+
+      const animarSalida = async (signal: AbortSignal) => {
+        const contenido = document.getElementById('main');
+        if (!contenido || signal.aborted) return;
+
+        // La página siguiente ya está preparada cuando llegamos acá: el fade
+        // nunca deja una pantalla vacía esperando red. También cancela una
+        // entrada anterior si el usuario navega rápidamente entre páginas.
+        for (const animacion of contenido.getAnimations()) animacion.cancel();
+        contenido.classList.remove('page-enter', 'page-exit');
+        void contenido.offsetWidth;
+        contenido.classList.add('page-exit');
+
+        const animacion = contenido.getAnimations().at(-1) ?? null;
+        if (!animacion) return;
+        salidaActual = animacion;
+
+        const cancelar = () => {
+          animacion.cancel();
+          contenido.classList.remove('page-exit');
+        };
+        signal.addEventListener('abort', cancelar, { once: true });
+
+        try {
+          await animacion.finished;
+        } catch {
+          // Cancelar una navegación rechaza `finished`; es el comportamiento
+          // esperado y no debe dejar la página actual atenuada.
+        } finally {
+          signal.removeEventListener('abort', cancelar);
+          if (salidaActual === animacion) salidaActual = null;
+        }
+      };
+
+      document.addEventListener('astro:before-preparation', (event) => {
         navegacionCliente = true;
+
+        // Astro carga primero la ruta en segundo plano y recién entonces hace
+        // la salida de 120 ms. Así se obtiene un fade real entre páginas sin
+        // reintroducir la capa estática de View Transitions que bloqueaba los
+        // clics en la versión anterior.
+        const cargar = event.loader;
+        event.loader = async () => {
+          await cargar();
+          await animarSalida(event.signal);
+        };
+      });
+
+      document.addEventListener('astro:before-swap', (event) => {
+        revelador?.disconnect();
+        revelador = null;
+        // La página nueva ya entra al DOM con su estado inicial de opacidad.
+        // Poner la clase antes del swap evita incluso un frame a opacidad 1
+        // entre el reemplazo del documento y `astro:page-load`.
+        event.newDocument.getElementById('main')?.classList.add('page-enter');
       });
 
       // Fade de entrada del contenido. Va sobre el <main> real y no sobre los
@@ -91,11 +148,16 @@ const ogImage = new URL(image, Astro.site);
       document.addEventListener('astro:page-load', () => {
         const contenido = document.getElementById('main');
         if (!contenido) return;
+        salidaActual = null;
+
+        // En navegación cliente before-swap ya dejó preparada la entrada. La
+        // carga inicial no pasa por ese evento, así que la inicia desde acá.
+        if (contenido.classList.contains('page-enter')) return;
         // Navegar durante un fade cancela el anterior. Al cancelarse, la
         // opacidad vuelve al 1 que tiene el <main> por CSS, así que encadenar
         // navegaciones rápidas no puede dejar ninguna página a medio camino.
         for (const a of contenido.getAnimations()) a.cancel();
-        contenido.classList.remove('page-enter');
+        contenido.classList.remove('page-enter', 'page-exit');
         // Lectura forzada: sin esto el navegador junta el quitar y el poner en
         // el mismo estilo calculado y la animación no vuelve a arrancar.
         void contenido.offsetWidth;
@@ -103,12 +165,13 @@ const ogImage = new URL(image, Astro.site);
       });
 
       document.addEventListener('astro:page-load', () => {
+        revelador?.disconnect();
+        revelador = null;
         let items = [...document.querySelectorAll('[data-reveal]:not(.is-visible)')];
 
         // En una navegación con el router, lo que ya está en pantalla no se
         // revela: la entrada de página acaba de traerlo. Encadenar los dos
-        // fades dejaría la mitad de arriba en blanco casi dos segundos, porque
-        // el reveal dura 0.7s y arrancaría recién al terminar el swap.
+        // fades dejaría una espera innecesaria antes de poder leer la página.
         if (navegacionCliente) {
           const yaVisibles = items.filter((el) => el.getBoundingClientRect().top < window.innerHeight);
           for (const el of yaVisibles) {
@@ -134,6 +197,7 @@ const ogImage = new URL(image, Astro.site);
             { rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
           );
           items.forEach((el) => io.observe(el));
+          revelador = io;
         } else {
           items.forEach((el) => el.classList.add('is-visible'));
         }

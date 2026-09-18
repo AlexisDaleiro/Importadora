@@ -1,6 +1,6 @@
 # Districo — Estado vigente del proyecto
 
-Actualizado: 2026-09-13.
+Actualizado: 2026-09-16.
 
 ## Producto y objetivo
 
@@ -15,6 +15,8 @@ superficies mediante formulario, teléfono o WhatsApp.
 - 167 productos, 18 marcas y 6 líneas de negocio.
 - 8 banners aprobados para la versión de demostración.
 - Formularios general y B2B operativos mediante credenciales de prueba de Formspree.
+- Districo tiene únicamente dos sedes físicas: Casa Matriz en Montevideo y sucursal en
+  Maldonado. La cobertura nacional no debe presentarse como sucursales o centros regionales.
 - `noindex` activo mientras el sitio use `importadora.vercel.app`.
 - Open Graph configurado en `public/og.png`.
 - Imágenes actuales aceptadas para esta etapa aunque varias sean de resolución limitada.
@@ -22,8 +24,12 @@ superficies mediante formulario, teléfono o WhatsApp.
   una presentación final al cliente.
 - La página `Nosotros` incluye una maqueta de cultura, equipo y novedades. La cifra de 150
   colaboradores, Mariana Silva y las tres novedades son contenido ficticio de demostración.
-- Los 12 hitos de `Nosotros` se presentan en una línea de tiempo horizontal accesible, sin
-  autoplay, con navegación táctil, por flechas y por teclado. Inicia en 1960.
+- Los 13 hitos de `Nosotros` se presentan en una línea de tiempo accesible, sin autoplay,
+  con navegación táctil, por flechas y por teclado. En escritorio se sustituye directamente
+  la tarjeta visible; en móvil se mantiene el desplazamiento horizontal. Inicia en 1960.
+- La navegación usa precarga por intención y un cross-fade seguro sobre el contenido real:
+  salida de 120 ms una vez preparada la ruta y entrada de 240 ms, sin capas que bloqueen clics.
+  Los reveals liberan sus observers y el catálogo restaura filtros y posición al volver.
 
 ## Decisiones vigentes
 
@@ -58,7 +64,14 @@ Después de cambios de código o contenido:
 - Sustituir la cifra de colaboradores, la historia destacada y las novedades demostrativas de
   `Nosotros` por datos, fotografías y testimonios aprobados por Districo.
 - Antes de entregar: cambiar credenciales de prueba de Formspree, confirmar WhatsApp y dominio,
-  desactivar `NOINDEX` y actualizar `site` en `astro.config.mjs`.
+  desactivar `NOINDEX` y actualizar `site` en `astro.config.mjs`. Eso revierte también el
+  bloqueo selectivo de rastreadores: `robots.txt` vuelve a permitir todo y desaparece el
+  `<meta name="robots">`.
+- TEMPORAL mientras el sitio viva en `importadora.vercel.app`: `robots.txt` bloquea a los
+  buscadores (Googlebot, Bingbot, Slurp, DuckDuckBot, Baiduspider, YandexBot) y permite a los
+  asistentes de IA (ChatGPT-User, OAI-SearchBot, Claude-User, ClaudeBot, PerplexityBot,
+  Google-Extended) para poder analizar el sitio. Cualquier otro bot sigue bloqueado por la
+  regla `User-agent: *`.
 - Definir precio, mantenimiento y responsable de altas futuras de productos.
 
 ## Documentos

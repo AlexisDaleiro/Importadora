@@ -83,7 +83,6 @@ const blocks = await Promise.all(lineasConProductos.map(async (linea) => {
     <section class="line" style={`--line-bg:${accent.color};--line-fg:${accent.text}`}>
       <div class="container line__inner" data-flip={i % 2 === 1}>
         <div class="line__text" data-reveal>
-          <span class="kicker line__kicker">Línea 0{linea.data.order}</span>
           <h2 class="title-lg">{linea.data.name}</h2>
           <p class="line__desc">{linea.data.description}</p>
 
@@ -275,7 +274,6 @@ const blocks = await Promise.all(lineasConProductos.map(async (linea) => {
     gap: clamp(2rem, 4vw, 3.5rem);
     align-items: center;
   }
-  .line__kicker { color: color-mix(in srgb, currentColor 72%, transparent); }
   .line__text > * + * { margin-top: 1.25rem; }
   .line__text h2 { max-width: 16ch; }
   .line__desc { font-size: var(--text-lg); max-width: 52ch; opacity: 0.92; }
@@ -411,6 +409,12 @@ const blocks = await Promise.all(lineasConProductos.map(async (linea) => {
   .line__thumb:hover > img { opacity: 0.85; }
   /* El foco tiene que verse sobre el fondo de color del bloque, no sobre blanco. */
   .line__thumb:focus-visible { outline: 2px solid var(--line-fg); outline-offset: 2px; border-radius: var(--radius-sm); }
+
+  /* En mobile priorizamos el nombre real y el acceso al catálogo: la
+     descripción extensa permanece disponible en desktop. */
+  @media (max-width: 939px) {
+    .line__desc { display: none; }
+  }
 
   @media (min-width: 940px) {
     .line__inner { grid-template-columns: 1fr 1fr; }
